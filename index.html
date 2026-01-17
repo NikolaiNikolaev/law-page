@@ -348,15 +348,16 @@ we were well fed and drunk all the time!</p>
 						<input type="hidden" name="Локално време на изпращане" id="local-time">
 						<input type="hidden" name="_language" value="bg">
                         <div class="form-group">
-                            <input type="text" name="name" class="form-control input-text" id="name" placeholder="Вашето име /първо и фамилия/" data-rule="required minlen:4" data-msg="Моля, въведете поне 4 знака за име!" required />
-                            <div class="validation"></div>
-                        </div>
+							<input type="text" name="name" class="form-control input-text" id="name" placeholder="Вашето име /първо и фамилия/" data-rule="required minlen:4" data-msg="Моля, въведете поне 4 знака за име!" required />
+						<div class="validation" style="color: red; font-size: 12px; margin-top: 5px;"></div>
+						</div>
                         <div class="form-group">
-                           <input type="email" class="form-control input-text" name="email" id="email" placeholder="Вашият имейл адрес" data-rule="required email" data-msg="Моля, въведете правилен имейл адрес!" required />
-                        </div>
+							<input type="email" class="form-control input-text" name="email" id="email" placeholder="Вашият имейл адрес" data-rule="required email" data-msg="Моля, въведете правилен имейл адрес!" required />
+							<div class="validation" style="color: red; font-size: 12px; margin-top: 5px;"></div>
+						</div>
 							<div class="form-group">
 							    <div style="display: flex; align-items: center;">
-							        <select name="country_code" id="country_code" class="form-control" style="width: 100px; margin-right: 10px;">
+							        <select name="country_code" id="country_code" class="form-control" style="width: 100px; margin-right: 10px; font-size: 13px;">
 									    <option value="+43">+43 (Австрия)</option>
 									    <option value="+32">+32 (Белгия)</option>
 									    <option value="+359" selected>+359 (България)</option>
@@ -392,16 +393,16 @@ we were well fed and drunk all the time!</p>
 									    <option value="+46">+46 (Швеция)</option>
 							            <!-- Добави още кодове ако искаш, напр. <option value="+7">+7 (RU)</option> -->
 							        </select>
-							        <input type="number" class="form-control input-text" name="phone_number" id="phone_number" placeholder="Телефонен номер за последваща връзка с Вас." data-rule="minlen:10" data-msg="Моля, въведете поне 10 цифри!" min="0" step="1" />
+							        <input type="number" class="form-control input-text" name="phone_number" id="phone_number" placeholder="Телефонен номер за последваща връзка с Вас." data-rule="minlen:9" data-msg="Моля, въведете поне 9 цифри!" min="0" step="1" required style="font-size: 13px;" />
 							    </div>
-							    <div class="validation"></div>
+							    <div class="validation" style="color: red; font-size: 12px; margin-top: 5px;"></div>
 							</div>
                         <div class="form-group">
                            <textarea class="form-control input-text text-area" name="message" rows="5" data-rule="required" data-msg="Моля, опишете Вашия случай възможно най-подробно!" required></textarea>
-                            <div class="validation"></div>
+                        	<div class="validation" style="color: red; font-size: 12px; margin-top: 5px;"></div>
                         </div>
                         
-                        <div class="text-center"><button type="submit" class="input-btn">Изпрати съобщение</button></div>
+                       <div class="text-center"><button type="submit" class="input-btn" disabled>Изпрати съобщение</button></div>
                     </form>
                 </div>	
             </div>
@@ -523,54 +524,64 @@ $(document).ready(function() {
     var $form = $('.contactForm');
     var $button = $form.find('button[type="submit"]');
 
-    // Функция за проверка дали всички полета са валидни
+    // Функция за показване/скриване на грешка за поле
+    function showError(fieldId, msg) {
+        $('#' + fieldId).next('.validation').html(msg);
+    }
+
+    // Функция за проверка на конкретно поле
+    function validateField(field) {
+        var id = field.attr('id');
+        var val = field.val();
+        var msg = field.data('msg');
+
+        if (id === 'name') {
+            if (val.length < 4) return msg || 'Моля, въведете поне 4 знака за име!';
+        } else if (id === 'email') {
+            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!val || !emailRegex.test(val)) return msg || 'Моля, въведете правилен имейл адрес!';
+        } else if (id === 'phone_number') {
+            if (val.length < 10 || isNaN(val)) return msg || 'Моля, въведете поне 10 цифри за телефонен номер!';
+        } else if (id === 'message') {
+            if (!val) return msg || 'Моля, опишете Вашия случай!';
+        }
+        return '';
+    }
+
+    // Функция за пълна проверка и ъпдейт на бутона
     function checkFormValidity() {
         var isValid = true;
-
-        // Име: required, min 4
-        var name = $('#name').val();
-        if (name.length < 4) isValid = false;
-
-        // Email: required, валиден email (jQuery проверка)
-        var email = $('#email').val();
-        var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!email || !emailRegex.test(email)) isValid = false;
-
-        // Телефон: required, min 10 цифри, само числа (type=number гарантира числа)
-        var phone = $('#phone_number').val();
-        if (!phone || phone.length < 10 || isNaN(phone)) isValid = false;
-
-        // Съобщение: required
-        var message = $('textarea[name="message"]').val();
-        if (!message) isValid = false;
-
-        // Активирай/деактивирай бутона
+        $form.find('input[required], textarea[required]').each(function() {
+            var error = validateField($(this));
+            showError($(this).attr('id'), error);
+            if (error) isValid = false;
+        });
         $button.prop('disabled', !isValid);
     }
 
-    // Проверявай на всяко input/change
-    $form.on('input change', 'input, textarea, select', checkFormValidity);
+    // Проверявай на input (при въвеждане) и blur (при преминаване към следващ)
+    $form.on('input blur', 'input, textarea', function() {
+        var error = validateField($(this));
+        showError($(this).attr('id'), error);
+        checkFormValidity();
+    });
 
-    // Първоначална проверка (бутона деактивиран в началото)
+    // Първоначална проверка
     checkFormValidity();
 
-    // Submit функцията (с валидация преди AJAX)
+    // Submit (с комбиниране на телефон)
     $form.on('submit', function(e) {
         e.preventDefault();
-
-        // Финална проверка
         checkFormValidity();
-        if ($button.prop('disabled')) return; // Ако не е валидно, не прави нищо
+        if ($button.prop('disabled')) return;
 
         var originalText = $button.html();
         $button.html('Изпращане...').prop('disabled', true);
 
-        // Комбиниране на код + номер
         var code = $('#country_code').val();
         var number = $('#phone_number').val();
         var fullPhone = code + ' ' + number;
 
-        // Добавяме скрито поле за телефон
         $('<input>').attr({
             type: 'hidden',
             name: 'Телефон',
