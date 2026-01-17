@@ -526,10 +526,13 @@ $(document).ready(function() {
 
     // Показване на грешка под поле
     function showError($field, msg) {
-        $field.next('.validation').text(msg);
+        var $validation = $field.next('.validation');
+        $validation.text(msg);
         if (msg) {
+            $validation.addClass('show');
             $field.addClass('is-invalid').removeClass('is-valid');
         } else {
+            $validation.removeClass('show');
             $field.addClass('is-valid').removeClass('is-invalid');
         }
     }
