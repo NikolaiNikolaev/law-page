@@ -874,3 +874,25 @@ border: 2px solid #fff;
     color: #666; /* тъмносив текст */
     opacity: 0.7; /* леко прозрачен */
 }
+/* Валидация на полета - червена/зелена рамка */
+.form-control:invalid,
+.form-control.is-invalid {
+    border: 1px solid red !important;
+}
+
+.form-control:valid,
+.form-control.is-valid {
+    border: 1px solid #7cc576 !important;
+}
+
+/* Стилизация на грешките под полетата (балончета) */
+.validation {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+    min-height: 18px; /* за да не подскача съдържанието */
+    display: block;
+}
+.form-control.is-invalid {
+    box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+}
