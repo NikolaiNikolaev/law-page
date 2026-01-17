@@ -902,3 +902,21 @@ border: 2px solid #fff;
 .form-control.is-invalid {
     box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
 }
+/* Спираме червената рамка при първоначално зареждане на required полета */
+.form-control:required:invalid,
+.form-control[required]:invalid {
+    border: 1px solid #ccc !important; /* Нормален сив цвят за рамка при старт (промени #ccc на твоя нормален цвят, ако е различен) */
+    box-shadow: none !important; /* Без сянка */
+}
+
+/* Червено САМО когато полето е докоснато и грешно */
+.form-field.is-invalid {
+    border: 1px solid red !important;
+    box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25) !important;
+}
+
+/* Зелено когато е ОК и докоснато */
+.form-field.is-valid {
+    border: 1px solid #7cc576 !important;
+    box-shadow: 0 0 0 0.2rem rgba(124, 197, 118, 0.25) !important;
+}
