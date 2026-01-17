@@ -343,7 +343,8 @@ we were well fed and drunk all the time!</p>
 					</div>
                     <form action="https://formspree.io/f/mvzzzkje" method="post" role="form" class="contactForm">
 						<input type="hidden" name="_replyto" value="nikolai.nikolaev11@gmail.com">
-						<input type="hidden" name="_subject" value="Ново запитване от сайта - Адвокат Николай">
+						<input type="hidden" name="_subject" id="dynamic-subject" value="Ново запитване от сайта - Адвокат Николаев">
+						<input type="hidden" name="submission_time" id="submission-time">
 						<input type="hidden" name="_language" value="bg">
                         <div class="form-group">
                             <input type="text" name="name" class="form-control input-text" id="name" placeholder="Вашето име /първо и фамилия/" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
@@ -496,16 +497,38 @@ $(document).ready(function() {
             data: $form.serialize(),
             dataType: 'json',
             cache: false,
-            success: function(response) {
-                $('#form-message')
-                    .html('Благодаря Ви! Вашето съобщение е изпратено успешно. Ще получите отговор възможно най-скоро!')
-                    .fadeIn(600)
-                    .delay(10000)
-                    .fadeOut(800);
-
-                $form[0].reset();
-                $button.html(originalText).prop('disabled', false);
-            },
+				success: function(response) {
+				    // Взимаме текущото време в София
+				    var now = new Date();
+				    
+				    // Форматираме датата: 17.01.2026
+				    var day = String(now.getDate()).padStart(2, '0');
+				    var month = String(now.getMonth() + 1).padStart(2, '0'); // +1 защото месеците са от 0 до 11
+				    var year = now.getFullYear();
+				    var dateStr = day + '.' + month + '.' + year + ' г.';
+				    
+				    // Форматираме часа: 16:44 часа
+				    var hours = String(now.getHours()).padStart(2, '0');
+				    var minutes = String(now.getMinutes()).padStart(2, '0');
+				    var timeStr = hours + ':' + minutes + ' часа';
+				    
+				    // Пълним скритото поле submission_time (ако искаш да се вижда в имейла като отделно поле)
+				    $('#submission-time').val('Изпратено на ' + dateStr + ' в ' + timeStr);
+				    
+				    // Обновяваме subject-а (това е най-важното – ще се вижда в заглавието на имейла)
+				    var baseSubject = 'Ново запитване от сайта - Адвокат Николай';
+				    $('#dynamic-subject').val(baseSubject + ' – Изпратено на ' + dateStr + ' в ' + timeStr);
+				    
+				    // Показваме съобщението на сайта (без време, освен ако не искаш)
+				    $('#form-message')
+				        .html('Благодаря Ви! Вашето съобщение е изпратено успешно. Ще получите отговор възможно най-скоро!')
+				        .fadeIn(600)
+				        .delay(10000)
+				        .fadeOut(800);
+				    
+				    $form[0].reset();
+				    $button.html(originalText).prop('disabled', false);
+				},
             error: function(jqXHR, textStatus, errorThrown) {
                 alert('Грешка при изпращане: ' + textStatus + ' – ' + errorThrown + '\nХмм... Възникна грешка. Моля, опитайте отново или ми пишете директно на nikolai.nikolaev11@gmail.com');
                 $button.html(originalText).prop('disabled', false);
