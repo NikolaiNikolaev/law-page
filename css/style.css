@@ -868,3 +868,9 @@ border: 2px solid #fff;
 	animation-delay: 1.2s; 
 	-webkit-animation-delay: 1.2s; 
 }
+.input-btn:disabled {
+    background: #cccccc !important; /* по-светло сиво */
+    cursor: not-allowed;
+    color: #666; /* тъмносив текст */
+    opacity: 0.7; /* леко прозрачен */
+}
