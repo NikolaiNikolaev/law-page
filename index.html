@@ -345,7 +345,7 @@ we were well fed and drunk all the time!</p>
 						<input type="hidden" name="_replyto" value="nikolai.nikolaev11@gmail.com">
 						<input type="hidden" name="_subject" id="dynamic-subject" value="Ново запитване от сайта - Адвокат Николаев">
 						<input type="hidden" name="submission_time" id="submission-time">
-						<input type="hidden" name="submitted_at" value="{{ submitted_at }}">
+						<input type="hidden" name="Локално време на изпращане" id="local-time">
 						<input type="hidden" name="_language" value="bg">
                         <div class="form-group">
                             <input type="text" name="name" class="form-control input-text" id="name" placeholder="Вашето име /първо и фамилия/" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
@@ -355,10 +355,20 @@ we were well fed and drunk all the time!</p>
                             <input type="email" class="form-control input-text" name="email" id="email" placeholder="Вашият имейл адрес" data-rule="email" data-msg="Моля, въведете правилен имейл адрес!" />
                             <div class="validation"></div>
                         </div>
-                        <div class="form-group">
-                            <input type="text" class="form-control input-text" name="subject" id="subject" placeholder="Заглавие" data-rule="minlen:4" data-msg="Моля, въведете поне 8 знака!" />
-                            <div class="validation"></div>
-                        </div>
+							<div class="form-group">
+							    <div style="display: flex; align-items: center;">
+							        <select name="country_code" id="country_code" class="form-control" style="width: 100px; margin-right: 10px;">
+							            <option value="+359" selected>+359 (BG)</option>
+							            <option value="+1">+1 (US/CA)</option>
+							            <option value="+44">+44 (UK)</option>
+							            <option value="+49">+49 (DE)</option>
+							            <option value="+30">+30 (GR)</option>
+							            <!-- Добави още кодове ако искаш, напр. <option value="+7">+7 (RU)</option> -->
+							        </select>
+							        <input type="number" class="form-control input-text" name="phone_number" id="phone_number" placeholder="Телефонен номер за последваща връзка с Вас." data-rule="minlen:10" data-msg="Моля, въведете поне 10 цифри!" min="0" step="1" />
+							    </div>
+							    <div class="validation"></div>
+							</div>
                         <div class="form-group">
                             <textarea class="form-control input-text text-area" name="message" rows="5" data-rule="required" data-msg="Моля, опишете Вашия случай възможно най-подробно!" placeholder="Моля, опишете Вашия случай възможно най-подробно!"></textarea>
                             <div class="validation"></div>
@@ -492,6 +502,18 @@ $(document).ready(function() {
 
         $button.html('Изпращане...').prop('disabled', true);
 
+		// Комбиниране на код + номер
+		var code = $('#country_code').val();
+		var number = $('#phone_number').val();
+		var fullPhone = code + ' ' + number;
+		
+		// Добавяме скрито поле с пълния телефон за имейла
+		$('<input>').attr({
+		    type: 'hidden',
+		    name: 'Телефон',
+		    value: fullPhone
+		}).appendTo($form);
+		
         $.ajax({
             url: $form.attr('action'),
             type: 'POST',
@@ -499,27 +521,24 @@ $(document).ready(function() {
             dataType: 'json',
             cache: false,
 				success: function(response) {
-				    // Взимаме времето
+				    // Взимаме текущото време
 				    var now = new Date();
 				    var day = ('0' + now.getDate()).slice(-2);
 				    var month = ('0' + (now.getMonth() + 1)).slice(-2);
 				    var year = now.getFullYear();
 				    var hours = ('0' + now.getHours()).slice(-2);
 				    var minutes = ('0' + now.getMinutes()).slice(-2);
-				    
-				    var formattedTime = 'Изпратено на ' + day + '.' + month + '.' + year + ' г. в ' + hours + ':' + minutes + ' часа';
-				    
-				    // Само показваме на сайта (за теб)
-				    $('#form-message').html('Благодаря Ви! ' + formattedTime).fadeIn(600).delay(10000).fadeOut(800);
-				    
-				    // НЕ обновяваме subject тук - Formspree го игнорира в AJAX понякога
-				    // Вместо това, добави го в body чрез скрито поле
-				    $('<input>').attr({
-				        type: 'hidden',
-				        name: 'Изпратено на',
-				        value: formattedTime
-				    }).appendTo($form);
-				    
+				    var formattedTime = day + '.' + month + '.' + year + ' г. в ' + hours + ':' + minutes + ' часа';
+				
+				    // Попълваме скритото поле за имейла (само за теб)
+				    $('#local-time').val(formattedTime);
+				
+				    $('#form-message')
+				        .html('Благодарим Ви! Вашото съобщение е изпратено успешно. Ще се свържем с Вас възможно най-скоро!')
+				        .fadeIn(600)
+				        .delay(10000)
+				        .fadeOut(800);
+				
 				    $form[0].reset();
 				    $button.html(originalText).prop('disabled', false);
 				},
