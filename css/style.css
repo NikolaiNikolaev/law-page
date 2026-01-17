@@ -905,7 +905,7 @@ border: 2px solid #fff;
 /* Спираме червената рамка при първоначално зареждане на required полета */
 .form-control:required:invalid,
 .form-control[required]:invalid {
-    border: 1px solid #ccc !important; /* Нормален сив цвят за рамка при старт (промени #ccc на твоя нормален цвят, ако е различен) */
+    border: 1px solid #7cc576 !important; /* Нормален сив цвят за рамка при старт (промени #ccc на твоя нормален цвят, ако е различен) */
     box-shadow: none !important; /* Без сянка */
 }
 
