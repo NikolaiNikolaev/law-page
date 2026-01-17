@@ -338,6 +338,9 @@ we were well fed and drunk all the time!</p>
                 	
                     <div id="sendmessage">Вашето съобщение е изпратено успешно! Благодаря Ви! Очаквайте обратна връзка най-скоро!</div>
                     <div id="errormessage"></div>
+					<div id="form-message" style="display:none; text-align:center; padding:15px; margin:20px auto; max-width:600px; border-radius:5px; font-weight:bold; font-size:18px; color:#fff; background:#7cc576;">
+						Благодаря Ви! Вашето съобщение е изпратено успешно. Ще получите отговор възможно най-скоро!
+					</div>
                     <form action="https://formspree.io/f/mvzzzkje" method="post" role="form" class="contactForm">
 						<input type="hidden" name="_replyto" value="nikolai.nikolaev11@gmail.com">
 						<input type="hidden" name="_subject" value="Ново запитване от сайта - Адвокат Николай">
@@ -476,5 +479,44 @@ $(window).load(function(){
 
 </script>
 
+	<script type="text/javascript">
+$(document).ready(function() {
+    $('.contactForm').submit(function(e) {
+        e.preventDefault(); // Спира нормалното изпращане и редирект
+
+        var form = $(this);
+        var button = form.find('button[type="submit"]'); // Бутона "Изпрати съобщение"
+        var originalButtonText = button.html();
+
+        button.html('Изпращане...').prop('disabled', true); // Променя бутона по време на изпращане
+
+        $.ajax({
+            url: form.attr('action'),          // Твоят Formspree endpoint
+            method: 'POST',
+            data: form.serialize(),            // Всички полета от формата
+            dataType: 'json',
+            headers: {
+                'Accept': 'application/json'
+            },
+            success: function(response) {
+                // Успех – показваме съобщението
+                $('#form-message')
+                    .fadeIn(600)                   // Плавно появяване
+                    .delay(10000)                  // Чака 10 секунди
+                    .fadeOut(800);                 // Плавно изчезване
+
+                form[0].reset();                   // Изчиства формата
+                button.html(originalButtonText).prop('disabled', false);
+            },
+            error: function() {
+                // Грешка – може да добавиш друго съобщение ако искаш
+                alert('Възникна грешка при изпращане. Моля, опитайте отново или ми пишете директно на посочения email - nikolai.nikolaev11@gmail.com.');
+                button.html(originalButtonText).prop('disabled', false);
+            }
+        });
+    });
+});
+</script>
+	
 </body>
 </html>
