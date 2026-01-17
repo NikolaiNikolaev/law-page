@@ -524,69 +524,83 @@ $(document).ready(function() {
     var $form = $('.contactForm');
     var $button = $form.find('button[type="submit"]');
 
-    // Функция за показване/скриване на грешка за поле
-    function showError(fieldId, msg) {
-        $('#' + fieldId).next('.validation').html(msg);
-    }
-
-    // Функция за проверка на конкретно поле
-    function validateField(field) {
-        var id = field.attr('id');
-        var val = field.val();
-        var msg = field.data('msg');
-
-        if (id === 'name') {
-            if (val.length < 4) return msg || 'Моля, въведете поне 4 знака за име!';
-        } else if (id === 'email') {
-            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!val || !emailRegex.test(val)) return msg || 'Моля, въведете правилен имейл адрес!';
-        } else if (id === 'phone_number') {
-            if (val.length < 10 || isNaN(val)) return msg || 'Моля, въведете поне 10 цифри за телефонен номер!';
-        } else if (id === 'message') {
-            if (!val) return msg || 'Моля, опишете Вашия случай!';
+    // Показване на грешка под поле
+    function showError($field, msg) {
+        $field.next('.validation').text(msg);
+        if (msg) {
+            $field.addClass('is-invalid').removeClass('is-valid');
+        } else {
+            $field.addClass('is-valid').removeClass('is-invalid');
         }
-        return '';
     }
 
-    // Функция за пълна проверка и ъпдейт на бутона
-    function checkFormValidity() {
+    // Проверка на едно поле
+    function validateField($field) {
+        var val = $field.val().trim();
+        var id = $field.attr('id');
+
+        if ($field.prop('required') && !val) {
+            return $field.data('msg') || 'Това поле е задължително!';
+        }
+
+        if (id === 'name' && val.length < 4) {
+            return $field.data('msg') || 'Моля, въведете поне 4 знака за име!';
+        }
+
+        if (id === 'email') {
+            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(val)) {
+                return $field.data('msg') || 'Моля, въведете правилен имейл адрес!';
+            }
+        }
+
+        if (id === 'phone_number') {
+            if (val.length < 10 || isNaN(val)) {
+                return $field.data('msg') || 'Моля, въведете поне 10 цифри за телефонен номер!';
+            }
+        }
+
+        return ''; // Няма грешка
+    }
+
+    // Проверка на всички полета и ъпдейт на бутона
+    function checkAllFields() {
         var isValid = true;
         $form.find('input[required], textarea[required]').each(function() {
-            var error = validateField($(this));
-            showError($(this).attr('id'), error);
+            var $field = $(this);
+            var error = validateField($field);
+            showError($field, error);
             if (error) isValid = false;
         });
+
         $button.prop('disabled', !isValid);
     }
 
-    // Проверявай на input (при въвеждане) и blur (при преминаване към следващ)
+    // Проверка при въвеждане и при излизане от полето
     $form.on('input blur', 'input, textarea', function() {
-        var error = validateField($(this));
-        showError($(this).attr('id'), error);
-        checkFormValidity();
+        var $field = $(this);
+        var error = validateField($field);
+        showError($field, error);
+        checkAllFields();
     });
 
     // Първоначална проверка
-    checkFormValidity();
+    checkAllFields();
 
-    // Submit (с комбиниране на телефон)
+    // Submit
     $form.on('submit', function(e) {
         e.preventDefault();
-        checkFormValidity();
+        checkAllFields();
         if ($button.prop('disabled')) return;
 
         var originalText = $button.html();
         $button.html('Изпращане...').prop('disabled', true);
 
+        // Комбиниране на телефон
         var code = $('#country_code').val();
         var number = $('#phone_number').val();
         var fullPhone = code + ' ' + number;
-
-        $('<input>').attr({
-            type: 'hidden',
-            name: 'Телефон',
-            value: fullPhone
-        }).appendTo($form);
+        $('<input>').attr({ type: 'hidden', name: 'Телефон', value: fullPhone }).appendTo($form);
 		
         $.ajax({
             url: $form.attr('action'),
