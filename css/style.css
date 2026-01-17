@@ -889,9 +889,15 @@ border: 2px solid #fff;
 .validation {
     color: red;
     font-size: 12px;
+    margin-top: 0;
+    height: 0;
+    overflow: hidden;
+    transition: height 0.3s ease;
+}
+
+.validation.show {
+    height: 18px; /* или колкото е височината на текста – можеш да тестваш с 20px */
     margin-top: 5px;
-    min-height: 18px; /* за да не подскача съдържанието */
-    display: block;
 }
 .form-control.is-invalid {
     box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
