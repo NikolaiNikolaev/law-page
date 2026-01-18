@@ -95,11 +95,14 @@ p{
 /* Header Styles
 ---------------------------------*/
 
-.header{
-	text-align:center;
-	background:url(../img/pw_maze_black_2X.png) left top repeat;
-	padding:280px 0;
+.header {
+    text-align: center;
+    background: url(../img/Background%20photo.jpg) center/cover no-repeat fixed; /* твоята снимка като фон */
+    padding: 280px 0; /* или промени на 300px/400px ако снимката е по-висока */
+    position: relative;
+    overflow: hidden;
 }
+
 .logo{
 	width:130px;
 	margin:0 auto 35px;
@@ -920,4 +923,17 @@ border: 2px solid #fff;
 }
 .small-logo img {
     width: 100px; /* за менюто – по-малко */
+}
+
+.header::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.4); /* 40% черно затъмняване – промени 0.4 на 0.3 или 0.5 */
+    z-index: 0;
+}
+
+.header .container {
+    position: relative;
+    z-index: 1; /* текста над затъмняването */
 }
