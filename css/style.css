@@ -190,23 +190,6 @@ color: #fff;
     background: rgba(255, 255, 255, 0.92) !important; /* 92% непрозрачно – леко избледняване */
 }
 
-/* Контакти в левия край – изчезват при скрол */
-.contact-info {
-    position: absolute;
-    left: 20px;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 14px;
-    color: #222222;
-    display: block; /* вместо flex – сега едно под друго */
-    line-height: 1.6; /* малко разстояние между редовете */
-    transition: opacity 0.4s ease;
-}
-
-.main-nav-outer.scrolled .contact-info {
-    opacity: 0;
-    pointer-events: none;
-}
 
 /* За да не се скрива съдържанието под менюто */
 body {
@@ -223,6 +206,21 @@ body {
 .main-nav li {
     display: inline !important;
     margin: 0 1px !important;
+}
+
+.main-nav li a {
+    display: inline-block;
+    color: #222222;
+    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
+    text-decoration: none;
+    line-height: 20px;
+    margin: 17px 32px;   /* ТОВА е ключовото – 32px отляво/отдясно на всеки бутон */
+    transition: color 0.3s ease-in-out;
+}
+
+.main-nav li a:hover {
+    color: #001F3F;
 }
 
 /* Featured Work
@@ -902,45 +900,8 @@ border: 2px solid #fff;
     box-shadow: 0 0 0 0.2rem rgba(124, 197, 118, 0.25) !important;
 }
 
-
-/* Имейл – вдясно, с разстояние след последния бутон */
-.contact-right {
-    float: right;
-    margin-top: 20px; /* вертикално центриране */
-    font-size: 14px;
-    color: #222222;
-    margin-left: 60px; /* ТОВА е разстоянието след последния бутон – 60px е добре, можеш да пробваш 40px или 80px */
-    white-space: nowrap;
-    transition: opacity 0.4s ease;
-}
-
-/* Телефон – вляво */
-.contact-left {
-    position: absolute;
-    left: 20px;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 14px;
-    color: #222222;
-    white-space: nowrap;
-    transition: opacity 0.4s ease;
-}
-
-/* При скрол – изчезват и двата */
-.main-nav-outer.scrolled .contact-left,
-.main-nav-outer.scrolled .contact-right {
-    opacity: 0;
-    pointer-events: none;
-}
-
-/* За по-малки екрани (мобилен) – скриваме контакти-те или ги правим по-малки */
 @media (max-width: 991px) {
-    .contact-left, .contact-right {
-        display: none; /* скриваме ги на мобилен, за да не се преплитат */
-    }
-    
-    .main-nav {
-        text-align: center;
-        margin: 0 auto;
+    .main-nav li a {
+        margin: 10px 20px; /* малко по-малко разстояние на мобилен/таблет */
     }
 }
