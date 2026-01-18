@@ -173,49 +173,53 @@ color: #fff;
 
 /* Navigation
 ---------------------------------*/
-.main-nav-outer{
-	padding:0px;
-	border-bottom:1px solid #dddddd;
-	box-shadow:0 4px 5px -3px #ececec;
-	position:relative;
-	background:#fff;
-}
-.main-nav{
-	text-align:center;
-	margin:10px 0 0px;
-	padding:0;
-	list-style:none;
-}
-.main-nav li{
-	display:inline;
-	margin:0 1px;
-}
-.main-nav li a{
-	display:inline-block;
-	color:#222222;
-	text-transform:uppercase;
-	font-family: 'Montserrat', sans-serif;
-	text-decoration: none;
-	line-height:20px;
-	margin:17px 32px;
-	transition:all 0.3s ease-in-out;
-	-moz-transition:all 0.3s ease-in-out;
-	-webkit-transition:all 0.3s ease-in-out;
+
+/* Фиксирано меню от самото начало – винаги горе */
+.main-nav-outer {
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background: #fff;
+    border-bottom: 1px solid #dddddd;
+    box-shadow: 0 4px 5px -3px #ececec;
+    transition: background 0.4s ease;
 }
 
-.main-nav li a:hover{ 
-	text-decoration:none;
-	color: #001F3F;
+/* Леко прозрачно при скрол надолу */
+.main-nav-outer.scrolled {
+    background: rgba(255, 255, 255, 0.95) !important;
 }
 
-.small-logo{ 
-	padding:0 32px;
+/* Буквите винаги плътни */
+.main-nav li a {
+    color: #222222 !important;
+    opacity: 1 !important;
 }
 
-.main-section{
-	padding:90px 0 110px;
+/* Контакти в левия край */
+.contact-info {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 14px;
+    color: #222222;
+    display: flex;
+    gap: 20px;
+    transition: opacity 0.4s ease;
 }
 
+.main-nav-outer.scrolled .contact-info {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* За да не се скрива съдържанието под менюто */
+body {
+    padding-top: 70px;
+}
 
 /* Services
 ---------------------------------*/
