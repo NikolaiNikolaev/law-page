@@ -52,6 +52,11 @@
 
 <nav class="main-nav-outer" id="test"><!--main-nav-start-->
 	<div class="container">
+		<div class="contact-info">
+   			<span>Не се колебайте да се свържете с нас:</span>
+			<span>Тел: +359 893/440-797</span> <!-- Замени с твоя реален телефон -->
+    		<span>Email: nikolai.nikolaev11@gmail.com</span> <!-- Замени с твоя email -->
+		</div>
         <ul class="main-nav">
         	<li><a href="#header">Home</a></li>
             <li><a href="#service">Services</a></li>
@@ -650,6 +655,16 @@ $(document).ready(function() {
     });
 });
 </script>
+
+	<script type="text/javascript">
+		$(window).scroll(function() {
+		    if ($(this).scrollTop() > 100) { // След 100px скрол надолу – контакти изчезват
+		        $('.main-nav-outer').addClass('scrolled');
+		    } else {
+		        $('.main-nav-outer').removeClass('scrolled');
+		    }
+		});
+	</script>
 	
 </body>
 </html>
