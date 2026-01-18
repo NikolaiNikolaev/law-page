@@ -97,7 +97,7 @@ p{
 
 .header {
     text-align: center;
-    background: url(../img/Background-photo.jpg) center/cover no-repeat fixed;
+    background: url(../img/Background-photo.jpg) center/cover no-repeat fixed !important;
     padding: 280px 0;
     position: relative;
     overflow: hidden;
