@@ -97,8 +97,8 @@ p{
 
 .header {
     text-align: center;
-    background: url(../img/Background%20photo.jpg) center/cover no-repeat fixed; /* твоята снимка като фон */
-    padding: 280px 0; /* или промени на 300px/400px ако снимката е по-висока */
+    background: url(../img/Background-photo.jpg) center/cover no-repeat fixed;
+    padding: 280px 0;
     position: relative;
     overflow: hidden;
 }
