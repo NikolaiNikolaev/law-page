@@ -898,6 +898,49 @@ border: 2px solid #fff;
 
 /* Зелено когато е ОК и докоснато */
 .form-field.is-valid {
-    border: 1px solid #001F3F !important;
+    border: 1px solid #7cc576 !important;
     box-shadow: 0 0 0 0.2rem rgba(124, 197, 118, 0.25) !important;
+}
+
+/* Телефон – фиксиран вляво */
+.contact-left {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 14px;
+    color: #222222;
+    white-space: nowrap;
+    transition: opacity 0.4s ease;
+}
+
+/* Имейл – вдясно, след бутоните */
+.contact-right {
+    float: right;
+    margin-top: 20px; /* вертикално центриране – тествай 15px или 25px */
+    font-size: 14px;
+    color: #222222;
+    white-space: nowrap;
+    margin-left: 30px; /* разстояние след последния бутон */
+    transition: opacity 0.4s ease;
+}
+
+/* Изчезване при скрол */
+.main-nav-outer.scrolled .contact-left,
+.main-nav-outer.scrolled .contact-right {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* За да не се преплитат с бутоните */
+.container {
+    position: relative;
+    padding: 0 20px; /* малко padding от краищата */
+}
+
+/* Запазваме оригиналния стил на бутоните */
+.main-nav {
+    display: inline-block;
+    vertical-align: top;
+    margin: 10px 0;
 }
