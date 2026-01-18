@@ -902,7 +902,19 @@ border: 2px solid #fff;
     box-shadow: 0 0 0 0.2rem rgba(124, 197, 118, 0.25) !important;
 }
 
-/* Телефон – фиксиран вляво */
+
+/* Имейл – вдясно, с разстояние след последния бутон */
+.contact-right {
+    float: right;
+    margin-top: 20px; /* вертикално центриране */
+    font-size: 14px;
+    color: #222222;
+    margin-left: 60px; /* ТОВА е разстоянието след последния бутон – 60px е добре, можеш да пробваш 40px или 80px */
+    white-space: nowrap;
+    transition: opacity 0.4s ease;
+}
+
+/* Телефон – вляво */
 .contact-left {
     position: absolute;
     left: 20px;
@@ -914,33 +926,21 @@ border: 2px solid #fff;
     transition: opacity 0.4s ease;
 }
 
-/* Имейл – вдясно, след бутоните */
-.contact-right {
-    float: right;
-    margin-top: 20px; /* вертикално центриране – тествай 15px или 25px */
-    font-size: 14px;
-    color: #222222;
-    white-space: nowrap;
-    margin-left: 30px; /* разстояние след последния бутон */
-    transition: opacity 0.4s ease;
-}
-
-/* Изчезване при скрол */
+/* При скрол – изчезват и двата */
 .main-nav-outer.scrolled .contact-left,
 .main-nav-outer.scrolled .contact-right {
     opacity: 0;
     pointer-events: none;
 }
 
-/* За да не се преплитат с бутоните */
-.container {
-    position: relative;
-    padding: 0 20px; /* малко padding от краищата */
-}
-
-/* Запазваме оригиналния стил на бутоните */
-.main-nav {
-    display: inline-block;
-    vertical-align: top;
-    margin: 10px 0;
+/* За по-малки екрани (мобилен) – скриваме контакти-те или ги правим по-малки */
+@media (max-width: 991px) {
+    .contact-left, .contact-right {
+        display: none; /* скриваме ги на мобилен, за да не се преплитат */
+    }
+    
+    .main-nav {
+        text-align: center;
+        margin: 0 auto;
+    }
 }
