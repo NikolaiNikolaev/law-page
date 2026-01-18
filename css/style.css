@@ -907,32 +907,13 @@ border: 2px solid #fff;
 }
 
 
-/* Видео фон в header */
+/* Оригинален header стил */
 .header {
-    position: relative;
-    overflow: hidden;
-	padding: 280px 0; /* оригиналната височина – тествай 300px или 400px ако видеото е по-високо */
-    background: #000; /* ако видеото не се зареди – черен фон */
+    text-align: center;
+    background: url(../img/pw_maze_black_2X.png) left top repeat; /* оригиналната картинка */
+    padding: 280px 0;
 }
 
-.header-video {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
-    transform: translateX(-50%) translateY(-50%);
-    z-index: -1;
-    object-fit: cover;
-}
-
-/* За да се вижда текста над видеото */
-.header .container {
-    position: relative;
-    z-index: 1;
-}
 
 .logo img {
     width: 150px; /* промени на твоята ширина, напр. 120px или 200px */
