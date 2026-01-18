@@ -174,7 +174,7 @@ color: #fff;
 /* Navigation
 ---------------------------------*/
 
-/* Фиксирано меню от самото начало – винаги горе */
+/* Фиксирано меню най-отгоре – винаги видимо */
 .main-nav-outer {
     position: fixed !important;
     top: 0;
@@ -182,23 +182,15 @@ color: #fff;
     width: 100%;
     z-index: 1000;
     background: #fff;
-    border-bottom: 1px solid #dddddd;
-    box-shadow: 0 4px 5px -3px #ececec;
     transition: background 0.4s ease;
 }
 
-/* Леко прозрачно при скрол надолу */
+/* Леко прозрачно при скрол */
 .main-nav-outer.scrolled {
-    background: rgba(255, 255, 255, 0.95) !important;
+    background: rgba(255, 255, 255, 0.92) !important; /* 92% непрозрачно – леко избледняване */
 }
 
-/* Буквите винаги плътни */
-.main-nav li a {
-    color: #222222 !important;
-    opacity: 1 !important;
-}
-
-/* Контакти в левия край */
+/* Контакти в левия край – изчезват при скрол */
 .contact-info {
     position: absolute;
     left: 20px;
@@ -206,8 +198,8 @@ color: #fff;
     transform: translateY(-50%);
     font-size: 14px;
     color: #222222;
-    display: flex;
-    gap: 20px;
+    display: block; /* вместо flex – сега едно под друго */
+    line-height: 1.6; /* малко разстояние между редовете */
     transition: opacity 0.4s ease;
 }
 
@@ -218,34 +210,19 @@ color: #fff;
 
 /* За да не се скрива съдържанието под менюто */
 body {
-    padding-top: 70px;
+    padding-top: 70px; /* височина на твоето меню – ако е по-високо/ниско, тествай 60px или 80px */
 }
 
-/* Services
----------------------------------*/
+/* Запазваме оригиналния стил на бутоните – един ред, без точки */
+.main-nav {
+    text-align: center !important;
+    margin: 10px 0 0 !important;
+    padding: 0 !important;
+}
 
-.service-list{
-	padding:0 0 0 0;
-	font-size:14px;
-	margin-bottom:40px;
-}
-.service-list-col1{
-	float:left;
-	width:60px;
-}
-.service-list-col1 i{
-	font-style:normal;
-	font-size:38px;
-	display:block;
-	color:#222;
-	font-family: 'FontAwesome';
-	line-height:38px;
-}
-.service-list-col2{
-	overflow:hidden;	
-}
-.main-section.alabaster{
-	background:#fafafa;
+.main-nav li {
+    display: inline !important;
+    margin: 0 1px !important;
 }
 
 /* Featured Work
