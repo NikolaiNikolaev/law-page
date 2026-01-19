@@ -1043,12 +1043,10 @@ border: 2px solid #fff;
 }
 
 /* Меню – винаги хоризонтално на десктоп, без responsive свиване */
+/* Връщаме менюто на хоризонтално като в началото */
 .main-nav {
-    display: flex !important;
-    flex-direction: row;
-    justify-content: center;
-    margin: 0;
-    padding: 0;
+    display: block !important;
+    position: static !important;
 }
 
 .main-nav li {
