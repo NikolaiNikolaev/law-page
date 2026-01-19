@@ -986,8 +986,28 @@ border: 2px solid #fff;
 }
 
 
+  /* Оригинално хоризонтално меню на десктоп – връщаме както беше в началото */
+.main-nav {
+    display: block;
+    text-align: center;
+    margin: 10px 0 0;
+    padding: 0;
+}
+
+.main-nav li {
+    display: inline;
+    margin: 0 1px;
+}
+
+.main-nav li a {
+    margin: 17px 32px;
+    line-height: 20px;
+}
+
+/* Хамбургер и responsive само на малки екрани (под 768px) */
+@media only screen and (max-width: 767px) {
     .main-nav {
-        display: none; /* скрива хоризонталното меню */
+        display: none;
         position: absolute;
         top: 100%;
         left: 0;
@@ -999,7 +1019,7 @@ border: 2px solid #fff;
     }
 
     .main-nav.active {
-        display: block; /* показва при клик */
+        display: block;
     }
 
     .main-nav li {
@@ -1009,11 +1029,10 @@ border: 2px solid #fff;
 
     .main-nav li a {
         margin: 0;
-        padding: 10px 20px;
+        padding: 15px 30px;
         display: block;
     }
 
-    /* Показваме хамбургер иконата */
     .res-nav_click {
         display: block !important;
         position: absolute;
@@ -1021,54 +1040,12 @@ border: 2px solid #fff;
         top: 50%;
         transform: translateY(-50%);
         font-size: 32px;
-        color: #001F3F;
         cursor: pointer;
     }
+}
 
-    .contact-info {
-        position: static;
-        transform: none;
-        justify-content: center;
-        margin-bottom: 10px;
-        font-size: 13px;
+@media only screen and (min-width: 768px) {
+    .res-nav_click {
+        display: none !important;
     }
-}
-
-
-
-    /* Ако менюто е спуснато – връщаме го на нормално */
-    .main-nav.active {
-        display: block !important;
-    }
-}
-
-/* Меню – винаги хоризонтално на десктоп, без responsive свиване */
-/* Връщаме менюто на хоризонтално като в началото */
-.main-nav {
-    display: flex !important;
-    flex-direction: row;
-    justify-content: center;
-    margin: 0;
-    padding: 0;
-}
-
-.main-nav li {
-    display: inline-block;
-    margin: 0 15px;
-}
-
-.main-nav li a {
-    margin: 0 20px;
-    padding: 10px 15px;
-    line-height: 50px;
-}
-
-.res-nav_click {
-    display: none !important; /* Хамбургерът се скрива напълно на десктоп */
-}
-
-/* Връщаме менюто на хоризонтално като в началото */
-.main-nav {
-    display: block !important;
-    position: static !important;
 }
