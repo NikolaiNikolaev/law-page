@@ -185,7 +185,12 @@ color: #fff;
     width: 100%;
     z-index: 1000;
     background: #fff;
+    border-bottom: 1px solid #dddddd;
+    box-shadow: 0 4px 5px -3px #ececec;
     transition: background 0.4s ease;
+    min-height: 90px;   /* ← тук беше 70-80px, сега го направи 90px или 95px */
+    display: flex;
+    align-items: center;
 }
 
 /* Леко прозрачно при скрол */
@@ -970,4 +975,58 @@ border: 2px solid #fff;
 .header .container {
     position: relative;
     z-index: 1; /* текста над затъмняването */
+}
+
+/* Връщаме хамбургер менюто на малки екрани */
+@media only screen and (max-width: 991px) {
+    .main-nav-outer .container {
+        justify-content: space-between;
+        position: relative;
+    }
+
+    .main-nav {
+        display: none; /* скриваме нормалното меню */
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: #fff;
+        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+        text-align: center;
+        padding: 20px 0;
+    }
+
+    .main-nav.active {
+        display: block; /* показваме при клик */
+    }
+
+    .main-nav li {
+        display: block;
+        margin: 10px 0;
+    }
+
+    .main-nav li a {
+        margin: 0;
+        padding: 10px 20px;
+        display: block;
+    }
+
+    /* Показваме хамбургер иконата */
+    .res-nav_click {
+        display: block !important;
+        position: absolute;
+        right: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 32px;
+        color: #001F3F;
+        cursor: pointer;
+    }
+
+    .contact-info {
+        position: static;
+        transform: none;
+        justify-content: center;
+        margin-bottom: 10px;
+    }
 }
