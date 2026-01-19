@@ -962,9 +962,12 @@ border: 2px solid #fff;
 .logo img {
     width: 150px; /* промени на твоята ширина, напр. 120px или 200px */
 }
+/* Увеличаване на малкото лого в менюто */
 .small-logo img {
-    height: 40px; /* Адаптирай височината на логото в менюто – пробвай 35px или 45px */
-    margin: 0 auto; /* Центриране */
+    height: 60px; /* ← Това е височината – пробвай 60px, 70px или 80px */
+    width: auto;  /* За да се запази пропорцията */
+    display: block;
+    margin: 0 auto; /* Центриране, ако трябва */
 }
 
 .header .logo img {
