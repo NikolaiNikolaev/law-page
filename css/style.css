@@ -188,7 +188,7 @@ color: #fff;
     border-bottom: 1px solid #dddddd;
     box-shadow: 0 4px 5px -3px #ececec;
     transition: background 0.4s ease;
-    min-height: 90px;   /* ← тук беше 70-80px, сега го направи 90px или 95px */
+    min-height: 95px;   /* ← тук беше 70-80px, сега го направи 90px или 95px */
     display: flex;
     align-items: center;
 }
@@ -977,15 +977,15 @@ border: 2px solid #fff;
     z-index: 1; /* текста над затъмняването */
 }
 
-/* Връщаме хамбургер менюто на малки екрани */
-@media only screen and (max-width: 991px) {
+/* Responsive меню – хамбургер само на много малки екрани */
+@media only screen and (max-width: 767px) {  /* ← Променихме от 991px на 767px (или пробвай 600px) */
     .main-nav-outer .container {
         justify-content: space-between;
         position: relative;
     }
 
     .main-nav {
-        display: none; /* скриваме нормалното меню */
+        display: none; /* скрива хоризонталното меню */
         position: absolute;
         top: 100%;
         left: 0;
@@ -997,7 +997,7 @@ border: 2px solid #fff;
     }
 
     .main-nav.active {
-        display: block; /* показваме при клик */
+        display: block; /* показва при клик */
     }
 
     .main-nav li {
@@ -1028,5 +1028,17 @@ border: 2px solid #fff;
         transform: none;
         justify-content: center;
         margin-bottom: 10px;
+        font-size: 13px;
+    }
+}
+
+/* На екрани над 768px – винаги хоризонтално меню, без хамбургер */
+@media only screen and (min-width: 768px) {
+    .res-nav_click {
+        display: none !important; /* скрива хамбургера */
+    }
+
+    .main-nav {
+        display: block !important; /* винаги видими бутони */
     }
 }
