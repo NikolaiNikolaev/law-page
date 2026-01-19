@@ -216,15 +216,17 @@ body {
     margin: 0 1px !important;
 }
 
-.main-nav li a {
-    display: inline-block;
-    color: #222222;
-    text-transform: uppercase;
+.main-nav li a{
+    display:inline-block;
+    color:#222222;
+    text-transform:uppercase;
     font-family: 'Montserrat', sans-serif;
     text-decoration: none;
-    line-height: 20px;
-    margin: 17px 32px;   /* ТОВА е ключовото – 32px отляво/отдясно на всеки бутон */
-    transition: color 0.3s ease-in-out;
+    line-height:20px;
+    margin:17px 32px;
+    transition:all 0.3s ease-in-out;
+    -moz-transition:all 0.3s ease-in-out;
+    -webkit-transition:all 0.3s ease-in-out;
 }
 
 .main-nav li a:hover {
@@ -961,7 +963,13 @@ border: 2px solid #fff;
     width: 150px; /* промени на твоята ширина, напр. 120px или 200px */
 }
 .small-logo img {
-    width: 100px; /* за менюто – по-малко */
+    height: 40px; /* Адаптирай височината на логото в менюто – пробвай 35px или 45px */
+    margin: 0 auto; /* Центриране */
+}
+
+.header .logo img {
+    height: 150px; /* Височина на голямото лого – пробвай 140px или 160px за да пасне вертикално с менюто */
+    margin: 20px auto 0; /* Леко повече пространство отгоре */
 }
 
 .header::before {
@@ -978,11 +986,22 @@ border: 2px solid #fff;
 }
 
 /* Responsive меню – хамбургер само на много малки екрани */
-@media only screen and (max-width: 767px) {  /* ← Променихме от 991px на 767px (или пробвай 600px) */
-    .main-nav-outer .container {
-        justify-content: space-between;
-        position: relative;
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    .main-nav li a {
+        margin: 17px 20px; /* Намаляме разстоянието между бутоните, за да се съберат */
+        font-size: 13px; /* Леко намален текст, за да не прелива */
     }
+
+    .main-nav-outer .container {
+        flex-wrap: wrap; /* Ако бутоните са прекалено много – пречупва на нов ред */
+        justify-content: center; /* Центрира ако пречупи */
+    }
+
+    .contact-info {
+        gap: 10px; /* Намаляме разстоянието за контакти */
+        font-size: 13px;
+    }
+}
 
     .main-nav {
         display: none; /* скрива хоризонталното меню */
