@@ -226,6 +226,40 @@ body {
     color: #001F3F;
 }
 
+/* Поправка за центриране на лога в менюто и вертикално подравняване */
+.main-nav-outer .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Логото ляво/център, менюто надясно */
+    padding: 10px 20px;
+}
+
+.small-logo {
+    margin: 0; /* премахваме допълнителни margin */
+    padding: 0;
+}
+
+.main-nav {
+    margin: 0;
+    padding: 0;
+}
+
+.main-nav li a {
+    margin: 0 20px; /* по-малко разстояние между линковете */
+    line-height: 60px; /* вертикално центриране спрямо височината на менюто */
+}
+
+.header .logo {
+    margin: 0 auto 20px; /* леко повече пространство под логото в хедъра */
+}
+
+/* Ако менюто все още не е подравнено – добави фиксирана височина */
+.main-nav-outer {
+    height: 80px; /* тествай с 70px или 90px */
+    display: flex;
+    align-items: center;
+}
+
 /* Featured Work
 ---------------------------------*/
 .featured-work{
