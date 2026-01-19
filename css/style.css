@@ -1042,23 +1042,55 @@ border: 2px solid #fff;
     }
 }
 
-/* Меню – винаги хоризонтално на десктоп и таблет (над 768px) */
-@media only screen and (min-width: 768px) {
+/* Меню – хоризонтално на десктоп (над 992px) */
+@media only screen and (min-width: 992px) {
     .main-nav {
-        display: block !important;
-        position: static !important; /* Важно! – връща на нормално хоризонтално */
+        display: flex !important;
+        flex-direction: row;
+        justify-content: center;
+        margin: 0;
+        padding: 0;
+    }
+
+    .main-nav li {
+        display: inline-block;
+        margin: 0 15px;
+    }
+
+    .main-nav li a {
+        margin: 0;
+        padding: 10px 15px;
+        line-height: 50px;
     }
 
     .res-nav_click {
         display: none !important;
     }
+}
 
-    .main-nav.active {
-        display: block !important;
+/* На средни екрани (768–991px) – хоризонтално, бутоните се свиват */
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    .main-nav {
+        display: flex !important;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .main-nav li {
+        margin: 5px 10px;
+    }
+
+    .main-nav li a {
+        font-size: 13px;
+        padding: 8px 12px;
+    }
+
+    .res-nav_click {
+        display: none !important;
     }
 }
 
-/* Само на телефон (под 768px) – хамбургер и падащо меню */
+/* На малки екрани (под 767px) – хамбургер и падащо меню */
 @media only screen and (max-width: 767px) {
     .main-nav {
         display: none;
@@ -1077,17 +1109,6 @@ border: 2px solid #fff;
         display: block !important;
     }
 
-    .res-nav_click {
-        display: block !important;
-        position: absolute;
-        right: 20px;
-        top: 50%;
-        transform: translateY(-50%);
-        font-size: 32px;
-        color: #001F3F;
-        cursor: pointer;
-    }
-
     .main-nav li {
         display: block;
         margin: 10px 0;
@@ -1098,5 +1119,16 @@ border: 2px solid #fff;
         padding: 15px 40px;
         display: block;
         font-size: 16px;
+    }
+
+    .res-nav_click {
+        display: block !important;
+        position: absolute;
+        right: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 32px;
+        color: #001F3F;
+        cursor: pointer;
     }
 }
