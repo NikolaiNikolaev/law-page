@@ -985,23 +985,6 @@ border: 2px solid #fff;
     z-index: 1; /* текста над затъмняването */
 }
 
-/* Responsive меню – хамбургер само на много малки екрани */
-@media only screen and (min-width: 768px) and (max-width: 991px) {
-    .main-nav li a {
-        margin: 17px 20px; /* Намаляме разстоянието между бутоните, за да се съберат */
-        font-size: 13px; /* Леко намален текст, за да не прелива */
-    }
-
-    .main-nav-outer .container {
-        flex-wrap: wrap; /* Ако бутоните са прекалено много – пречупва на нов ред */
-        justify-content: center; /* Центрира ако пречупи */
-    }
-
-    .contact-info {
-        gap: 10px; /* Намаляме разстоянието за контакти */
-        font-size: 13px;
-    }
-}
 
     .main-nav {
         display: none; /* скрива хоризонталното меню */
@@ -1051,26 +1034,7 @@ border: 2px solid #fff;
     }
 }
 
-/* На екрани над 768px – винаги хоризонтално меню, без хамбургер */
-@media only screen and (min-width: 768px) {
-    .res-nav_click {
-        display: none !important; /* скрива хамбургера */
-    }
 
-    .main-nav {
-        display: block !important; /* винаги видими бутони */
-    }
-}
-
-/* Винаги хоризонтално меню на десктоп (над 768px) */
-@media only screen and (min-width: 768px) {
-    .main-nav {
-        display: block !important; /* Силно принудително – винаги видимо на компютър */
-    }
-
-    .res-nav_click {
-        display: none !important; /* Хамбургерът се скрива напълно на десктоп */
-    }
 
     /* Ако менюто е спуснато – връщаме го на нормално */
     .main-nav.active {
@@ -1078,7 +1042,16 @@ border: 2px solid #fff;
     }
 }
 
-/* Само на малки екрани – хамбургер + падащо меню */
+/* Меню – хоризонтално на десктоп и таблет, хамбургер само на телефон */
+@media only screen and (min-width: 768px) {
+    .main-nav {
+        display: block !important;
+    }
+    .res-nav_click {
+        display: none !important;
+    }
+}
+
 @media only screen and (max-width: 767px) {
     .main-nav {
         display: none;
@@ -1090,13 +1063,33 @@ border: 2px solid #fff;
         box-shadow: 0 5px 10px rgba(0,0,0,0.1);
         text-align: center;
         padding: 20px 0;
+        z-index: 999;
     }
 
     .main-nav.active {
         display: block !important;
     }
 
+    .main-nav li {
+        display: block;
+        margin: 10px 0;
+    }
+
+    .main-nav li a {
+        margin: 0;
+        padding: 15px 40px; /* по-широко, за да не се срязват буквите */
+        display: block;
+        font-size: 16px;
+    }
+
     .res-nav_click {
         display: block !important;
+        position: absolute;
+        right: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 32px;
+        color: #001F3F;
+        cursor: pointer;
     }
 }
