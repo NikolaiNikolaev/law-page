@@ -1061,3 +1061,42 @@ border: 2px solid #fff;
         display: block !important; /* винаги видими бутони */
     }
 }
+
+/* Винаги хоризонтално меню на десктоп (над 768px) */
+@media only screen and (min-width: 768px) {
+    .main-nav {
+        display: block !important; /* Силно принудително – винаги видимо на компютър */
+    }
+
+    .res-nav_click {
+        display: none !important; /* Хамбургерът се скрива напълно на десктоп */
+    }
+
+    /* Ако менюто е спуснато – връщаме го на нормално */
+    .main-nav.active {
+        display: block !important;
+    }
+}
+
+/* Само на малки екрани – хамбургер + падащо меню */
+@media only screen and (max-width: 767px) {
+    .main-nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: #fff;
+        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+        text-align: center;
+        padding: 20px 0;
+    }
+
+    .main-nav.active {
+        display: block !important;
+    }
+
+    .res-nav_click {
+        display: block !important;
+    }
+}
