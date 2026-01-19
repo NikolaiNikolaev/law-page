@@ -1066,3 +1066,9 @@ border: 2px solid #fff;
 .res-nav_click {
     display: none !important; /* Хамбургерът се скрива напълно на десктоп */
 }
+
+/* Връщаме менюто на хоризонтално като в началото */
+.main-nav {
+    display: block !important;
+    position: static !important;
+}
