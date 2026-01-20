@@ -97,7 +97,7 @@ p{
 
 .header {
     text-align: center;
-    background: url(../img/Background-photo.jpg) center/cover no-repeat fixed !important;
+    background: url(../img/финал.jpg) center/cover no-repeat fixed !important;
     padding: 280px 0;
     position: relative;
     overflow: hidden;
@@ -614,7 +614,7 @@ border: 2px solid #fff;
 /* Talk Business
 ---------------------------------*/
 .business-talking{
-	background:url(../img/section-bg2.jpg) top center no-repeat;
+	background:url(../img/spodelete-kazus.jpg) top center no-repeat;
 	background-size:cover;
 	padding:60px 0 10px;
 	text-align:center;
@@ -795,7 +795,7 @@ border: 2px solid #fff;
 ---------------------------------*/
 
 .footer{
-	background:url(../img/pw_maze_black_2X.png) left top repeat;
+	background:url(../img/финал.jpg) left top repeat;
 	padding:35px 0 35px;
 }
 .footer-logo{
