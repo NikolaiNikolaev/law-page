@@ -1058,6 +1058,7 @@ border: 2px solid #fff;
 }
 
 /* това е промя на колоните на услугите - да бъдат центрирани и друстраноо подравнени*/
+/* Две колони за корпоративни клиенти */
 .services-columns {
     display: flex;
     flex-wrap: wrap;
@@ -1076,11 +1077,18 @@ border: 2px solid #fff;
     margin-bottom: 20px;
 }
 
-.services-columns ul li {
-    text-align: justify;
-    margin-bottom: 15px;
+/* Премахване на точки пред li (bullets) */
+.services-columns ul.no-bullets {
+    list-style: none;
+    padding-left: 0;
 }
 
+.services-columns ul li {
+    text-align: justify;
+    margin-bottom: 20px;
+}
+
+/* На мобилен – една колона */
 @media (max-width: 767px) {
     .services-columns {
         flex-direction: column;
