@@ -1100,54 +1100,58 @@ border: 2px solid #fff;
     }
 }
 
-/* --- ФИКС ЗА СРЕДНИ ЕКРАНИ: Лого отгоре, меню отдолу --- */
-@media only screen and (min-width: 768px) and (max-width: 1100px) {
+/* --- ФИКС ЗА СРЕДНИ ЕКРАНИ (Таблети и Лаптопи) --- */
+@media only screen and (min-width: 768px) and (max-width: 1199px) {
     
-    /* 1. Настройка на контейнера */
+    /* 1. КЛЮЧОВОТО: Казваме на бялата лента да се разпъва автоматично */
+    .header, #header {
+        height: auto !important; /* Позволява на лентата да расте надолу */
+        min-height: 80px;
+        padding-bottom: 10px !important; /* Малко въздух отдолу */
+        overflow: visible !important; /* Да не реже съдържанието */
+    }
+
+    /* 2. Контейнерът също трябва да е свободен */
     .container {
         width: 100% !important;
-        padding: 0 !important;
+        height: auto !important;
     }
 
-    /* 2. Превръщаме списъка в гъвкава кутия (Flexbox) */
+    /* 3. Менюто (Flexbox настройки) */
     .main-nav ul {
         display: flex !important;
-        flex-wrap: wrap !important; /* Позволяваме пренасяне на редове */
-        justify-content: center !important; /* Центрираме всичко */
+        flex-wrap: wrap !important; /* Позволява пренасяне на редове */
+        justify-content: center !important; /* Центрира всичко */
         align-items: center !important;
-        padding-top: 10px;
+        padding: 0 !important;
+        margin: 0 !important;
     }
 
-    /* 3. ЛОГОТО - ИЗЛИЗА НАЙ-ОТГОРЕ */
+    /* 4. ЛОГОТО - Най-отгоре, но с нормален размер */
     li.small-logo {
-        order: -1; /* Това магическо число казва на логото да е ПРЕДИ всичко друго */
-        width: 100% !important; /* Заема целия първи ред */
+        order: -1; /* Качваме го най-отпред */
+        width: 100% !important; /* Заема цял ред */
         text-align: center !important;
-        padding: 10px 0 20px 0 !important; /* Малко въздух под него */
+        padding: 5px 0 !important;
         display: block !important;
     }
 
-    /* Тук контролираме колко ГОЛЯМО да е логото */
     li.small-logo img {
-        width: 180px !important; /* Достатъчно голямо! Може да го променяте */
+        width: 120px !important; /* НАМАЛЕНО: Нормален, стилен размер */
         height: auto !important;
         max-width: none !important;
     }
 
-    /* 4. БУТОНИТЕ - Подреждат се отдолу */
+    /* 5. БУТОНИТЕ - Подредени под логото */
     .main-nav li {
         display: inline-block !important;
+        margin: 0 2px !important; /* Малко разстояние между тях */
     }
 
     .main-nav li a {
-        font-size: 13px !important;   /* Нормален размер */
-        padding: 10px 15px !important; /* Комфортно разстояние */
-        font-weight: 700 !important;
+        font-size: 13px !important;
+        padding: 8px 10px !important; /* По-компактни бутони */
         border: none !important;
-    }
-    
-    /* Скриваме допълнителни отстояния, ако има */
-    .header {
-        padding-top: 10px !important;
+        line-height: normal !important; /* Да не раздуват излишно */
     }
 }
