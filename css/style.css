@@ -1150,7 +1150,7 @@ border: 2px solid #fff;
     /* 5. ЛОГОТО (Максималният възможен размер за един ред) */
     li.small-logo {
         display: inline-block !important;
-        width: 80px !important;          /* 90px е максимумът преди да се счупи */
+        width: 70px !important;          /* 90px е максимумът преди да се счупи */
         padding: 0 5px !important;
         float: none !important;
     }
