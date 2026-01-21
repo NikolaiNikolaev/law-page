@@ -1101,64 +1101,33 @@ border: 2px solid #fff;
 }
 
 
-/* ============================================================
-   ВРЪЩАНЕ КЪМ ЕДИН РЕД (Стабилна версия за лаптопи)
-   ============================================================ */
-@media only screen and (min-width: 768px) and (max-width: 1250px) {
+/* САМО ЗА ЛАПТОПИ И КОМПЮТРИ (Над 768px) */
+@media only screen and (min-width: 768px) {
+    
+    /* 1. ПРАВИМ МЕНЮТО "ТВЪРДО" (да не плува върху снимката) */
+    .header, #header, .main-nav-outer {
+        position: relative !important; /* КЛЮЧОВОТО: Вече не е 'fixed' или 'absolute' */
+        top: auto !important;
+        height: auto !important;
+        min-height: 140px !important; /* Място за логото */
+        background: #fff !important;
+        z-index: 99999 !important;
+    }
 
-    /* 1. ОПРАВЯНЕ НА ИЗЧЕЗНАЛАТА СНИМКА */
-    /* Връщаме нормалните настройки на контейнерите */
-    #intro, .intro-section, #header, .header {
+    /* 2. НАСТРОЙКА НА ЛОГОТО */
+    li.small-logo img {
+        width: 100px !important; /* ВАШИЯТ РАЗМЕР */
+        height: auto !important;
+        display: block;
+        margin-top: 5px;
+    }
+    
+    /* 3. ОПРАВЯНЕ НА "ДУПКАТА" ОТГОРЕ */
+    /* Тъй като направихме менюто relative, то само ще бутне снимката. 
+       Просто се уверяваме, че снимката няма излишни отстояния. */
+    #intro, .intro-section {
         margin-top: 0 !important;
         padding-top: 0 !important;
-        position: relative; /* Връщаме нормалната позиция */
-    }
-
-    /* 2. РАЗПЪВАНЕ НА МЯСТОТО */
-    /* Ползваме цялата ширина на екрана, за да съберем менюто */
-    .container {
-        width: 100% !important;
-        padding-left: 5px !important;
-        padding-right: 5px !important;
-    }
-
-    /* 3. ПРИНУЖДАВАНЕ ДА Е НА ЕДИН РЕД (FLEXBOX) */
-    .main-nav ul {
-        display: flex !important;
-        flex-wrap: nowrap !important; /* ЗАБРАНЯВАМЕ падането на нов ред */
-        justify-content: center !important;
-        align-items: center !important;
-        width: 100% !important;
-    }
-
-    /* 4. БУТОНИТЕ (Свиваме ги малко) */
-    .main-nav li {
-        display: inline-block !important;
-        float: none !important;
-        margin: 0 !important; /* Махаме излишните разстояния */
-    }
-
-    .main-nav li a {
-        font-size: 12px !important;      /* Намален шрифт, за да се съберат */
-        padding: 15px 8px !important;    /* Малко въздух отстрани */
-        font-weight: 700 !important;     /* Дебел шрифт за четливост */
-        text-transform: uppercase;
-        letter-spacing: 0px !important;  /* Свиваме разстоянието между буквите */
-        white-space: nowrap !important;  /* Забраняваме на текста да се пренася */
-    }
-
-    /* 5. ЛОГОТО (Максималният възможен размер за един ред) */
-    li.small-logo {
-        display: inline-block !important;
-        width: 65px !important;          /* 90px е максимумът преди да се счупи */
-        padding: 0 5px !important;
-        float: none !important;
-    }
-
-    li.small-logo img {
-        width: 100% !important;
-        height: auto !important;
-        max-width: none !important;
     }
 }
 
