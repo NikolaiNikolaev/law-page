@@ -1100,36 +1100,42 @@ border: 2px solid #fff;
     }
 }
 
-/* --- FIX FOR MENU ON MEDIUM SCREENS (TABLETS/HALF DESKTOP) --- */
-@media only screen and (min-width: 768px) and (max-width: 1100px) {
+/* --- ФИКС ЗА СРЕДНИ ЕКРАНИ (Запазване на логото) --- */
+@media only screen and (min-width: 768px) and (max-width: 1200px) {
     
-    /* Намаляваме контейнера да ползва цялата ширина */
+    /* 1. Разпъваме контейнера до край, за да имаме място */
     .container {
         width: 100% !important;
-        padding-left: 15px;
-        padding-right: 15px;
+        padding-left: 5px !important;
+        padding-right: 5px !important;
     }
 
-    /* Намаляваме шрифта и разстоянията на линковете */
+    /* 2. Свиваме разстоянието между бутоните драстично */
     .main-nav li a {
-        padding: 15px 8px !important; /* Намалено от 15px 30px */
-        font-size: 12px !important;   /* По-малък шрифт */
-        font-weight: 600;
-        letter-spacing: 0px; /* Махаме разстоянието между буквите */
+        padding: 15px 5px !important; /* Намалено от 30px на 5px */
+        font-size: 11px !important;   /* По-малък шрифт, за да се съберат */
+        font-weight: 700;             /* По-дебел шрифт, за да се чете лесно, въпреки че е малък */
+        text-transform: uppercase;    /* Главни букви за четимост */
+        letter-spacing: 0px !important;
     }
 
-    /* Ограничаваме ширината на логото в средата, за да не бута другите */
+    /* 3. Настройки за ЛОГОТО - запазваме го видимо */
     li.small-logo {
-        padding: 0 10px !important;
-        width: 60px !important; /* Свиваме логото */
+        padding: 0 5px !important; /* Махаме излишното място около него */
+        width: 110px !important;   /* Фиксирана ширина - достатъчно голямо */
+        display: inline-block !important;
     }
     
     li.small-logo img {
-        width: 100%; /* Картинката да запълва малкия контейнер */
+        width: 100%;
+        height: auto;
     }
-@media only screen and (min-width: 768px) and (max-width: 991px) {
-    /* Скрива логото в средата, за да има място за текста */
-    li.small-logo {
-        display: none !important; 
+
+    /* Допълнително: Гарантираме, че менюто е на един ред */
+    .main-nav {
+        display: flex !important;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
     }
 }
