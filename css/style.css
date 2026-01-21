@@ -1101,60 +1101,41 @@ border: 2px solid #fff;
 }
 
 /* ==============================================
-   ФИНАЛЕН РЕМОНТ ЗА ТАБЛЕТИ/ЛАПТОПИ (768px - 1250px)
+   БЕЗОПАСЕН РЕЖИМ ЗА ЛАПТОПИ И ТАБЛЕТИ (768px - 1200px)
    ============================================== */
-@media only screen and (min-width: 768px) and (max-width: 1250px) {
+@media only screen and (min-width: 768px) and (max-width: 1200px) {
 
-    /* 1. ПРИНУДИТЕЛНО РАЗПЪВАНЕ НА ЛЕНТАТА */
-    /* Използваме всички възможни класове, за да прегазим JavaScript-а */
-    .header, #header, .main-nav-outer, .nav-container, div.scroll-to-fixed-fixed {
-        height: auto !important;          /* Позволява на лентата да расте */
-        min-height: 150px !important;     /* Гарантирана височина */
-        background-color: #ffffff !important; 
-        position: fixed !important;       /* Закковаваме го горе */
-        top: 0 !important;
-        left: 0 !important;
-        right: 0 !important;
-        z-index: 9999 !important;         /* Най-отгоре над всичко */
-        padding-bottom: 10px !important;
-        border-bottom: 2px solid #eee;    /* Тънка черта за да се вижда края */
+    /* 1. ВРЪЩАНЕ НА НОРМАЛНОТО ПОВЕДЕНИЕ (Спираме конфликтите) */
+    .main-nav-outer, .header, #header {
+        position: relative !important;   /* Премахва "закотвянето" */
+        height: auto !important;         /* Позволява да расте на височина */
+        background-color: #fff !important;
+        padding-top: 20px !important;
+        padding-bottom: 20px !important;
+        z-index: 1000 !important;
     }
 
-    /* 2. ИЗБУТВАНЕ НА ТЕКСТА "ДОБРЕ ДОШЛИ" */
-    /* Тъй като менюто вече е 150px високо, трябва да бутнем текста надолу */
-    #intro, .intro-section {
-        padding-top: 220px !important;    /* Драстично избутване надолу */
-        background-position: center top !important; /* Нагласяне на снимката */
-    }
-
-    /* Ако горното не сработи, пробваме да бутнем самия контейнер с текста */
-    #intro .container {
-        margin-top: 100px !important;
-    }
-
-    /* 3. ЛОГОТО - НАЙ-ОТГОРЕ И ЦЕНТРИРАНО */
+    /* 2. ЛОГОТО - НАЙ-ОТГОРЕ, ГОЛЯМО И ЦЕНТРИРАНО */
     li.small-logo {
         display: block !important;
-        width: 100% !important;
-        text-align: center !important;
-        padding-top: 10px !important;
-        padding-bottom: 5px !important;
-        order: -1 !important;             /* Най-първо */
+        width: 100% !important;          /* Заема цял ред */
+        text-align: center !important;   /* Центрира картинката */
+        margin-bottom: 15px !important;  /* Разстояние до бутоните отдолу */
         float: none !important;
     }
 
     li.small-logo img {
-        width: 140px !important;          /* Размер на логото */
-        max-width: none !important;
+        width: 150px !important;         /* Искахте го голямо и акцентно */
         height: auto !important;
+        max-width: none !important;
+        margin: 0 auto !important;       /* Центриране */
     }
 
-    /* 4. БУТОНИТЕ - ПОДРЕДЕНИ ОТДОЛУ */
+    /* 3. БУТОНИТЕ - ПОДРЕДЕНИ ОТДОЛУ */
     .main-nav ul {
-        display: flex !important;
-        flex-wrap: wrap !important;
-        justify-content: center !important;
-        align-items: center !important;
+        display: flex !important;        /* Гъвкава кутия */
+        flex-wrap: wrap !important;      /* Позволява пренасяне */
+        justify-content: center !important; /* Центриране на бутоните */
         padding: 0 !important;
         margin: 0 !important;
         float: none !important;
@@ -1164,13 +1145,22 @@ border: 2px solid #fff;
         display: inline-block !important;
         float: none !important;
         width: auto !important;
-        margin: 0 5px !important;
+        margin: 5px 8px !important;      /* Разстояние между бутоните */
     }
 
     .main-nav li a {
         font-size: 13px !important;
-        padding: 8px 12px !important;
         color: #333 !important;
-        line-height: 1.2 !important;
+        padding: 5px 10px !important;
+        border-radius: 4px;
+        text-transform: uppercase;
+        font-weight: bold;
+    }
+
+    /* 4. ОПРАВЯНЕ НА "ЗАКОТВЕНАТА СНИМКА" (Intro) */
+    /* Тъй като менюто вече не е върху снимката, махаме излишните отстояния */
+    #intro, .intro-section {
+        padding-top: 0 !important;
+        margin-top: 0 !important;
     }
 }
