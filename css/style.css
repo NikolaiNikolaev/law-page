@@ -1127,4 +1127,9 @@ border: 2px solid #fff;
     li.small-logo img {
         width: 100%; /* Картинката да запълва малкия контейнер */
     }
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    /* Скрива логото в средата, за да има място за текста */
+    li.small-logo {
+        display: none !important; 
+    }
 }
