@@ -1100,64 +1100,77 @@ border: 2px solid #fff;
     }
 }
 
-/* --- ФИКС ЗА СРЕДНИ ЕКРАНИ (Таблети и Лаптопи) --- */
+/* ==============================================
+   ФИНАЛЕН РЕМОНТ ЗА ТАБЛЕТИ/ЛАПТОПИ (768px - 1250px)
+   ============================================== */
 @media only screen and (min-width: 768px) and (max-width: 1250px) {
 
-    /* 1. НАСТРОЙКА НА ЛЕНТАТА (Хедъра) */
-    .header, #header, .main-nav-outer {
-        height: auto !important;          /* Да расте колкото трябва */
-        min-height: 140px !important;     /* Минимална височина */
-        background-color: #fff !important; 
-        padding-top: 10px !important;
+    /* 1. ПРИНУДИТЕЛНО РАЗПЪВАНЕ НА ЛЕНТАТА */
+    /* Използваме всички възможни класове, за да прегазим JavaScript-а */
+    .header, #header, .main-nav-outer, .nav-container, div.scroll-to-fixed-fixed {
+        height: auto !important;          /* Позволява на лентата да расте */
+        min-height: 150px !important;     /* Гарантирана височина */
+        background-color: #ffffff !important; 
+        position: fixed !important;       /* Закковаваме го горе */
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        z-index: 9999 !important;         /* Най-отгоре над всичко */
         padding-bottom: 10px !important;
+        border-bottom: 2px solid #eee;    /* Тънка черта за да се вижда края */
     }
 
-    /* 2. ИЗБУТВАНЕ НА СЪДЪРЖАНИЕТО (За да не се крие зад менюто) */
-    /* Това добавя въздух над картинката с думите за добре дошли */
-    #intro {
-        padding-top: 200px !important; /* Увеличаваме мястото отгоре драстично */
+    /* 2. ИЗБУТВАНЕ НА ТЕКСТА "ДОБРЕ ДОШЛИ" */
+    /* Тъй като менюто вече е 150px високо, трябва да бутнем текста надолу */
+    #intro, .intro-section {
+        padding-top: 220px !important;    /* Драстично избутване надолу */
+        background-position: center top !important; /* Нагласяне на снимката */
     }
 
-    /* 3. КОНТЕЙНЕР НА МЕНЮТО (Flexbox магията) */
-    .main-nav ul {
-        display: flex !important;         /* Включваме гъвкав режим */
-        flex-wrap: wrap !important;       /* Позволяваме пренасяне */
-        justify-content: center !important; /* Центрираме всичко */
-        align-items: center !important;
-        width: 100% !important;
-        margin: 0 !important;
-        padding: 0 !important;
+    /* Ако горното не сработи, пробваме да бутнем самия контейнер с текста */
+    #intro .container {
+        margin-top: 100px !important;
     }
 
-    /* 4. ЛОГОТО - ВИНАГИ НАЙ-ОТГОРЕ */
+    /* 3. ЛОГОТО - НАЙ-ОТГОРЕ И ЦЕНТРИРАНО */
     li.small-logo {
-        order: -1 !important;             /* Най-важната заповед: Бъди Първи! */
-        width: 100% !important;           /* Заеми целия първи ред */
         display: block !important;
+        width: 100% !important;
         text-align: center !important;
-        margin-bottom: 10px !important;   /* Разстояние до бутоните */
-        float: none !important;           /* Изключваме старите настройки */
+        padding-top: 10px !important;
+        padding-bottom: 5px !important;
+        order: -1 !important;             /* Най-първо */
+        float: none !important;
     }
 
     li.small-logo img {
-        width: 130px !important;          /* Размер на логото */
+        width: 140px !important;          /* Размер на логото */
+        max-width: none !important;
         height: auto !important;
-        margin: 0 auto !important;
     }
 
-    /* 5. БУТОНИТЕ - ПОДРЕДЕНИ ОТДОЛУ */
-    .main-nav li:not(.small-logo) {       /* Всички линкове, които НЕ са лого */
-        order: 2 !important;              /* Вие сте втори */
+    /* 4. БУТОНИТЕ - ПОДРЕДЕНИ ОТДОЛУ */
+    .main-nav ul {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+        align-items: center !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        float: none !important;
+    }
+
+    .main-nav li {
         display: inline-block !important;
         float: none !important;
-        width: auto !important;           /* Ширина според текста */
-        margin: 5px 8px !important;       /* Разстояние между тях */
+        width: auto !important;
+        margin: 0 5px !important;
     }
 
     .main-nav li a {
         font-size: 13px !important;
-        padding: 5px 10px !important;
-        line-height: normal !important;
-        display: block !important;
+        padding: 8px 12px !important;
+        color: #333 !important;
+        line-height: 1.2 !important;
     }
 }
