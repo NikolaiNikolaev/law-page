@@ -1161,3 +1161,39 @@ border: 2px solid #fff;
         max-width: none !important;
     }
 }
+
+/* ============================================================
+   УВЕЛИЧАВАНЕ НА ЛОГАТА (САМО ЗА ГОЛЕМИ ЕКРАНИ)
+   ============================================================ */
+
+/* 1. ЛОГО В МЕНЮТО (Бялата лента) */
+@media only screen and (min-width: 768px) {
+    
+    /* Увеличаваме размера на картинката */
+    li.small-logo img {
+        width: 150px !important;   /* <-- ПРОМЕНЕТЕ ТОВА ЧИСЛО за по-голямо/малко */
+        height: auto !important;
+        max-width: none !important;
+        padding-top: 5px;          /* Малка корекция да не се лепи горе */
+    }
+
+    /* Казваме на бутоните да стоят вертикално центрирани спрямо голямото лого */
+    .main-nav li {
+        vertical-align: middle !important; 
+    }
+
+    /* Казваме на бялата лента да се разпъне, за да побере новото лого */
+    .main-nav-outer, #test {
+        padding-top: 5px !important;
+        padding-bottom: 5px !important;
+        height: auto !important;   /* Това позволява на лентата да стане по-дебела */
+    }
+}
+
+/* 2. ГОЛЯМОТО ЛОГО (Върху началната снимка за "Добре дошли") */
+/* Това засяга логото, което е най-горе в средата на екрана */
+#logo img, .intro-section img, header#header div#logo img {
+    width: 300px !important;       /* <-- ПРОМЕНЕТЕ ТОВА ЧИСЛО за размера */
+    height: auto !important;
+    max-width: 90% !important;     /* За да не излиза от екрана на по-малки лаптопи */
+}
