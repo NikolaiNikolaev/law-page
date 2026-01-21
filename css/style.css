@@ -1100,58 +1100,66 @@ border: 2px solid #fff;
     }
 }
 
-/* --- ФИКС ЗА СРЕДНИ ЕКРАНИ (Таблети и Лаптопи) --- */
-@media only screen and (min-width: 768px) and (max-width: 1199px) {
+/* --- ФИНАЛЕН ФИКС ЗА СРЕДНИ ЕКРАНИ (Таблети и Лаптопи) --- */
+@media only screen and (min-width: 768px) and (max-width: 1250px) {
     
-    /* 1. КЛЮЧОВОТО: Казваме на бялата лента да се разпъва автоматично */
-    .header, #header {
-        height: auto !important; /* Позволява на лентата да расте надолу */
-        min-height: 80px;
-        padding-bottom: 10px !important; /* Малко въздух отдолу */
-        overflow: visible !important; /* Да не реже съдържанието */
-    }
-
-    /* 2. Контейнерът също трябва да е свободен */
-    .container {
-        width: 100% !important;
-        height: auto !important;
-    }
-
-    /* 3. Менюто (Flexbox настройки) */
-    .main-nav ul {
-        display: flex !important;
-        flex-wrap: wrap !important; /* Позволява пренасяне на редове */
-        justify-content: center !important; /* Центрира всичко */
-        align-items: center !important;
-        padding: 0 !important;
-        margin: 0 !important;
-    }
-
-    /* 4. ЛОГОТО - Най-отгоре, но с нормален размер */
-    li.small-logo {
-        order: -1; /* Качваме го най-отпред */
-        width: 100% !important; /* Заема цял ред */
-        text-align: center !important;
-        padding: 5px 0 !important;
+    /* 1. Оправяме БЯЛАТА ЛЕНТА (Контейнера) */
+    /* Важно: Изброяваме всички възможни имена на лентата, за да сме сигурни, че ще я хванем */
+    .header, #header, .main-nav-outer, .nav-container {
+        height: auto !important;       /* Позволява разтягане надолу */
+        min-height: 140px !important;  /* Минимална височина за два реда */
+        padding-top: 15px !important;  /* Въздух отгоре (за да не се реже логото) */
+        padding-bottom: 15px !important; /* Въздух отдолу (за да не изпада менюто) */
+        overflow: visible !important;
+        background-color: #fff !important; /* Гарантираме, че фонът е бял */
         display: block !important;
     }
 
-    li.small-logo img {
-        width: 120px !important; /* НАМАЛЕНО: Нормален, стилен размер */
-        height: auto !important;
-        max-width: none !important;
+    /* 2. Настройки на ЛОГОТО */
+    li.small-logo {
+        order: -1;                     /* Качваме го най-отгоре */
+        width: 100% !important;        /* Заема цял ред */
+        text-align: center !important;
+        margin-top: 5px !important;    /* Допълнително пазене от горния ръб */
+        margin-bottom: 10px !important; /* Разстояние до менюто отдолу */
+        display: block !important;
+        padding: 0 !important;
     }
 
-    /* 5. БУТОНИТЕ - Подредени под логото */
+    li.small-logo img {
+        width: 130px !important;       /* Размерът, който харесахте */
+        height: auto !important;
+        max-width: none !important;
+        vertical-align: middle;
+    }
+
+    /* 3. Настройки на МЕНЮТО (Бутоните) */
+    .main-nav ul {
+        display: flex !important;      /* Гъвкава подредба */
+        flex-wrap: wrap !important;    /* Позволява пренасяне на нов ред */
+        justify-content: center !important; /* Центриране */
+        align-items: center !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        float: none !important;        /* Махаме старото подравняване */
+    }
+
     .main-nav li {
         display: inline-block !important;
-        margin: 0 2px !important; /* Малко разстояние между тях */
+        float: none !important;
+        margin: 2px 5px !important;    /* Разстояние между бутоните */
     }
 
     .main-nav li a {
         font-size: 13px !important;
-        padding: 8px 10px !important; /* По-компактни бутони */
-        border: none !important;
-        line-height: normal !important; /* Да не раздуват излишно */
+        padding: 8px 12px !important;
+        line-height: normal !important;
+        display: inline-block !important;
+        color: #333 !important;        /* Цвят на текста (тъмно сив) */
+    }
+    
+    /* Допълнителна застраховка за контейнера на навигацията */
+    .container {
+        width: 100% !important;
     }
 }
