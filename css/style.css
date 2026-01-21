@@ -1101,33 +1101,44 @@ border: 2px solid #fff;
 }
 
 
-/* САМО ЗА ЛАПТОПИ И КОМПЮТРИ (Над 768px) */
+/* ============================================================
+   ПРОФЕСИОНАЛНА КОРЕКЦИЯ: РАЗМЕРИ (Без чупене на скрола)
+   ============================================================ */
+
+/* Важи само за лаптопи и компютри (над 768px) */
 @media only screen and (min-width: 768px) {
-    
-    /* 1. ПРАВИМ МЕНЮТО "ТВЪРДО" (да не плува върху снимката) */
-    .header, #header, .main-nav-outer {
-        position: relative !important; /* КЛЮЧОВОТО: Вече не е 'fixed' или 'absolute' */
-        top: auto !important;
-        height: auto !important;
-        min-height: 140px !important; /* Място за логото */
-        background: #fff !important;
-        z-index: 99999 !important;
+
+    /* 1. Разширяваме лентата, за да побере логото */
+    /* НЕ пипаме position, top или z-index - оставаме ги на JS! */
+    .main-nav-outer, #test {
+        height: auto !important;         /* Позволява на лентата да расте */
+        min-height: 130px !important;    /* Достатъчно място за 100px лого */
+        padding-top: 5px !important;
+        padding-bottom: 5px !important;
+        
+        /* Гарантираме, че елементите вътре са центрирани */
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
     }
 
-    /* 2. НАСТРОЙКА НА ЛОГОТО */
+    /* 2. Настройка на ЛОГОТО (100px) */
     li.small-logo img {
-        width: 100px !important; /* ВАШИЯТ РАЗМЕР */
+        width: 100px !important;         /* ВАШИЯТ РАЗМЕР */
         height: auto !important;
+        max-width: none !important;
         display: block;
-        margin-top: 5px;
     }
     
-    /* 3. ОПРАВЯНЕ НА "ДУПКАТА" ОТГОРЕ */
-    /* Тъй като направихме менюто relative, то само ще бутне снимката. 
-       Просто се уверяваме, че снимката няма излишни отстояния. */
-    #intro, .intro-section {
-        margin-top: 0 !important;
-        padding-top: 0 !important;
+    /* 3. Центриране на бутоните спрямо новото лого */
+    .main-nav ul {
+        display: flex !important;
+        align-items: center !important;
+        height: 100% !important;
+    }
+    
+    .main-nav li a {
+        padding: 10px 15px !important;
     }
 }
 
