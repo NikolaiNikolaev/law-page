@@ -1131,14 +1131,25 @@ border: 2px solid #fff;
     }
     
     /* 3. Центриране на бутоните спрямо новото лого */
-    .main-nav ul {
+.main-nav ul {
         display: flex !important;
         align-items: center !important;
+        justify-content: center !important; /* Центрираме всичко */
         height: 100% !important;
+        width: 100% !important; /* Ползваме цялата ширина */
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    
+    .main-nav li {
+        margin: 0 2px !important; /* Съвсем малко разстояние между елементите */
     }
     
     .main-nav li a {
-        padding: 10px 15px !important;
+        /* НАМАЛЯВАМЕ ВЪЗДУХА ТУК: */
+        padding: 10px 8px !important; /* Беше 15px -> става 8px */
+        font-size: 13px !important;
+        white-space: nowrap !important; /* Забраняваме пренасяне на текста */
     }
 }
 
