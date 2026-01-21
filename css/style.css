@@ -1112,9 +1112,9 @@ border: 2px solid #fff;
     /* НЕ пипаме position, top или z-index - оставаме ги на JS! */
     .main-nav-outer, #test {
         height: auto !important;         /* Позволява на лентата да расте */
-        min-height: 130px !important;    /* Достатъчно място за 100px лого */
-        padding-top: 5px !important;
-        padding-bottom: 5px !important;
+        min-height: 110px !important;    /* Достатъчно място за 100px лого */
+        padding-top: 2px !important;
+        padding-bottom: 2px !important;
         
         /* Гарантираме, че елементите вътре са центрирани */
         display: flex !important;
