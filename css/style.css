@@ -1162,7 +1162,7 @@ border: 2px solid #fff;
     
     /* Увеличаваме размера на картинката */
     li.small-logo img {
-        width: 100px !important;   /* <-- ПРОМЕНЕТЕ ТОВА ЧИСЛО за по-голямо/малко */
+        width: 95px !important;   /* <-- ПРОМЕНЕТЕ ТОВА ЧИСЛО за по-голямо/малко */
         height: auto !important;
         max-width: none !important;
         padding-top: 5px;          /* Малка корекция да не се лепи горе */
