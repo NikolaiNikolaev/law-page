@@ -1100,42 +1100,48 @@ border: 2px solid #fff;
     }
 }
 
-/* ==============================================
-   БЕЗОПАСЕН РЕЖИМ ЗА ЛАПТОПИ И ТАБЛЕТИ (768px - 1200px)
-   ============================================== */
-@media only screen and (min-width: 768px) and (max-width: 1200px) {
+/* =================================================================
+   ФИНАЛНО РЕШЕНИЕ: ЗАБРАНА НА СКРИПТА ЧРЕЗ CSS (768px - 1100px)
+   ================================================================= */
+@media only screen and (min-width: 768px) and (max-width: 1100px) {
 
-    /* 1. ВРЪЩАНЕ НА НОРМАЛНОТО ПОВЕДЕНИЕ (Спираме конфликтите) */
-    .main-nav-outer, .header, #header {
-        position: relative !important;   /* Премахва "закотвянето" */
-        height: auto !important;         /* Позволява да расте на височина */
-        background-color: #fff !important;
+    /* 1. ЯДРЕНА ОПЦИЯ: Спираме всякакво движение на менюто */
+    /* Изброяваме всички възможни ID-та и класове, за да сме сигурни */
+    #test, .main-nav-outer, .header, header, nav {
+        position: relative !important;   /* Презаписва JS 'fixed' */
+        top: auto !important;            /* Премахва JS позицията */
+        left: auto !important;
+        height: auto !important;         /* Оставя го да расте */
+        width: 100% !important;
+        background: #fff !important;
+        z-index: 1000 !important;
+        transform: none !important;      /* Спира анимации */
         padding-top: 20px !important;
         padding-bottom: 20px !important;
-        z-index: 1000 !important;
     }
 
-    /* 2. ЛОГОТО - НАЙ-ОТГОРЕ, ГОЛЯМО И ЦЕНТРИРАНО */
+    /* 2. ЛОГОТО - Най-отгоре и голямо */
     li.small-logo {
         display: block !important;
-        width: 100% !important;          /* Заема цял ред */
-        text-align: center !important;   /* Центрира картинката */
-        margin-bottom: 15px !important;  /* Разстояние до бутоните отдолу */
+        width: 100% !important;
+        text-align: center !important;
         float: none !important;
+        margin-bottom: 15px !important;
     }
 
     li.small-logo img {
-        width: 150px !important;         /* Искахте го голямо и акцентно */
+        width: 150px !important;         /* Голямо, ясно лого */
         height: auto !important;
         max-width: none !important;
-        margin: 0 auto !important;       /* Центриране */
+        margin: 0 auto !important;
     }
 
-    /* 3. БУТОНИТЕ - ПОДРЕДЕНИ ОТДОЛУ */
+    /* 3. БУТОНИТЕ - Подредени под логото */
     .main-nav ul {
         display: flex !important;        /* Гъвкава кутия */
-        flex-wrap: wrap !important;      /* Позволява пренасяне */
-        justify-content: center !important; /* Центриране на бутоните */
+        flex-wrap: wrap !important;      /* Позволява нов ред */
+        justify-content: center !important; /* Центриране */
+        align-items: center !important;
         padding: 0 !important;
         margin: 0 !important;
         float: none !important;
@@ -1145,22 +1151,22 @@ border: 2px solid #fff;
         display: inline-block !important;
         float: none !important;
         width: auto !important;
-        margin: 5px 8px !important;      /* Разстояние между бутоните */
+        margin: 5px 6px !important;
     }
 
     .main-nav li a {
         font-size: 13px !important;
+        padding: 8px 12px !important;
         color: #333 !important;
-        padding: 5px 10px !important;
-        border-radius: 4px;
-        text-transform: uppercase;
-        font-weight: bold;
+        background-color: #f4f4f4 !important; /* Лек фон за бутоните */
+        border-radius: 4px !important;
     }
 
-    /* 4. ОПРАВЯНЕ НА "ЗАКОТВЕНАТА СНИМКА" (Intro) */
-    /* Тъй като менюто вече не е върху снимката, махаме излишните отстояния */
+    /* 4. ОПРАВЯНЕ НА ТЕКСТА ОТДОЛУ */
+    /* Тъй като спряхме "лепенето", менюто вече си заема физическо място
+       и автоматично ще бутне снимката надолу. Не трябват отстояния. */
     #intro, .intro-section {
-        padding-top: 0 !important;
         margin-top: 0 !important;
+        padding-top: 0 !important;
     }
 }
