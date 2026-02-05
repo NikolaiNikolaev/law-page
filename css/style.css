@@ -630,5 +630,92 @@ p{
 .delay-04s { animation-delay: 0.4s; -webkit-animation-delay: 0.4s; }
 .delay-05s { animation-delay: 0.5s; -webkit-animation-delay: 0.5s; }
 .delay-06s { animation-delay: 0.6s; -webkit-animation-delay: 0.6s; }
+
+/* ============================================================
+   СПЕШНИ ПОПРАВКИ (05.02.2025)
+   ============================================================ */
+
+/* 1. МЕНЮ: ЦЕНТРИРАНЕ НА БУТОНИТЕ СПРЯМО ЛОГОТО */
+.main-nav-outer .container {
+    align-items: center !important; /* Вертикално центриране */
+}
+.main-nav li a {
+    display: inline-block !important;
+    vertical-align: middle !important; /* Гаранция за център */
+    line-height: normal !important;    /* Махаме старото изместване */
+    margin-top: 0 !important;          /* Махаме излишни отстояния */
+    padding: 10px 15px !important;
+}
+li.small-logo img {
+    vertical-align: middle !important;
+    margin: 0 !important;
+}
+
+/* 2. НАМАЛЯВАНЕ НА РАЗСТОЯНИЕТО МЕЖДУ КАРТИНКАТА И УСЛУГИТЕ */
+#service {
+    padding-top: 60px !important; /* Беше 130px, сега е 60px */
+}
+
+/* 3. ПОДРАВНЯВАНЕ НА ФИЗИЧЕСКИ ЛИЦА (Всички да започват еднакво) */
+/* Увеличаваме мястото за иконата, за да не "бута" текста */
+.featured-box-col1 {
+    width: 70px !important;        /* Повече място за иконата */
+    margin-right: 10px !important; 
+    text-align: center !important;
+}
+.featured-box-col2 {
+    display: block !important;
+    overflow: hidden !important;   /* ВАЖНО: Това спира текста да влиза под иконата */
+    padding-left: 0 !important;
+}
+.featured-box p {
+    padding-left: 0 !important;    /* Текстът започва от ръба на колоната си */
+    text-align: justify !important;
+}
+
+/* 4. ОПРАВЯНЕ НА СИВИЯ ФОН (Да не влиза в "За нас") */
+.main-section.alabaster {
+    padding-bottom: 60px !important; /* Нормален отстъп */
+    margin-bottom: 0 !important;     /* Да не избутва долната секция */
+    background: #f9f9f9 !important;  /* Сивият фон */
+}
+/* Секцията "За нас" (Portfolio) започва на чисто */
+#Portfolio {
+    background: #fff !important;     /* Бял фон */
+    padding-top: 80px !important;    /* Отделяме го от горното */
+    margin-top: 0 !important;
+}
+
+/* 5. КОЛЕКТИВ: ОПРАВЯНЕ НА ЗАТЪМНЕНИЕТО И СИНИТЕ ИКОНКИ */
+/* Оправяне на "дупката" в средата при ховър */
+.team-leader:hover .team-leader-shadow {
+    /* Увеличаваме сянката драстично, за да покрие целия кръг */
+    box-shadow: inset 0px 0px 0px 400px rgba(17,17,17,0.80) !important;
+}
+/* Иконките да стават цветни при минаване с мишка */
+.team-leader ul li a.fa-twitter:hover { color: #55acee !important; }
+.team-leader ul li a.fa-facebook:hover { color: #3b5998 !important; }
+.team-leader ul li a.fa-pinterest:hover { color: #cb2026 !important; }
+.team-leader ul li a.fa-google-plus:hover { color: #dd4b39 !important; }
+.team-leader ul li a.fa-linkedin:hover { color: #0077b5 !important; }
+
+/* 6. МАХАНЕ НА ФОНОВЕТЕ ПРИ КОНТАКТИ И СЪОБЩЕНИЕТО */
+/* Махане на сивия фон при контактите */
+.main-section.contact {
+    background-color: #ffffff !important; /* Бял фон */
+    /* Запазваме картата, ако искате, но махаме сивото */
+    background-image: url(../img/bg-map.png) !important; 
+    background-repeat: no-repeat !important;
+    background-position: left 190px !important;
+    filter: none !important; /* Махаме филтрите, които правеха сиво */
+}
+
+/* Скриване на съобщението "Благодаря", докато не се прати */
+#sendmessage, #form-message {
+    display: none; 
+}
+.validation {
+    display: none; /* Скриваме и грешките по подразбиране */
+}
 .delay-07s { animation-delay: 0.7s; -webkit-animation-delay: 0.7s; }
 .delay-1s { animation-delay: 1s; -webkit-animation-delay: 1s; }
