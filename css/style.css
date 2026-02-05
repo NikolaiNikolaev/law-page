@@ -1354,30 +1354,55 @@ border: 2px solid #fff;
     column-rule: 1px solid #eee; 
 }
 
-/* На мобилни телефони - да стане една колона, за да се чете */
+/* ============================================================
+   ФИНАЛНА КОРЕКЦИЯ НА КОЛОНИТЕ (РАЗДЕЛЯНЕ ПО ЕКРАНИ)
+   ============================================================ */
+
+/* 1. НАСТРОЙКИ ЗА МОБИЛЕН ТЕЛЕФОН (Малък екран) */
 @media only screen and (max-width: 768px) {
+    /* Текстът за корпоративни клиенти става една колона */
     .two-columns-text {
         column-count: 1;
     }
 
-    /* ДОБАВЯМЕ ТОВА ЗА КОЛОНИТЕ В СЪЩИЯ БЛОК: */
-    
-    /* Принуждаваме колоните да са точно 50% и една до друга */
+    /* Услугите стават една под друга (100% ширина) */
     .services-columns .col-lg-6 {
-        width: 50% !important;
-        float: left !important;
+        width: 100% !important;
+        float: none !important;
         display: block !important;
-        flex: 0 0 50%;          /* За всеки случай, ако се ползва flex */
-        max-width: 50%;
+        margin-bottom: 30px !important;
     }
     
-    /* Подравняване на текста и иконите в тези колони */
-    .services-columns .service-list-col1 {
-        float: left !important; /* Иконата вляво */
+    /* Центрираме заглавието на мобилен */
+    .services-columns .service-list-col2 h3 {
+        text-align: left !important;
+    }
+}
+
+/* 2. НАСТРОЙКИ ЗА ЛАПТОП И КОМПЮТЪР (Голям екран) */
+@media only screen and (min-width: 769px) {
+
+    /* Този код принуждава колоните да застанат една до друга */
+    .services-columns .col-lg-6 {
+        width: 50% !important;      /* Точно половината екран */
+        float: left !important;     /* Залепват се вляво */
+        display: block !important;
+        margin: 0 !important;       /* Махаме всякакви размествания */
+        padding: 0 15px !important; /* Малко въздух отстрани */
+        box-sizing: border-box !important;
+        min-height: 250px;          /* За да не се "счупи" ако едната е по-къса */
+    }
+
+    /* Гарантираме, че контейнерът не ги ограничава */
+    .services-columns {
+        display: block !important;
+        width: 100% !important;
     }
     
-    .services-columns .service-list-col2 {
-        text-align: left !important; /* Текстът подравнен вляво */
-        padding-left: 60px; /* Да не влиза под иконата */
+    /* Почистване след колоните (за да не се развали секцията отдолу) */
+    .services-columns:after {
+        content: "";
+        display: table;
+        clear: both;
     }
 }
