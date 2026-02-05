@@ -1273,7 +1273,7 @@ border: 2px solid #fff;
 /* --- ВЪЗДУХ ПОД СНИМКАТА --- */
 .team-leader-box h3 {
     /* Добавяме 50 пиксела разстояние НАД името */
-    margin-top: 50px !important; 
+    margin-top: 15px !important; 
     margin-bottom: 5px !important; /* Малко разстояние под името */
 }
 /* ============================================================
