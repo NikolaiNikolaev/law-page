@@ -1265,7 +1265,7 @@ border: 2px solid #fff;
     margin: 0 auto !important;   /* Автоматично центриране */
     display: block !important;
     max-width: 350px !important; /* Ограничаваме ширината, за да стои прибрано */
-    text-align: justify !important;
+    text-align: center !important;
 }
 
 /* Центрираме и самата снимка вътре */
