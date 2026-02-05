@@ -7,13 +7,13 @@
 
 /* CSS Document */
 
-/* Float Elements 
----------------------------------*/
+/* ============================================================
+   1. BASIC STYLES & RESET
+   ============================================================ */
+
 .fl-lt {float:left;}
 .fl-rt {float:right;}
 
-/* Clear Floated Elements
----------------------------------*/
 .clear {
   clear: both;
   display: block;
@@ -51,8 +51,6 @@ a, a:hover, a:active{ outline:0px !important}
   font-style: normal;
 }
 
-/* Primary Styles
----------------------------------*/
 body {
 	background:#fff;
 	font-family: 'Open Sans', sans-serif;
@@ -60,7 +58,10 @@ body {
 	font-weight:normal;
 	color:#888888;
 	margin:0;
+    padding-top: 60px; /* Място за фиксираното меню */
 }
+
+/* ЗАГЛАВИЯ (Глобални) */
 h2{
 	font-size:34px;
 	color:#222222;
@@ -71,6 +72,7 @@ h2{
 	text-align:center;
 	text-transform:uppercase;
 }
+
 h3{
 	font-family: 'Montserrat', sans-serif;
 	color:#222222;
@@ -79,6 +81,7 @@ h3{
 	text-transform:uppercase;
 	font-weight:400;
 }
+
 h6{
 	font-size:16px;
 	color:#888888;
@@ -87,13 +90,15 @@ h6{
 	text-align:center;
 	margin:0 0 60px 0;
 }
+
 p{
 	line-height:24px;
 	margin:0;
 }
 
-/* Header Styles
----------------------------------*/
+/* ============================================================
+   2. HEADER & HERO SECTION
+   ============================================================ */
 
 .header {
     text-align: center;
@@ -103,10 +108,35 @@ p{
     overflow: hidden;
 }
 
+/* Тъмен слой върху снимката */
+.header::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.4); 
+    z-index: 0;
+}
+
+.header .container {
+    position: relative;
+    z-index: 1;
+}
+
 .logo{
 	width:130px;
 	margin:0 auto 35px;
 }
+
+/* Голямото лого в началото */
+.header .logo img {
+    width: 350px !important;    
+    max-width: 90% !important; 
+    height: auto !important;
+    display: block;
+    margin: 20px auto; 
+    object-fit: contain;       
+}
+
 .header h1{
 	font-family: 'Montserrat',sans-serif;
 	font-size:50px;
@@ -120,33 +150,20 @@ p{
 	padding:0;
 	margin:35px 0 55px;
 }
-.wp-pic{
-	margin-bottom:20px;
-}
+
+/* Текст: "Ние сме Вашите адвокати..." */
 .we-create li{
 	display:inline-block;
 	font-family: 'Montserrat',sans-serif;
 	font-size:14px;
-	color: #ffffff;
+	color: #ffffff !important; /* Бяло */
 	text-transform: uppercase;
-	font-weight: 600;
+	font-weight: 600 !important; /* Удебелено */
 	margin:0 5px 0 0;
 	padding:0 0 0 15px;
-	text-shadow: 1px 1px 3px rgba(0,0,0,0.9) !important;
+	text-shadow: 1px 1px 3px rgba(0,0,0,0.9) !important; /* Сянка за четимост */
 	opacity: 1 !important;
 }
-.we-create li:first-child{
-	background:none;
-}
-
-.start-button {
-	padding-left: 0px;
-}
-
-.start-button li a{
-color: #fff;
-}
-
 
 .link{
 	padding:15px 35px;
@@ -161,55 +178,83 @@ color: #fff;
 	line-height:25px;
 	margin-bottom:20px;
 	transition:all 0.3s ease-in-out;
-	-moz-transition:all 0.3s ease-in-out;
-	-webkit-transition:all 0.3s ease-in-out;
 }
+
 .link:hover {
 	text-decoration:none;
 	color:#001F3F !important;
 	background:#fff;
 }
 
-.link:active, .link:focus {
-	background: #001F3F;
-	text-decoration:none;
-	color:#fff !important;
+/* Лява информация (Телефон/Email) */
+.header-left-info {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: left;
+    z-index: 10;
+    line-height: 1.3;
 }
 
-/* Navigation
----------------------------------*/
+.info-group {
+    display: block;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 11px;
+    color: #333;
+    margin-bottom: 4px;
+}
 
-/* Фиксирано меню най-отгоре – винаги видимо */
+.info-label {
+    display: block;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #888;
+    font-size: 10px;
+}
+
+.info-value {
+    display: block;
+    font-weight: 800;
+    color: #000;
+    font-size: 12px;
+}
+
+@media only screen and (max-width: 1350px) {
+    .header-left-info { display: none !important; }
+}
+
+/* ============================================================
+   3. NAVIGATION (MENU)
+   ============================================================ */
+
 .main-nav-outer {
     position: fixed !important;
-    top: 0;
-    left: 0;
-    width: 100%;
+    top: 0; left: 0; width: 100%;
     z-index: 1000;
     background: #fff;
     border-bottom: 1px solid #dddddd;
     box-shadow: 0 4px 5px -3px #ececec;
     transition: background 0.4s ease;
-    min-height: 95px;   /* ← тук беше 70-80px, сега го направи 90px или 95px */
+    min-height: 95px;
     display: flex;
     align-items: center;
 }
 
-/* Леко прозрачно при скрол */
 .main-nav-outer.scrolled {
-    background: rgba(255, 255, 255, 0.85) !important; /* 92% непрозрачно – леко избледняване */
+    background: rgba(255, 255, 255, 0.85) !important;
 }
 
-
-/* За да не се скрива съдържанието под менюто */
-body {
-    padding-top: 60px; /* височина на твоето меню – ако е по-високо/ниско, тествай 60px или 80px */
+.main-nav-outer .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
 }
 
-/* Запазваме оригиналния стил на бутоните – един ред, без точки */
 .main-nav {
     text-align: center !important;
-    margin: 10px 0 0 !important;
+    margin: 0 !important;
     padding: 0 !important;
 }
 
@@ -227,1234 +272,363 @@ body {
     line-height:20px;
     margin:17px 32px;
     transition:all 0.3s ease-in-out;
-    -moz-transition:all 0.3s ease-in-out;
-    -webkit-transition:all 0.3s ease-in-out;
 }
 
 .main-nav li a:hover {
     color: #001F3F;
 }
 
-/* Поправка за центриране на лога в менюто и вертикално подравняване */
-.main-nav-outer .container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between; /* Логото ляво/център, менюто надясно */
-    padding: 10px 20px;
-}
-
-.small-logo {
-    margin: 0; /* премахваме допълнителни margin */
-    padding: 0;
-}
-
-.main-nav {
-    margin: 0;
-    padding: 0;
-}
-
-.main-nav li a {
-    margin: 0 20px; /* по-малко разстояние между линковете */
-    line-height: 60px; /* вертикално центриране спрямо височината на менюто */
-}
-
-.header .logo {
-    margin: 0 auto 20px; /* леко повече пространство под логото в хедъра */
-}
-
-/* Ако менюто все още не е подравнено – добави фиксирана височина */
-.main-nav-outer {
-    height: 80px; /* тествай с 70px или 90px */
-    display: flex;
-    align-items: center;
-}
-
-/* Featured Work
----------------------------------*/
-.featured-work{
-	font-size:14px;
-}
-.featured-work h2{
-	text-align:left;
-}
-.featured-box{
-	padding:0 0 0 0;
-	margin-bottom:25px;
-	font-size:14px;
-}
-.featured-box h3{
-	margin-bottom:5px;
-}
-.featured-box p {
-    line-height: 22px;
-    text-align: justify;
-}
-.featured-work p.padding-b{
-	padding-bottom:35px;
-}
-.featured-box-col1{
-	width:60px;
-	float:left;
-}
-.featured-box-col1 i{
-	display:block;
-	line-height:38px;
-	font-family: 'FontAwesome';
-	font-size:38px;
-	color:#777777;
-	font-style:normal;
-}
-.featured-box-col2{ overflow:hidden;}
-.featured-box.magic{
-	background:url(../img/magic.png) left top no-repeat;
-}
-.featured-box.packaged{
-	background:url(../img/packaged.png) left top no-repeat;
-}
-.featured-box.seo{
-	background:url(../img/seo.png) left top no-repeat;
-}
-.Learn-More{
-	display:inline-block;
-	padding:0 5px 0 0;
-	color:#001F3F;
-	font-size:16px;
-	text-transform:uppercase;
-	font-family: 'Montserrat', sans-serif;
-	font-weight:400;
-	line-height:24px;
-	transition:all 0.3s ease-in-out;
-	-moz-transition:all 0.3s ease-in-out;
-	-webkit-transition:all 0.3s ease-in-out;
-	display: none;
-}
-.Learn-More i{ 
-	padding-right:15px;
-}
-
-.Learn-More:hover, .Learn-More:focus{ 
-	text-decoration:none;
-	color: #111;
-}
-
-
-/* Portfolio
----------------------------------*/
-.Portfolio-nav{
-	padding:0;
-	margin:0 0 45px 0;
-	list-style:none;
-	text-align:center;
-}
-.Portfolio-nav li{
-	margin:0 10px;
-	display:inline;
-}
-.Portfolio-nav li a{
-	display:inline-block;
-	padding:10px 22px;
-	font-size:12px;
-	line-height:20px;
-	color:#222222;
-	border-radius:4px;
-	text-transform:uppercase;
-	font-family: 'Montserrat', sans-serif;
-	background:#f7f7f7;
-	margin-bottom:5px;
-	transition:all 0.3s ease-in-out;
-	-moz-transition:all 0.3s ease-in-out;
-	-webkit-transition:all 0.3s ease-in-out;
-}
-.Portfolio-nav li a:hover{
-	background:#001F3F;
-	color:#fff;
-	text-decoration:none;
-}
-
-.portfolioContainer{
-	margin:0 auto;
-	padding-left:15px;
-}
-
-.Portfolio-box{
-	text-align:center;
-	margin-bottom:30px;
-	height:350px;
-	width:350px;
-	overflow:hidden;
-	float:left;
-	padding:0;
-}
-.Portfolio-box img{
-	margin-bottom:25px;
-	transition:all 0.3s ease-in-out;
-	-moz-transition:all 0.3s ease-in-out;
-	-webkit-transition:all 0.3s ease-in-out;	
-}
-
-.Portfolio-box img:hover {
-	opacity: 0.6;
-}
-
-.Portfolio-nav li a.current{
-	background:#001F3F;
-	color:#fff;
-	text-decoration:none;
-}
-img {
-   max-width:100%;
-}
-
-/* no transition on .isotope container */
-
-.isotope .isotope-item {
-  /* change duration value to whatever you like */
-  -webkit-transition-duration: 0.6s;
-     -moz-transition-duration: 0.6s;
-          transition-duration: 0.6s;
-}
-
-.isotope .isotope-item {
-  -webkit-transition-property: -webkit-transform, opacity;
-     -moz-transition-property:    -moz-transform, opacity;
-          transition-property:         transform, opacity;
-}
-
-.main-section.paddind{
-	padding-bottom:60px;
-}
-
-/* Clients
----------------------------------*/
-.client-part{
-	background:url(../img/section-bg1.jpg) center center no-repeat;
-	background-size:cover;
-	padding:55px 0;
-	text-align:center;
-}
-.client-part-haead{
-	color:#fdfdfd;
-	font-size:28px;
-	line-height:41px;
-	margin:30px 0 10px;
-	font-family: ''Open Sans',sans-serif';
-	font-style: italic;
-}
-.client{
-	padding:0;
-	margin:20px 0 0;
-	list-style:none;
-	text-align:center;
-}
-.client li{
-	display:inline;
-	margin:0 15px;
-}
-.client li a{
-	display:inline-block;
-}
-.client li a img{
-	margin-bottom:15px;
-	border-radius:50%;
-}
-.client li a:hover{
-	text-decoration:none;
-}
-.client li a h3{
-	color:#ffffff;
-}
-.client li a span{
-	color:#f1f1f1;
-}
-.quote-right{
-	font-style:normal;
-	width:68px;
-	height:68px;
-	margin:0 auto;
-	border:2px solid #001F3F;
-	border-radius:50%;
-	display:block;
-	line-height:68px;
-	text-align:center;
-	font-size:27px;
-	color:#001F3F;
-	cursor: pointer;
-	transition:all 0.3s ease-in-out;
-	-moz-transition:all 0.3s ease-in-out;
-	-webkit-transition:all 0.3s ease-in-out;
-}
-
-.quote-right:hover{
-color: #fff;
-border: 2px solid #fff;
-}
-
-.c-logo-part{
-	background:#001F3F;
-	padding:25px 0;
-    filter: alpha(opacity=60);
-}
-.c-logo-part ul{
-	padding:0;
-	margin:0;
-	list-style:none;
-	text-align:center;
-}
-.c-logo-part ul li{
-	display:inline;
-	margin:0 25px;
-}
-.c-logo-part ul a{
-	display:inline-block;
-	margin: 0 20px;
-}
-.main-section.team{
-	padding:85px 0;
-}
-.main-section.team h6{
-	margin-bottom:40px;
-}
-
-
-/* Team
----------------------------------*/
-.team-leader-block{
-	max-width:993px;
-	margin:0 auto;
-}
-.team-leader-box{
-	width:30.66%;
-	margin-right: 3.82979%;
-	height: 490px;
-	overflow: hidden;
-	text-align: justify;
-	float: left;
-}
-.team-leader-box span{
-	margin-bottom:24px;
-	display:block;
-}
-.team-leader-box:nth-of-type(3n+0){ margin:0;}
-.team-leader {
-    width: auto;
-    height: auto;
-    position: relative;
-    border-radius: 50%;
-    box-shadow: 0px 0px 0px 7px rgba(241,241,241,0.80);
-    /* БЕШЕ: margin:7px 7px 25px 7px; */
-    /* ПРОМЕНЯМЕ НА: 45px отдолу, за да има въздух до името */
-    margin: 7px 7px 45px 7px !important; 
-}
-.team-leader-shadow{
-	transition:all 0.3s ease-in-out;
-	-moz-transition:all 0.3s ease-in-out;
-	-webkit-transition:all 0.3s ease-in-out;
-	border-radius:50%;
-	position:absolute;
-	width:100%;
-	height:100%;
-	z-index:10;
-	border-radius:50%;
-}
-.team-leader-shadow a{
-	display:block;
-	width:100%;
-	height:100%;
-}
-.team-leader:hover .team-leader-shadow{
-	box-shadow:inset  0px 0px 0px 148px rgba(17,17,17,0.80);
-}
-.team-leader:hover ul{ display:block; opacity:1}
-.team-leader img{
-	display:block;
-	border-radius:50%;
-}
-.team-leader ul{
-	display:block;
-	opacity:0;
-	padding:0;
-	margin:0;
-	list-style:none;
-	position:absolute;
-	left:0;
-	top:50%;
-	width:100%;
-	text-align:center;
-	margin-top:-14px;
-	z-index:15;
-	transition:all 0.6s ease-in-out;
-	-moz-transition:all 0.6s ease-in-out;
-	-webkit-transition:all 0.6s ease-in-out;
-}
-.team-leader ul li{
-	display:inline;
-	margin:0 11px;
-}
-.team-leader ul li a{
-	font-family: 'FontAwesome';
-	display:inline-block;
-	font-size:28px;
-	color:#fff;	
-	transition:all 0.3s ease-in-out;
-	-moz-transition:all 0.3s ease-in-out;
-	-webkit-transition:all 0.3s ease-in-out;
-}
-.team-leader ul li a:hover, .team-leader ul li a:focus{
-	text-decoration:none;
-}
-.team-leader ul li a.fa-twitter:hover{
-	color:#55acee;
-}
-.team-leader ul li a.fa-facebook:hover{
-	color:#3b5998;
-}
-.team-leader ul li a.fa-pinterest:hover{
-	color:#cb2026;
-}
-.team-leader ul li a.fa-google-plus:hover{
-	color:#dd4b39;
-}
-
-/* Talk Business
----------------------------------*/
-.business-talking{
-	background:url(../img/spodelete-kazus-1.jpg) top center no-repeat;
-	background-size:cover;
-	padding:60px 0 10px;
-	text-align:center;
-}
-.business-talking h2{
-	font-family: 'Montserrat', sans-serif;
-	font-weight:700;
-	padding:0;
-	margin:20px 0 70px;
-	text-transform:uppercase;
-	font-size:42px;
-	color:#fff;
-}
-
-
-/* Contact
----------------------------------*/
-.main-section.contact{
-	padding:90px 0 100px;
-}
-
-.main-section.contact{
-	background:url(../img/bg-map.png) left 190px no-repeat;
-	filter: contrast(1.1) darken(0.9);
-}
-.contact-info-box{
-	font-size:15px;
-	margin:0 0 14px 68px;
-	padding-left:0;
-}
-.contact-info-box h3{
-	font-size: 15px;
-	font-weight:400;
-	float:left;
-	width:102px;
-	margin-right:12px;
-	line-height:28px;
-}
-.contact-info-box h3 i{
-	font-style:normal;
-	font-size:18px;
-	color:#222222;
-	font-family: 'FontAwesome';
-	font-weight:normal;
-	margin-right:7px;
-}
-.contact-info-box span{
-	line-height:28px;
-	display:block;
-	overflow:hidden;
-}
-.social-link{
-	padding:35px 0;
-	margin:0 0 0 68px;
-	display:block;
-	overflow:hidden;
-	list-style:none;
-}
-.social-link li{
-	float:left;
-	margin-right:8px;
-}
-.social-link li a{
-	display:block;
-	width:50px;
-	height:50px;
-	text-align:center;
-	line-height:50px;
-	font-size:25px;
-	color:#fff;
-	background:#222222;
-	border-radius:50%;
-	transition:all 0.3s ease-in-out;
-}
-.social-link li a:hover, .social-link li a:focus{
-	text-decoration:none;
-}
-.twitter a:hover {
-	background: #55acee;
-}
-.facebook a:hover {
-	background: #3b5998;
-}
-.pinterest a:hover {
-	background: #cb2026;
-}
-.gplus a:hover {
-	background: #dd4b39;
-}
-.dribbble a:hover {
-	background: #ea4c89;
-}
-
-.form{
-	margin:0 66px 0 30px;
-}
-.input-text{
-	padding:15px 16px;
-	border:1px solid #ccc;
-	width:100%;
-	height:50px;
-	display:block;
-	border-radius:4px;
-	font-size:15px;
-	color:#aaa;
-	font-family: 'Open Sans', sans-serif;
-	margin:0 0 15px 0;
-	transition:all 0.3s ease-in-out;
-	-moz-transition:all 0.3s ease-in-out;
-	-webkit-transition:all 0.3s ease-in-out;
-}
-.input-text:focus {
-	border: 1px solid #001F3F;
-	outline:0;
-	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(124, 197, 118, 0.3);
-	-moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(124, 197, 118, 0.3);	
-	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(124, 197, 118, 0.3);
-}
-
-.input-text.text-area{
-	height:165px;
-	resize:none;
-	overflow:auto;
-}
-.input-btn{
-	width:175px;
-	height:50px;
-	background:#001F3F;
-	border-radius:4px;
-	color:#ffffff;
-	font-size:14px;
-	text-transform:uppercase;
-	font-family: 'Montserrat', sans-serif;
-	font-weight:400;
-	border:0px;
-	transition:all 0.3s ease-in-out;
-	-moz-transition:all 0.3s ease-in-out;
-	-webkit-transition:all 0.3s ease-in-out;
-}
-
-.input-btn:hover{
-	background: #111;
-	color: #fff;
-}
-
-.validation {
-    color: red;
-    display:none;
-    margin: 0 0 20px;
-    font-weight:400;
-    font-size:13px;
-}
-
-#sendmessage {
-    color: #001F3F;
-    border:1px solid #001F3F;
-    display:none;
-    text-align:center;
-    padding:15px;
-    font-weight:600;
-    margin-bottom:15px;
-}
-
-#errormessage {
-    color: red;
-    display:none;
-    border:1px solid red;
-    text-align:center;
-    padding:15px;
-    font-weight:600;
-    margin-bottom:15px;
-}
-
-#sendmessage.show, #errormessage.show, .show {
-	display:block;
-}
-
-/* Footer
----------------------------------*/
-
-.footer{
-	background:url(../img/footer-photo.jpg) left top repeat;
-	padding:35px 0 35px;
-}
-.footer-logo{
-	margin:15px auto 35px;
-	width: 76px;
-}
-.copyright, .credits{
-	color:#cccccc;
-	font-size:14px;
-	display:block;
-	text-align:center;
-}
-.copyright a, .credits a{
-	color:#001F3F;
-	font-weight:600;
-	text-decoration: none;
-	transition:all 0.3s ease-in-out;
-	-moz-transition:all 0.3s ease-in-out;
-	-webkit-transition:all 0.3s ease-in-out;
-}
-
-.copyright a:hover, .credits a:hover {
-	color: #fff;
-}
-
-.res-nav_click {
-	line-height:38px;
-	font-family: 'FontAwesome';
-	font-size:38px;
-	text-decoration: none !important;
-	color:#777777;
-	font-style:normal;
-	display:none;
-	width:42px;
-	height:27px;
-	margin:20px auto;
-	transition:all 0.3s ease-in-out;
-	-moz-transition:all 0.3s ease-in-out;
-	-webkit-transition:all 0.3s ease-in-out;
-}
-
-.res-nav_click:hover, .res-nav_click:active, .res-nav_click:focus {
-	color: #001F3F !important;
-}
-
-.portfolioContainer{
-	max-width: 1140px;
-}
-
-
-/* Animation Timers
----------------------------------*/
-.delay-02s { 
-	animation-delay: 0.2s; 
-	-webkit-animation-delay: 0.2s; 
-}
-.delay-03s { 
-	animation-delay: 0.3s; 
-	-webkit-animation-delay: 0.3s; 
-}
-.delay-04s { 
-	animation-delay: 0.4s; 
-	-webkit-animation-delay: 0.4s; 
-}
-
-.delay-05s { 
-	animation-delay: 0.5s; 
-	-webkit-animation-delay: 0.5s; 
-}
-.delay-06s { 
-	animation-delay: 0.6s; 
-	-webkit-animation-delay: 0.6s; 
-}
-
-.delay-07s { 
-	animation-delay: 0.7s; 
-	-webkit-animation-delay: 0.7s; 
-}
-.delay-08s { 
-	animation-delay: 0.8s; 
-	-webkit-animation-delay: 0.8s; 
-}
-
-.delay-09s { 
-	animation-delay: 0.9s; 
-	-webkit-animation-delay: 0.9s; 
-}
-.delay-1s { 
-	animation-delay: 1s; 
-	-webkit-animation-delay: 1s; 
-}
-.delay-12s { 
-	animation-delay: 1.2s; 
-	-webkit-animation-delay: 1.2s; 
-}
-.input-btn:disabled {
-    background: #cccccc !important; /* по-светло сиво */
-    cursor: not-allowed;
-    color: #666; /* тъмносив текст */
-    opacity: 0.7; /* леко прозрачен */
-}
-/* Валидация на полета - червена/зелена рамка */
-.form-control:invalid,
-.form-control.is-invalid {
-    border: 1px solid red !important;
-}
-
-.form-control:valid,
-.form-control.is-valid {
-    border: 1px solid #001F3F !important;
-}
-
-/* Стилизация на грешките под полетата (балончета) */
-.validation {
-    color: red;
-    font-size: 12px;
-    margin-top: 0;
-    height: 0;
-    overflow: hidden;
-    transition: height 0.3s ease;
-}
-
-.validation.show {
-    height: 18px; /* или колкото е височината на текста – можеш да тестваш с 20px */
-    margin-top: 5px;
-}
-.form-control.is-invalid {
-    box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
-}
-/* Спираме червената рамка при първоначално зареждане на required полета */
-.form-control:required:invalid,
-.form-control[required]:invalid {
-    border: 1px solid #001F3F !important; /* Нормален сив цвят за рамка при старт (промени #ccc на твоя нормален цвят, ако е различен) */
-    box-shadow: none !important; /* Без сянка */
-}
-
-/* Червено САМО когато полето е докоснато и грешно */
-.form-field.is-invalid {
-    border: 1px solid red !important;
-    box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25) !important;
-}
-
-/* Зелено когато е ОК и докоснато */
-.form-field.is-valid {
-    border: 1px solid #7cc576 !important;
-    box-shadow: 0 0 0 0.2rem rgba(124, 197, 118, 0.25) !important;
-}
-
-@media (max-width: 991px) {
-    .main-nav li a {
-        margin: 10px 20px; /* малко по-малко разстояние на мобилен/таблет */
+/* --- НАСТРОЙКИ ЗА ГОЛЕМИ ЕКРАНИ (МЕНЮ) --- */
+@media only screen and (min-width: 768px) {
+    .main-nav-outer, #test {
+        height: auto !important;
+        min-height: 0px !important;
+        padding-top: 5px !important;
+        padding-bottom: 5px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
     }
+
+    li.small-logo img {
+        width: 95px !important;
+        height: auto !important;
+        display: block;
+        margin: 0 !important;
+        padding-top: 5px;
+    }
+
+    .main-nav ul {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        width: 100% !important;
+    }
+    
+    .main-nav li a {
+        padding: 10px 8px !important;
+        font-size: 13px !important;
+        white-space: nowrap !important;
+        margin: 0 10px !important;
+    }
+    
+    .res-nav_click { display: none !important; }
 }
 
-
-/* Оригинален header стил */
-.header {
-    text-align: center;
-    background: url(../img/pw_maze_black_2X.png) left top repeat; /* оригиналната картинка */
-    padding: 280px 0;
-}
-
-
-.logo img {
-    width: 150px; /* промени на твоята ширина, напр. 120px или 200px */
-}
-/* Увеличаване на малкото лого в менюто */
-.small-logo img {
-    height: 55px; /* ← Това е височината – пробвай 60px, 70px или 80px */
-	width: auto;  /* За да се запази пропорцията */
-    margin: 0 auto; /* Центриране, ако трябва */
-}
-
-/* Централно лого в header – увеличаване на самата картинка, без разтягане и без промяна на разстоянието под нея */
-.header .logo img {
-    width: 450px;               /* ← Основен размер – това прави картинката по-голяма като цяло */
-    height: auto;               /* Запазва пропорциите – не се разтяга вертикално */
-    max-width: 90%;             /* Не излиза извън екрана на тесни устройства */
-    display: block;
-    margin: 20px auto;          /* Центриране и фиксирано пространство (не се променя при увеличаване) */
-    object-fit: contain;        /* Не се разтяга или изрязва – показва цялото лого */
-}
-
-.header::before {
-    content: "";
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(0, 0, 0, 0.4); /* 40% черно затъмняване – промени 0.4 на 0.3 или 0.5 */
-    z-index: 0;
-}
-
-.header .container {
-    position: relative;
-    z-index: 1; /* текста над затъмняването */
-}
-
-
-  /* Оригинално хоризонтално меню на десктоп – връщаме както беше в началото */
-.main-nav {
-    display: block;
-    text-align: center;
-    margin: 10px 0 0;
-    padding: 0;
-}
-
-.main-nav li {
-    display: inline;
-    margin: 0 1px;
-}
-
-.main-nav li a {
-    margin: 17px 32px;
-    line-height: 20px;
-}
-
-/* Хамбургер и responsive само на малки екрани (под 768px) */
+/* --- НАСТРОЙКИ ЗА МОБИЛНИ (МЕНЮ) --- */
 @media only screen and (max-width: 767px) {
     .main-nav {
         display: none;
         position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
+        top: 100%; left: 0; width: 100%;
         background: #fff;
         box-shadow: 0 5px 10px rgba(0,0,0,0.1);
         text-align: center;
         padding: 20px 0;
     }
 
-    .main-nav.active {
-        display: block;
-    }
-
-    .main-nav li {
-        display: block;
-        margin: 10px 0;
-    }
-
-    .main-nav li a {
-        margin: 0;
-        padding: 15px 30px;
-        display: block;
-    }
+    .main-nav.active { display: block; }
+    .main-nav li { display: block; margin: 10px 0; }
+    .main-nav li a { margin: 0; padding: 15px 30px; display: block; }
 
     .res-nav_click {
         display: block !important;
         position: absolute;
-        right: 20px;
-        top: 50%;
+        right: 20px; top: 50%;
         transform: translateY(-50%);
         font-size: 32px;
         cursor: pointer;
-    }
-}
-
-@media only screen and (min-width: 768px) {
-    .res-nav_click {
-        display: none !important;
-    }
-}
-
-/* това е промя на колоните на услугите - да бъдат центрирани и друстраноо подравнени*/
-/* Две колони за корпоративни клиенти */
-.services-columns {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 30px;
-    margin: 40px 0;
-}
-
-.services-columns .service-list {
-    flex: 1 1 45%;
-    min-width: 300px;
-}
-
-.services-columns h3 {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-/* Премахване на точки пред li (bullets) */
-.services-columns ul.no-bullets {
-    list-style: none;
-    padding-left: 0;
-}
-
-.services-columns ul li {
-    text-align: justify;
-    margin-bottom: 20px;
-}
-
-/* На мобилен – една колона */
-@media (max-width: 767px) {
-    .services-columns {
-        flex-direction: column;
-        gap: 30px;
-    }
-
-    .services-columns .service-list {
-        flex: 1 1 100%;
-    }
-}
-
-
-/* ============================================================
-   ПРОФЕСИОНАЛНА КОРЕКЦИЯ: РАЗМЕРИ (Без чупене на скрола)
-   ============================================================ */
-
-/* Важи само за лаптопи и компютри (над 768px) */
-@media only screen and (min-width: 768px) {
-
-    /* 1. Разширяваме лентата, за да побере логото */
-    /* НЕ пипаме position, top или z-index - оставаме ги на JS! */
-    .main-nav-outer, #test {
-        height: auto !important;         /* Позволява на лентата да расте */
-        min-height: 0px !important;    /* Достатъчно място за 100px лого */
-        padding-top: 5px !important;
-        padding-bottom: 5px !important;
-        
-        /* Гарантираме, че елементите вътре са центрирани */
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-    }
-
-    /* 2. Настройка на ЛОГОТО (100px) */
-    li.small-logo img {
-        width: 90px !important;         /* Променете на 80px за още по-тънка лента */
-        height: auto !important;
-        display: block;
-        margin: 0 !important;
-    }
-    
-    /* 3. Центриране на бутоните спрямо новото лого */
-.main-nav ul {
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important; /* Центрираме всичко */
-        height: 100% !important;
-        width: 100% !important; /* Ползваме цялата ширина */
-        margin: 0 !important;
-        padding: 0 !important;
-    }
-    
-    .main-nav li {
-        margin: 0 2px !important; /* Съвсем малко разстояние между елементите */
-    }
-    
-    .main-nav li a {
-        /* НАМАЛЯВАМЕ ВЪЗДУХА ТУК: */
-        padding: 10px 8px !important; /* Беше 15px -> става 8px */
-        font-size: 13px !important;
-        white-space: nowrap !important; /* Забраняваме пренасяне на текста */
+        color: #777;
     }
 }
 
 /* ============================================================
-   УВЕЛИЧАВАНЕ НА ЛОГАТА (САМО ЗА ГОЛЕМИ ЕКРАНИ)
+   4. SERVICES (УСЛУГИ - ОБЩИ НАСТРОЙКИ)
    ============================================================ */
 
-/* 1. ЛОГО В МЕНЮТО (Бялата лента) */
-@media only screen and (min-width: 768px) {
-    
-    /* Увеличаваме размера на картинката */
-    li.small-logo img {
-        width: 95px !important;   /* <-- ПРОМЕНЕТЕ ТОВА ЧИСЛО за по-голямо/малко */
-        height: auto !important;
-        max-width: none !important;
-        padding-top: 5px;          /* Малка корекция да не се лепи горе */
-    }
-
-    /* Казваме на бутоните да стоят вертикално центрирани спрямо голямото лого */
-    .main-nav li {
-        vertical-align: middle !important; 
-    }
-
-    /* Казваме на бялата лента да се разпъне, за да побере новото лого */
-    .main-nav-outer, #test {
-        padding-top: 5px !important;
-        padding-bottom: 5px !important;
-        height: auto !important;   /* Това позволява на лентата да стане по-дебела */
-    }
-}
-
-/* ============================================================
-   1. НАСТРОЙКИ ЗА НАЧАЛНИЯ ЕКРАН (Hero Section)
-   ============================================================ */
-
-/* Увеличаване на централното лого */
-/* Използваме 'animation-name' за да сме сигурни, че хващаме точното лого */
-#logo img {
-    width: 350px !important;    /* Увеличих го на 350px, за да е видимо */
-    max-width: 90% !important;  /* За мобилни телефони */
-    height: auto !important;
-}
-
-/* Увеличаване на текста "Ние сме вашите адвокати..." */
-.intro-section .intro {
-    font-size: 24px !important;      /* Значително по-голям шрифт */
-    font-weight: 700 !important;     /* Удебелен */
-    text-transform: uppercase;       /* Главни букви (по избор) */
-    text-shadow: 2px 2px 4px #000;   /* Черен сянка, за да се чете върху снимката */
-    line-height: 1.4 !important;
-    margin-top: 20px !important;
-}
-
-/* ============================================================
-   ЛЯВА ИНФОРМАЦИЯ В МЕНЮТО (Телефони)
-   ============================================================ */
-
-/* 1. Основен стил за контейнера */
-.header-left-info {
-    position: absolute;       /* Изваждаме го от потока, за да не бута бутоните */
-    left: 20px;               /* Залепяме го вляво */
-    top: 50%;                 /* Центрираме вертикално */
-    transform: translateY(-50%);
-    text-align: left;
-    z-index: 10;
-    line-height: 1.3;
-}
-
-/* 2. Стил на самите редове */
-.info-group {
-    display: block;
-    font-family: 'Open Sans', sans-serif;
-    font-size: 11px;          /* По-дребен шрифт, за да е дискретно */
-    color: #333;
-    margin-bottom: 4px;       /* Разстояние между телефона и имейла */
-}
-
-/* 3. Стил на етикетите (Обадете се:) */
-.info-label {
-    display: block;
-    font-weight: 700;
-    text-transform: uppercase;
-    color: #888;              /* По-светъл цвят за етикета */
-    font-size: 10px;
-}
-
-/* 4. Стил на номера/имейла */
-.info-value {
-    display: block;
-    font-weight: 800;
-    color: #000;
-    font-size: 12px;
-}
-
-/* --- ВАЖНО: СКРИВАНЕ ПРИ МАЛКИ ЕКРАНИ --- */
-/* Ако екранът е по-малък от 1350px, информацията се скрива, 
-   за да не се застъпи с бутона "НАЧАЛО" */
-@media only screen and (max-width: 1350px) {
-    .header-left-info {
-        display: none !important;
-    }
-}
-
-/* ============================================================
-   2. ЦЕНТРИРАНЕ НА КОЛЕКТИВ (Адвокат Николаев)
-   ============================================================ */
-.team-leader-box {
-    float: none !important;      /* Махаме подравняването вляво */
-    margin: 0 auto !important;   /* Автоматично центриране */
-    display: block !important;
-    max-width: 350px !important; /* Ограничаваме ширината, за да стои прибрано */
-    text-align: center !important;
-}
-
-.team-leader-box p {
-    text-align: justify !important; /* Уверете се, че е justify */
-    padding: 0 10px !important;
-    margin-top: 15px !important;
-}
-
-/* БИОГРАФИЯ - Да се вижда целият текст на всякакъв екран */
-.team-leader-box {
-    height: auto !important;       /* Кутията расте колкото е текста */
-    overflow: visible !important;  /* Нищо не се реже */
-    min-height: 0 !important;      /* Махаме ограниченията */
-    margin-bottom: 50px !important;
-}
-
-/* Допълнителна застраховка за самия текст */
-.team-leader-box p {
-    white-space: normal !important; /* Текстът се пренася нормално */
-}
-
-/* Центрираме и самата снимка вътре */
-.team-leader {
-    margin: 0 auto !important;
-}
-
-/* --- ВЪЗДУХ ПОД СНИМКАТА --- */
-.team-leader-box h3 {
-    /* Добавяме 50 пиксела разстояние НАД името */
-    margin-top: 15px !important; 
-    margin-bottom: 5px !important; /* Малко разстояние под името */
-}
-/* ============================================================
-   3. КОРПОРАТИВНИ КЛИЕНТИ И УСЛУГИ
-   ============================================================ */
-
-/* Добавяме специфично правило за ID-то на услугите */
+/* Въздух над секцията с услугите */
 #service {
-    padding-top: 80px !important; /* Беше залепено, сега даваме въздух */
+    padding-top: 130px !important;
 }
 
-/* Стил за иконите в услугите (Търговци) - добавяме го тук, защото липсваше */
-.service-list-col1 i {
-    font-size: 24px;       /* ПРОМЯНА: Намаляваме от 28px на 24px */
-    line-height: 24px;     /* Синхронизираме с размера */
-    color: #333;
-    width: 35px;           /* ПРОМЯНА: Свиваме леко ширината (беше 40px) */
-    text-align: center;
-    display: inline-block;
+.main-section.alabaster{
+	background:#f9f9f9;
+	padding:90px 0;
 }
 
-/* ============================================================
-   ФИНАЛНО: ИКОНА + ЗАГЛАВИЕ, ТЕКСТ ПОД ТЯХ (ПЪЛНА ШИРИНА)
-   ============================================================ */
+/* ------------------------------------------------------------
+   УЕДНАКВЯВАНЕ: КОРПОРАТИВНИ КЛИЕНТИ И ФИЗИЧЕСКИ ЛИЦА
+   ------------------------------------------------------------ */
 
-/* 1. ИКОНКАТА: Стои вляво и "плува" */
+/* ЗАГЛАВИЯ НА УСЛУГИТЕ (Еднакви за всички) */
+.featured-box h3,            /* Физически лица */
+.service-list-col2 h3 {      /* Корпоративни клиенти */
+    font-size: 20px !important;       /* Увеличен размер */
+    color: #111111 !important;        /* Тъмен цвят */
+    font-weight: 700 !important;      /* Удебелено */
+    text-align: left !important;      /* Подравняване вляво */
+    margin-bottom: 15px !important;   
+    margin-top: 0 !important;
+    text-transform: uppercase !important;
+    font-family: 'Montserrat', sans-serif !important;
+}
+
+/* ИКОНИ (Еднакви за всички) */
+.featured-box-col1 i,        /* Физически лица */
+.service-list-col1 i {       /* Корпоративни клиенти */
+    font-size: 38px !important;       /* Голям размер */
+    line-height: 38px !important;
+    color: #333 !important;
+    width: 60px !important;           /* Ширина на контейнера */
+    text-align: center !important;
+    display: block !important;
+    font-family: 'FontAwesome';
+    font-style: normal;
+}
+
+/* КОНТЕЙНЕРИ ЗА ИКОНИТЕ */
+.featured-box-col1,
 .service-list-col1 {
     float: left !important;
-    margin-right: 15px !important; /* Разстояние между иконата и заглавието */
-    padding-top: 0 !important;
-    width: auto !important;
+    width: 60px !important;
+    margin-right: 20px !important;
 }
 
-/* 2. КОНТЕЙНЕРЪТ: Махаме всички стари ограничения */
+/* ТЕКСТ / ОПИСАНИЕ (Еднакъв за всички) */
+.featured-box p,
+.service-list-col2 p {
+    color: #555 !important;
+    text-align: justify !important;   /* Двустранно подравняване */
+    font-size: 14px !important;
+    line-height: 24px !important;
+    margin: 0 !important;
+}
+
+/* СПЕЦИАЛНО ЗА КОРПОРАТИВНИТЕ - Текстът да слиза под иконата */
+.service-list-col2 p {
+    clear: both !important;        /* Слиза на нов ред */
+    padding-left: 0 !important;    /* Започва от ръба */
+    margin-top: 10px !important;   /* Въздух над текста */
+    display: block !important;
+}
+
 .service-list-col2 {
     display: block !important;
     overflow: visible !important;
-    padding: 0 !important;
-    text-align: center !important; /* Това центрира заглавието */
 }
 
-/* 3. ЗАГЛАВИЕТО: Центрирано е, но стои на реда на иконата */
-.service-list-col2 h3 {
-    text-align: center !important;
-    margin-top: 2px !important;
-    margin-bottom: 8px !important; /* Намалено разстояние */
-    font-size: 15px !important;    /* ДОБАВЕТЕ: Намаляваме шрифта (беше 16-18px) */
-}
+/* ------------------------------------------------------------
+   СТРУКТУРА НА КОЛОНИТЕ (РЕДОВЕ)
+   ------------------------------------------------------------ */
 
-/* 4. ТЕКСТЪТ: Слиза под всичко и започва от самото начало */
-.service-list-col2 p {
-    clear: both !important;         /* Сваля текста под иконата */
-    text-align: justify !important; /* Двустранно подравняване */
-    padding: 0 !important;          /* ВАЖНО: Маха всякакъв вътрешен отстъп */
-    margin: 5px 0 0 0 !important;   /* ВАЖНО: Маха външния отстъп отляво/отдясно */
-    display: block !important;
-}
-
-/* Стилизиране на заглавието "Корпоративни клиенти" */
-/* Тук трябва да намерим точния клас. Ако сте го сложили в h3, ето кода: */
-.service-list-col2 h3 {
-    text-align: center !important;   /* Центриране */
-    font-size: 28px !important;      /* Размер като на "Услуги" (обикновено h2 е толкова) */
-    font-weight: 700 !important;     /* Удебелено */
-    color: #333 !important;          /* Тъмен цвят */
-    margin-bottom: 30px !important;  /* Разстояние до текста */
-    text-transform: uppercase;       /* Главни букви като "УСЛУГИ" */
-}
-
-/* Създаване на ДВЕ КОЛОНИ за текста */
-.two-columns-text {
-    column-count: 2;           /* Разделя на 2 колони */
-    column-gap: 40px;          /* Разстояние между тях */
-    text-align: justify;       /* Подравняване на текста */
-}
-
-/* Линия между колоните (Опционално - ако искате махнете го) */
-.two-columns-text {
-    column-rule: 1px solid #eee; 
-}
-
-/* ============================================================
-   ФИНАЛНА КОРЕКЦИЯ НА КОЛОНИТЕ (РАЗДЕЛЯНЕ ПО ЕКРАНИ)
-   ============================================================ */
-
-/* 1. НАСТРОЙКИ ЗА МОБИЛЕН ТЕЛЕФОН (Малък екран) */
-@media only screen and (max-width: 768px) {
-    /* Текстът за корпоративни клиенти става една колона */
-    .two-columns-text {
-        column-count: 1;
-    }
-
-    /* Услугите стават една под друга (100% ширина) */
-    .services-columns .col-lg-6 {
-        width: 100% !important;
-        float: none !important;
-        display: block !important;
-        margin-bottom: 30px !important;
-    }
-    
-    /* Центрираме заглавието на мобилен */
-    .services-columns .service-list-col2 h3 {
-        text-align: left !important;
-    }
-}
-
-/* 2. НАСТРОЙКИ ЗА ЛАПТОП И КОМПЮТЪР (Голям екран) */
-@media only screen and (min-width: 769px) {
-
-    /* Този код принуждава колоните да застанат една до друга */
-    .services-columns .col-lg-6 {
-        width: 50% !important;      /* Точно половината екран */
-        float: left !important;     /* Залепват се вляво */
-        display: block !important;
-        margin: 0 !important;       /* Махаме всякакви размествания */
-        padding: 0 15px !important; /* Малко въздух отстрани */
-        box-sizing: border-box !important;
-        min-height: 250px;          /* За да не се "счупи" ако едната е по-къса */
-    }
-
-    /* Гарантираме, че контейнерът не ги ограничава */
-    .services-columns {
-        display: block !important;
-        width: 100% !important;
-    }
-    
-    /* Почистване след колоните (за да не се развали секцията отдолу) */
-    .services-columns:after {
-        content: "";
-        display: table;
-        clear: both;
-    }
-}
-
-/* ============================================================
-   НОВА СТРУКТУРА НА УСЛУГИТЕ (РЕД ПО РЕД)
-   ============================================================ */
-
-/* Гарантираме, че иконите са на мястото си в новата структура */
-.services-row .service-list-col1 {
-    float: left !important;
-    width: 50px !important;
-    text-align: center !important;
-    margin-right: 15px !important;
-}
-
-.services-row .service-list-col2 {
-    display: block !important;
-    overflow: hidden !important; /* Държи текста прибран */
-}
-
-/* На мобилен телефон - добавя разстояние между горната и долната услуга */
+/* За мобилни: Една под друга */
 @media only screen and (max-width: 768px) {
     .services-row > div {
         margin-bottom: 30px !important;
     }
-    /* Махаме горния марджин, за да не стават огромни дупки на мобилен */
-    .services-row {
-        margin-top: 0 !important;
+    .services-row { margin-top: 0 !important; }
+}
+
+/* За лаптопи: Две колони една до друга (за Корпоративни) */
+@media only screen and (min-width: 769px) {
+    .services-row .col-lg-6 {
+        width: 50% !important;
+        float: left !important;
     }
 }
+
+/* Физически лица - специфики */
+.featured-box {
+    margin-bottom: 35px;
+    overflow: hidden; /* Зачистване на float */
+}
+
+/* ============================================================
+   5. PORTFOLIO & CLIENTS
+   ============================================================ */
+
+.Portfolio-nav{
+	padding:0;
+	margin:0 0 45px 0;
+	list-style:none;
+	text-align:center;
+}
+.Portfolio-nav li{ margin:0 10px; display:inline; }
+.Portfolio-nav li a{
+	display:inline-block; padding:10px 22px; font-size:12px; line-height:20px;
+	color:#222222; border-radius:4px; text-transform:uppercase;
+	font-family: 'Montserrat', sans-serif; background:#f7f7f7; margin-bottom:5px;
+	transition:all 0.3s ease-in-out;
+}
+.Portfolio-nav li a:hover, .Portfolio-nav li a.current{
+	background:#001F3F; color:#fff; text-decoration:none;
+}
+.portfolioContainer{ margin:0 auto; padding-left:15px; max-width: 1140px; }
+.Portfolio-box{
+	text-align:center; margin-bottom:30px; height:350px; width:350px;
+	overflow:hidden; float:left; padding:0;
+}
+.Portfolio-box img:hover { opacity: 0.6; }
+
+/* Клиенти */
+.client-part{
+	background:url(../img/section-bg1.jpg) center center no-repeat;
+	background-size:cover; padding:55px 0; text-align:center;
+}
+.client-part-haead{
+	color:#fdfdfd; font-size:28px; line-height:41px; margin:30px 0 10px;
+	font-family: 'Open Sans',sans-serif; font-style: italic;
+}
+.client{ padding:0; margin:20px 0 0; list-style:none; text-align:center; }
+.client li{ display:inline; margin:0 15px; }
+.client li a img{ margin-bottom:15px; border-radius:50%; }
+.client li a h3{ color:#ffffff; }
+.client li a span{ color:#f1f1f1; }
+.quote-right{
+	font-style:normal; width:68px; height:68px; margin:0 auto;
+	border:2px solid #001F3F; border-radius:50%; display:block;
+	line-height:68px; text-align:center; font-size:27px; color:#001F3F;
+}
+.quote-right:hover{ color: #fff; border: 2px solid #fff; }
+
+.c-logo-part{ background:#001F3F; padding:25px 0; }
+.c-logo-part ul{ padding:0; margin:0; list-style:none; text-align:center; }
+.c-logo-part ul li{ display:inline; margin:0 25px; }
+
+
+/* ============================================================
+   6. TEAM (КОЛЕКТИВ)
+   ============================================================ */
+
+.main-section.team{ padding:85px 0; }
+.team-leader-block{ max-width:993px; margin:0 auto; }
+
+/* Кутията на адвоката - центрирана и с автоматична височина */
+.team-leader-box{
+	width: auto !important;
+    max-width: 450px !important;
+	height: auto !important;
+    min-height: 0 !important;
+	overflow: visible !important;
+	float: none !important;
+    margin: 0 auto 50px auto !important;
+    text-align: center !important;
+}
+
+.team-leader {
+    width: auto; height: auto; position: relative; border-radius: 50%;
+    box-shadow: 0px 0px 0px 7px rgba(241,241,241,0.80);
+    margin: 7px 7px 50px 7px !important; /* Въздух под снимката */
+}
+
+.team-leader img { border-radius: 50%; display: block; }
+
+.team-leader-box h3 {
+    margin-top: 15px !important;
+    margin-bottom: 5px;
+}
+
+/* Текст за биографията */
+.team-leader-box p {
+    text-align: justify !important;
+    padding: 0 10px !important;
+    margin-top: 15px !important;
+    white-space: normal !important;
+}
+
+/* Социални икони при ховър */
+.team-leader-shadow{
+	transition:all 0.3s ease-in-out; border-radius:50%; position:absolute;
+	width:100%; height:100%; z-index:10;
+}
+.team-leader-shadow a{ display:block; width:100%; height:100%; }
+.team-leader:hover .team-leader-shadow{ box-shadow:inset 0px 0px 0px 148px rgba(17,17,17,0.80); }
+.team-leader:hover ul{ display:block; opacity:1; }
+.team-leader ul{
+	display:block; opacity:0; padding:0; margin:0; list-style:none;
+	position:absolute; left:0; top:50%; width:100%; text-align:center;
+	margin-top:-14px; z-index:15; transition:all 0.6s ease-in-out;
+}
+.team-leader ul li{ display:inline; margin:0 11px; }
+.team-leader ul li a{ font-family: 'FontAwesome'; font-size:28px; color:#fff; }
+
+/* ============================================================
+   7. CONTACTS & FOOTER
+   ============================================================ */
+
+.business-talking{
+	background:url(../img/spodelete-kazus-1.jpg) top center no-repeat;
+	background-size:cover; padding:60px 0 10px; text-align:center;
+}
+.business-talking h2{
+	font-family: 'Montserrat', sans-serif; font-weight:700; padding:0;
+	margin:20px 0 70px; text-transform:uppercase; font-size:42px; color:#fff;
+}
+
+.main-section.contact{
+	padding:90px 0 100px;
+    background: #f9f9f9 url(../img/bg-map.png) left 190px no-repeat;
+    /* Повишен контраст за картата */
+    filter: contrast(1.1) darken(0.9);
+}
+
+.contact-info-box{
+	font-size:15px; margin:0 0 14px 68px; padding-left:0;
+}
+.contact-info-box h3{
+	font-size: 15px; font-weight:400; float:left; width:102px;
+	margin-right:12px; line-height:28px;
+}
+.contact-info-box h3 i{
+	font-style:normal; font-size:18px; color:#222222;
+	font-family: 'FontAwesome'; font-weight:normal; margin-right:7px;
+}
+.social-link{ padding:35px 0; margin:0 0 0 68px; display:block; list-style:none; }
+.social-link li{ float:left; margin-right:8px; }
+.social-link li a{
+	display:block; width:50px; height:50px; text-align:center; line-height:50px;
+	font-size:25px; color:#fff; background:#222222; border-radius:50%;
+	transition:all 0.3s ease-in-out;
+}
+.social-link li a:hover { background: #001F3F; }
+
+/* Форми */
+.form{ margin:0 66px 0 30px; }
+.input-text{
+	padding:15px 16px; border:1px solid #ccc; width:100%; height:50px;
+	display:block; border-radius:4px; font-size:15px; color:#aaa;
+	font-family: 'Open Sans', sans-serif; margin:0 0 15px 0;
+}
+.input-text:focus { border: 1px solid #001F3F; outline:0; }
+.input-text.text-area{ height:165px; resize:none; }
+.input-btn{
+	width:175px; height:50px; background:#001F3F; border-radius:4px;
+	color:#ffffff; font-size:14px; text-transform:uppercase;
+	font-family: 'Montserrat', sans-serif; font-weight:400; border:0px;
+	transition:all 0.3s ease-in-out;
+}
+.input-btn:hover{ background: #111; color: #fff; }
+.input-btn:disabled { background: #cccccc !important; cursor: not-allowed; }
+
+.validation { color: red; display:none; margin: 0 0 20px; font-size:13px; }
+.validation.show { display:block; }
+.form-control.is-invalid { border: 1px solid red !important; }
+
+/* Footer */
+.footer{
+	background:url(../img/footer-photo.jpg) left top repeat;
+	padding:35px 0 35px;
+    filter: brightness(1.2); /* Леко изсветляване */
+}
+.footer-logo{ margin:15px auto 35px; width: 76px; }
+.copyright, .credits{ color:#cccccc; font-size:14px; display:block; text-align:center; }
+.copyright a, .credits a{ color:#001F3F; font-weight:600; text-decoration: none; }
+
+/* Animations */
+.delay-02s { animation-delay: 0.2s; -webkit-animation-delay: 0.2s; }
+.delay-03s { animation-delay: 0.3s; -webkit-animation-delay: 0.3s; }
+.delay-04s { animation-delay: 0.4s; -webkit-animation-delay: 0.4s; }
+.delay-05s { animation-delay: 0.5s; -webkit-animation-delay: 0.5s; }
+.delay-06s { animation-delay: 0.6s; -webkit-animation-delay: 0.6s; }
+.delay-07s { animation-delay: 0.7s; -webkit-animation-delay: 0.7s; }
+.delay-1s { animation-delay: 1s; -webkit-animation-delay: 1s; }
