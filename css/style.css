@@ -767,3 +767,36 @@ li.small-logo img {
     border: 1px solid #ccc !important;
     opacity: 0.7 !important;
 }
+
+/* ============================================================
+   ПОПРАВКИ (ТЕЛЕФОН, ЛОГО И ГРЕШКИ)
+   ============================================================ */
+
+/* 1. НАМАЛЯВАНЕ НА ЛОГОТО В МЕНЮТО (САМО ЗА МОБИЛЕН) */
+@media only screen and (max-width: 767px) {
+    li.small-logo img {
+        width: 70px !important;       /* Намаляваме размера (беше голям) */
+        height: auto !important;
+        margin: 5px auto !important;  /* Центрираме го */
+        padding: 0 !important;
+    }
+    
+    /* Допълнителна застраховка за бутоните */
+    .main-nav li a {
+        padding: 10px 0 !important;
+    }
+}
+
+/* 2. СТИЛ ЗА ТЕКСТОВИТЕ СЪОБЩЕНИЯ ЗА ГРЕШКА */
+.validation {
+    color: red !important;
+    font-size: 12px !important;
+    margin-top: 5px !important;
+    display: none;             /* Скрито по подразбиране */
+    text-align: left;
+}
+
+/* Когато полето е грешно, показваме текста */
+.is-invalid + .validation {
+    display: block !important;
+}
