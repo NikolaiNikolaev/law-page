@@ -463,9 +463,30 @@
 
 <script type="text/javascript">
 $(document).ready(function(){
-    $('.res-nav_click').click(function(){
+    
+    // 1. Отваряне/Затваряне при клик на иконата
+    $('.res-nav_click').click(function(e){
+        e.preventDefault();
+        e.stopPropagation(); // Спира клика да не стигне до document
         $('.main-nav').slideToggle();
-        return false;
+    });
+
+    // 2. ЗАТВАРЯНЕ ПРИ КЛИК ИЗВЪН МЕНЮТО
+    $(document).click(function(event) { 
+        // Ако кликът НЕ е върху менюто И НЕ е върху бутона
+        if(!$(event.target).closest('.main-nav').length && !$(event.target).closest('.res-nav_click').length) {
+            // Ако менюто е видимо (отворено), го затваряме
+            if($('.main-nav').is(":visible") && $(window).width() < 768) {
+                $('.main-nav').slideUp();
+            }
+        }        
+    });
+
+    // 3. Затваряне при клик върху линк от самото меню (за всеки случай)
+    $('.main-nav li a').click(function(){
+        if($(window).width() < 768) {
+            $('.main-nav').slideUp();
+        }
     });
 });
 </script>
