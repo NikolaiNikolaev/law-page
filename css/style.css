@@ -1406,3 +1406,31 @@ border: 2px solid #fff;
         clear: both;
     }
 }
+
+/* ============================================================
+   НОВА СТРУКТУРА НА УСЛУГИТЕ (РЕД ПО РЕД)
+   ============================================================ */
+
+/* Гарантираме, че иконите са на мястото си в новата структура */
+.services-row .service-list-col1 {
+    float: left !important;
+    width: 50px !important;
+    text-align: center !important;
+    margin-right: 15px !important;
+}
+
+.services-row .service-list-col2 {
+    display: block !important;
+    overflow: hidden !important; /* Държи текста прибран */
+}
+
+/* На мобилен телефон - добавя разстояние между горната и долната услуга */
+@media only screen and (max-width: 768px) {
+    .services-row > div {
+        margin-bottom: 30px !important;
+    }
+    /* Махаме горния марджин, за да не стават огромни дупки на мобилен */
+    .services-row {
+        margin-top: 0 !important;
+    }
+}
