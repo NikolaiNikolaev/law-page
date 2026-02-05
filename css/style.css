@@ -1268,6 +1268,12 @@ border: 2px solid #fff;
     text-align: center !important;
 }
 
+.team-leader-box p {
+    text-align: justify !important; /* Уверете се, че е justify */
+    padding: 0 10px !important;
+    margin-top: 15px !important;
+}
+
 /* Центрираме и самата снимка вътре */
 .team-leader {
     margin: 0 auto !important;
