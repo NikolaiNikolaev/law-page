@@ -719,3 +719,51 @@ li.small-logo img {
 }
 .delay-07s { animation-delay: 0.7s; -webkit-animation-delay: 0.7s; }
 .delay-1s { animation-delay: 1s; -webkit-animation-delay: 1s; }
+
+/* ============================================================
+   ПОПРАВКИ: МОБИЛНА ФОРМА И ЗЕЛЕНА ВАЛИДАЦИЯ
+   ============================================================ */
+
+/* 1. ОПРАВЯНЕ НА ЗАСТЪПВАНЕТО НА ТЕЛЕФОН */
+@media only screen and (max-width: 767px) {
+    /* Сваляме формата надолу, за да не се блъска в кръгчетата */
+    .form {
+        margin-top: 15px !important; 
+        display: block !important;
+        clear: both !important;
+    }
+    
+    /* Центрираме кръгчетата над нея */
+    .social-link {
+        margin: 0 auto 20px auto !important;
+        float: none !important;
+        display: table !important;
+    }
+}
+
+/* 2. ВРЪЩАНЕ НА ЗЕЛЕНАТА РАМКА */
+/* Когато полето е вярно (класът се слага от скрипта) */
+.form-control.is-valid,
+.form-field.is-valid,
+.input-text.is-valid {
+    border: 2px solid #7cc576 !important; /* Ярко зелено */
+    background-color: #f9fff9 !important; /* Лек зелен нюанс */
+    box-shadow: 0 0 5px rgba(124, 197, 118, 0.3) !important;
+}
+
+/* Когато полето е грешно */
+.form-control.is-invalid,
+.form-field.is-invalid,
+.input-text.is-invalid {
+    border: 2px solid red !important;
+    background-color: #fff5f5 !important;
+}
+
+/* 3. БУТОНЪТ (Когато е неактивен) */
+.input-btn:disabled {
+    background-color: #dddddd !important; /* Сиво */
+    color: #888888 !important;
+    cursor: not-allowed !important;
+    border: 1px solid #ccc !important;
+    opacity: 0.7 !important;
+}
