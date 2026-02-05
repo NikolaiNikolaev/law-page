@@ -871,13 +871,22 @@ li.small-logo img {
 }
 
 /* 3. Стилизиране на имената */
+/* ИМЕНА НА КЛИЕНТИТЕ - Да са бели на тъмния фон */
 .client-slide h3 {
-    color: #ffffff !important;
+    color: #ffffff !important;  /* Задължително бяло */
     font-size: 18px !important;
     margin-bottom: 5px !important;
     text-transform: uppercase;
     font-weight: 700;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5); /* Лека сянка за по-добър контраст */
 }
+
+/* Титлата/Длъжността под името */
+.client-slide span {
+    color: #f1f1f1 !important;  /* Почти бяло */
+    font-size: 14px !important;
+}
+
 
 .client-slide span {
     color: #f1f1f1 !important;
