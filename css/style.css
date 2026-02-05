@@ -1274,6 +1274,19 @@ border: 2px solid #fff;
     margin-top: 15px !important;
 }
 
+/* БИОГРАФИЯ - Да се вижда целият текст на всякакъв екран */
+.team-leader-box {
+    height: auto !important;       /* Кутията расте колкото е текста */
+    overflow: visible !important;  /* Нищо не се реже */
+    min-height: 0 !important;      /* Махаме ограниченията */
+    margin-bottom: 50px !important;
+}
+
+/* Допълнителна застраховка за самия текст */
+.team-leader-box p {
+    white-space: normal !important; /* Текстът се пренася нормално */
+}
+
 /* Центрираме и самата снимка вътре */
 .team-leader {
     margin: 0 auto !important;
