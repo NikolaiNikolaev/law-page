@@ -800,3 +800,52 @@ li.small-logo img {
 .is-invalid + .validation {
     display: block !important;
 }
+
+/* ============================================================
+   ФИНАЛНО: МОБИЛНО МЕНЮ (ПАДАЩ СПИСЪК)
+   ============================================================ */
+
+@media only screen and (max-width: 767px) {
+    
+    /* 1. Скриваме менюто по подразбиране */
+    .main-nav {
+        display: none;              /* Скрито, докато не се натисне бутона */
+        position: absolute;         /* Излиза от потока */
+        top: 100%;                  /* Застава точно под бялата лента */
+        left: 0;
+        width: 100%;
+        background: #fff;           /* Бял фон */
+        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+        padding: 0 !important;
+        margin: 0 !important;
+        z-index: 9999;
+    }
+
+    /* 2. Елементите стават вертикални (блок) */
+    .main-nav li {
+        display: block !important;  /* ВАЖНО: Всеки линк на нов ред */
+        float: none !important;
+        width: 100% !important;
+        border-bottom: 1px solid #eee; /* Лен линия между тях */
+        margin: 0 !important;
+    }
+
+    /* 3. Стилове на линковете */
+    .main-nav li a {
+        display: block !important;
+        padding: 15px 0 !important; /* Големи бутони за лесно натискане */
+        margin: 0 !important;
+        text-align: center;
+        width: 100% !important;
+    }
+    
+    /* Махаме последната линия най-долу */
+    .main-nav li:last-child {
+        border-bottom: none;
+    }
+
+    /* Уверяваме се, че бургер иконата се вижда */
+    .res-nav_click {
+        display: block !important;
+    }
+}
