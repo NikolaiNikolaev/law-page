@@ -247,7 +247,7 @@ p{
 
 .main-nav-outer .container {
     display: flex;
-    align-items: center;
+    align-items: center !important;
     justify-content: space-between;
     padding: 10px 20px;
 }
@@ -259,23 +259,30 @@ p{
 }
 
 .main-nav li {
-    display: inline !important;
+    display: inline-block !important;
     margin: 0 1px !important;
 }
 
 .main-nav li a{
-    display:inline-block;
+    display: inline-block !important;
+    vertical-align: middle !important;
     color:#222222;
     text-transform:uppercase;
     font-family: 'Montserrat', sans-serif;
     text-decoration: none;
-    line-height:20px;
-    margin:17px 32px;
+    line-height: normal !important;
+    margin: 0 !important;
+    padding: 10px 15px !important;
     transition:all 0.3s ease-in-out;
 }
 
 .main-nav li a:hover {
     color: #001F3F;
+}
+
+li.small-logo img {
+    vertical-align: middle !important;
+    margin: 0 !important;
 }
 
 /* --- НАСТРОЙКИ ЗА ГОЛЕМИ ЕКРАНИ (МЕНЮ) --- */
@@ -317,20 +324,43 @@ p{
 
 /* --- НАСТРОЙКИ ЗА МОБИЛНИ (МЕНЮ) --- */
 @media only screen and (max-width: 767px) {
+    /* 1. Скриваме менюто по подразбиране */
     .main-nav {
         display: none;
         position: absolute;
-        top: 100%; left: 0; width: 100%;
+        top: 100%;
+        left: 0;
+        width: 100%;
         background: #fff;
         box-shadow: 0 5px 10px rgba(0,0,0,0.1);
-        text-align: center;
-        padding: 20px 0;
+        padding: 0 !important;
+        margin: 0 !important;
+        z-index: 9999;
     }
 
-    .main-nav.active { display: block; }
-    .main-nav li { display: block; margin: 10px 0; }
-    .main-nav li a { margin: 0; padding: 15px 30px; display: block; }
+    /* 2. Елементите стават вертикални (блок) */
+    .main-nav li {
+        display: block !important;
+        float: none !important;
+        width: 100% !important;
+        border-bottom: 1px solid #eee;
+        margin: 0 !important;
+    }
 
+    /* 3. Стилове на линковете */
+    .main-nav li a {
+        display: block !important;
+        padding: 15px 0 !important;
+        margin: 0 !important;
+        text-align: center;
+        width: 100% !important;
+    }
+    
+    .main-nav li:last-child {
+        border-bottom: none;
+    }
+
+    /* Бургер иконата */
     .res-nav_click {
         display: block !important;
         position: absolute;
@@ -340,6 +370,14 @@ p{
         cursor: pointer;
         color: #777;
     }
+    
+    /* Намаляване на логото в менюто за мобилни */
+    li.small-logo img {
+        width: 70px !important;
+        height: auto !important;
+        margin: 5px auto !important;
+        padding: 0 !important;
+    }
 }
 
 /* ============================================================
@@ -348,12 +386,13 @@ p{
 
 /* Въздух над секцията с услугите */
 #service {
-    padding-top: 130px !important;
+    padding-top: 60px !important;
 }
 
 .main-section.alabaster{
-	background:#f9f9f9;
-	padding:90px 0;
+	background:#f9f9f9 !important;
+	padding: 90px 0 60px 0 !important;
+    margin-bottom: 0 !important;
 }
 
 /* ------------------------------------------------------------
@@ -390,8 +429,9 @@ p{
 .featured-box-col1,
 .service-list-col1 {
     float: left !important;
-    width: 60px !important;
-    margin-right: 20px !important;
+    width: 70px !important; /* Увеличено за подравняване */
+    margin-right: 10px !important;
+    text-align: center !important;
 }
 
 /* ТЕКСТ / ОПИСАНИЕ (Еднакъв за всички) */
@@ -404,17 +444,20 @@ p{
     margin: 0 !important;
 }
 
-/* СПЕЦИАЛНО ЗА КОРПОРАТИВНИТЕ - Текстът да слиза под иконата */
-.service-list-col2 p {
+/* СПЕЦИАЛНО ЗА КОРПОРАТИВНИТЕ И ФИЗИЧЕСКИ - Текстът да слиза под иконата */
+.service-list-col2 p, 
+.featured-box p {
     clear: both !important;        /* Слиза на нов ред */
     padding-left: 0 !important;    /* Започва от ръба */
     margin-top: 10px !important;   /* Въздух над текста */
     display: block !important;
 }
 
-.service-list-col2 {
+.service-list-col2,
+.featured-box-col2 {
     display: block !important;
-    overflow: visible !important;
+    overflow: hidden !important;
+    padding-left: 0 !important;
 }
 
 /* ------------------------------------------------------------
@@ -447,6 +490,12 @@ p{
    5. PORTFOLIO & CLIENTS
    ============================================================ */
 
+#Portfolio {
+    background: #fff !important;
+    padding-top: 80px !important;
+    margin-top: 0 !important;
+}
+
 .Portfolio-nav{
 	padding:0;
 	margin:0 0 45px 0;
@@ -470,41 +519,127 @@ p{
 }
 .Portfolio-box img:hover { opacity: 0.6; }
 
-/* Клиенти */
-.client-part{
+/* --------------------------------------------------------
+   КЛИЕНТИ (ОТЗИВИ) - СТАТИЧЕН СЛАЙДЕР
+   --------------------------------------------------------
+*/
+.client-part {
 	background:url(../img/section-bg1.jpg) center center no-repeat;
 	background-size:cover;
-	padding:55px 0;
 	text-align:center;
-    /* НОВИТЕ РЕДОВЕ ЗА ФИКСИРАНА ВИСОЧИНА: */
-    min-height: 600px;       /* Задаваме минимум, за да не се свива */
-    display: flex;           /* Помага за центриране на съдържанието вертикално */
-    align-items: center;     /* Центрира всичко в средата на фона */
+    /* ФИКСИРАНА СТРУКТУРА */
+    min-height: 650px !important; 
+    position: relative;
+    display: flex;
+    align-items: center;
 }
-.client-part-haead{
-	color:#fdfdfd;
-	font-size:26px; /* Може да го увеличите тук, ако искате по-голям текст */
-	line-height:41px;
-	margin:30px 0 10px;
-	font-family: 'Open Sans',sans-serif;
-	font-style: italic;
+
+.client-part .container {
+    width: 100%;
+}
+
+/* ЦИТАТЪТ - Фиксирана кутия */
+.client-part-haead {
+    height: 180px !important;       /* Фиксирана височина */
+    display: flex !important;
+    align-items: center !important; 
+    justify-content: center !important;
+    margin-bottom: 30px !important;
+    padding: 0 60px !important;     /* Място за стрелките */
     
-    /* НОВИ РЕДОВЕ ЗА ПРЕМАХВАНЕ НА ЗАБАВЯНЕТО: */
-    opacity: 1 !important;           /* Прави текста видим веднага */
-    visibility: visible !important;  /* Игнорира скриването от анимацията */
-    animation: none !important;      /* Спира всякакви анимации за появяване */
+    color:#fdfdfd;
+    font-size: 22px !important;
+    line-height: 30px !important;
+    font-family: 'Open Sans',sans-serif;
+    font-style: italic;
+    
+    opacity: 1 !important;
+    visibility: visible !important;
+    animation: none !important;
 }
-.client{ padding:0; margin:20px 0 0; list-style:none; text-align:center; }
-.client li{ display:inline; margin:0 15px; }
-.client li a img{ margin-bottom:15px; border-radius:50%; }
-.client li a h3{ color:#ffffff; }
-.client li a span{ color:#f1f1f1; }
+
+/* КЛИЕНТЪТ (Снимка и Име) - Фиксиран контейнер */
+.client-slide {
+    height: 150px !important;
+    display: block;
+    position: relative;
+    text-align: center;
+}
+
+.client-img {
+    width: 80px !important;
+    height: 80px !important;
+    border-radius: 50%;
+    border: 3px solid #fff;
+    margin-bottom: 10px !important;
+    display: inline-block;
+    object-fit: cover;
+}
+
+/* Имената - БЕЛИ */
+.client-slide h3 {
+    color: #ffffff !important;
+    font-size: 18px !important;
+    margin: 0 0 5px 0 !important;
+    text-transform: uppercase;
+    font-weight: 700;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+.client-slide span {
+    color: #f1f1f1 !important;
+    font-size: 14px !important;
+    display: block;
+}
+
+/* СТРЕЛКИТЕ - Статични в краищата */
+#client-carousel .carousel-control {
+    width: 60px !important;
+    background: none !important;
+    opacity: 1 !important;
+    position: absolute;
+    top: 0; bottom: 0;
+}
+
+/* Иконки на стрелките */
+#client-carousel .carousel-control i {
+    position: absolute;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    font-size: 50px !important;
+    color: #fff;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+    z-index: 10;
+}
+
+/* Позиция */
+.carousel-control.left i {
+    left: 20px !important;
+}
+.carousel-control.right i {
+    right: 20px !important;
+}
+
 .quote-right{
 	font-style:normal; width:68px; height:68px; margin:0 auto;
 	border:2px solid #001F3F; border-radius:50%; display:block;
 	line-height:68px; text-align:center; font-size:27px; color:#001F3F;
 }
 .quote-right:hover{ color: #fff; border: 2px solid #fff; }
+
+/* Клиенти Мобилна версия */
+@media only screen and (max-width: 768px) {
+    .client-part-haead {
+        height: auto !important;
+        min-height: 200px !important;
+        padding: 0 10px !important;
+        font-size: 16px !important;
+    }
+    
+    #client-carousel .carousel-control {
+        display: none !important; 
+    }
+}
 
 .c-logo-part{ background:#001F3F; padding:25px 0; }
 .c-logo-part ul{ padding:0; margin:0; list-style:none; text-align:center; }
@@ -551,13 +686,20 @@ p{
     white-space: normal !important;
 }
 
-/* Социални икони при ховър */
+/* Социални икони при ховър - Плавна анимация */
 .team-leader-shadow{
-	transition:all 0.9s ease-in-out; border-radius:50%; position:absolute;
+	transition:all 0.8s ease-in-out !important; 
+    border-radius:50%; position:absolute;
 	width:100%; height:100%; z-index:10;
+    box-shadow: inset 0px 0px 0px 0px rgba(17,17,17,0.80) !important;
+    opacity: 1 !important;
 }
 .team-leader-shadow a{ display:block; width:100%; height:100%; }
-.team-leader:hover .team-leader-shadow{ box-shadow:inset 0px 0px 0px 148px rgba(17,17,17,0.80); }
+
+.team-leader:hover .team-leader-shadow{ 
+    box-shadow:inset 0px 0px 0px 400px rgba(17,17,17,0.80) !important; 
+}
+
 .team-leader:hover ul{ display:block; opacity:1; }
 .team-leader ul{
 	display:block; opacity:0; padding:0; margin:0; list-style:none;
@@ -566,6 +708,12 @@ p{
 }
 .team-leader ul li{ display:inline; margin:0 11px; }
 .team-leader ul li a{ font-family: 'FontAwesome'; font-size:28px; color:#fff; }
+
+.team-leader ul li a.fa-twitter:hover { color: #55acee !important; }
+.team-leader ul li a.fa-facebook:hover { color: #3b5998 !important; }
+.team-leader ul li a.fa-pinterest:hover { color: #cb2026 !important; }
+.team-leader ul li a.fa-google-plus:hover { color: #dd4b39 !important; }
+.team-leader ul li a.fa-linkedin:hover { color: #0077b5 !important; }
 
 /* ============================================================
    7. CONTACTS & FOOTER
@@ -582,9 +730,8 @@ p{
 
 .main-section.contact{
 	padding:90px 0 100px;
-    background: #f9f9f9 url(../img/bg-map.png) left 190px no-repeat;
-    /* Повишен контраст за картата */
-    filter: contrast(1.1) darken(0.9);
+    background-color: #ffffff !important;
+    background: url(../img/bg-map.png) left 190px no-repeat;
 }
 
 .contact-info-box{
@@ -609,6 +756,21 @@ p{
 
 /* Форми */
 .form{ margin:0 66px 0 30px; }
+
+/* При мобилен - сваляме формата надолу */
+@media only screen and (max-width: 767px) {
+    .form {
+        margin-top: 15px !important; 
+        display: block !important;
+        clear: both !important;
+    }
+    .social-link {
+        margin: 0 auto 20px auto !important;
+        float: none !important;
+        display: table !important;
+    }
+}
+
 .input-text{
 	padding:15px 16px; border:1px solid #ccc; width:100%; height:50px;
 	display:block; border-radius:4px; font-size:15px; color:#aaa;
@@ -623,11 +785,41 @@ p{
 	transition:all 0.3s ease-in-out;
 }
 .input-btn:hover{ background: #111; color: #fff; }
-.input-btn:disabled { background: #cccccc !important; cursor: not-allowed; }
+.input-btn:disabled { 
+    background: #dddddd !important; 
+    color: #888888 !important;
+    cursor: not-allowed !important;
+    border: 1px solid #ccc !important;
+    opacity: 0.7 !important;
+}
 
-.validation { color: red; display:none; margin: 0 0 20px; font-size:13px; }
-.validation.show { display:block; }
-.form-control.is-invalid { border: 1px solid red !important; }
+/* Валидация стилове */
+.validation { 
+    color: red !important;
+    font-size: 12px !important;
+    margin-top: 5px !important;
+    display: none;
+    text-align: left;
+}
+.is-invalid + .validation { display: block !important; }
+
+/* Зелена валидация */
+.form-control.is-valid,
+.form-field.is-valid,
+.input-text.is-valid {
+    border: 2px solid #7cc576 !important;
+    background-color: #f9fff9 !important;
+    box-shadow: 0 0 5px rgba(124, 197, 118, 0.3) !important;
+}
+.form-control.is-invalid,
+.form-field.is-invalid,
+.input-text.is-invalid {
+    border: 2px solid red !important;
+    background-color: #fff5f5 !important;
+}
+
+/* Скриване на съобщението "Благодаря", докато не се прати */
+#sendmessage, #form-message { display: none; }
 
 /* Footer */
 .footer{
@@ -645,290 +837,5 @@ p{
 .delay-04s { animation-delay: 0.4s; -webkit-animation-delay: 0.4s; }
 .delay-05s { animation-delay: 0.5s; -webkit-animation-delay: 0.5s; }
 .delay-06s { animation-delay: 0.6s; -webkit-animation-delay: 0.6s; }
-
-/* ============================================================
-   СПЕШНИ ПОПРАВКИ (05.02.2025)
-   ============================================================ */
-
-/* 1. МЕНЮ: ЦЕНТРИРАНЕ НА БУТОНИТЕ СПРЯМО ЛОГОТО */
-.main-nav-outer .container {
-    align-items: center !important; /* Вертикално центриране */
-}
-.main-nav li a {
-    display: inline-block !important;
-    vertical-align: middle !important; /* Гаранция за център */
-    line-height: normal !important;    /* Махаме старото изместване */
-    margin-top: 0 !important;          /* Махаме излишни отстояния */
-    padding: 10px 15px !important;
-}
-li.small-logo img {
-    vertical-align: middle !important;
-    margin: 0 !important;
-}
-
-/* 2. НАМАЛЯВАНЕ НА РАЗСТОЯНИЕТО МЕЖДУ КАРТИНКАТА И УСЛУГИТЕ */
-#service {
-    padding-top: 60px !important; /* Беше 130px, сега е 60px */
-}
-
-/* 3. ПОДРАВНЯВАНЕ НА ФИЗИЧЕСКИ ЛИЦА (Всички да започват еднакво) */
-/* Увеличаваме мястото за иконата, за да не "бута" текста */
-.featured-box-col1 {
-    width: 70px !important;        /* Повече място за иконата */
-    margin-right: 10px !important; 
-    text-align: center !important;
-}
-.featured-box-col2 {
-    display: block !important;
-    overflow: hidden !important;   /* ВАЖНО: Това спира текста да влиза под иконата */
-    padding-left: 0 !important;
-}
-.featured-box p {
-    padding-left: 0 !important;    /* Текстът започва от ръба на колоната си */
-    text-align: justify !important;
-}
-
-/* 4. ОПРАВЯНЕ НА СИВИЯ ФОН (Да не влиза в "За нас") */
-.main-section.alabaster {
-    padding-bottom: 60px !important; /* Нормален отстъп */
-    margin-bottom: 0 !important;     /* Да не избутва долната секция */
-    background: #f9f9f9 !important;  /* Сивият фон */
-}
-/* Секцията "За нас" (Portfolio) започва на чисто */
-#Portfolio {
-    background: #fff !important;     /* Бял фон */
-    padding-top: 80px !important;    /* Отделяме го от горното */
-    margin-top: 0 !important;
-}
-
-/* 5. КОЛЕКТИВ: ОПРАВЯНЕ НА ЗАТЪМНЕНИЕТО И СИНИТЕ ИКОНКИ */
-/* Оправяне на "дупката" в средата при ховър */
-.team-leader:hover .team-leader-shadow {
-    /* Увеличаваме сянката драстично, за да покрие целия кръг */
-    box-shadow: inset 0px 0px 0px 400px rgba(17,17,17,0.80) !important;
-}
-/* Иконките да стават цветни при минаване с мишка */
-.team-leader ul li a.fa-twitter:hover { color: #55acee !important; }
-.team-leader ul li a.fa-facebook:hover { color: #3b5998 !important; }
-.team-leader ul li a.fa-pinterest:hover { color: #cb2026 !important; }
-.team-leader ul li a.fa-google-plus:hover { color: #dd4b39 !important; }
-.team-leader ul li a.fa-linkedin:hover { color: #0077b5 !important; }
-
-/* 6. МАХАНЕ НА ФОНОВЕТЕ ПРИ КОНТАКТИ И СЪОБЩЕНИЕТО */
-/* Махане на сивия фон при контактите */
-.main-section.contact {
-    background-color: #ffffff !important; /* Бял фон */
-    /* Запазваме картата, ако искате, но махаме сивото */
-    background-image: url(../img/bg-map.png) !important; 
-    background-repeat: no-repeat !important;
-    background-position: left 190px !important;
-    filter: none !important; /* Махаме филтрите, които правеха сиво */
-}
-
-/* Скриване на съобщението "Благодаря", докато не се прати */
-#sendmessage, #form-message {
-    display: none; 
-}
-.validation {
-    display: none; /* Скриваме и грешките по подразбиране */
-}
 .delay-07s { animation-delay: 0.7s; -webkit-animation-delay: 0.7s; }
 .delay-1s { animation-delay: 1s; -webkit-animation-delay: 1s; }
-
-/* ============================================================
-   ПОПРАВКИ: МОБИЛНА ФОРМА И ЗЕЛЕНА ВАЛИДАЦИЯ
-   ============================================================ */
-
-/* 1. ОПРАВЯНЕ НА ЗАСТЪПВАНЕТО НА ТЕЛЕФОН */
-@media only screen and (max-width: 767px) {
-    /* Сваляме формата надолу, за да не се блъска в кръгчетата */
-    .form {
-        margin-top: 15px !important; 
-        display: block !important;
-        clear: both !important;
-    }
-    
-    /* Центрираме кръгчетата над нея */
-    .social-link {
-        margin: 0 auto 20px auto !important;
-        float: none !important;
-        display: table !important;
-    }
-}
-
-/* 2. ВРЪЩАНЕ НА ЗЕЛЕНАТА РАМКА */
-/* Когато полето е вярно (класът се слага от скрипта) */
-.form-control.is-valid,
-.form-field.is-valid,
-.input-text.is-valid {
-    border: 2px solid #7cc576 !important; /* Ярко зелено */
-    background-color: #f9fff9 !important; /* Лек зелен нюанс */
-    box-shadow: 0 0 5px rgba(124, 197, 118, 0.3) !important;
-}
-
-/* Когато полето е грешно */
-.form-control.is-invalid,
-.form-field.is-invalid,
-.input-text.is-invalid {
-    border: 2px solid red !important;
-    background-color: #fff5f5 !important;
-}
-
-/* 3. БУТОНЪТ (Когато е неактивен) */
-.input-btn:disabled {
-    background-color: #dddddd !important; /* Сиво */
-    color: #888888 !important;
-    cursor: not-allowed !important;
-    border: 1px solid #ccc !important;
-    opacity: 0.7 !important;
-}
-
-/* ============================================================
-   ПОПРАВКИ (ТЕЛЕФОН, ЛОГО И ГРЕШКИ)
-   ============================================================ */
-
-/* 1. НАМАЛЯВАНЕ НА ЛОГОТО В МЕНЮТО (САМО ЗА МОБИЛЕН) */
-@media only screen and (max-width: 767px) {
-    li.small-logo img {
-        width: 70px !important;       /* Намаляваме размера (беше голям) */
-        height: auto !important;
-        margin: 5px auto !important;  /* Центрираме го */
-        padding: 0 !important;
-    }
-    
-    /* Допълнителна застраховка за бутоните */
-    .main-nav li a {
-        padding: 10px 0 !important;
-    }
-}
-
-/* 2. СТИЛ ЗА ТЕКСТОВИТЕ СЪОБЩЕНИЯ ЗА ГРЕШКА */
-.validation {
-    color: red !important;
-    font-size: 12px !important;
-    margin-top: 5px !important;
-    display: none;             /* Скрито по подразбиране */
-    text-align: left;
-}
-
-/* Когато полето е грешно, показваме текста */
-.is-invalid + .validation {
-    display: block !important;
-}
-
-/* ============================================================
-   ФИНАЛНО: МОБИЛНО МЕНЮ (ПАДАЩ СПИСЪК)
-   ============================================================ */
-
-@media only screen and (max-width: 767px) {
-    
-    /* 1. Скриваме менюто по подразбиране */
-    .main-nav {
-        display: none;              /* Скрито, докато не се натисне бутона */
-        position: absolute;         /* Излиза от потока */
-        top: 100%;                  /* Застава точно под бялата лента */
-        left: 0;
-        width: 100%;
-        background: #fff;           /* Бял фон */
-        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
-        padding: 0 !important;
-        margin: 0 !important;
-        z-index: 9999;
-    }
-
-    /* 2. Елементите стават вертикални (блок) */
-    .main-nav li {
-        display: block !important;  /* ВАЖНО: Всеки линк на нов ред */
-        float: none !important;
-        width: 100% !important;
-        border-bottom: 1px solid #eee; /* Лен линия между тях */
-        margin: 0 !important;
-    }
-
-    /* 3. Стилове на линковете */
-    .main-nav li a {
-        display: block !important;
-        padding: 15px 0 !important; /* Големи бутони за лесно натискане */
-        margin: 0 !important;
-        text-align: center;
-        width: 100% !important;
-    }
-    
-    /* Махаме последната линия най-долу */
-    .main-nav li:last-child {
-        border-bottom: none;
-    }
-
-    /* Уверяваме се, че бургер иконата се вижда */
-    .res-nav_click {
-        display: block !important;
-    }
-}
-
-/* ============================================================
-   СЛАЙДЕР ЗА КЛИЕНТИ (ОТЗИВИ)
-   ============================================================ */
-
-/* 1. Позициониране на съдържанието */
-.client-slide {
-    text-align: center;
-    padding: 0 50px; /* Място за стрелките да не закриват текста */
-}
-
-/* 2. Снимката в кръгче */
-.client-img {
-    border-radius: 50%;
-    margin-bottom: 15px;
-    width: 80px;      /* Фиксиран размер, за да са еднакви */
-    height: 80px;
-    object-fit: cover;
-    border: 3px solid #fff; /* Бяла рамка за красота */
-}
-
-/* 3. Стилизиране на имената */
-/* ИМЕНА НА КЛИЕНТИТЕ - Да са бели на тъмния фон */
-.client-slide h3 {
-    color: #ffffff !important;  /* Задължително бяло */
-    font-size: 18px !important;
-    margin-bottom: 5px !important;
-    text-transform: uppercase;
-    font-weight: 700;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.5); /* Лека сянка за по-добър контраст */
-}
-
-/* Титлата/Длъжността под името */
-.client-slide span {
-    color: #f1f1f1 !important;  /* Почти бяло */
-    font-size: 14px !important;
-}
-
-
-.client-slide span {
-    color: #f1f1f1 !important;
-    font-size: 14px !important;
-    display: block;
-}
-
-/* 4. СТРЕЛКИТЕ (Лява и Дясна) */
-#client-carousel .carousel-control {
-    background: none !important; /* Махаме грозния сив фон */
-    width: 50px;
-    opacity: 1;
-}
-
-/* Самите иконки на стрелките */
-#client-carousel .carousel-control i {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 40px;
-    color: #fff; /* Бели стрелки */
-    left: 0;
-    right: 0;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-}
-
-/* Ховър ефект върху стрелките */
-#client-carousel .carousel-control:hover i {
-    color: #001F3F; /* Тъмносиньо при посочване */
-}
