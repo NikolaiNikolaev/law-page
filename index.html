@@ -549,132 +549,108 @@ $(window).load(function(){
 $(document).ready(function() {
     var $form = $('.contactForm');
     var $button = $form.find('button[type="submit"]');
+    
+    // Полетата
+    var $name = $('#name');
+    var $email = $('#email');
+    var $message = $('#message');
 
-    // Показване на грешка под поле
-    function showError($field, msg) {
-        var $validation = $field.next('.validation');
-        $validation.text(msg);
-        if (msg) {
-            $validation.addClass('show');
-            $field.addClass('is-invalid').removeClass('is-valid');
+    // 1. БУТОНЪТ Е НЕАКТИВЕН В НАЧАЛОТО
+    $button.prop('disabled', true);
+
+    // Функция за проверка на имейл
+    function isValidEmail(email) {
+        var pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return pattern.test(email);
+    }
+
+    // ГЛАВНА ФУНКЦИЯ ЗА ПРОВЕРКА
+    function checkForm() {
+        var nameVal = $name.val().trim();
+        var emailVal = $email.val().trim();
+        var msgVal = $message.val().trim();
+
+        // Условия за вярност
+        var isNameOk = nameVal.length >= 4;        // Име поне 4 букви
+        var isEmailOk = isValidEmail(emailVal);    // Валиден имейл
+        var isMsgOk = msgVal.length >= 10;         // Съобщение поне 10 знака
+
+        // УПРАВЛЕНИЕ НА ЗЕЛЕНО/ЧЕРВЕНО (САМО АКО ИМА ВЪВЕДЕН ТЕКСТ)
+        
+        // Проверка Име
+        if (nameVal.length > 0) {
+            if (isNameOk) $name.addClass('is-valid').removeClass('is-invalid');
+            else $name.addClass('is-invalid').removeClass('is-valid');
         } else {
-            $validation.removeClass('show');
-            $field.addClass('is-valid').removeClass('is-invalid');
+            $name.removeClass('is-valid is-invalid'); // Чистим ако е празно
+        }
+
+        // Проверка Имейл
+        if (emailVal.length > 0) {
+            if (isEmailOk) $email.addClass('is-valid').removeClass('is-invalid');
+            else $email.addClass('is-invalid').removeClass('is-valid');
+        } else {
+            $email.removeClass('is-valid is-invalid');
+        }
+
+        // Проверка Съобщение
+        if (msgVal.length > 0) {
+            if (isMsgOk) $message.addClass('is-valid').removeClass('is-invalid');
+            else $message.addClass('is-invalid').removeClass('is-valid');
+        } else {
+            $message.removeClass('is-valid is-invalid');
+        }
+
+        // КЛЮЧОВ МОМЕНТ ЗА БУТОНА:
+        // Активира се САМО ако и трите са ОК едновременно
+        if (isNameOk && isEmailOk && isMsgOk) {
+            $button.prop('disabled', false); // СТАВА АКТИВЕН (ТЪМЕН)
+        } else {
+            $button.prop('disabled', true);  // ОСТАВА НЕАКТИВЕН (СИВ)
         }
     }
 
-    // Проверка на едно поле
-    function validateField($field) {
-        var val = $field.val() ? $field.val().trim() : '';
-        var id = $field.attr('id');
-
-        if ($field.prop('required') && !val) {
-            return $field.data('msg') || 'Това поле е задължително!';
-        }
-
-        if (id === 'name' && val.length < 4) {
-            return $field.data('msg') || 'Моля, въведете поне 4 знака за име!';
-        }
-
-        if (id === 'email') {
-            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(val)) {
-                return $field.data('msg') || 'Моля, въведете правилен имейл адрес!';
-            }
-        }
-
-        if (id === 'phone_number') {
-            // позволяваме + и интервали чрез премахване на нецифрови символи
-            var digits = val.replace(/\D/g,'');
-            if (digits.length < 6) { // минимална проверка; кодът се добавя отделно
-                return $field.data('msg') || 'Моля, въведете валиден телефонен номер!';
-            }
-        }
-
-        if (id === 'message' && val.length < 10) {
-            return $field.data('msg') || 'Моля, опишете Вашия случай с поне 10 знака!';
-        }
-
-        return ''; // Няма грешка
-    }
-
-    // Проверка на всички полета и ъпдейт на бутона
-    function checkAllFields() {
-        var isValid = true;
-        $form.find('.form-field').each(function() {
-            var $field = $(this);
-            if ($field.hasClass('touched')) { // Проверяваме САМО ако е докоснато
-                var error = validateField($field);
-                showError($field, error);
-                if (error) isValid = false;
-            } else {
-                // ако някои полета са задължителни, помислете да ги маркирате с required
-            }
-        });
-        $button.prop('disabled', !isValid);
-    }
-
-    // Маркирай като touched при фокус/въвеждане/излизане
-    $form.on('focus input blur', '.form-field', function() {
-        var $field = $(this);
-        $field.addClass('touched'); // Маркирай като докоснато
-        if ($field.is(':focus')) return; // Не показвай грешка докато се въвежда
-
-        var error = validateField($field);
-        showError($field, error);
-        checkAllFields();
+    // Слушаме за всяко писане
+    $form.find('input, textarea').on('input keyup change blur', function() {
+        checkForm();
     });
 
-    // Първоначална проверка - без грешки
-    $button.prop('disabled', true); // Деактивирай в началото
-
-    // Submit
+    // ИЗПРАЩАНЕ
     $form.on('submit', function(e) {
         e.preventDefault();
-        $form.find('.form-field').addClass('touched'); // Маркирай всички като touched при submit
-        checkAllFields();
         if ($button.prop('disabled')) return;
 
         var originalText = $button.html();
         $button.html('Изпращане...').prop('disabled', true);
 
-        // Комбиниране на телефон (ако имаш)
-        var code = $('#country_code').val() || '';
-        var number = $('#phone_number').val() || '';
-        var fullPhone = (code + ' ' + number).trim();
-        $('<input>').attr({ type: 'hidden', name: 'Телефон', value: fullPhone }).appendTo($form);
-		
+        // Телефон (скрит)
+        var fullPhone = ($('#country_code').val() || '') + ' ' + ($('#phone_number').val() || '');
+        if ($form.find('input[name="Телефон"]').length === 0) {
+             $('<input>').attr({ type: 'hidden', name: 'Телефон', value: fullPhone }).appendTo($form);
+        } else {
+             $form.find('input[name="Телефон"]').val(fullPhone);
+        }
+        
+        // Време
+        var now = new Date();
+        $('#local-time').val(now.toLocaleString('bg-BG'));
+
         $.ajax({
             url: $form.attr('action'),
             type: 'POST',
             data: $form.serialize(),
             dataType: 'json',
-            cache: false,
-			success: function(response) {
-				    // Взимаме текущото време
-				    var now = new Date();
-				    var day = ('0' + now.getDate()).slice(-2);
-				    var month = ('0' + (now.getMonth() + 1)).slice(-2);
-				    var year = now.getFullYear();
-				    var hours = ('0' + now.getHours()).slice(-2);
-				    var minutes = ('0' + now.getMinutes()).slice(-2);
-				    var formattedTime = day + '.' + month + '.' + year + ' г. в ' + hours + ':' + minutes + ' часа';
-				
-				    // Попълваме скритото поле за имейла (локално време)
-				    $('#local-time').val(formattedTime);
-				
-				    $('#form-message')
-				        .html('Благодарим Ви! Вашето съобщение е изпратено успешно. Ще се свържем с Вас възможно най-скоро!')
-				        .fadeIn(600)
-				        .delay(10000)
-				        .fadeOut(800);
-				
-				    $form[0].reset();
-				    $button.html(originalText).prop('disabled', false);
-				},
-            error: function(jqXHR, textStatus, errorThrown) {
-                // Коригиран низ в alert, преди беше прекъснат
-                alert('Грешка при изпращане: ' + textStatus + ' – ' + (errorThrown || 'неизвестна грешка') + '. Моля, опитайте отново по-късно.');
+            success: function(response) {
+                // ПОКАЗВАНЕ НА УСПЕХ
+                $('#form-message').fadeIn();
+                $form[0].reset();
+                $('.is-valid').removeClass('is-valid'); // Махаме зеленото
+                $button.html(originalText).prop('disabled', true); // Деактивираме пак
+                
+                setTimeout(function(){ $('#form-message').fadeOut(); }, 5000);
+            },
+            error: function() {
+                alert('Грешка при изпращане. Моля опитайте пак.');
                 $button.html(originalText).prop('disabled', false);
             }
         });
