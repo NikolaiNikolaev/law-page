@@ -642,6 +642,7 @@ border: 2px solid #fff;
 
 .main-section.contact{
 	background:url(../img/bg-map.png) left 190px no-repeat;
+	filter: contrast(1.1) darken(0.9);
 }
 .contact-info-box{
 	font-size:15px;
@@ -1347,11 +1348,11 @@ border: 2px solid #fff;
 
 /* 4. ТЕКСТЪТ: Слиза под всичко и започва от самото начало */
 .service-list-col2 p {
-    clear: both !important;         /* МАГИЯТА: Това сваля текста на нов ред под иконата */
+    clear: both !important;         /* Сваля текста под иконата */
     text-align: justify !important; /* Двустранно подравняване */
+    padding: 0 !important;          /* ВАЖНО: Маха всякакъв вътрешен отстъп */
+    margin: 5px 0 0 0 !important;   /* ВАЖНО: Маха външния отстъп отляво/отдясно */
     display: block !important;
-    margin-top: 5px !important;
-    padding-left: 0 !important;     /* Гаранция, че започва от ръба (под иконата) */
 }
 
 /* Стилизиране на заглавието "Корпоративни клиенти" */
