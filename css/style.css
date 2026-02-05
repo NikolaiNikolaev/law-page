@@ -849,3 +849,62 @@ li.small-logo img {
         display: block !important;
     }
 }
+
+/* ============================================================
+   СЛАЙДЕР ЗА КЛИЕНТИ (ОТЗИВИ)
+   ============================================================ */
+
+/* 1. Позициониране на съдържанието */
+.client-slide {
+    text-align: center;
+    padding: 0 50px; /* Място за стрелките да не закриват текста */
+}
+
+/* 2. Снимката в кръгче */
+.client-img {
+    border-radius: 50%;
+    margin-bottom: 15px;
+    width: 80px;      /* Фиксиран размер, за да са еднакви */
+    height: 80px;
+    object-fit: cover;
+    border: 3px solid #fff; /* Бяла рамка за красота */
+}
+
+/* 3. Стилизиране на имената */
+.client-slide h3 {
+    color: #ffffff !important;
+    font-size: 18px !important;
+    margin-bottom: 5px !important;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.client-slide span {
+    color: #f1f1f1 !important;
+    font-size: 14px !important;
+    display: block;
+}
+
+/* 4. СТРЕЛКИТЕ (Лява и Дясна) */
+#client-carousel .carousel-control {
+    background: none !important; /* Махаме грозния сив фон */
+    width: 50px;
+    opacity: 1;
+}
+
+/* Самите иконки на стрелките */
+#client-carousel .carousel-control i {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 40px;
+    color: #fff; /* Бели стрелки */
+    left: 0;
+    right: 0;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+/* Ховър ефект върху стрелките */
+#client-carousel .carousel-control:hover i {
+    color: #001F3F; /* Тъмносиньо при посочване */
+}
