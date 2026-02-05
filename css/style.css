@@ -473,11 +473,26 @@ p{
 /* Клиенти */
 .client-part{
 	background:url(../img/section-bg1.jpg) center center no-repeat;
-	background-size:cover; padding:55px 0; text-align:center;
+	background-size:cover;
+	padding:55px 0;
+	text-align:center;
+    /* НОВИТЕ РЕДОВЕ ЗА ФИКСИРАНА ВИСОЧИНА: */
+    min-height: 600px;       /* Задаваме минимум, за да не се свива */
+    display: flex;           /* Помага за центриране на съдържанието вертикално */
+    align-items: center;     /* Центрира всичко в средата на фона */
 }
 .client-part-haead{
-	color:#fdfdfd; font-size:28px; line-height:41px; margin:30px 0 10px;
-	font-family: 'Open Sans',sans-serif; font-style: italic;
+	color:#fdfdfd;
+	font-size:26px; /* Може да го увеличите тук, ако искате по-голям текст */
+	line-height:41px;
+	margin:30px 0 10px;
+	font-family: 'Open Sans',sans-serif;
+	font-style: italic;
+    
+    /* НОВИ РЕДОВЕ ЗА ПРЕМАХВАНЕ НА ЗАБАВЯНЕТО: */
+    opacity: 1 !important;           /* Прави текста видим веднага */
+    visibility: visible !important;  /* Игнорира скриването от анимацията */
+    animation: none !important;      /* Спира всякакви анимации за появяване */
 }
 .client{ padding:0; margin:20px 0 0; list-style:none; text-align:center; }
 .client li{ display:inline; margin:0 15px; }
