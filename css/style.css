@@ -532,14 +532,15 @@ border: 2px solid #fff;
 	display:block;
 }
 .team-leader-box:nth-of-type(3n+0){ margin:0;}
-.team-leader{
-	width:auto;
-	height:auto;
-	position:relative;
-	border-radius:50%;
-	box-shadow:0px 0px 0px 7px rgba(241,241,241,0.80);
-	margin:7px 7px 25px 7px;
-	
+.team-leader {
+    width: auto;
+    height: auto;
+    position: relative;
+    border-radius: 50%;
+    box-shadow: 0px 0px 0px 7px rgba(241,241,241,0.80);
+    /* БЕШЕ: margin:7px 7px 25px 7px; */
+    /* ПРОМЕНЯМЕ НА: 45px отдолу, за да има въздух до името */
+    margin: 7px 7px 45px 7px !important; 
 }
 .team-leader-shadow{
 	transition:all 0.3s ease-in-out;
@@ -1273,6 +1274,27 @@ border: 2px solid #fff;
    3. КОРПОРАТИВНИ КЛИЕНТИ И УСЛУГИ
    ============================================================ */
 
+/* Добавяме специфично правило за ID-то на услугите */
+#service {
+    padding-top: 130px !important; /* Беше залепено, сега даваме въздух */
+}
+
+/* Стил за иконите в услугите (Търговци) - добавяме го тук, защото липсваше */
+.service-list-col1 i {
+    font-size: 28px;       /* Увеличаваме размера (беше малък по подразбиране) */
+    line-height: 28px;
+    color: #333;           /* Тъмно сиво, за да се вижда ясно */
+    width: 40px;           /* Място за иконата */
+    text-align: center;
+    display: inline-block;
+}
+
+/* Изравняване на контейнера на иконата */
+.service-list-col1 {
+    float: left;
+    margin-right: 20px;
+}
+
 /* Стилизиране на заглавието "Корпоративни клиенти" */
 /* Тук трябва да намерим точния клас. Ако сте го сложили в h3, ето кода: */
 .service-list-col2 h3 {
@@ -1300,5 +1322,26 @@ border: 2px solid #fff;
 @media only screen and (max-width: 768px) {
     .two-columns-text {
         column-count: 1;
+    }
+
+    /* ДОБАВЯМЕ ТОВА ЗА КОЛОНИТЕ В СЪЩИЯ БЛОК: */
+    
+    /* Принуждаваме колоните да са точно 50% и една до друга */
+    .services-columns .col-lg-6 {
+        width: 50% !important;
+        float: left !important;
+        display: block !important;
+        flex: 0 0 50%;          /* За всеки случай, ако се ползва flex */
+        max-width: 50%;
+    }
+    
+    /* Подравняване на текста и иконите в тези колони */
+    .services-columns .service-list-col1 {
+        float: left !important; /* Иконата вляво */
+    }
+    
+    .services-columns .service-list-col2 {
+        text-align: left !important; /* Текстът подравнен вляво */
+        padding-left: 60px; /* Да не влиза под иконата */
     }
 }
