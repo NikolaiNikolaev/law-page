@@ -524,7 +524,7 @@ border: 2px solid #fff;
 	margin-right: 3.82979%;
 	height: 490px;
 	overflow: hidden;
-	text-align: center;
+	text-align: justify;
 	float: left;
 }
 .team-leader-box span{
@@ -1270,13 +1270,19 @@ border: 2px solid #fff;
     margin: 0 auto !important;
 }
 
+/* --- ВЪЗДУХ ПОД СНИМКАТА --- */
+.team-leader-box h3 {
+    /* Добавяме 50 пиксела разстояние НАД името */
+    margin-top: 50px !important; 
+    margin-bottom: 5px !important; /* Малко разстояние под името */
+}
 /* ============================================================
    3. КОРПОРАТИВНИ КЛИЕНТИ И УСЛУГИ
    ============================================================ */
 
 /* Добавяме специфично правило за ID-то на услугите */
 #service {
-    padding-top: 130px !important; /* Беше залепено, сега даваме въздух */
+    padding-top: 900px !important; /* Беше залепено, сега даваме въздух */
 }
 
 /* Стил за иконите в услугите (Търговци) - добавяме го тук, защото липсваше */
@@ -1289,10 +1295,40 @@ border: 2px solid #fff;
     display: inline-block;
 }
 
-/* Изравняване на контейнера на иконата */
+/* ============================================================
+   ФИНАЛНО: ИКОНА + ЗАГЛАВИЕ, ТЕКСТ ПОД ТЯХ (ПЪЛНА ШИРИНА)
+   ============================================================ */
+
+/* 1. ИКОНКАТА: Стои вляво и "плува" */
 .service-list-col1 {
-    float: left;
-    margin-right: 20px;
+    float: left !important;
+    margin-right: 15px !important; /* Разстояние между иконата и заглавието */
+    padding-top: 0 !important;
+    width: auto !important;
+}
+
+/* 2. КОНТЕЙНЕРЪТ: Махаме всички стари ограничения */
+.service-list-col2 {
+    display: block !important;
+    overflow: visible !important;
+    padding: 0 !important;
+    text-align: center !important; /* Това центрира заглавието */
+}
+
+/* 3. ЗАГЛАВИЕТО: Центрирано е, но стои на реда на иконата */
+.service-list-col2 h3 {
+    text-align: center !important;
+    margin-top: 2px !important;    /* Фина настройка спрямо иконата */
+    margin-bottom: 10px !important;
+}
+
+/* 4. ТЕКСТЪТ: Слиза под всичко и започва от самото начало */
+.service-list-col2 p {
+    clear: both !important;         /* МАГИЯТА: Това сваля текста на нов ред под иконата */
+    text-align: justify !important; /* Двустранно подравняване */
+    display: block !important;
+    margin-top: 5px !important;
+    padding-left: 0 !important;     /* Гаранция, че започва от ръба (под иконата) */
 }
 
 /* Стилизиране на заглавието "Корпоративни клиенти" */
