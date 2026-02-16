@@ -113,21 +113,27 @@
     <script type="text/javascript" src="js/bootstrap.js"></script>
     
     <script type="text/javascript">
-        document.addEventListener('DOMContentLoaded', function() {
-            var menuBtn = document.querySelector('.res-nav_click');
-            var navMenu = document.querySelector('.main-nav');
-            
-            if(menuBtn && navMenu) {
-                menuBtn.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    // Превключваме между показване и скриване
-                    if(navMenu.style.display === 'block') {
-                        navMenu.style.display = 'none';
-                    } else {
-                        navMenu.style.display = 'block';
+        $(document).ready(function() {
+            var $menu = $('.main-nav');
+            var $btn = $('.res-nav_click');
+
+            // 1. Отваряне/затваряне при клик върху бутона
+            $btn.on('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation(); // ВАЖНО: Спира клика да стигне до документа и да затвори менюто веднага
+                $menu.slideToggle(300);
+            });
+
+            // 2. Затваряне при клик където и да е другаде по страницата
+            $(document).on('click', function(e) {
+                // Ако сме на малък екран и менюто е отворено
+                if ($(window).width() < 768 && $menu.is(':visible')) {
+                    // Ако кликът НЕ е вътре в самото меню
+                    if (!$(e.target).closest('.main-nav').length) {
+                        $menu.slideUp(300);
                     }
-                });
-            }
+                }
+            });
         });
     </script>
 
