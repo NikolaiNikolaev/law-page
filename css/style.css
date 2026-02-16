@@ -73,6 +73,36 @@ h2{
 	text-transform:uppercase;
 }
 
+/* --- ПРЕЛИВАЩА ЛИНИЯ ПОД ИЗБРАНИ ЗАГЛАВИЯ --- */
+#service > .container > h2, /* Услуги */
+#service .row h2,           /* Корпоративни клиенти */
+.alabaster h2,              /* Физически лица */
+#Portfolio h2,              /* Новини */
+#team h2                    /* Колектив */
+{
+    position: relative;
+    padding-bottom: 20px !important; /* Отваряме място за линията */
+    margin-bottom: 40px !important;  /* Еднакво разстояние до текста отдолу */
+}
+
+/* Самата линия */
+#service > .container > h2::after,
+#service .row h2::after,
+.alabaster h2::after,
+#Portfolio h2::after,
+#team h2::after
+{
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px; /* Дължина на линията */
+    height: 3px;  /* Дебелина */
+    /* Тъмносин цвят (#001F3F), който избледнява в двата края */
+    background: linear-gradient(to right, rgba(0,31,63,0), rgba(0,31,63,0.8), rgba(0,31,63,0)); 
+}
+
 h3{
 	font-family: 'Montserrat', sans-serif;
 	color:#222222;
