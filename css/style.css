@@ -123,9 +123,17 @@ h6{
 }
 
 /* Изравняване на подзаглавието в секция Услуги */
+/* 1. Изравняване на подзаглавието в секция Услуги */
 #service h6 {
     margin-top: 0 !important;
-    margin-bottom: 50px !important; /* Изравняваме с 40-те пиксела над него */
+    margin-bottom: 0 !important; 
+    padding-bottom: 40px !important; /* ВАЖНО: Ползваме padding, за да заобиколим слепването */
+    display: block !important;
+}
+
+/* 2. Твърдо избутване на "Корпоративни клиенти" надолу */
+#service .row h2 {
+    margin-top: 20px !important; /* Добавяме въздух специално над него */
 }
 
 p{
