@@ -111,19 +111,12 @@
 
     <script type="text/javascript" src="js/jquery.1.11.1.js"></script>
     <script type="text/javascript" src="js/bootstrap.js"></script>
+    
     <script type="text/javascript">
-        $(document).ready(function(){
-            $('.res-nav_click').click(function(e){
-                e.preventDefault();
-                e.stopPropagation();
+        $(document).ready(function() {
+            $('.res-nav_click').click(function() {
                 $('.main-nav').slideToggle();
-            });
-            $(document).click(function(event) { 
-                if(!$(event.target).closest('.main-nav').length && !$(event.target).closest('.res-nav_click').length) {
-                    if($('.main-nav').is(":visible") && $(window).width() < 768) {
-                        $('.main-nav').slideUp();
-                    }
-                }        
+                return false;
             });
         });
     </script>
