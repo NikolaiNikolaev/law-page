@@ -910,19 +910,20 @@ section, .main-section, #Portfolio, #service, #team, #contact, .alabaster {
     transition: color 0.3s ease !important;
 }
 .sidebar-link:hover, .sidebar-link.active {
-    color: #7cc576 !important; /* Вашето зелено */
+    color: #7cc576 !important;
 }
 
-/* Разширен професионален футър */
+/* Разширен професионален футър (Светла версия) */
 .footer-advanced {
-    background: #001F3F; /* Тъмно синьо за тежест и контраст */
+    background: #fcfcfc; /* Елегантно светло сиво, почти бяло */
     padding: 60px 0 20px;
-    color: #b3b3b3;
+    color: #555555;
     font-size: 14px;
     text-align: left;
+    border-top: 1px solid #eeeeee;
 }
 .footer-advanced h4 {
-    color: #ffffff;
+    color: #111111;
     font-family: 'Montserrat', sans-serif;
     font-size: 16px;
     text-transform: uppercase;
@@ -933,15 +934,15 @@ section, .main-section, #Portfolio, #service, #team, #contact, .alabaster {
 .footer-advanced p { line-height: 24px; margin-bottom: 20px; }
 .footer-advanced ul { list-style: none; padding: 0; margin: 0; }
 .footer-advanced ul li { margin-bottom: 12px; }
-.footer-advanced ul li a { color: #b3b3b3; text-decoration: none; transition: color 0.3s; }
+.footer-advanced ul li a { color: #555555; text-decoration: none; transition: color 0.3s; }
 .footer-advanced ul li a:hover { color: #7cc576; }
 .footer-advanced .contact-item { margin-bottom: 15px; display: flex; align-items: flex-start; }
-.footer-advanced .contact-item i { margin-right: 12px; color: #7cc576; font-size: 16px; margin-top: 4px; }
+.footer-advanced .contact-item i { margin-right: 12px; color: #001F3F; font-size: 16px; margin-top: 4px; } /* Тъмно сини икони */
 .footer-bottom {
-    border-top: 1px solid rgba(255,255,255,0.1);
+    border-top: 1px solid #eeeeee;
     margin-top: 40px;
     padding-top: 20px;
     text-align: center;
     font-size: 13px;
-    color: #888;
+    color: #888888;
 }
