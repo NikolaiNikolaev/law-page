@@ -113,29 +113,39 @@
     <script type="text/javascript" src="js/bootstrap.js"></script>
     
     <script type="text/javascript">
-        $(document).ready(function() {
-            var $menu = $('.main-nav');
-            var $btn = $('.res-nav_click');
-
-            // 1. Отваряне/затваряне при клик върху бутона
-            $btn.on('click', function(e) {
-                e.preventDefault();
-                e.stopPropagation(); // ВАЖНО: Спира клика да стигне до документа и да затвори менюто веднага
-                $menu.slideToggle(300);
-            });
-
-            // 2. Затваряне при клик където и да е другаде по страницата
-            $(document).on('click', function(e) {
-                // Ако сме на малък екран и менюто е отворено
-                if ($(window).width() < 768 && $menu.is(':visible')) {
-                    // Ако кликът НЕ е вътре в самото меню
-                    if (!$(e.target).closest('.main-nav').length) {
-                        $menu.slideUp(300);
+        document.addEventListener('DOMContentLoaded', function() {
+            var menuBtn = document.querySelector('.res-nav_click');
+            var navMenu = document.querySelector('.main-nav');
+            
+            if(menuBtn && navMenu) {
+                
+                // 1. Отваряне/затваряне при клик на бутона
+                menuBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation(); // Спира клика, за да не затвори менюто веднага
+                    
+                    if(navMenu.style.display === 'block') {
+                        navMenu.style.display = 'none';
+                    } else {
+                        navMenu.style.display = 'block';
                     }
-                }
-            });
+                });
+
+                // 2. Затваряне при клик навсякъде другаде по екрана
+                document.addEventListener('click', function(e) {
+                    // Проверяваме дали сме на телефон и дали менюто е отворено
+                    if(window.innerWidth < 768 && navMenu.style.display === 'block') {
+                        // Ако кликът НЕ е вътре в самото меню
+                        if(!navMenu.contains(e.target)) {
+                            navMenu.style.display = 'none';
+                        }
+                    }
+                });
+                
+            }
         });
     </script>
+</body>
 
 </body>
 </html>
