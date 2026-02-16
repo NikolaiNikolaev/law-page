@@ -754,13 +754,27 @@ $(document).ready(function() {
 	<script type="text/javascript">
         $(window).on('load', function() {
             if (window.location.hash) {
-                setTimeout(function() {
-                    var target = $(window.location.hash);
-                    if (target.length) {
-                        // Заменяме плавното плъзгане с мигновено позициониране
-                        window.scrollTo(0, target.offset().top - 105);
+                
+                // Проверяваме дали страницата се презарежда (Refresh / F5)
+                var isRefresh = false;
+                if (window.performance) {
+                    var navEntries = window.performance.getEntriesByType("navigation");
+                    if (navEntries.length > 0 && navEntries[0].type === "reload") {
+                        isRefresh = true;
+                    } else if (window.performance.navigation && window.performance.navigation.type === 1) {
+                        isRefresh = true;
                     }
-                }, 100); // Изчаква съвсем малко, за да се зареди структурата, и позиционира
+                }
+                
+                // Извършваме скока към секцията САМО ако НЕ е даден Refresh
+                if (!isRefresh) {
+                    setTimeout(function() {
+                        var target = $(window.location.hash);
+                        if (target.length) {
+                            window.scrollTo(0, target.offset().top - 105);
+                        }
+                    }, 150);
+                }
             }
         });
     </script>
