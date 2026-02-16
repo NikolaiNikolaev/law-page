@@ -82,7 +82,7 @@ h2{
 {
     position: relative;
     padding-bottom: 15px !important;     /* Въздух между текста и линията */
-    margin: 0 auto 40px auto !important; /* Центриране на заглавието в екрана */
+    margin: 0 auto 20px auto !important; /* Центриране на заглавието в екрана */
     display: table !important;           /* Свива зоната точно колкото е дълъг текстът */
 }
 
@@ -120,6 +120,12 @@ h6{
 	font-weight:400;
 	text-align:center;
 	margin:0 0 60px 0;
+}
+
+/* Изравняване на подзаглавието в секция Услуги */
+#service h6 {
+    margin-top: 0 !important;
+    margin-bottom: 20px !important; /* Изравняваме с 40-те пиксела над него */
 }
 
 p{
