@@ -896,3 +896,52 @@ li.small-logo img {
 section, .main-section, #Portfolio, #service, #team, #contact, .alabaster {
     scroll-margin-top: 105px !important; /* Оставя точно място за менюто при всеки скок */
 }
+
+/* ============================================================
+   8. СТРАНИЧНО МЕНЮ И НОВ РАЗШИРЕН ФУТЪР
+   ============================================================ */
+
+/* Зелен цвят при посочване в страничното меню */
+.sidebar-link {
+    color: #555555 !important;
+    text-decoration: none !important;
+    font-size: 14px;
+    font-weight: 600;
+    transition: color 0.3s ease !important;
+}
+.sidebar-link:hover, .sidebar-link.active {
+    color: #7cc576 !important; /* Вашето зелено */
+}
+
+/* Разширен професионален футър */
+.footer-advanced {
+    background: #001F3F; /* Тъмно синьо за тежест и контраст */
+    padding: 60px 0 20px;
+    color: #b3b3b3;
+    font-size: 14px;
+    text-align: left;
+}
+.footer-advanced h4 {
+    color: #ffffff;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    text-transform: uppercase;
+    margin-bottom: 25px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+.footer-advanced p { line-height: 24px; margin-bottom: 20px; }
+.footer-advanced ul { list-style: none; padding: 0; margin: 0; }
+.footer-advanced ul li { margin-bottom: 12px; }
+.footer-advanced ul li a { color: #b3b3b3; text-decoration: none; transition: color 0.3s; }
+.footer-advanced ul li a:hover { color: #7cc576; }
+.footer-advanced .contact-item { margin-bottom: 15px; display: flex; align-items: flex-start; }
+.footer-advanced .contact-item i { margin-right: 12px; color: #7cc576; font-size: 16px; margin-top: 4px; }
+.footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    margin-top: 40px;
+    padding-top: 20px;
+    text-align: center;
+    font-size: 13px;
+    color: #888;
+}
