@@ -113,39 +113,29 @@
     <script type="text/javascript" src="js/bootstrap.js"></script>
     
     <script type="text/javascript">
-        document.addEventListener('DOMContentLoaded', function() {
-            var menuBtn = document.querySelector('.res-nav_click');
-            var navMenu = document.querySelector('.main-nav');
-            
-            if(menuBtn && navMenu) {
-                
-                // 1. Отваряне/затваряне при клик на бутона
-                menuBtn.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    e.stopPropagation(); // Спира клика, за да не затвори менюто веднага
-                    
-                    if(navMenu.style.display === 'block') {
-                        navMenu.style.display = 'none';
-                    } else {
-                        navMenu.style.display = 'block';
-                    }
-                });
+        $(document).ready(function() {
+            var $btn = $('.res-nav_click');
+            var $menu = $('.main-nav');
 
-                // 2. Затваряне при клик навсякъде другаде по екрана
-                document.addEventListener('click', function(e) {
-                    // Проверяваме дали сме на телефон и дали менюто е отворено
-                    if(window.innerWidth < 768 && navMenu.style.display === 'block') {
-                        // Ако кликът НЕ е вътре в самото меню
-                        if(!navMenu.contains(e.target)) {
-                            navMenu.style.display = 'none';
-                        }
+            // 1. Плавно отваряне/затваряне (спускане)
+            $btn.click(function(e) {
+                e.preventDefault();
+                e.stopPropagation(); // Предпазва от моментално затваряне
+                $menu.slideToggle(400); // 400 милисекунди за плавно спускане
+            });
+
+            // 2. Затваряне при клик отвън
+            $(document).click(function(e) {
+                // Ако сме на малък екран и менюто е отворено
+                if ($(window).width() < 768 && $menu.is(':visible')) {
+                    // Проверяваме дали кликът НЕ е върху самото меню
+                    if (!$(e.target).closest('.main-nav').length) {
+                        $menu.slideUp(400); // Плавно прибиране нагоре
                     }
-                });
-                
-            }
+                }
+            });
         });
     </script>
-</body>
 
 </body>
 </html>
