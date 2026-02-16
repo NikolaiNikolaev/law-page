@@ -877,3 +877,14 @@ li.small-logo img {
 .delay-06s { animation-delay: 0.6s; -webkit-animation-delay: 0.6s; }
 .delay-07s { animation-delay: 0.7s; -webkit-animation-delay: 0.7s; }
 .delay-1s { animation-delay: 1s; -webkit-animation-delay: 1s; }
+
+/* ============================================================
+   КОРИГИРАНЕ НА ОТМЕСТВАНЕТО ПРИ СКОК ОТ ДРУГА СТРАНИЦА (ЗА ВСИЧКИ БУТОНИ)
+   ============================================================ */
+html {
+    scroll-behavior: smooth;
+}
+
+section, .main-section, #Portfolio, #service, #team, #contact, .alabaster {
+    scroll-margin-top: 105px !important; /* Оставя точно място за менюто при всеки скок */
+}
