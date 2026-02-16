@@ -114,11 +114,12 @@
     
     <script type="text/javascript">
         $(document).ready(function() {
-            $('.res-nav_click').click(function() {
-                $('.main-nav').slideToggle();
-                return false;
+            $('.res-nav_click').off('click').on('click', function(e) {
+                e.preventDefault();
+                $('.main-nav').slideToggle(300);
             });
         });
     </script>
+
 </body>
 </html>
