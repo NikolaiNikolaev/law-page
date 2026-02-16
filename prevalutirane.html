@@ -114,28 +114,24 @@
     
     <script type="text/javascript">
         $(document).ready(function() {
-            var $btn = $('.res-nav_click');
-            var $menu = $('.main-nav');
-
-            // 1. Плавно отваряне/затваряне (спускане)
-            $btn.click(function(e) {
+            // 1. Плавно отваряне и спиране на скока догоре
+            $(document).on('click', '.res-nav_click', function(e) {
                 e.preventDefault();
-                e.stopPropagation(); // Предпазва от моментално затваряне
-                $menu.slideToggle(400); // 400 милисекунди за плавно спускане
+                e.stopPropagation();
+                $('.main-nav').slideToggle(400); // Плавно спускане за 0.4 сек.
             });
 
-            // 2. Затваряне при клик отвън
-            $(document).click(function(e) {
-                // Ако сме на малък екран и менюто е отворено
-                if ($(window).width() < 768 && $menu.is(':visible')) {
-                    // Проверяваме дали кликът НЕ е върху самото меню
+            // 2. Плавно затваряне при клик отвън
+            $(document).on('click', function(e) {
+                if ($(window).width() < 768 && $('.main-nav').is(':visible')) {
                     if (!$(e.target).closest('.main-nav').length) {
-                        $menu.slideUp(400); // Плавно прибиране нагоре
+                        $('.main-nav').slideUp(400); // Плавно прибиране
                     }
                 }
             });
         });
     </script>
+</body>
 
 </body>
 </html>
