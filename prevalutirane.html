@@ -113,11 +113,21 @@
     <script type="text/javascript" src="js/bootstrap.js"></script>
     
     <script type="text/javascript">
-        $(document).ready(function() {
-            $('.res-nav_click').off('click').on('click', function(e) {
-                e.preventDefault();
-                $('.main-nav').slideToggle(300);
-            });
+        document.addEventListener('DOMContentLoaded', function() {
+            var menuBtn = document.querySelector('.res-nav_click');
+            var navMenu = document.querySelector('.main-nav');
+            
+            if(menuBtn && navMenu) {
+                menuBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    // Превключваме между показване и скриване
+                    if(navMenu.style.display === 'block') {
+                        navMenu.style.display = 'none';
+                    } else {
+                        navMenu.style.display = 'block';
+                    }
+                });
+            }
         });
     </script>
 
