@@ -757,11 +757,10 @@ $(document).ready(function() {
                 setTimeout(function() {
                     var target = $(window.location.hash);
                     if (target.length) {
-                        $('html, body').animate({
-                            scrollTop: target.offset().top - 105
-                        }, 400); // Домества плавно точно под менюто
+                        // Заменяме плавното плъзгане с мигновено позициониране
+                        window.scrollTo(0, target.offset().top - 105);
                     }
-                }, 500); // Изчаква 0.5 сек. новините да се подредят
+                }, 100); // Изчаква съвсем малко, за да се зареди структурата, и позиционира
             }
         });
     </script>
