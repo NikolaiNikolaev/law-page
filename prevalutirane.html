@@ -114,24 +114,27 @@
     
     <script type="text/javascript">
         $(document).ready(function() {
-            // 1. Плавно отваряне и спиране на скока догоре
-            $(document).on('click', '.res-nav_click', function(e) {
+            // Изолираме само първото (реалното) меню и бутон, за да избегнем конфликт със скритите дубликати
+            var $menu = $('.main-nav').first();
+            var $btn = $('.res-nav_click').first();
+
+            // Плавно отваряне/затваряне
+            $btn.click(function(e) {
                 e.preventDefault();
                 e.stopPropagation();
-                $('.main-nav').slideToggle(400); // Плавно спускане за 0.4 сек.
+                $menu.slideToggle(400); 
             });
 
-            // 2. Плавно затваряне при клик отвън
-            $(document).on('click', function(e) {
-                if ($(window).width() < 768 && $('.main-nav').is(':visible')) {
-                    if (!$(e.target).closest('.main-nav').length) {
-                        $('.main-nav').slideUp(400); // Плавно прибиране
+            // Затваряне при клик извън менюто
+            $(document).click(function(event) {
+                if ($(window).width() < 768 && $menu.is(':visible')) {
+                    if (!$(event.target).closest('.main-nav').length && !$(event.target).closest('.res-nav_click').length) {
+                        $menu.slideUp(400); 
                     }
                 }
             });
         });
     </script>
-</body>
 
 </body>
 </html>
