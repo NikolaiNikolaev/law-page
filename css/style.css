@@ -385,13 +385,20 @@ li.small-logo img {
         margin: 0 !important;
     }
 
-    /* 3. Стилове на линковете */
+    /* 3. Стилове на линковете (Компактни + Плавен зелен цвят) */
     .main-nav li a {
         display: block !important;
-        padding: 15px 0 !important;
+        padding: 10px 0 !important; /* По-прибрани бутони */
+        font-size: 13px !important; /* По-малък шрифт */
         margin: 0 !important;
         text-align: center;
         width: 100% !important;
+        transition: color 0.3s ease !important; /* Плавно преливане на цвета */
+    }
+
+    /* Зелен цвят при преминаване с мишката */
+    .main-nav li a:hover {
+        color: #7cc576 !important; /* Това е стандартното зелено за темата. Ако Вашето е друг нюанс, просто сменете кода */
     }
     
     .main-nav li:last-child {
