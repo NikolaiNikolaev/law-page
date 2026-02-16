@@ -750,6 +750,21 @@ $(document).ready(function() {
     });
 });
 	</script>
+
+	<script type="text/javascript">
+        $(window).on('load', function() {
+            if (window.location.hash) {
+                setTimeout(function() {
+                    var target = $(window.location.hash);
+                    if (target.length) {
+                        $('html, body').animate({
+                            scrollTop: target.offset().top - 105
+                        }, 400); // Домества плавно точно под менюто
+                    }
+                }, 500); // Изчаква 0.5 сек. новините да се подредят
+            }
+        });
+    </script>
 	
 </body>
 </html>
