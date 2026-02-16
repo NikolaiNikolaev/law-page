@@ -125,7 +125,7 @@ h6{
 /* Изравняване на подзаглавието в секция Услуги */
 #service h6 {
     margin-top: 0 !important;
-    margin-bottom: 20px !important; /* Изравняваме с 40-те пиксела над него */
+    margin-bottom: 50px !important; /* Изравняваме с 40-те пиксела над него */
 }
 
 p{
