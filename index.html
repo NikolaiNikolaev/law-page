@@ -677,17 +677,20 @@ $(window).load(function(){
   });
   
   $(window).smartresize(function(){
-    // check if columns has changed
-    var currentColumns = Math.floor( ( $body.width() -30 ) / colW );
-    if ( currentColumns !== columns ) {
-      // set new column count
-      columns = currentColumns;
-      // apply width to container manually, then trigger relayout
-      $container.width( columns * colW )
-        .isotope('reLayout');
-    }
+    var currentColumns = Math.floor( ( $('body').width() - 30 ) / colW );
+    if (currentColumns < 1) { currentColumns = 1; } // Защита за много малки екрани
     
+    // Ако сме на телефон (под 768px), казваме на системата да ползва 100% ширина
+    if ($('body').width() < 768) {
+        $container.width('100%').isotope('reLayout');
+    } else {
+        if ( currentColumns !== columns ) {
+            columns = currentColumns;
+            $container.width( columns * colW ).isotope('reLayout');
+        }
+    }
   }).smartresize(); // trigger resize to set container width
+	
   $('.portfolioFilter a').click(function(){
         $('.portfolioFilter .current').removeClass('current');
         $(this).addClass('current');
