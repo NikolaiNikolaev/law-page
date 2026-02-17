@@ -823,6 +823,35 @@ $(document).ready(function() {
             }
         });
     </script>
+
+	<div id="cookie-banner" style="display: none; position: fixed; bottom: 0; left: 0; width: 100%; background: rgba(0, 31, 63, 0.95); color: #fff; padding: 15px 0; z-index: 9999; box-shadow: 0 -4px 10px rgba(0,0,0,0.15);">
+        <div class="container" style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap;">
+            <div style="flex: 1; min-width: 280px; padding-right: 20px; margin-bottom: 10px;">
+                <p style="margin: 0; font-size: 13px; color: #e0e0e0; line-height: 1.6; font-family: 'Open Sans', sans-serif;">
+                    Този уебсайт използва „бисквитки“ (cookies), за да осигури правилното си функциониране и да Ви 
+					предостави максимално добро потребителско изживяване. Продължавайки да използвате сайта, Вие се 
+					съгласявате с нашата 
+                    <a href="privacy-policy.html" style="color: #7cc576; text-decoration: underline; font-weight: 600;">Политика за поверителност</a>.
+                </p>
+            </div>
+            <div>
+                <button id="accept-cookies" style="background: #7cc576; color: #fff; border: none; padding: 10px 25px; border-radius: 4px; font-family: 'Montserrat', sans-serif; font-size: 13px; font-weight: 700; text-transform: uppercase; cursor: pointer; transition: background 0.3s;">
+                    Разбрах
+                </button>
+            </div>
+        </div>
+    </div>
+    <script>
+    $(document).ready(function() {
+        if (!localStorage.getItem('cookieConsent_NikolaevLaw')) {
+            $('#cookie-banner').fadeIn(500);
+        }
+        $('#accept-cookies').click(function() {
+            localStorage.setItem('cookieConsent_NikolaevLaw', 'true');
+            $('#cookie-banner').fadeOut(500);
+        });
+    });
+    </script>
 	
 </body>
 </html>
