@@ -487,13 +487,14 @@
 						</div>
 
 						<div style="margin-bottom: 25px; text-align: left; display: flex; align-items: flex-start;">
-                            <input type="checkbox" id="privacyConsent" name="privacyConsent" style="margin-top: 5px; margin-right: 10px; cursor: pointer;" onchange="document.getElementById('submitBtn').disabled = !this.checked; document.getElementById('submitBtn').style.opacity = this.checked ? '1' : '0.5'; document.getElementById('submitBtn').style.cursor = this.checked ? 'pointer' : 'not-allowed';">
+                            <input type="checkbox" id="privacyConsent" name="privacyConsent" style="margin-top: 5px; margin-right: 10px; cursor: pointer;">
                             <label for="privacyConsent" style="font-weight: normal; font-size: 14px; color: #555; cursor: pointer; margin: 0;">
                                 Съгласявам се с <a href="privacy-policy.html" target="_blank" style="color: #7cc576; text-decoration: underline;">Политиката за поверителност</a> на Адвокатска кантора „Nikolaev & Co“.
                             </label>
                         </div>
 						
-                       <div class="text-center"><button type="submit" class="input-btn" disabled>Изпрати съобщение</button></div>
+                       <div class="text-center"><button type="submit" id="submitBtn" class="input-btn" disabled>Изпрати съобщение</button></div>
+					
                     </form>
                 </div>	
             </div>
@@ -655,8 +656,9 @@ $(document).ready(function() {
     // Полета
     var $name = $('#name');
     var $email = $('#email');
-    var $phone = $('#phone_number'); // Новото поле за следене
+    var $phone = $('#phone_number'); 
     var $message = $('#message');
+    var $privacy = $('#privacyConsent'); // НОВО: Вземаме тикчето за поверителност
 
     // 1. БЛОКИРАНЕ НА БУКВИ В ТЕЛЕФОНА (Още при писане)
     $phone.on('input', function() {
@@ -705,19 +707,22 @@ $(document).ready(function() {
         var emailOk = setStatus($email, isValidEmail(emailVal), "Моля, въведете валиден имейл адрес.");
         var phoneOk = setStatus($phone, phoneVal.length >= 8, "Моля, въведете поне 8 цифри.");
         var msgOk = setStatus($message, msgVal.length >= 10, "Моля, опишете случая с поне 10 знака.");
+        
+        var privacyOk = $privacy.is(':checked'); // НОВО: Проверяваме дали тикчето е маркирано
 
-        // Бутонът е активен САМО ако всичко е зелено
-        if (nameOk && emailOk && phoneOk && msgOk) {
+        // Бутонът е активен САМО ако всичко е зелено И тикчето е маркирано
+        if (nameOk && emailOk && phoneOk && msgOk && privacyOk) {
             $button.prop('disabled', false);
         } else {
             $button.prop('disabled', true);
         }
     }
 
-    // Слушаме за писане във всички полета
+    // Слушаме за писане във всички полета и промяна на тикчето
     $form.find('input, textarea').on('input keyup change blur', function() {
         checkForm();
     });
+
 
     // ИЗПРАЩАНЕ
     $form.on('submit', function(e) {
