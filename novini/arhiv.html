@@ -249,9 +249,14 @@
         $(window).smartresize(function(){
             var colW = 375;
             var currentColumns = Math.floor( ($('body').width() - 30) / colW );
-            $container.width( currentColumns * colW ).isotope('reLayout');
+            if (currentColumns < 1) { currentColumns = 1; }
+            
+            if ($('body').width() < 768) {
+                $container.width('100%').isotope('reLayout');
+            } else {
+                $container.width( currentColumns * colW ).isotope('reLayout');
+            }
         }).smartresize();
-    });
 
     // 4. МОБИЛНО МЕНЮ И БИСКВИТКИ
     $(document).ready(function() {
