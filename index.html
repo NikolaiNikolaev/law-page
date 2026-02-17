@@ -825,12 +825,15 @@ $(document).ready(function() {
     </script>
 
 	<div id="cookie-banner" style="display: none; position: fixed; bottom: 0; left: 0; width: 100%; background: rgba(0, 31, 63, 0.95); color: #fff; padding: 15px 0; z-index: 9999; box-shadow: 0 -4px 10px rgba(0,0,0,0.15);">
-        <div class="container" style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap;">
+        
+        <span id="close-cookie-banner" style="position: absolute; top: 5px; right: 15px; cursor: pointer; color: #aaa; font-size: 28px; line-height: 1; font-family: Arial, sans-serif; transition: color 0.3s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#aaa'" title="Затвори уведомлението">
+            &times;
+        </span>
+        
+        <div class="container" style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; padding-right: 35px;">
             <div style="flex: 1; min-width: 280px; padding-right: 20px; margin-bottom: 10px;">
                 <p style="margin: 0; font-size: 13px; color: #e0e0e0; line-height: 1.6; font-family: 'Open Sans', sans-serif;">
-                    Този уебсайт използва „бисквитки“ (cookies), за да осигури правилното си функциониране и да Ви 
-					предостави максимално добро потребителско изживяване. Продължавайки да използвате сайта, Вие се 
-					съгласявате с нашата 
+                    Този уебсайт използва „бисквитки“ (cookies), за да осигури правилното си функциониране и да Ви предостави максимално добро потребителско изживяване. Продължавайки да използвате сайта, Вие се съгласявате с нашата 
                     <a href="privacy-policy.html" target="_blank" style="color: #7cc576; text-decoration: underline; font-weight: 600;">Политика за поверителност</a>.
                 </p>
             </div>
@@ -841,57 +844,49 @@ $(document).ready(function() {
             </div>
         </div>
     </div>
-  	<script>
+    
+    <script>
     $(document).ready(function() {
-        // 1. НАСТРОЙКИ
         var policyVersion = "v1"; 
         var expireDays = 5; 
         
-        // Ключове за паметта
         var consentKey = 'cookieConsent_NikolaevLaw_' + policyVersion;
         var dateKey = 'cookieDate_NikolaevLaw_' + policyVersion;
-        var sessionDismissKey = 'cookieDismissedSession_' + policyVersion; // Ключ за сесията (при отказ)
+        var sessionDismissKey = 'cookieDismissedSession_' + policyVersion; 
         
         var storedConsent = localStorage.getItem(consentKey);
         var storedDate = localStorage.getItem(dateKey);
-        var sessionDismissed = sessionStorage.getItem(sessionDismissKey); // Проверяваме кратката памет
+        var sessionDismissed = sessionStorage.getItem(sessionDismissKey); 
         
         var now = new Date().getTime();
         var showBanner = true;
 
-        // 2. ПРОВЕРКА ЗА ИЗРИЧНО СЪГЛАСИЕ (до 5 дни)
         if (storedConsent === 'true' && storedDate) {
             var daysPassed = (now - parseInt(storedDate)) / (1000 * 60 * 60 * 24);
             if (daysPassed < expireDays) {
-                showBanner = false; // Имаме валидно съгласие, НЕ показваме банера
+                showBanner = false; 
             } else {
-                // Изтекли са 5 дни - трием старата информация
                 localStorage.removeItem(consentKey);
                 localStorage.removeItem(dateKey);
             }
         }
 
-        // 3. ПРОВЕРКА ЗА ВРЕМЕНЕН ОТКАЗ (Хикса)
-        // Ако потребителят е цъкнал хикса в ТАЗИ сесия, не го дразним, докато разглежда сайта
         if (sessionDismissed === 'true') {
             showBanner = false; 
         }
 
-        // 4. ПОКАЗВАНЕ НА БАНЕРА
         if (showBanner) {
             $('#cookie-banner').fadeIn(500);
         }
 
-        // 5. ДЕЙСТВИЕ: СЪГЛАСИЕ (Бутон "Разбрах")
         $('#accept-cookies').click(function() {
-            localStorage.setItem(consentKey, 'true'); // Записваме дълготрайно (5 дни)
+            localStorage.setItem(consentKey, 'true'); 
             localStorage.setItem(dateKey, new Date().getTime());
             $('#cookie-banner').fadeOut(500);
         });
 
-        // 6. ДЕЙСТВИЕ: ОТКАЗ (Бутон "X")
         $('#close-cookie-banner').click(function() {
-            sessionStorage.setItem(sessionDismissKey, 'true'); // Записваме само за текущото посещение
+            sessionStorage.setItem(sessionDismissKey, 'true'); 
             $('#cookie-banner').fadeOut(500);
         });
     });
