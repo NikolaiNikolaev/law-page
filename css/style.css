@@ -532,7 +532,7 @@ li.small-logo img {
 }
 
 /* ============================================================
-   5. PORTFOLIO & CLIENTS
+   5. PORTFOLIO & CLIENTS (ПРАВНИ НОВИНИ И СТАТИИ)
    ============================================================ */
 
 #Portfolio {
@@ -541,32 +541,122 @@ li.small-logo img {
     margin-top: 0 !important;
 }
 
+/* --- ФИЛТЪР БУТОНИ (ЗАПАЗЕНИ, ЗА ДА РАБОТИ СОРТИРАНЕТО) --- */
 .Portfolio-nav{
-	padding:0;
-	margin:0 0 45px 0;
-	list-style:none;
-	text-align:center;
+    padding:0;
+    margin:0 0 45px 0;
+    list-style:none;
+    text-align:center;
 }
 .Portfolio-nav li{ margin:0 10px; display:inline; }
 .Portfolio-nav li a{
-	display:inline-block; padding:10px 22px; font-size:12px; line-height:20px;
-	color:#222222; border-radius:4px; text-transform:uppercase;
-	font-family: 'Montserrat', sans-serif; background:#f7f7f7; margin-bottom:5px;
-	transition:all 0.3s ease-in-out;
+    display:inline-block; padding:10px 22px; font-size:12px; line-height:20px;
+    color:#222222; border-radius:4px; text-transform:uppercase;
+    font-family: 'Montserrat', sans-serif; background:#f7f7f7; margin-bottom:5px;
+    transition:all 0.3s ease-in-out;
 }
 .Portfolio-nav li a:hover, .Portfolio-nav li a.current{
-	background:#001F3F; color:#fff; text-decoration:none;
+    background:#001F3F; color:#fff; text-decoration:none;
 }
 .portfolioContainer{ margin:0 auto; padding-left:15px; max-width: 1140px; }
-.Portfolio-box{
-	text-align:center; margin-bottom:30px; height:350px; width:350px;
-	overflow:hidden; float:left; padding:0;
-}
-.Portfolio-box img:hover { opacity: 0.6; }
 
-/* Отстояние на заглавието от снимката в новините */
-.Portfolio-box h3 {
-    margin-top: 15px; 
+/* --- НОВИ СТИЛОВЕ ЗА КАРТИТЕ СЪС СТАТИИ --- */
+.Portfolio-box {
+    float: left; /* ЗАДЪЛЖИТЕЛНО за плавното подреждане (Isotope) */
+    height: auto !important; 
+    min-height: 440px; 
+    width: 350px;
+    margin-bottom: 40px;
+    text-align: left; 
+    padding: 0 10px;
+}
+
+.news-card {
+    background: #ffffff;
+    border: 1px solid #eeeeee;
+    border-radius: 6px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.04);
+    height: 100%;
+}
+
+.news-card:hover {
+    box-shadow: 0 10px 20px rgba(0,31,63,0.1);
+    transform: translateY(-5px);
+}
+
+.news-img-link {
+    display: block;
+    height: 200px;
+    overflow: hidden;
+}
+
+.news-img-link img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.news-card:hover .news-img-link img {
+    transform: scale(1.05);
+}
+
+.news-content {
+    padding: 20px 25px 25px 25px;
+}
+
+.news-category {
+    display: inline-block;
+    font-size: 11px;
+    text-transform: uppercase;
+    color: #7cc576;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+}
+
+.news-title {
+    font-size: 17px !important;
+    line-height: 1.4 !important;
+    margin: 0 0 12px 0 !important;
+    text-transform: none !important;
+}
+
+.news-title a {
+    color: #001F3F;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.news-title a:hover {
+    color: #7cc576;
+}
+
+.news-excerpt {
+    font-size: 14px !important;
+    line-height: 1.6 !important;
+    color: #666 !important;
+    margin-bottom: 20px !important;
+    text-align: left !important;
+}
+
+.news-read-more {
+    display: inline-block;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    color: #001F3F;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.news-read-more:hover {
+    color: #7cc576;
+    border-bottom: 2px solid #7cc576;
 }
 
 /* --------------------------------------------------------
