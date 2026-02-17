@@ -841,37 +841,57 @@ $(document).ready(function() {
             </div>
         </div>
     </div>
-   <script>
+  	<script>
     $(document).ready(function() {
-        // 1. НАСТРОЙКИ НА БИСКВИТКИТЕ
-        var policyVersion = "v1"; // Ако промените политиката, просто направете това на "v2"
-        var expireDays = 5; // На колко дни да изтича съгласието (можете да го промените на 30 или 180)
+        // 1. НАСТРОЙКИ
+        var policyVersion = "v1"; 
+        var expireDays = 5; 
         
+        // Ключове за паметта
         var consentKey = 'cookieConsent_NikolaevLaw_' + policyVersion;
         var dateKey = 'cookieDate_NikolaevLaw_' + policyVersion;
+        var sessionDismissKey = 'cookieDismissedSession_' + policyVersion; // Ключ за сесията (при отказ)
         
         var storedConsent = localStorage.getItem(consentKey);
         var storedDate = localStorage.getItem(dateKey);
+        var sessionDismissed = sessionStorage.getItem(sessionDismissKey); // Проверяваме кратката памет
+        
         var now = new Date().getTime();
-        var isExpired = true;
+        var showBanner = true;
 
-        // 2. ПРОВЕРКА ДАЛИ СЪГЛАСИЕТО Е ВАЛИДНО И В СРОК
+        // 2. ПРОВЕРКА ЗА ИЗРИЧНО СЪГЛАСИЕ (до 5 дни)
         if (storedConsent === 'true' && storedDate) {
             var daysPassed = (now - parseInt(storedDate)) / (1000 * 60 * 60 * 24);
             if (daysPassed < expireDays) {
-                isExpired = false; // Съгласието е валидно и не са минали 5 дни
+                showBanner = false; // Имаме валидно съгласие, НЕ показваме банера
+            } else {
+                // Изтекли са 5 дни - трием старата информация
+                localStorage.removeItem(consentKey);
+                localStorage.removeItem(dateKey);
             }
         }
 
-        // 3. ПОКАЗВАНЕ НА БАНЕРА, АКО Е ИЗТЕКЛО ИЛИ НЯМА СЪГЛАСИЕ
-        if (isExpired) {
+        // 3. ПРОВЕРКА ЗА ВРЕМЕНЕН ОТКАЗ (Хикса)
+        // Ако потребителят е цъкнал хикса в ТАЗИ сесия, не го дразним, докато разглежда сайта
+        if (sessionDismissed === 'true') {
+            showBanner = false; 
+        }
+
+        // 4. ПОКАЗВАНЕ НА БАНЕРА
+        if (showBanner) {
             $('#cookie-banner').fadeIn(500);
         }
 
-        // 4. ЗАПАЗВАНЕ ПРИ КЛИК
+        // 5. ДЕЙСТВИЕ: СЪГЛАСИЕ (Бутон "Разбрах")
         $('#accept-cookies').click(function() {
-            localStorage.setItem(consentKey, 'true');
-            localStorage.setItem(dateKey, new Date().getTime()); // Записваме точния час и дата на съгласието
+            localStorage.setItem(consentKey, 'true'); // Записваме дълготрайно (5 дни)
+            localStorage.setItem(dateKey, new Date().getTime());
+            $('#cookie-banner').fadeOut(500);
+        });
+
+        // 6. ДЕЙСТВИЕ: ОТКАЗ (Бутон "X")
+        $('#close-cookie-banner').click(function() {
+            sessionStorage.setItem(sessionDismissKey, 'true'); // Записваме само за текущото посещение
             $('#cookie-banner').fadeOut(500);
         });
     });
