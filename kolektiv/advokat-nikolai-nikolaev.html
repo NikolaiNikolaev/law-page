@@ -178,6 +178,20 @@
     
     <script>
     $(document).ready(function() {
+
+        // МОБИЛНО МЕНЮ
+        $('.res-nav_click').click(function(e){
+            e.preventDefault(); e.stopPropagation(); $('.main-nav').slideToggle();
+        });
+        $(document).click(function(event) { 
+            if(!$(event.target).closest('.main-nav').length && !$(event.target).closest('.res-nav_click').length) {
+                if($('.main-nav').is(":visible") && $(window).width() < 768) { $('.main-nav').slideUp(); }
+            }        
+        });
+        $('.main-nav li a').click(function(){
+            if($(window).width() < 768) { $('.main-nav').slideUp(); }
+        });
+        
         var policyVersion = "v1"; 
         var expireDays = 5; 
         var consentKey = 'cookieConsent_NikolaevLaw_' + policyVersion;
