@@ -659,6 +659,32 @@ li.small-logo img {
     border-bottom: 2px solid #7cc576;
 }
 
+/* --- БУТОН ЗА АРХИВ НОВИНИ --- */
+.btn-archive {
+    display: inline-block;
+    padding: 12px 35px;
+    background: transparent;
+    color: #001F3F !important;
+    border: 2px solid #001F3F;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    text-decoration: none !important;
+    letter-spacing: 1px;
+}
+
+.btn-archive:hover {
+    background: #001F3F;
+    color: #ffffff !important;
+    box-shadow: 0 5px 15px rgba(0,31,63,0.2);
+}
+
+/* Корекция на margin-а на новините, за да не избутват бутона надолу */
+.news-category { margin-bottom: 0 !important; }
+
 /* --------------------------------------------------------
    КЛИЕНТИ (ОТЗИВИ) - СТАТИЧЕН СЛАЙДЕР
    --------------------------------------------------------
