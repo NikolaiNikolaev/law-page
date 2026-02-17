@@ -485,7 +485,16 @@
 							<textarea class="form-control input-text text-area form-field" name="message" id="message" rows="5" placeholder="Моля, опишете Вашия случай възможно най-подробно"></textarea>
 							<div class="validation" style="color: red; font-size: 12px; margin-top: 5px;"></div>
 						</div>
-                        
+
+						<div style="margin-bottom: 25px; text-align: left; display: flex; align-items: flex-start;">
+                            <input type="checkbox" id="privacyConsent" name="privacyConsent" style="margin-top: 5px; margin-right: 10px; cursor: pointer;" onchange="document.getElementById('submitBtn').disabled = !this.checked; document.getElementById('submitBtn').style.opacity = this.checked ? '1' : '0.5'; document.getElementById('submitBtn').style.cursor = this.checked ? 'pointer' : 'not-allowed';">
+                            <label for="privacyConsent" style="font-weight: normal; font-size: 14px; color: #555; cursor: pointer; margin: 0;">
+                                Съгласявам се с <a href="privacy-policy.html" target="_blank" style="color: #7cc576; text-decoration: underline;">Политиката за поверителност</a> на Адвокатска кантора „Nikolaev & Co“.
+                            </label>
+                        </div>
+
+                        <input class="input-btn" type="submit" id="submitBtn" value="Изпрати съобщение" disabled style="opacity: 0.5; cursor: not-allowed; transition: all 0.3s;">
+						
                        <div class="text-center"><button type="submit" class="input-btn" disabled>Изпрати съобщение</button></div>
                     </form>
                 </div>	
@@ -502,12 +511,12 @@
                 <p style="font-size: 13px;">Ние сме Вашите адвокати! Имаме визията за Вас! Нас ни е грижа за Вашата справедливост! Предлагаме комплексно правно обслужване с най-висок стандарт.</p>
             </div>
             <div class="col-md-3 col-sm-6" style="margin-bottom: 30px;">
-                <h4>Бързи връзки</h4>
+            <h4>Бързи връзки</h4>
                 <ul>
-                    <li><a href="#header">Начало</a></li>
-                    <li><a href="#Portfolio">Правни новини</a></li>
-                    <li><a href="#client">Клиенти</a></li>
-                    <li><a href="#team">Колектив</a></li>
+                    <li><a href="index.html#header">Начало</a></li>
+                    <li><a href="index.html#Portfolio">Правни новини</a></li>
+                    <li><a href="index.html#client">Клиенти</a></li>
+                    <li><a href="privacy-policy.html">Политика за поверителност</a></li>
                 </ul>
             </div>
             <div class="col-md-3 col-sm-6" style="margin-bottom: 30px;">
