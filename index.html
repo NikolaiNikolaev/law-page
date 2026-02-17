@@ -831,7 +831,7 @@ $(document).ready(function() {
                     Този уебсайт използва „бисквитки“ (cookies), за да осигури правилното си функциониране и да Ви 
 					предостави максимално добро потребителско изживяване. Продължавайки да използвате сайта, Вие се 
 					съгласявате с нашата 
-                    <a href="privacy-policy.html" style="color: #7cc576; text-decoration: underline; font-weight: 600;">Политика за поверителност</a>.
+                    <a href="privacy-policy.html" target="_blank" style="color: #7cc576; text-decoration: underline; font-weight: 600;">Политика за поверителност</a>.
                 </p>
             </div>
             <div>
@@ -841,13 +841,37 @@ $(document).ready(function() {
             </div>
         </div>
     </div>
-    <script>
+   <script>
     $(document).ready(function() {
-        if (!localStorage.getItem('cookieConsent_NikolaevLaw')) {
+        // 1. НАСТРОЙКИ НА БИСКВИТКИТЕ
+        var policyVersion = "v1"; // Ако промените политиката, просто направете това на "v2"
+        var expireDays = 5; // На колко дни да изтича съгласието (можете да го промените на 30 или 180)
+        
+        var consentKey = 'cookieConsent_NikolaevLaw_' + policyVersion;
+        var dateKey = 'cookieDate_NikolaevLaw_' + policyVersion;
+        
+        var storedConsent = localStorage.getItem(consentKey);
+        var storedDate = localStorage.getItem(dateKey);
+        var now = new Date().getTime();
+        var isExpired = true;
+
+        // 2. ПРОВЕРКА ДАЛИ СЪГЛАСИЕТО Е ВАЛИДНО И В СРОК
+        if (storedConsent === 'true' && storedDate) {
+            var daysPassed = (now - parseInt(storedDate)) / (1000 * 60 * 60 * 24);
+            if (daysPassed < expireDays) {
+                isExpired = false; // Съгласието е валидно и не са минали 5 дни
+            }
+        }
+
+        // 3. ПОКАЗВАНЕ НА БАНЕРА, АКО Е ИЗТЕКЛО ИЛИ НЯМА СЪГЛАСИЕ
+        if (isExpired) {
             $('#cookie-banner').fadeIn(500);
         }
+
+        // 4. ЗАПАЗВАНЕ ПРИ КЛИК
         $('#accept-cookies').click(function() {
-            localStorage.setItem('cookieConsent_NikolaevLaw', 'true');
+            localStorage.setItem(consentKey, 'true');
+            localStorage.setItem(dateKey, new Date().getTime()); // Записваме точния час и дата на съгласието
             $('#cookie-banner').fadeOut(500);
         });
     });
