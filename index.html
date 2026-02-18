@@ -658,53 +658,44 @@ $(document).ready(function(){
 </script>
 
 <script type="text/javascript">
-
 $(window).load(function(){
-  
-  
-  var $container = $('.portfolioContainer'),
-      $body = $('body'),
-      colW = 375,
-      columns = null;
-
+  var $container = $('.portfolioContainer');
+  var $body = $('body');
   
   $container.isotope({
-    // disable window resizing
-    resizable: true,
-    masonry: {
-      columnWidth: colW
-    }
+    resizable: false, // Изключваме базовото преоразмеряване, за да го контролираме ние
+    itemSelector: '.Portfolio-box'
   });
   
   $(window).smartresize(function(){
-    var currentColumns = Math.floor( ( $('body').width() - 30 ) / colW );
-    if (currentColumns < 1) { currentColumns = 1; } // Защита за много малки екрани
-    
-    // Ако сме на телефон (под 768px), казваме на системата да ползва 100% ширина
-    if ($('body').width() < 768) {
-        $container.width('100%').isotope('reLayout');
+    var winW = $(window).width();
+    var colW = 375; // Десктоп размер на колоната
+
+    if (winW < 768) {
+        // На телефон: Контейнерът е 100%, матрицата също е 100%
+        $container.css('width', '100%');
+        $container.isotope({
+            masonry: { columnWidth: $container.width() }
+        }).isotope('reLayout');
     } else {
-        if ( currentColumns !== columns ) {
-            columns = currentColumns;
-            $container.width( columns * colW ).isotope('reLayout');
-        }
+        // На компютър: Изчисляваме колко колони по 375px се събират
+        var currentColumns = Math.floor( ($body.width() - 30) / colW );
+        if (currentColumns < 1) { currentColumns = 1; }
+        $container.css('width', currentColumns * colW);
+        $container.isotope({
+            masonry: { columnWidth: colW }
+        }).isotope('reLayout');
     }
-  }).smartresize(); // trigger resize to set container width
-	
+  }).smartresize(); // Стартираме го веднага
+  
   $('.portfolioFilter a').click(function(){
         $('.portfolioFilter .current').removeClass('current');
         $(this).addClass('current');
- 
         var selector = $(this).attr('data-filter');
-        $container.isotope({
-			
-            filter: selector,
-         });
-         return false;
-    });
-  
+        $container.isotope({ filter: selector });
+        return false;
+  });
 });
-
 </script>
 
 <script type="text/javascript">
