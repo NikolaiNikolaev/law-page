@@ -624,6 +624,7 @@
         <h2>Споделете с нас Вашия казус.</h2>
     </div>
 </section><!--business-talking-end-->
+	
 <div class="container">
 <section class="main-section contact">
 	
@@ -656,6 +657,13 @@
         	<div class="col-lg-6 col-sm-5 wow fadeInUp delay-05s">
             	<div class="form">
                 	
+                    <div style="margin-bottom: 25px; padding: 18px 20px; background: #f8fbf8; border-left: 4px solid #7cc576; border-radius: 4px; box-shadow: 0 2px 5px rgba(0,0,0,0.02);">
+                        <h4 style="font-family: 'Montserrat', sans-serif; font-size: 14px; color: #001F3F; margin: 0 0 8px 0; font-weight: 700; text-transform: uppercase;">Как да процедирате?</h4>
+                        <p style="font-size: 13px; color: #555; line-height: 1.6; margin: 0;">
+                            Независимо дали имате нужда от <strong>запазване на час за консултация</strong>, оферта за <strong>абонамент</strong> или имате правен въпрос, моля, използвайте формата. <br>
+                            <span style="color: #7cc576; font-weight: 600;">Съвет:</span> За по-бърза обработка, посочете дали предпочитате онлайн среща или комуникация по имейл/телефон.
+                        </p>
+                    </div>
                     <div id="sendmessage">Вашето съобщение е изпратено успешно! Благодаря Ви! Очаквайте обратна връзка в най-кратък срок.</div>
                     <div id="errormessage"></div>
 					<div id="form-message" style="display:none; text-align:center; padding:15px; margin:20px auto; max-width:600px; border-radius:5px; font-weight:bold; font-size:18px; color:#fff; background:#7cc576;">
@@ -667,15 +675,18 @@
 						<input type="hidden" name="submission_time" id="submission-time">
 						<input type="hidden" name="Локално време на изпращане" id="local-time">
 						<input type="hidden" name="_language" value="bg">
+                        
                         <div class="form-group">
-							<input type="text" name="name" class="form-control input-text form-field" id="name" placeholder="Вашето име /първо и фамилия/" data-rule="required" data-msg="Моля, въведете вашето име">
-						<div class="validation" style="color: red; font-size: 12px; margin-top: 5px;"></div>
+							<input type="text" name="name" class="form-control input-text form-field" id="name" placeholder="Вашето име / Три имена на фирмата" data-rule="required" data-msg="Моля, въведете вашето име">
+						    <div class="validation" style="color: red; font-size: 12px; margin-top: 5px;"></div>
 						</div>
+                        
                         <div class="form-group">
-							<input type="email" class="form-control input-text form-field" name="email" id="email" placeholder="Вашият имейл адрес" data-rule="required" data-msg="Моля, въведете валиден имейл адрес">
+							<input type="email" class="form-control input-text form-field" name="email" id="email" placeholder="Вашият имейл адрес за обратна връзка" data-rule="required" data-msg="Моля, въведете валиден имейл адрес">
 							<div class="validation" style="color: red; font-size: 12px; margin-top: 5px;"></div>
 						</div>
-							<div class="form-group">
+						
+                        <div class="form-group">
 							    <div style="display: flex; align-items: center;">
 							        <select name="country_code" id="country_code" class="form-control" style="width: 100px; margin-right: 10px; font-size: 13px;">
 									    <option value="+43">+43 (Австрия)</option>
@@ -716,8 +727,9 @@
 							    </div>
 							    <div class="validation" style="color: red; font-size: 12px; margin-top: 5px;"></div>
 							</div>
+                        
                         <div class="form-group">
-							<textarea class="form-control input-text text-area form-field" name="message" id="message" rows="5" placeholder="Моля, опишете Вашия случай възможно най-подробно"></textarea>
+							<textarea class="form-control input-text text-area form-field" name="message" id="message" rows="5" placeholder="Опишете накратко фактите по казуса. Ако запазвате час, посочете удобен ден и предпочитан формат..."></textarea>
 							<div class="validation" style="color: red; font-size: 12px; margin-top: 5px;"></div>
 						</div>
 
