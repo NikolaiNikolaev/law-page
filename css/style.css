@@ -1065,22 +1065,21 @@ section, .main-section, #Portfolio, #service, #team, #contact, .alabaster {
    МОБИЛЕН ИЗГЛЕД ЗА СТАТИИТЕ (Списъчен изглед)
    ============================================================ */
 @media only screen and (max-width: 767px) {
-    /* Кутията заема цялата ширина и се свива на височина */
+    /* Твърдите размери спасяват Isotope от грешни изчисления */
     .Portfolio-box {
         width: 100% !important;
-        min-height: auto !important;
-        height: auto !important;
+        height: 130px !important; 
+        min-height: 130px !important;
         margin-bottom: 15px !important;
         padding: 0 15px !important;
     }
 
-    /* Превръщаме картата в хоризонтален блок */
     .news-card {
         display: flex !important;
         flex-direction: row !important;
         align-items: center !important;
         padding: 10px !important;
-        height: auto !important;
+        height: 110px !important; 
     }
 
     /* Снимката става малък квадрат вляво */
@@ -1097,12 +1096,11 @@ section, .main-section, #Portfolio, #service, #team, #contact, .alabaster {
         flex-grow: 1;
     }
 
-    /* СКРИВАМЕ дългото резюме, за да не заема място */
+    /* Скриваме дългото резюме */
     .news-excerpt {
         display: none !important;
     }
 
-    /* Намаляваме шрифтовете за перфектна четимост */
     .news-category {
         font-size: 10px !important;
         margin-bottom: 3px !important;
