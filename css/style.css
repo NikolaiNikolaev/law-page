@@ -1060,6 +1060,8 @@ section, .main-section, #Portfolio, #service, #team, #contact, .alabaster {
     padding-top: 20px;
     text-align: center;
     font-size: 13px;
+    color: #888888;
+}
 
 /* ============================================================
    МОБИЛЕН ИЗГЛЕД ЗА СТАТИИТЕ (Списъчен изглед)
