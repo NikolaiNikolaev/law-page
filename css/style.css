@@ -1007,6 +1007,71 @@ li.small-logo img {
 .delay-1s { animation-delay: 1s; -webkit-animation-delay: 1s; }
 
 /* ============================================================
+   FAQ ACCORDION (ЧЕСТО ЗАДАВАНИ ВЪПРОСИ)
+   ============================================================ */
+#faq {
+    padding-bottom: 60px !important;
+}
+
+#faq .panel-group .panel {
+    border-radius: 0;
+    box-shadow: none;
+    border: none;
+    border-bottom: 1px solid #dddddd;
+    margin-bottom: 10px;
+    background: transparent;
+}
+
+#faq .panel-heading {
+    padding: 0;
+    background: transparent;
+}
+
+#faq .panel-title a {
+    display: block;
+    padding: 15px 30px 15px 0;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: #001F3F;
+    text-decoration: none;
+    position: relative;
+    text-transform: none;
+    transition: color 0.3s ease;
+}
+
+#faq .panel-title a:hover {
+    color: #7cc576;
+}
+
+/* Иконката за плюс/минус или стрелка надолу */
+#faq .panel-title a::after {
+    content: "\f107"; /* FontAwesome стрелка надолу */
+    font-family: 'FontAwesome';
+    position: absolute;
+    right: 5px;
+    top: 15px;
+    font-size: 20px;
+    color: #001F3F;
+    transition: transform 0.3s ease;
+}
+
+/* Завъртане на стрелката, когато е отворено */
+#faq .panel-title a[aria-expanded="true"]::after {
+    transform: rotate(180deg);
+    color: #7cc576;
+}
+
+#faq .panel-body {
+    border-top: none !important;
+    padding: 0 0 20px 0;
+    color: #555;
+    font-size: 14px;
+    line-height: 1.8;
+    text-align: justify;
+}
+
+/* ============================================================
    КОРИГИРАНЕ НА ОТМЕСТВАНЕТО ПРИ СКОК ОТ ДРУГА СТРАНИЦА (ЗА ВСИЧКИ БУТОНИ)
    ============================================================ */
 section, .main-section, #Portfolio, #service, #team, #contact, .alabaster {
