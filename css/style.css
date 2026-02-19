@@ -560,188 +560,6 @@ li.small-logo img {
 }
 .portfolioContainer{ margin:0 auto; padding-left:15px; max-width: 1140px; }
 
-/* --- НОВИ СТИЛОВЕ ЗА КАРТИТЕ СЪС СТАТИИ --- */
-.Portfolio-box {
-    float: left; /* ЗАДЪЛЖИТЕЛНО за плавното подреждане (Isotope) */
-    height: auto !important; 
-    min-height: 440px; 
-    width: 350px;
-    margin-bottom: 40px;
-    text-align: left; 
-    padding: 0 10px;
-}
-
-.news-card {
-    background: #ffffff;
-    border: 1px solid #eeeeee;
-    border-radius: 6px;
-    overflow: hidden;
-    transition: all 0.3s ease;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.04);
-    height: 100%;
-}
-
-.news-card:hover {
-    box-shadow: 0 10px 20px rgba(0,31,63,0.1);
-    transform: translateY(-5px);
-}
-
-.news-img-link {
-    display: block;
-    height: 200px;
-    overflow: hidden;
-}
-
-.news-img-link img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease;
-}
-
-.news-card:hover .news-img-link img {
-    transform: scale(1.05);
-}
-
-.news-content {
-    padding: 20px 25px 25px 25px;
-}
-
-.news-category {
-    display: inline-block;
-    font-size: 11px;
-    text-transform: uppercase;
-    color: #7cc576;
-    font-weight: 700;
-    letter-spacing: 1px;
-    margin-bottom: 10px;
-}
-
-.news-title {
-    font-size: 17px !important;
-    line-height: 1.4 !important;
-    margin: 0 0 12px 0 !important;
-    text-transform: none !important;
-}
-
-.news-title a {
-    color: #001F3F;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.news-title a:hover {
-    color: #7cc576;
-}
-
-.news-excerpt {
-    font-size: 14px !important;
-    line-height: 1.6 !important;
-    color: #666 !important;
-    margin-bottom: 20px !important;
-    text-align: left !important;
-}
-
-.news-read-more {
-    display: inline-block;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 12px;
-    font-weight: 700;
-    color: #001F3F;
-    text-transform: uppercase;
-    text-decoration: none;
-    border-bottom: 2px solid transparent;
-    transition: all 0.3s ease;
-}
-
-.news-read-more:hover {
-    color: #7cc576;
-    border-bottom: 2px solid #7cc576;
-}
-
-/* --- БУТОН ЗА АРХИВ НОВИНИ --- */
-.btn-archive {
-    display: inline-block;
-    padding: 12px 35px;
-    background: transparent;
-    color: #001F3F !important;
-    border: 2px solid #001F3F;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 13px;
-    font-weight: 700;
-    text-transform: uppercase;
-    border-radius: 4px;
-    transition: all 0.3s ease;
-    text-decoration: none !important;
-    letter-spacing: 1px;
-}
-
-.btn-archive:hover {
-    background: #001F3F;
-    color: #ffffff !important;
-    box-shadow: 0 5px 15px rgba(0,31,63,0.2);
-}
-
-/* Корекция на margin-а на новините, за да не избутват бутона надолу */
-.news-category { margin-bottom: 0 !important; }
-
-/* ==========================================================================
-   ПОДОБРЕНИЯ ЗА ПЛОЧКИТЕ С НОВИНИ (АРХИВ И НАЧАЛНА СТРАНИЦА)
-   ========================================================================== */
-.Portfolio-box {
-    padding: 15px; /* Създава перфектно отстояние (дупка) между отделните плочки */
-    box-sizing: border-box;
-}
-
-.news-card {
-    background: #ffffff;
-    border: 1px solid #eeeeee;
-    border-radius: 8px;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05); /* Лека красива сянка */
-}
-
-.news-content {
-    padding: 25px 20px;
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1; /* Позволява на съдържанието да се разтяга, колкото текст има */
-}
-
-.news-excerpt {
-    margin-bottom: 20px;
-    color: #666;
-    font-size: 14px;
-    line-height: 1.6;
-}
-
-.news-read-more {
-    margin-top: auto; /* Винаги притиска бутона "Прочети статията" плътно към дъното */
-    font-weight: 700;
-    color: #001F3F;
-    text-transform: uppercase;
-    font-size: 12px;
-    text-decoration: none;
-    transition: color 0.3s;
-}
-
-.news-read-more:hover {
-    color: #7cc576;
-}
-
-/* Мобилен изглед: Предотвратява изрязването и мачкането на текста */
-@media (max-width: 767px) {
-    .Portfolio-box {
-        width: 100% !important;
-        padding: 15px 0; 
-    }
-    .news-card {
-        height: auto; 
-    }
-}
 
 /* --------------------------------------------------------
    КЛИЕНТИ (ОТЗИВИ) - СТАТИЧЕН СЛАЙДЕР
@@ -1186,61 +1004,73 @@ section, .main-section, #Portfolio, #service, #team, #contact, .alabaster {
     color: #888888;
 }
 
-/* ============================================================
-   МОБИЛЕН ИЗГЛЕД ЗА СТАТИИТЕ (Списъчен изглед)
-   ============================================================ */
-@media only screen and (max-width: 767px) {
-    /* Твърдите размери спасяват Isotope от грешни изчисления */
-    .Portfolio-box {
-        width: 100% !important;
-        height: 130px !important; 
-        min-height: 130px !important;
-        margin-bottom: 15px !important;
-        padding: 0 15px !important;
-    }
+/* ==========================================================================
+   АРХИВ НОВИНИ И СТАТИИ - ФИЛТРИ И ПЛОЧКИ
+   ========================================================================== */
+.archive-filters { text-align: center; margin-bottom: 40px; }
+.filter-label { font-family: 'Montserrat', sans-serif; font-size: 14px; color: #001F3F; font-weight: 700; text-transform: uppercase; margin: 0 15px 10px 0; display: inline-block; vertical-align: middle; }
+.filter-group { display: inline-block; margin-bottom: 20px; vertical-align: middle; }
+.filter-group a { display: inline-block; padding: 8px 18px; font-size: 12px; line-height: 20px; color: #555; border-radius: 4px; text-transform: uppercase; font-family: 'Montserrat', sans-serif; background: #f0f0f0; margin: 0 5px 5px 0; transition: all 0.3s ease; text-decoration: none; font-weight: 600; }
+.filter-group a:hover, .filter-group a.is-checked { background: #001F3F; color: #fff; }
+.filter-divider { width: 100%; height: 1px; background: #eee; margin: 10px 0 30px 0; }
 
-    .news-card {
-        display: flex !important;
-        flex-direction: row !important;
-        align-items: center !important;
-        padding: 10px !important;
-        height: 110px !important; 
-    }
+/* Решетка и базови плочки */
+.portfolioContainer { width: 100%; margin: 0 auto; }
+.Portfolio-box { width: 33.333%; float: left; padding: 15px; box-sizing: border-box; }
 
-    /* Снимката става малък квадрат вляво */
-    .news-img-link {
-        width: 90px !important;
-        height: 90px !important;
-        flex-shrink: 0;
-        border-radius: 4px;
-    }
-
-    /* Съдържанието се позиционира вдясно */
-    .news-content {
-        padding: 0 0 0 15px !important;
-        flex-grow: 1;
-    }
-
-    /* Скриваме дългото резюме */
-    .news-excerpt {
-        display: none !important;
-    }
-
-    .news-category {
-        font-size: 10px !important;
-        margin-bottom: 3px !important;
-    }
-
-    .news-title {
-        font-size: 13px !important;
-        line-height: 1.3 !important;
-        margin: 0 0 5px 0 !important;
-    }
-
-    .news-read-more {
-        font-size: 10px !important;
-        margin-top: 0 !important;
-    }
+.news-card {
+    background: #ffffff; border: 1px solid #eeeeee; border-radius: 8px; overflow: hidden;
+    display: flex; flex-direction: column; height: 100%; box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-    color: #888888;
+.news-card:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(0,0,0,0.1); }
+
+/* Картинката на компютър */
+.news-img-link { display: block; width: 100%; height: 200px; border-bottom: 1px solid #eee; }
+.news-img-link img { width: 100%; height: 100%; object-fit: cover; }
+
+/* Текстовата част */
+.news-content { padding: 25px 20px; display: flex; flex-direction: column; flex-grow: 1; }
+.news-category-wrap { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eee; margin-bottom: 15px; padding-bottom: 10px; }
+.news-category-label { color: #7cc576; font-size: 11px; font-weight: 700; text-transform: uppercase; }
+.news-title { font-family: 'Montserrat', sans-serif; font-size: 17px; font-weight: 700; margin: 0 0 12px 0; line-height: 1.4; text-transform: none; }
+.news-title a { color: #111; text-decoration: none; transition: color 0.3s; }
+.news-title a:hover { color: #7cc576; }
+.news-excerpt { color: #666; font-size: 14px; line-height: 1.6; margin-bottom: 20px; }
+.news-read-more { margin-top: auto; font-weight: 700; color: #001F3F; text-transform: uppercase; font-size: 11px; text-decoration: none; transition: color 0.3s; }
+.news-read-more:hover { color: #7cc576; }
+
+/* --- ТАБЛЕТ: 2 на ред --- */
+@media (min-width: 768px) and (max-width: 991px) {
+    .Portfolio-box { width: 50%; }
+}
+
+/* --- МОБИЛЕН ИЗГЛЕД (СПИСЪК С КВАДРАТНА СНИМКА ВЛЯВО) --- */
+@media (max-width: 767px) {
+    .Portfolio-box { 
+        width: 100%; 
+        padding: 10px 0; /* Използва пълната широчина на екрана */
+    }
+    .news-card { 
+        flex-direction: row; /* Текстът застава до снимката */
+        align-items: flex-start; 
+        height: auto; 
+    }
+    .news-img-link {
+        width: 100px; /* Точен фиксиран квадрат */
+        height: 100px; /* Точен фиксиран квадрат */
+        flex-shrink: 0; /* ЗАБРАНЯВА РАЗПЪВАНЕТО надолу */
+        border-bottom: none; 
+        border-right: 1px solid #eee;
+    }
+    .news-content { 
+        padding: 10px 15px; 
+        width: calc(100% - 100px); /* Заема останалото място */
+        justify-content: flex-start;
+    }
+    .news-category-wrap { margin-bottom: 5px; padding-bottom: 5px; border-bottom: none; }
+    .news-category-wrap span:last-child { display: none; } /* Скрива датата */
+    .news-title { font-size: 13px; margin-bottom: 5px; }
+    .news-excerpt { display: none; } /* Скрива дългия текст */
+    .news-read-more { font-size: 10px; margin-top: 5px; }
 }
