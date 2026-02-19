@@ -685,6 +685,64 @@ li.small-logo img {
 /* Корекция на margin-а на новините, за да не избутват бутона надолу */
 .news-category { margin-bottom: 0 !important; }
 
+/* ==========================================================================
+   ПОДОБРЕНИЯ ЗА ПЛОЧКИТЕ С НОВИНИ (АРХИВ И НАЧАЛНА СТРАНИЦА)
+   ========================================================================== */
+.Portfolio-box {
+    padding: 15px; /* Създава перфектно отстояние (дупка) между отделните плочки */
+    box-sizing: border-box;
+}
+
+.news-card {
+    background: #ffffff;
+    border: 1px solid #eeeeee;
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05); /* Лека красива сянка */
+}
+
+.news-content {
+    padding: 25px 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Позволява на съдържанието да се разтяга, колкото текст има */
+}
+
+.news-excerpt {
+    margin-bottom: 20px;
+    color: #666;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.news-read-more {
+    margin-top: auto; /* Винаги притиска бутона "Прочети статията" плътно към дъното */
+    font-weight: 700;
+    color: #001F3F;
+    text-transform: uppercase;
+    font-size: 12px;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.news-read-more:hover {
+    color: #7cc576;
+}
+
+/* Мобилен изглед: Предотвратява изрязването и мачкането на текста */
+@media (max-width: 767px) {
+    .Portfolio-box {
+        width: 100% !important;
+        padding: 15px 0; 
+    }
+    .news-card {
+        height: auto; 
+    }
+}
+
 /* --------------------------------------------------------
    КЛИЕНТИ (ОТЗИВИ) - СТАТИЧЕН СЛАЙДЕР
    --------------------------------------------------------
