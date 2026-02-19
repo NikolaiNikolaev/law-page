@@ -1076,3 +1076,53 @@ section, .main-section, #Portfolio, #service, #team, #contact, .alabaster {
     .news-excerpt { display: none !important; } 
     .news-read-more { font-size: 10px !important; margin-top: 5px !important; }
 }
+
+/* ==========================================================================
+   НАЧАЛНА СТРАНИЦА: 4 ПЛОЧКИ НА РЕД, ЕЛЕГАНТНИ ФИЛТРИ И БУТОН
+   ========================================================================== */
+
+/* 1. Елегантни филтри (само категории, с подчертаване) */
+.elegant-filters { text-align: center; margin-bottom: 40px; }
+.elegant-filters a {
+    display: inline-block; padding: 5px 15px; margin: 0 10px 10px; font-size: 13px; font-weight: 600;
+    color: #888; text-transform: uppercase; letter-spacing: 1px; border-bottom: 2px solid transparent;
+    transition: all 0.3s ease; text-decoration: none; font-family: 'Montserrat', sans-serif;
+}
+.elegant-filters a:hover, .elegant-filters a.is-checked { color: #001F3F; border-bottom: 2px solid #7cc576; }
+
+/* 2. Бутон "Вижте всички публикации" (Истински бутон с въздух) */
+.btn-archive-wrapper { text-align: center; margin-top: 40px; margin-bottom: 70px; clear: both; }
+.btn-archive {
+    display: inline-block; padding: 14px 40px; background: #001F3F; color: #ffffff !important;
+    font-family: 'Montserrat', sans-serif; font-size: 13px; font-weight: 700; text-transform: uppercase;
+    border-radius: 4px; transition: all 0.3s ease; text-decoration: none !important; box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+.btn-archive:hover { background: #7cc576; box-shadow: 0 8px 20px rgba(124,197,118,0.3); transform: translateY(-3px); }
+
+/* 3. Оразмеряване за 4 на ред (Само за големи екрани) */
+@media (min-width: 1200px) {
+    /* 25% ширина прави точно 4 на ред */
+    .Portfolio-box { width: 25% !important; float: left !important; padding: 10px !important; }
+    
+    /* Твърда, фиксирана височина за абсолютна симетрия */
+    .news-card { height: 400px !important; } 
+    
+    /* По-малка снимка за елегантност */
+    .news-img-link { height: 160px !important; } 
+    
+    .news-content { padding: 20px 15px !important; }
+    .news-title { font-size: 15px !important; margin-bottom: 10px !important; }
+    
+    /* Ако текстът е прекалено дълъг, го реже елегантно с "..." на 3-тия ред */
+    .news-excerpt { 
+        font-size: 13px !important; 
+        margin-bottom: 15px !important; 
+        display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; 
+    }
+}
+
+/* За средни лаптопи (по 3 на ред) */
+@media (min-width: 992px) and (max-width: 1199px) {
+    .Portfolio-box { width: 33.333% !important; padding: 10px !important;}
+    .news-card { height: 420px !important; }
+}
