@@ -15,6 +15,145 @@
     <link href="../css/font-awesome.css" rel="stylesheet" type="text/css">
     <link href="../css/responsive.css" rel="stylesheet" type="text/css">
     <link href="../css/animate.css" rel="stylesheet" type="text/css">
+    
+    <style>
+        /* --- СТИЛОВЕ ЗА ФИЛТРИТЕ --- */
+        .archive-filters { text-align: center; margin-bottom: 40px; }
+        .filter-label { font-family: 'Montserrat', sans-serif; font-size: 14px; color: #001F3F; font-weight: 700; text-transform: uppercase; margin: 0 15px 10px 0; display: inline-block; vertical-align: middle; }
+        .filter-group { display: inline-block; margin-bottom: 20px; vertical-align: middle; }
+        .filter-group a { display: inline-block; padding: 8px 18px; font-size: 12px; line-height: 20px; color: #555; border-radius: 4px; text-transform: uppercase; font-family: 'Montserrat', sans-serif; background: #f0f0f0; margin: 0 5px 5px 0; transition: all 0.3s ease; text-decoration: none; font-weight: 600; }
+        .filter-group a:hover, .filter-group a.is-checked { background: #001F3F; color: #fff; }
+        .filter-divider { width: 100%; height: 1px; background: #eee; margin: 10px 0 30px 0; }
+
+        /* --- ЖЕЛЕЗНИ ПРАВИЛА ЗА ПЛОЧКИТЕ (БЛОКИРАТ СТАРИЯ ДИЗАЙН) --- */
+        .portfolioContainer {
+            margin: 0 -15px; /* Компенсира отстоянията на плочките */
+        }
+
+        .Portfolio-box {
+            box-sizing: border-box !important;
+            padding: 15px !important; 
+            float: left !important;
+        }
+        
+        .news-card {
+            background: #ffffff !important;
+            border: 1px solid #eeeeee !important;
+            border-radius: 6px !important;
+            overflow: hidden !important;
+            display: flex !important;
+            flex-direction: column !important;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.04) !important;
+            transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+        }
+        
+        .news-card:hover {
+            transform: translateY(-4px) !important;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08) !important;
+        }
+
+        /* КАРТИНКАТА: Винаги отгоре, на 100% ширина, не се мачка */
+        .news-img-link {
+            display: block !important;
+            width: 100% !important;
+            height: 220px !important;
+            float: none !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            border-bottom: 1px solid #eee !important;
+        }
+        
+        .news-img-link img {
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: cover !important;
+            display: block !important;
+            margin: 0 !important;
+        }
+
+        /* ТЕКСТЪТ: Винаги отдолу */
+        .news-content {
+            display: flex !important;
+            flex-direction: column !important;
+            padding: 25px 20px !important;
+            width: 100% !important;
+            float: none !important;
+            box-sizing: border-box !important;
+        }
+
+        .news-category-wrap {
+            display: flex !important;
+            justify-content: space-between !important;
+            align-items: center !important;
+            margin-bottom: 15px !important;
+            border-bottom: 1px solid #eee !important;
+            padding-bottom: 10px !important;
+        }
+
+        .news-category-label {
+            color: #7cc576 !important; /* Зелен текст вместо зелен фон */
+            font-size: 12px !important;
+            font-weight: 700 !important;
+            text-transform: uppercase !important;
+            letter-spacing: 0.5px !important;
+        }
+
+        .news-title {
+            font-family: 'Montserrat', sans-serif !important;
+            font-size: 17px !important;
+            margin: 0 0 12px 0 !important;
+            line-height: 1.4 !important;
+            font-weight: 700 !important;
+            text-transform: none !important; /* НОРМАЛНИ БУКВИ */
+        }
+
+        .news-excerpt {
+            color: #666 !important;
+            font-size: 14px !important;
+            line-height: 1.6 !important;
+            margin-bottom: 20px !important;
+        }
+
+        .news-read-more {
+            margin-top: auto !important;
+            font-weight: 700 !important;
+            color: #001F3F !important;
+            text-transform: uppercase !important;
+            font-size: 12px !important;
+            text-decoration: none !important;
+            transition: color 0.3s !important;
+            display: inline-block !important;
+        }
+
+        /* --- КОМПЮТЪР: Строго 3 на ред с еднаква височина --- */
+        @media (min-width: 992px) {
+            .Portfolio-box { width: 33.3333% !important; }
+            .news-card { height: 480px !important; /* Еднаква височина за идеална решетка */ }
+        }
+
+        /* --- ТАБЛЕТ: 2 на ред --- */
+        @media (min-width: 768px) and (max-width: 991px) {
+            .Portfolio-box { width: 50% !important; }
+            .news-card { height: 480px !important; }
+        }
+
+        /* --- ТЕЛЕФОН: 1 на ред, изключваме Isotope припокриването --- */
+        @media (max-width: 767px) {
+            .portfolioContainer {
+                height: auto !important;
+                display: block !important;
+            }
+            .Portfolio-box {
+                position: static !important;
+                width: 100% !important;
+                display: block !important;
+                float: none !important;
+                transform: none !important;
+                padding: 0 0 30px 0 !important;
+            }
+            .news-card { height: auto !important; min-height: auto !important; }
+        }
+    </style>
 </head>
 
 <body>
@@ -48,90 +187,107 @@
     <section class="main-section" style="padding-top: 0; padding-bottom: 80px; min-height: 60vh; background-color: #ffffff;" id="Portfolio">
         <div class="container">
             
-            <div class="archive-filters wow fadeIn delay-02s" style="text-align: center; margin-bottom: 40px;">
-                <div class="filter-group" data-filter-group="category" style="display: inline-block; margin-bottom: 20px; vertical-align: middle;">
-                    <span style="font-family: 'Montserrat', sans-serif; font-size: 14px; color: #001F3F; font-weight: 700; text-transform: uppercase; margin: 0 15px 10px 0; display: inline-block;"><i class="fa fa-tags"></i> Категория:</span>
-                    <a href="#" data-filter="" class="is-checked" style="display: inline-block; padding: 8px 18px; font-size: 12px; color: #fff; background: #001F3F; border-radius: 4px; text-transform: uppercase; font-family: 'Montserrat', sans-serif; margin: 0 5px 5px 0; text-decoration: none; font-weight: 600;">Всички</a>
-                    <a href="#" data-filter=".targovski" style="display: inline-block; padding: 8px 18px; font-size: 12px; color: #555; background: #f0f0f0; border-radius: 4px; text-transform: uppercase; font-family: 'Montserrat', sans-serif; margin: 0 5px 5px 0; text-decoration: none; font-weight: 600;">Търговско</a>
-                    <a href="#" data-filter=".grazhdanski" style="display: inline-block; padding: 8px 18px; font-size: 12px; color: #555; background: #f0f0f0; border-radius: 4px; text-transform: uppercase; font-family: 'Montserrat', sans-serif; margin: 0 5px 5px 0; text-decoration: none; font-weight: 600;">Гражданско</a>
-                    <a href="#" data-filter=".administrativni" style="display: inline-block; padding: 8px 18px; font-size: 12px; color: #555; background: #f0f0f0; border-radius: 4px; text-transform: uppercase; font-family: 'Montserrat', sans-serif; margin: 0 5px 5px 0; text-decoration: none; font-weight: 600;">Административно</a>
-                    <a href="#" data-filter=".novini" style="display: inline-block; padding: 8px 18px; font-size: 12px; color: #555; background: #f0f0f0; border-radius: 4px; text-transform: uppercase; font-family: 'Montserrat', sans-serif; margin: 0 5px 5px 0; text-decoration: none; font-weight: 600;">Новини</a>
+            <div class="archive-filters wow fadeIn delay-02s">
+                <div class="filter-group" data-filter-group="category">
+                    <span class="filter-label"><i class="fa fa-tags"></i> Категория:</span>
+                    <a href="#" data-filter="" class="is-checked">Всички</a>
+                    <a href="#" data-filter=".targovski">Търговско</a>
+                    <a href="#" data-filter=".grazhdanski">Гражданско</a>
+                    <a href="#" data-filter=".administrativni">Административно</a>
+                    <a href="#" data-filter=".novini">Новини</a>
                 </div>
                 
-                <div style="width: 100%; height: 1px; background: #eee; margin: 10px 0 30px 0;"></div>
+                <div class="filter-divider"></div>
 
-                <div class="filter-group" data-filter-group="year" style="display: inline-block; margin-bottom: 20px; vertical-align: middle;">
-                    <span style="font-family: 'Montserrat', sans-serif; font-size: 14px; color: #001F3F; font-weight: 700; text-transform: uppercase; margin: 0 15px 10px 0; display: inline-block;"><i class="fa fa-calendar"></i> Година:</span>
-                    <a href="#" data-filter="" class="is-checked" style="display: inline-block; padding: 8px 18px; font-size: 12px; color: #fff; background: #001F3F; border-radius: 4px; text-transform: uppercase; font-family: 'Montserrat', sans-serif; margin: 0 5px 5px 0; text-decoration: none; font-weight: 600;">Всички години</a>
-                    <a href="#" data-filter=".y2026" style="display: inline-block; padding: 8px 18px; font-size: 12px; color: #555; background: #f0f0f0; border-radius: 4px; text-transform: uppercase; font-family: 'Montserrat', sans-serif; margin: 0 5px 5px 0; text-decoration: none; font-weight: 600;">2026</a>
-                    <a href="#" data-filter=".y2025" style="display: inline-block; padding: 8px 18px; font-size: 12px; color: #555; background: #f0f0f0; border-radius: 4px; text-transform: uppercase; font-family: 'Montserrat', sans-serif; margin: 0 5px 5px 0; text-decoration: none; font-weight: 600;">2025</a>
+                <div class="filter-group" data-filter-group="year">
+                    <span class="filter-label"><i class="fa fa-calendar"></i> Година:</span>
+                    <a href="#" data-filter="" class="is-checked">Всички години</a>
+                    <a href="#" data-filter=".y2026">2026</a>
+                    <a href="#" data-filter=".y2025">2025</a>
                 </div>
             </div>
 
         </div>
 
-        <div class="portfolioContainer wow fadeInUp delay-04s">
-            
-            <div class="Portfolio-box targovski y2026">
-                <div class="news-card">
-                    <a href="../prevalutirane.html" style="display: block; line-height: 0;"><img src="../img/euro.jpg" alt="Превалутиране" style="width: 100%; border-bottom: 1px solid #eee;"></a>
-                    <div class="news-content">
-                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
-                            <span style="background: #e8f5e9; color: #7cc576; padding: 4px 10px; border-radius: 3px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;">Търговско право</span>
-                            <span style="font-size: 11px; color: #999; font-weight: 600;"><i class="fa fa-calendar" style="margin-right: 4px;"></i> 17.02.2026</span>
+        <div class="container">
+            <div class="portfolioContainer wow fadeInUp delay-04s">
+                
+                <div class="Portfolio-box targovski y2026">
+                    <div class="news-card">
+                        <a href="../prevalutirane.html" class="news-img-link"><img src="../img/euro.jpg" alt="Превалутиране"></a>
+                        <div class="news-content">
+                            <div class="news-category-wrap">
+                                <span class="news-category-label">Търговско право</span>
+                                <span style="font-size: 11px; color: #999; font-weight: 600;"><i class="fa fa-calendar" style="margin-right: 4px;"></i> 17.02.2026</span>
+                            </div>
+                            <h3 class="news-title"><a href="../prevalutirane.html" style="color: #111; text-decoration: none;" onmouseover="this.style.color='#7cc576'" onmouseout="this.style.color='#111'">Превалутиране на капитала на търговските дружества</a></h3>
+                            <p class="news-excerpt">Какви са новите законови задължения за управителите на ООД и АД след приемането на еврото.</p>
+                            <a href="../prevalutirane.html" class="news-read-more" onmouseover="this.style.color='#7cc576'" onmouseout="this.style.color='#001F3F'">Прочети статията &rarr;</a>
                         </div>
-                        <h3 style="font-family: 'Montserrat', sans-serif; font-size: 16px; margin: 0 0 10px 0; line-height: 1.4; font-weight: 700;"><a href="../prevalutirane.html" style="color: #111; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#7cc576'" onmouseout="this.style.color='#111'">Превалутиране на капитала на Търговските дружества</a></h3>
-                        <p class="news-excerpt">Какви са новите законови задължения за управителите на ООД и АД след приемането на еврото.</p>
-                        <a href="../prevalutirane.html" class="news-read-more">Прочети статията &rarr;</a>
                     </div>
                 </div>
-            </div>
 
-            <div class="Portfolio-box grazhdanski y2026">
-                <div class="news-card">
-                    <a href="#" style="display: block; line-height: 0;"><img src="../img/Portfolio-pic1.jpg" alt="Заповедно" style="width: 100%; border-bottom: 1px solid #eee;"></a>
-                    <div class="news-content">
-                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
-                            <span style="background: #e8f5e9; color: #7cc576; padding: 4px 10px; border-radius: 3px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;">Гражданско право</span>
-                            <span style="font-size: 11px; color: #999; font-weight: 600;"><i class="fa fa-calendar" style="margin-right: 4px;"></i> 05.02.2026</span>
+                <div class="Portfolio-box grazhdanski y2026">
+                    <div class="news-card">
+                        <a href="#" class="news-img-link"><img src="../img/Portfolio-pic1.jpg" alt="Заповедно"></a>
+                        <div class="news-content">
+                            <div class="news-category-wrap">
+                                <span class="news-category-label">Гражданско право</span>
+                                <span style="font-size: 11px; color: #999; font-weight: 600;"><i class="fa fa-calendar" style="margin-right: 4px;"></i> 05.02.2026</span>
+                            </div>
+                            <h3 class="news-title"><a href="#" style="color: #111; text-decoration: none;" onmouseover="this.style.color='#7cc576'" onmouseout="this.style.color='#111'">Защита при заповедно и изпълнително производство</a></h3>
+                            <p class="news-excerpt">Получили сте Заповед за изпълнение по чл. 410 от ГПК? Какви са кратките срокове за възражение.</p>
+                            <a href="#" class="news-read-more" onmouseover="this.style.color='#7cc576'" onmouseout="this.style.color='#001F3F'">Прочети статията &rarr;</a>
                         </div>
-                        <h3 style="font-family: 'Montserrat', sans-serif; font-size: 16px; margin: 0 0 10px 0; line-height: 1.4; font-weight: 700;"><a href="#" style="color: #111; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#7cc576'" onmouseout="this.style.color='#111'">Защита при заповедно и изпълнително производство</a></h3>
-                        <p class="news-excerpt">Получили сте Заповед за изпълнение по чл. 410 от ГПК? Какви са кратките срокове за възражение.</p>
-                        <a href="#" class="news-read-more">Прочети статията &rarr;</a>
                     </div>
                 </div>
-            </div>
 
-            <div class="Portfolio-box administrativni y2025">
-                <div class="news-card">
-                    <a href="#" style="display: block; line-height: 0;"><img src="../img/Portfolio-pic4.jpg" alt="Отказ строеж" style="width: 100%; border-bottom: 1px solid #eee;"></a>
-                    <div class="news-content">
-                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
-                            <span style="background: #e8f5e9; color: #7cc576; padding: 4px 10px; border-radius: 3px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;">Административно</span>
-                            <span style="font-size: 11px; color: #999; font-weight: 600;"><i class="fa fa-calendar" style="margin-right: 4px;"></i> 12.11.2025</span>
+                <div class="Portfolio-box administrativni y2025">
+                    <div class="news-card">
+                        <a href="#" class="news-img-link"><img src="../img/Portfolio-pic4.jpg" alt="Отказ строеж"></a>
+                        <div class="news-content">
+                            <div class="news-category-wrap">
+                                <span class="news-category-label">Административно</span>
+                                <span style="font-size: 11px; color: #999; font-weight: 600;"><i class="fa fa-calendar" style="margin-right: 4px;"></i> 12.11.2025</span>
+                            </div>
+                            <h3 class="news-title"><a href="#" style="color: #111; text-decoration: none;" onmouseover="this.style.color='#7cc576'" onmouseout="this.style.color='#111'">Мълчалив отказ и липса на разрешение за строеж (ЗУТ)</a></h3>
+                            <p class="news-excerpt">Как се обжалва незаконосъобразен отказ на Главния архитект пред Административния съд.</p>
+                            <a href="#" class="news-read-more" onmouseover="this.style.color='#7cc576'" onmouseout="this.style.color='#001F3F'">Прочети статията &rarr;</a>
                         </div>
-                        <h3 style="font-family: 'Montserrat', sans-serif; font-size: 16px; margin: 0 0 10px 0; line-height: 1.4; font-weight: 700;"><a href="#" style="color: #111; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#7cc576'" onmouseout="this.style.color='#111'">Мълчалив отказ и липса на разрешение за строеж (ЗУТ)</a></h3>
-                        <p class="news-excerpt">Как се обжалва незаконосъобразен отказ на Главния архитект пред Административния съд.</p>
-                        <a href="#" class="news-read-more">Прочети статията &rarr;</a>
                     </div>
                 </div>
-            </div>
 
-            <div class="Portfolio-box novini y2025">
-                <div class="news-card">
-                    <a href="#" style="display: block; line-height: 0;"><img src="../img/Portfolio-pic2.jpg" alt="Адвокатска реклама" style="width: 100%; border-bottom: 1px solid #eee;"></a>
-                    <div class="news-content">
-                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
-                            <span style="background: #e8f5e9; color: #7cc576; padding: 4px 10px; border-radius: 3px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;">Правни новини</span>
-                            <span style="font-size: 11px; color: #999; font-weight: 600;"><i class="fa fa-calendar" style="margin-right: 4px;"></i> 03.09.2025</span>
+                <div class="Portfolio-box novini y2025">
+                    <div class="news-card">
+                        <a href="#" class="news-img-link"><img src="../img/Portfolio-pic2.jpg" alt="Адвокатска реклама"></a>
+                        <div class="news-content">
+                            <div class="news-category-wrap">
+                                <span class="news-category-label">Правни новини</span>
+                                <span style="font-size: 11px; color: #999; font-weight: 600;"><i class="fa fa-calendar" style="margin-right: 4px;"></i> 03.09.2025</span>
+                            </div>
+                            <h3 class="news-title"><a href="#" style="color: #111; text-decoration: none;" onmouseover="this.style.color='#7cc576'" onmouseout="this.style.color='#111'">Промени в Закона за адвокатурата относно рекламата</a></h3>
+                            <p class="news-excerpt">Анализ на последните изменения, позволяващи на адвокатите да популяризират своята дейност.</p>
+                            <a href="#" class="news-read-more" onmouseover="this.style.color='#7cc576'" onmouseout="this.style.color='#001F3F'">Прочети статията &rarr;</a>
                         </div>
-                        <h3 style="font-family: 'Montserrat', sans-serif; font-size: 16px; margin: 0 0 10px 0; line-height: 1.4; font-weight: 700;"><a href="#" style="color: #111; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#7cc576'" onmouseout="this.style.color='#111'">Промени в Закона за адвокатурата относно рекламата</a></h3>
-                        <p class="news-excerpt">Анализ на последните изменения, позволяващи на адвокатите да популяризират своята дейност.</p>
-                        <a href="#" class="news-read-more">Прочети статията &rarr;</a>
                     </div>
                 </div>
+
+                <div class="Portfolio-box grazhdanski y2026">
+                    <div class="news-card">
+                        <a href="#" class="news-img-link"><img src="../img/Portfolio-pic3.jpg" alt="Личен фалит"></a>
+                        <div class="news-content">
+                            <div class="news-category-wrap">
+                                <span class="news-category-label">Гражданско право</span>
+                                <span style="font-size: 11px; color: #999; font-weight: 600;"><i class="fa fa-calendar" style="margin-right: 4px;"></i> 10.01.2026</span>
+                            </div>
+                            <h3 class="news-title"><a href="#" style="color: #111; text-decoration: none;" onmouseover="this.style.color='#7cc576'" onmouseout="this.style.color='#111'">Обявяване на физически лица в несъстоятелност (Личен фалит)</a></h3>
+                            <p class="news-excerpt">Анализ на правната рамка, позволяваща на добросъвестни длъжници да се освободят от непосилни задължения.</p>
+                            <a href="#" class="news-read-more" onmouseover="this.style.color='#7cc576'" onmouseout="this.style.color='#001F3F'">Прочети статията &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+                
             </div>
-            
         </div>
     </section>
 
@@ -245,11 +401,11 @@
     $(window).load(function(){
         
         var $container = $('.portfolioContainer');
-        var $body = $('body');
-
-        // Инициализация
+        
+        // Използваме fitRows, за да стоят строго в редици (без разминаване като тухли)
         $container.isotope({
             resizable: false,
+            layoutMode: 'fitRows', 
             itemSelector: '.Portfolio-box'
         });
         
@@ -257,12 +413,10 @@
         var hash = window.location.hash;
         if(hash) {
             var filterClass = hash.replace('#', '');
-            // Променя стиловете на бутоните в менюто
             $('.archive-filters a').removeClass('is-checked');
             var $filterButton = $('.archive-filters a[data-filter=".' + filterClass + '"]');
             $filterButton.addClass('is-checked');
             
-            // Филтрира веднага при зареждане
             setTimeout(function() {
                 $container.isotope({ filter: '.' + filterClass });
             }, 100);
@@ -291,25 +445,6 @@
             return value;
         }
         
-        // Коригирана Ресайз логика
-        $(window).smartresize(function(){
-            var winW = $(window).width();
-            var colW = 375; // Ширина за десктоп
-
-            if (winW < 768) {
-                // При мобилни: 1 колона, 100% ширина, за да не се чупи футъра
-                $container.css('width', '100%');
-                $('.Portfolio-box').css('width', '100%');
-                $container.isotope({ masonry: { columnWidth: $container.width() } }).isotope('reLayout');
-            } else {
-                // При десктоп: смята колоните нормално
-                var currentColumns = Math.floor( ($body.width() - 30) / colW );
-                if (currentColumns < 1) { currentColumns = 1; }
-                $container.css('width', currentColumns * colW);
-                $('.Portfolio-box').css('width', colW + 'px');
-                $container.isotope({ masonry: { columnWidth: colW } }).isotope('reLayout');
-            }
-        }).smartresize();
     });
         
     $(document).ready(function() {
