@@ -17,7 +17,7 @@
     <link href="../css/animate.css" rel="stylesheet" type="text/css">
     
     <style>
-        /* --- СТИЛОВЕ ЗА ФИЛТРИТЕ --- */
+        /* --- СТИЛОВЕ ЗА МЕНЮТО С ФИЛТРИ --- */
         .archive-filters { text-align: center; margin-bottom: 40px; }
         .filter-label { font-family: 'Montserrat', sans-serif; font-size: 14px; color: #001F3F; font-weight: 700; text-transform: uppercase; margin: 0 15px 10px 0; display: inline-block; vertical-align: middle; }
         .filter-group { display: inline-block; margin-bottom: 20px; vertical-align: middle; }
@@ -25,133 +25,175 @@
         .filter-group a:hover, .filter-group a.is-checked { background: #001F3F; color: #fff; }
         .filter-divider { width: 100%; height: 1px; background: #eee; margin: 10px 0 30px 0; }
 
-        /* --- ЖЕЛЕЗНИ ПРАВИЛА ЗА ПЛОЧКИТЕ (БЛОКИРАТ СТАРИЯ ДИЗАЙН) --- */
+        /* --- ОСНОВНИ ПРАВИЛА ЗА ПЛОЧКИТЕ (БЛОКИРАТ СТАРИЯ ДИЗАЙН) --- */
         .portfolioContainer {
-            margin: 0 -15px; /* Компенсира отстоянията на плочките */
+            margin: 0 -15px; /* Компенсира вътрешния padding на плочките */
         }
 
         .Portfolio-box {
-            box-sizing: border-box !important;
-            padding: 15px !important; 
-            float: left !important;
+            box-sizing: border-box;
+            padding: 15px; /* Създава перфектните разстояния между статиите */
         }
         
         .news-card {
-            background: #ffffff !important;
-            border: 1px solid #eeeeee !important;
-            border-radius: 6px !important;
-            overflow: hidden !important;
-            display: flex !important;
-            flex-direction: column !important;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.04) !important;
-            transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+            background: #ffffff;
+            border: 1px solid #eeeeee;
+            border-radius: 6px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
         
         .news-card:hover {
-            transform: translateY(-4px) !important;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.08) !important;
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
         }
 
-        /* КАРТИНКАТА: Винаги отгоре, на 100% ширина, не се мачка */
         .news-img-link {
-            display: block !important;
-            width: 100% !important;
-            height: 220px !important;
-            float: none !important;
-            margin: 0 !important;
-            padding: 0 !important;
-            border-bottom: 1px solid #eee !important;
+            display: block;
+            width: 100%;
+            overflow: hidden;
         }
         
         .news-img-link img {
-            width: 100% !important;
-            height: 100% !important;
-            object-fit: cover !important;
-            display: block !important;
-            margin: 0 !important;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
         }
 
-        /* ТЕКСТЪТ: Винаги отдолу */
         .news-content {
-            display: flex !important;
-            flex-direction: column !important;
-            padding: 25px 20px !important;
-            width: 100% !important;
-            float: none !important;
-            box-sizing: border-box !important;
+            display: flex;
+            flex-direction: column;
+            box-sizing: border-box;
         }
 
         .news-category-wrap {
-            display: flex !important;
-            justify-content: space-between !important;
-            align-items: center !important;
-            margin-bottom: 15px !important;
-            border-bottom: 1px solid #eee !important;
-            padding-bottom: 10px !important;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #eee;
         }
 
         .news-category-label {
-            color: #7cc576 !important; /* Зелен текст вместо зелен фон */
-            font-size: 12px !important;
-            font-weight: 700 !important;
-            text-transform: uppercase !important;
-            letter-spacing: 0.5px !important;
+            color: #7cc576; 
+            font-weight: 700;
+            text-transform: uppercase;
         }
 
         .news-title {
-            font-family: 'Montserrat', sans-serif !important;
-            font-size: 17px !important;
-            margin: 0 0 12px 0 !important;
-            line-height: 1.4 !important;
-            font-weight: 700 !important;
-            text-transform: none !important; /* НОРМАЛНИ БУКВИ */
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            text-transform: none !important; /* Нормални букви */
+        }
+
+        .news-title a {
+            color: #111; 
+            text-decoration: none; 
+            transition: color 0.3s;
+        }
+
+        .news-title a:hover {
+            color: #7cc576;
         }
 
         .news-excerpt {
-            color: #666 !important;
-            font-size: 14px !important;
-            line-height: 1.6 !important;
-            margin-bottom: 20px !important;
+            color: #666;
+            line-height: 1.6;
         }
 
         .news-read-more {
-            margin-top: auto !important;
-            font-weight: 700 !important;
-            color: #001F3F !important;
-            text-transform: uppercase !important;
-            font-size: 12px !important;
-            text-decoration: none !important;
-            transition: color 0.3s !important;
-            display: inline-block !important;
+            font-weight: 700;
+            color: #001F3F;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: color 0.3s;
+            display: inline-block;
         }
+
+        .news-read-more:hover {
+            color: #7cc576;
+        }
+
+
+        /* ==========================================================================
+           АДАПТИВЕН ДИЗАЙН (РЕШЕТКАТА)
+           ========================================================================== */
 
         /* --- КОМПЮТЪР: Строго 3 на ред с еднаква височина --- */
         @media (min-width: 992px) {
-            .Portfolio-box { width: 33.3333% !important; }
-            .news-card { height: 480px !important; /* Еднаква височина за идеална решетка */ }
+            .Portfolio-box { width: 33.3333%; }
+            .news-card { height: 480px; } /* Еднаква височина за идеална решетка */
+            .news-img-link { height: 200px; border-bottom: 1px solid #eee; }
+            .news-content { padding: 25px 20px; height: 280px; }
+            .news-category-wrap { margin-bottom: 15px; padding-bottom: 10px; }
+            .news-category-label { font-size: 11px; }
+            .news-title { font-size: 17px; margin: 0 0 12px 0; line-height: 1.4; }
+            .news-excerpt { font-size: 14px; margin-bottom: 20px; }
+            .news-read-more { margin-top: auto; font-size: 12px; }
         }
 
         /* --- ТАБЛЕТ: 2 на ред --- */
         @media (min-width: 768px) and (max-width: 991px) {
-            .Portfolio-box { width: 50% !important; }
-            .news-card { height: 480px !important; }
+            .Portfolio-box { width: 50%; }
+            .news-card { height: 480px; }
+            .news-img-link { height: 200px; border-bottom: 1px solid #eee; }
+            .news-content { padding: 25px 20px; height: 280px; }
+            .news-category-wrap { margin-bottom: 15px; padding-bottom: 10px; }
+            .news-category-label { font-size: 11px; }
+            .news-title { font-size: 16px; margin: 0 0 12px 0; line-height: 1.4; }
+            .news-excerpt { font-size: 13px; margin-bottom: 20px; }
+            .news-read-more { margin-top: auto; font-size: 12px; }
         }
 
-        /* --- ТЕЛЕФОН: 1 на ред, изключваме Isotope припокриването --- */
+        /* --- ТЕЛЕФОН: Хоризонтален списък (Снимка вляво, текст вдясно) --- */
         @media (max-width: 767px) {
-            .portfolioContainer {
-                height: auto !important;
-                display: block !important;
+            .Portfolio-box { 
+                width: 100%; 
+                padding: 10px 15px; /* Залепва ги по-близо една до друга */
             }
-            .Portfolio-box {
-                position: static !important;
-                width: 100% !important;
-                display: block !important;
-                float: none !important;
-                transform: none !important;
-                padding: 0 0 30px 0 !important;
+            .news-card { 
+                flex-direction: row; /* Подрежда снимката и текста хоризонтално */
+                height: 130px; /* Компактна височина за списък */
             }
-            .news-card { height: auto !important; min-height: auto !important; }
+            .news-img-link { 
+                width: 35%; /* Снимката заема 35% отляво */
+                height: 100%; 
+                border-right: 1px solid #eee; 
+            }
+            .news-content { 
+                width: 65%; /* Текстът заема 65% отдясно */
+                padding: 12px 15px; 
+                justify-content: space-between;
+            }
+            .news-category-wrap { 
+                margin-bottom: 5px; 
+                padding-bottom: 5px; 
+            }
+            .news-category-label { 
+                font-size: 9px; 
+            }
+            /* Скриваме датата на телефон, за да има място */
+            .news-category-wrap span:last-child { display: none; } 
+            
+            .news-title { 
+                font-size: 13px; 
+                margin: 0; 
+                line-height: 1.3; 
+                /* Ако заглавието е много дълго, слага многоточие (...) на 3-тия ред */
+                display: -webkit-box;
+                -webkit-line-clamp: 3;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+            }
+            /* Скриваме резюмето напълно при телефон */
+            .news-excerpt { display: none; }
+            .news-read-more { 
+                font-size: 10px; 
+                margin-top: auto; 
+            }
         }
     </style>
 </head>
@@ -220,9 +262,9 @@
                                 <span class="news-category-label">Търговско право</span>
                                 <span style="font-size: 11px; color: #999; font-weight: 600;"><i class="fa fa-calendar" style="margin-right: 4px;"></i> 17.02.2026</span>
                             </div>
-                            <h3 class="news-title"><a href="../prevalutirane.html" style="color: #111; text-decoration: none;" onmouseover="this.style.color='#7cc576'" onmouseout="this.style.color='#111'">Превалутиране на капитала на търговските дружества</a></h3>
+                            <h3 class="news-title"><a href="../prevalutirane.html">Превалутиране на капитала на търговските дружества</a></h3>
                             <p class="news-excerpt">Какви са новите законови задължения за управителите на ООД и АД след приемането на еврото.</p>
-                            <a href="../prevalutirane.html" class="news-read-more" onmouseover="this.style.color='#7cc576'" onmouseout="this.style.color='#001F3F'">Прочети статията &rarr;</a>
+                            <a href="../prevalutirane.html" class="news-read-more">Прочети статията &rarr;</a>
                         </div>
                     </div>
                 </div>
@@ -235,9 +277,9 @@
                                 <span class="news-category-label">Гражданско право</span>
                                 <span style="font-size: 11px; color: #999; font-weight: 600;"><i class="fa fa-calendar" style="margin-right: 4px;"></i> 05.02.2026</span>
                             </div>
-                            <h3 class="news-title"><a href="#" style="color: #111; text-decoration: none;" onmouseover="this.style.color='#7cc576'" onmouseout="this.style.color='#111'">Защита при заповедно и изпълнително производство</a></h3>
+                            <h3 class="news-title"><a href="#">Защита при заповедно и изпълнително производство</a></h3>
                             <p class="news-excerpt">Получили сте Заповед за изпълнение по чл. 410 от ГПК? Какви са кратките срокове за възражение.</p>
-                            <a href="#" class="news-read-more" onmouseover="this.style.color='#7cc576'" onmouseout="this.style.color='#001F3F'">Прочети статията &rarr;</a>
+                            <a href="#" class="news-read-more">Прочети статията &rarr;</a>
                         </div>
                     </div>
                 </div>
@@ -250,9 +292,9 @@
                                 <span class="news-category-label">Административно</span>
                                 <span style="font-size: 11px; color: #999; font-weight: 600;"><i class="fa fa-calendar" style="margin-right: 4px;"></i> 12.11.2025</span>
                             </div>
-                            <h3 class="news-title"><a href="#" style="color: #111; text-decoration: none;" onmouseover="this.style.color='#7cc576'" onmouseout="this.style.color='#111'">Мълчалив отказ и липса на разрешение за строеж (ЗУТ)</a></h3>
+                            <h3 class="news-title"><a href="#">Мълчалив отказ и липса на разрешение за строеж (ЗУТ)</a></h3>
                             <p class="news-excerpt">Как се обжалва незаконосъобразен отказ на Главния архитект пред Административния съд.</p>
-                            <a href="#" class="news-read-more" onmouseover="this.style.color='#7cc576'" onmouseout="this.style.color='#001F3F'">Прочети статията &rarr;</a>
+                            <a href="#" class="news-read-more">Прочети статията &rarr;</a>
                         </div>
                     </div>
                 </div>
@@ -265,9 +307,9 @@
                                 <span class="news-category-label">Правни новини</span>
                                 <span style="font-size: 11px; color: #999; font-weight: 600;"><i class="fa fa-calendar" style="margin-right: 4px;"></i> 03.09.2025</span>
                             </div>
-                            <h3 class="news-title"><a href="#" style="color: #111; text-decoration: none;" onmouseover="this.style.color='#7cc576'" onmouseout="this.style.color='#111'">Промени в Закона за адвокатурата относно рекламата</a></h3>
+                            <h3 class="news-title"><a href="#">Промени в Закона за адвокатурата относно рекламата</a></h3>
                             <p class="news-excerpt">Анализ на последните изменения, позволяващи на адвокатите да популяризират своята дейност.</p>
-                            <a href="#" class="news-read-more" onmouseover="this.style.color='#7cc576'" onmouseout="this.style.color='#001F3F'">Прочети статията &rarr;</a>
+                            <a href="#" class="news-read-more">Прочети статията &rarr;</a>
                         </div>
                     </div>
                 </div>
@@ -280,9 +322,9 @@
                                 <span class="news-category-label">Гражданско право</span>
                                 <span style="font-size: 11px; color: #999; font-weight: 600;"><i class="fa fa-calendar" style="margin-right: 4px;"></i> 10.01.2026</span>
                             </div>
-                            <h3 class="news-title"><a href="#" style="color: #111; text-decoration: none;" onmouseover="this.style.color='#7cc576'" onmouseout="this.style.color='#111'">Обявяване на физически лица в несъстоятелност (Личен фалит)</a></h3>
+                            <h3 class="news-title"><a href="#">Обявяване на физически лица в несъстоятелност (личен фалит)</a></h3>
                             <p class="news-excerpt">Анализ на правната рамка, позволяваща на добросъвестни длъжници да се освободят от непосилни задължения.</p>
-                            <a href="#" class="news-read-more" onmouseover="this.style.color='#7cc576'" onmouseout="this.style.color='#001F3F'">Прочети статията &rarr;</a>
+                            <a href="#" class="news-read-more">Прочети статията &rarr;</a>
                         </div>
                     </div>
                 </div>
@@ -402,9 +444,8 @@
         
         var $container = $('.portfolioContainer');
         
-        // Използваме fitRows, за да стоят строго в редици (без разминаване като тухли)
+        // Използваме fitRows, за да стоят перфектно подравнени (по 3 на ред)
         $container.isotope({
-            resizable: false,
             layoutMode: 'fitRows', 
             itemSelector: '.Portfolio-box'
         });
