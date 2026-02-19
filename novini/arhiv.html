@@ -24,6 +24,42 @@
         .filter-group a { display: inline-block; padding: 8px 18px; font-size: 12px; line-height: 20px; color: #555; border-radius: 4px; text-transform: uppercase; font-family: 'Montserrat', sans-serif; background: #f0f0f0; margin: 0 5px 5px 0; transition: all 0.3s ease; text-decoration: none; font-weight: 600; }
         .filter-group a:hover, .filter-group a.is-checked { background: #001F3F; color: #fff; }
         .filter-divider { width: 100%; height: 1px; background: #eee; margin: 10px 0 30px 0; }
+
+        /* Подобрения за мобилни устройства и гъвкавост на плочките */
+        .news-card {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            min-height: 420px;
+        }
+        .news-content {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .news-read-more {
+            margin-top: auto;
+        }
+
+        @media (max-width: 767px) {
+            .Portfolio-box {
+                width: 100% !important;
+                position: static !important;
+                margin-bottom: 30px !important;
+                display: block;
+            }
+            .portfolioContainer {
+                height: auto !important;
+            }
+            .news-card {
+                height: auto !important;
+                min-height: auto;
+            }
+            .news-content {
+                height: auto !important;
+                padding: 20px !important;
+            }
+        }
     </style>
 </head>
 
@@ -37,7 +73,7 @@
                 <li><a href="../index.html#Portfolio">Новини</a></li>
                 <li class="small-logo"><a href="../index.html#header"><img src="../img/nikolaev & co - 2.png" alt="Лого"></a></li>
                 <li><a href="../index.html#client">Клиенти</a></li>
-                <li><a href="../kolektiv/advokat-nikolai-nikolaev.html">Колектив</a></li>
+                <li><a href="../index.html#team">Колектив</a></li>
                 <li><a href="../index.html#contact">Контакти</a></li>
             </ul>
             <a class="res-nav_click" href="#"><i class="fa fa-bars"></i></a>
@@ -62,10 +98,10 @@
                 <div class="filter-group" data-filter-group="category">
                     <span class="filter-label"><i class="fa fa-tags"></i> Категория:</span>
                     <a href="#" data-filter="" class="is-checked">Всички</a>
-                    <a href="#" data-filter=".commercial">Търговско</a>
-                    <a href="#" data-filter=".civil">Гражданско</a>
-                    <a href="#" data-filter=".administrative">Административно</a>
-                    <a href="#" data-filter=".news">Новини</a>
+                    <a href="#" data-filter=".targovski">Търговско</a>
+                    <a href="#" data-filter=".grazhdanski">Гражданско</a>
+                    <a href="#" data-filter=".administrativni">Административно</a>
+                    <a href="#" data-filter=".novini">Новини</a>
                 </div>
                 
                 <div class="filter-divider"></div>
@@ -82,7 +118,7 @@
 
         <div class="portfolioContainer wow fadeInUp delay-04s">
             
-            <div class="Portfolio-box commercial y2026">
+            <div class="Portfolio-box targovski y2026">
                 <div class="news-card">
                     <a href="../prevalutirane.html" class="news-img-link"><img src="../img/euro.jpg" alt="Превалутиране"></a>
                     <div class="news-content">
@@ -97,7 +133,7 @@
                 </div>
             </div>
 
-            <div class="Portfolio-box civil y2026">
+            <div class="Portfolio-box grazhdanski y2026">
                 <div class="news-card">
                     <a href="#" class="news-img-link"><img src="../img/Portfolio-pic1.jpg" alt="Заповедно"></a>
                     <div class="news-content">
@@ -112,7 +148,7 @@
                 </div>
             </div>
 
-            <div class="Portfolio-box administrative y2025">
+            <div class="Portfolio-box administrativni y2025">
                 <div class="news-card">
                     <a href="#" class="news-img-link"><img src="../img/Portfolio-pic4.jpg" alt="Отказ строеж"></a>
                     <div class="news-content">
@@ -127,7 +163,7 @@
                 </div>
             </div>
 
-            <div class="Portfolio-box news y2025">
+            <div class="Portfolio-box novini y2025">
                 <div class="news-card">
                     <a href="#" class="news-img-link"><img src="../img/Portfolio-pic2.jpg" alt="Адвокатска реклама"></a>
                     <div class="news-content">
@@ -142,44 +178,90 @@
                 </div>
             </div>
             
-            </div>
+        </div>
     </section>
 
-    <footer class="footer-advanced">
+    <footer class="footer-advanced" style="padding: 60px 0 20px 0; border-top: 4px solid #7cc576; font-family: 'Open Sans', sans-serif;">
         <div class="container">
             <div class="row">
+                
                 <div class="col-md-3 col-sm-6" style="margin-bottom: 30px;">
-                    <img src="../img/nikolaev & co - 2.png" alt="Nikolaev & Co Logo" style="max-width: 140px; margin-bottom: 20px;">
-                    <p style="font-size: 13px;">Ние сме Вашите адвокати! Имаме визията за Вас! Нас ни е грижа за Вашата справедливост! Предлагаме комплексно правно обслужване с най-висок стандарт.</p>
+                    <a href="../index.html"><img src="../img/nikolaev & co - 2.png" alt="Nikolaev & Co Logo" style="max-width: 150px; margin-bottom: 20px;"></a>
+                    <p style="font-size: 13px; color: #555; line-height: 1.8; text-align: justify;">Грижа ни е за Вашата справедливост! Доверете ни се и получете комплексно правно обслужване с най-висок стандарт и безкомпромисна защита.</p>
                 </div>
+
                 <div class="col-md-3 col-sm-6" style="margin-bottom: 30px;">
-                    <h4>Бързи връзки</h4>
-                    <ul>
-                        <li><a href="../index.html#header">Начало</a></li>
-                        <li><a href="arhiv.html">Правни новини (Архив)</a></li>
-                        <li><a href="../index.html#client">Клиенти</a></li>
-                        <li><a href="../privacy-policy.html">Политика за поверителност</a></li>
+                    <h4 style="color: #001F3F; font-family: 'Montserrat', sans-serif; font-size: 16px; text-transform: uppercase; margin-bottom: 20px; font-weight: 700;">Бързи връзки</h4>
+                    <ul style="list-style: none; padding: 0; margin: 0; font-size: 13px;">
+                        <li style="margin-bottom: 12px;"><a href="../index.html#header" style="color: #555; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#7cc576'" onmouseout="this.style.color='#555'">Начало</a></li>
+                        <li style="margin-bottom: 12px;"><a href="../index.html#team" style="color: #555; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#7cc576'" onmouseout="this.style.color='#555'">Нашият екип</a></li>
+                        <li style="margin-bottom: 12px;"><a href="../korporativni-klienti/abonamentno-obsluzhvane.html" style="color: #7cc576; text-decoration: none; font-weight: 700; transition: color 0.3s;" onmouseover="this.style.color='#001F3F'" onmouseout="this.style.color='#7cc576'">Абонаментно обслужване</a></li>
+                        <li style="margin-bottom: 12px;"><a href="../index.html#faq" style="color: #555; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#7cc576'" onmouseout="this.style.color='#555'">Често задавани въпроси (ЧЗВ)</a></li>
+                        <li style="margin-bottom: 12px;"><a href="../index.html#Portfolio" style="color: #555; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#7cc576'" onmouseout="this.style.color='#555'">Правни новини и статии</a></li>
+                        <li style="margin-bottom: 0;"><a href="../privacy-policy.html" style="color: #555; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#7cc576'" onmouseout="this.style.color='#555'">Политика за поверителност</a></li>
                     </ul>
                 </div>
+
                 <div class="col-md-3 col-sm-6" style="margin-bottom: 30px;">
-                    <h4>Услуги</h4>
-                    <ul>
-                        <li><a href="../druzhestveno-i-korporativno-pravo.html">Дружествено право</a></li>
-                        <li><a href="../targovski-sdelki-i-dogovorno-pravo.html">Договорно право</a></li>
-                        <li><a href="../nedvizhimi-imoti-i-veshtno-pravo.html">Вещно право</a></li>
-                        <li><a href="../procesualno-predstavitelstvo.html">Процесуално представителство</a></li>
-                        <li><a href="../fizicheski-lica/trudovo-pravo.html">Трудово право</a></li>
-                        <li><a href="../fizicheski-lica/semeino-i-nasledstveno-pravo.html">Семейно право</a></li>
+                    <h4 style="color: #001F3F; font-family: 'Montserrat', sans-serif; font-size: 16px; text-transform: uppercase; margin-bottom: 20px; font-weight: 700;">Сфери на дейност</h4>
+                    
+                    <span style="display: block; color: #001F3F; font-size: 12px; font-weight: 700; text-transform: uppercase; margin-bottom: 10px; letter-spacing: 0.5px;">За корпоративни клиенти</span>
+                    <ul style="list-style: none; padding: 0; margin: 0 0 15px 0; font-size: 13px;">
+                        <li style="margin-bottom: 6px;"><a href="../korporativni-klienti/sabirane-na-vzemania.html" style="color: #555; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#7cc576'" onmouseout="this.style.color='#555'">&rsaquo; Събиране на вземания</a></li>
+                        <li style="margin-bottom: 6px;"><a href="../korporativni-klienti/druzhestveno-i-korporativno-pravo.html" style="color: #555; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#7cc576'" onmouseout="this.style.color='#555'">&rsaquo; Дружествено и Корпоративно</a></li>
+                        <li style="margin-bottom: 6px;"><a href="../korporativni-klienti/targovski-sdelki-i-dogovorno-pravo.html" style="color: #555; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#7cc576'" onmouseout="this.style.color='#555'">&rsaquo; Търговски сделки и договори</a></li>
+                        <li style="margin-bottom: 6px;"><a href="../korporativni-klienti/trudovo-pravo-schetovodstvo-i-trz.html" style="color: #555; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#7cc576'" onmouseout="this.style.color='#555'">&rsaquo; Трудово право, счетоводство и ТРЗ</a></li>
+                        <li style="margin-bottom: 6px;"><a href="../korporativni-klienti/nedvizhimi-imoti-i-veshtno-pravo.html" style="color: #555; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#7cc576'" onmouseout="this.style.color='#555'">&rsaquo; Недвижими имоти</a></li>
+                        <li style="margin-bottom: 0;"><a href="../korporativni-klienti/procesualno-predstavitelstvo.html" style="color: #555; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#7cc576'" onmouseout="this.style.color='#555'">&rsaquo; Процесуално представителство</a></li>
+                    </ul>
+
+                    <span style="display: block; color: #001F3F; font-size: 12px; font-weight: 700; text-transform: uppercase; margin-bottom: 10px; letter-spacing: 0.5px;">За физически лица</span>
+                    <ul style="list-style: none; padding: 0; margin: 0; font-size: 13px;">
+                        <li style="margin-bottom: 6px;"><a href="../fizicheski-lica/trudovo-pravo.html" style="color: #555; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#7cc576'" onmouseout="this.style.color='#555'">&rsaquo; Трудово право</a></li>
+                        <li style="margin-bottom: 6px;"><a href="../fizicheski-lica/semeino-i-nasledstveno-pravo.html" style="color: #555; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#7cc576'" onmouseout="this.style.color='#555'">&rsaquo; Семейно и наследствено право</a></li>
+                        <li style="margin-bottom: 6px;"><a href="../fizicheski-lica/veshtno-pravo-i-etazhna-sobstvenost.html" style="color: #555; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#7cc576'" onmouseout="this.style.color='#555'">&rsaquo; Вещно право и етажна собственост</a></li>
+                        <li style="margin-bottom: 0;"><a href="../fizicheski-lica/administrativno-pravo.html" style="color: #555; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#7cc576'" onmouseout="this.style.color='#555'">&rsaquo; Административно право</a></li>
                     </ul>
                 </div>
-                <div class="col-md-3 col-sm-6">
-                    <h4>Контакти</h4>
-                    <div class="contact-item"><i class="fa fa-map-marker"></i><span>ул. "Цанко Церковски" № 33<br>гр. София, 1164</span></div>
-                    <div class="contact-item"><i class="fa fa-phone"></i><span>0893 / 440 797</span></div>
-                    <div class="contact-item"><i class="fa fa-envelope"></i><span>nikolai.nikolaev11@gmail.com</span></div>
+
+                <div class="col-md-3 col-sm-6" style="margin-bottom: 30px;">
+                    <h4 style="color: #001F3F; font-family: 'Montserrat', sans-serif; font-size: 16px; text-transform: uppercase; margin-bottom: 20px; font-weight: 700;">Контакти</h4>
+                    
+                    <div style="display: flex; align-items: flex-start; margin-bottom: 15px; font-size: 13px; color: #555;">
+                        <i class="fa fa-map-marker" style="color: #7cc576; font-size: 16px; margin-right: 12px; margin-top: 2px; width: 14px; text-align: center;"></i>
+                        <span style="line-height: 1.5;">ул. "Цанко Церковски" № 33<br>гр. София, 1164</span>
+                    </div>
+                    <div style="display: flex; align-items: center; margin-bottom: 15px; font-size: 13px; color: #555;">
+                        <i class="fa fa-phone" style="color: #7cc576; font-size: 16px; margin-right: 12px; width: 14px; text-align: center;"></i>
+                        <span>0893 / 440 797</span>
+                    </div>
+                    <div style="display: flex; align-items: center; margin-bottom: 25px; font-size: 13px; color: #555;">
+                        <i class="fa fa-envelope" style="color: #7cc576; font-size: 14px; margin-right: 12px; width: 14px; text-align: center;"></i>
+                        <span>nikolai.nikolaev11@gmail.com</span>
+                    </div>
+
+                    <span style="display: block; color: #001F3F; font-size: 12px; font-weight: 700; text-transform: uppercase; margin-bottom: 10px; letter-spacing: 0.5px;">Последвайте ни</span>
+                    <div style="display: flex; gap: 8px;">
+                        <a href="#" target="_blank" title="LinkedIn" style="display: inline-flex; justify-content: center; align-items: center; width: 34px; height: 34px; background: #001F3F; color: #fff; border-radius: 4px; transition: all 0.3s ease;" onmouseover="this.style.background='#0077b5'; this.style.transform='translateY(-3px)';" onmouseout="this.style.background='#001F3F'; this.style.transform='translateY(0)';">
+                            <i class="fa fa-linkedin" style="font-size: 15px;"></i>
+                        </a>
+                        <a href="#" target="_blank" title="Facebook" style="display: inline-flex; justify-content: center; align-items: center; width: 34px; height: 34px; background: #001F3F; color: #fff; border-radius: 4px; transition: all 0.3s ease;" onmouseover="this.style.background='#3b5998'; this.style.transform='translateY(-3px)';" onmouseout="this.style.background='#001F3F'; this.style.transform='translateY(0)';">
+                            <i class="fa fa-facebook" style="font-size: 15px;"></i>
+                        </a>
+                        <a href="#" target="_blank" title="Instagram" style="display: inline-flex; justify-content: center; align-items: center; width: 34px; height: 34px; background: #001F3F; color: #fff; border-radius: 4px; transition: all 0.3s ease;" onmouseover="this.style.background='#e1306c'; this.style.transform='translateY(-3px)';" onmouseout="this.style.background='#001F3F'; this.style.transform='translateY(0)';">
+                            <i class="fa fa-instagram" style="font-size: 15px;"></i>
+                        </a>
+                        <a href="#" target="_blank" title="X (Twitter)" style="display: inline-flex; justify-content: center; align-items: center; width: 34px; height: 34px; background: #001F3F; color: #fff; border-radius: 4px; transition: all 0.3s ease;" onmouseover="this.style.background='#000000'; this.style.transform='translateY(-3px)';" onmouseout="this.style.background='#001F3F'; this.style.transform='translateY(0)';">
+                            <i class="fa fa-twitter" style="font-size: 15px;"></i>
+                        </a>
+                    </div>
                 </div>
+
             </div>
-            <div class="footer-bottom">&copy; 2026 Адвокатска кантора „Nikolaev & Co“. Всички права запазени.</div>
+
+            <div style="border-top: 1px solid #ddd; padding-top: 25px; margin-top: 15px; text-align: center; font-size: 12px; color: #888;">
+                &copy; 2026 Адвокатска кантора „Nikolaev & Co“. Всички права запазени.
+            </div>
         </div>
     </footer>
 
@@ -208,25 +290,41 @@
     <script type="text/javascript">
     $(window).load(function(){
         
-        // 1. ИНИЦИАЛИЗАЦИЯ НА ISOTOPE
         var $container = $('.portfolioContainer');
         var $body = $('body');
 
+        // Инициализация
         $container.isotope({
             resizable: false,
             itemSelector: '.Portfolio-box'
         });
         
-        // 2. ЛОГИКА ЗА ДВОЙНО ФИЛТРИРАНЕ (Категория + Година)
+        // Четене на хаштага от линка (за да филтрира автоматично)
+        var hash = window.location.hash;
+        if(hash) {
+            var filterClass = hash.replace('#', '');
+            var $filterButton = $('.archive-filters a[data-filter=".' + filterClass + '"]');
+            
+            if($filterButton.length) {
+                setTimeout(function() {
+                    $filterButton.click();
+                }, 100);
+            }
+        }
+
+        // Логика за кликане на филтрите
         var filters = {};
         $('.archive-filters').on('click', 'a', function(e) {
             e.preventDefault();
             var $this = $(this);
             var $buttonGroup = $this.parents('.filter-group');
             var filterGroup = $buttonGroup.attr('data-filter-group');
+            
             filters[filterGroup] = $this.attr('data-filter');
             var filterValue = concatValues(filters);
+            
             $container.isotope({ filter: filterValue });
+            
             $buttonGroup.find('.is-checked').removeClass('is-checked');
             $this.addClass('is-checked');
         });
@@ -237,24 +335,21 @@
             return value;
         }
         
-        // 3. РЕСАЙЗ ЛОГИКА ЗА ISOTOPE (С мобилна защита)
+        // Ресайз логика
         $(window).smartresize(function(){
             var winW = $(window).width();
             var colW = 375;
 
             if (winW < 768) {
-                $container.css('width', '100%');
-                $container.isotope({ masonry: { columnWidth: $container.width() } }).isotope('reLayout');
+                // Изключваме Isotope подредбата за мобилни и оставяме CSS да си свърши работата
+                $container.isotope('destroy');
             } else {
-                var currentColumns = Math.floor( ($body.width() - 30) / colW );
-                if (currentColumns < 1) { currentColumns = 1; }
-                $container.css('width', currentColumns * colW);
+                // Включваме отново Isotope за компютри
                 $container.isotope({ masonry: { columnWidth: colW } }).isotope('reLayout');
             }
         }).smartresize();
     });
         
-    // 4. МОБИЛНО МЕНЮ И БИСКВИТКИ
     $(document).ready(function() {
         $('.res-nav_click').click(function(e){
             e.preventDefault(); e.stopPropagation(); $('.main-nav').slideToggle();
