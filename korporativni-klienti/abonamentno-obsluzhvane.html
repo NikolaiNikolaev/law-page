@@ -16,136 +16,6 @@
     <link href="../css/responsive.css" rel="stylesheet" type="text/css">
     <link href="../css/animate.css" rel="stylesheet" type="text/css">
     
-    <style>
-        /* Специфични стилове за ценовите таблици (Пакетите) */
-        .pricing-card {
-            background: #fff;
-            border: 1px solid #eaeaea;
-            border-radius: 8px;
-            padding: 40px 30px;
-            transition: all 0.3s ease;
-            position: relative;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-        }
-        .pricing-card:hover {
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-            transform: translateY(-5px);
-        }
-        .pricing-card.featured {
-            border: 2px solid #001F3F;
-            box-shadow: 0 10px 30px rgba(0,31,63,0.1);
-            transform: scale(1.03);
-            z-index: 10;
-        }
-        .pricing-card.featured:hover {
-            transform: scale(1.03) translateY(-5px);
-        }
-        .pricing-title {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            text-transform: uppercase;
-            color: #7cc576;
-            margin-bottom: 15px;
-            font-size: 16px;
-        }
-        .pricing-hours {
-            font-size: 42px;
-            font-weight: 700;
-            color: #001F3F;
-            margin-bottom: 10px;
-            line-height: 1;
-        }
-        .pricing-hours span {
-            font-size: 15px;
-            color: #888;
-            font-weight: 400;
-            text-transform: lowercase;
-        }
-        .pricing-desc {
-            font-size: 13px;
-            color: #666;
-            line-height: 1.6;
-            margin-bottom: 25px;
-            min-height: 42px;
-        }
-        .pricing-features {
-            list-style: none;
-            padding: 0;
-            margin: 0 0 30px 0;
-            text-align: left;
-            flex-grow: 1;
-        }
-        .pricing-features li {
-            margin-bottom: 15px;
-            font-size: 14px;
-            color: #444;
-            display: flex;
-            align-items: flex-start;
-            line-height: 1.5;
-        }
-        .pricing-features li i {
-            color: #7cc576;
-            margin-top: 3px;
-            margin-right: 12px;
-            font-size: 16px;
-        }
-        .pricing-btn {
-            display: block;
-            width: 100%;
-            padding: 14px 0;
-            text-align: center;
-            border-radius: 4px;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            text-transform: uppercase;
-            font-size: 13px;
-            transition: all 0.3s;
-            text-decoration: none !important;
-        }
-        .btn-outline {
-            background: transparent;
-            color: #001F3F;
-            border: 2px solid #001F3F;
-        }
-        .btn-outline:hover {
-            background: #001F3F;
-            color: #fff;
-        }
-        .btn-solid {
-            background: #001F3F;
-            color: #fff;
-            border: 2px solid #001F3F;
-        }
-        .btn-solid:hover {
-            background: #7cc576;
-            border-color: #7cc576;
-            color: #fff;
-        }
-        
-        /* Бадж за препоръчан пакет */
-        .badge-popular {
-            position: absolute;
-            top: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: #7cc576;
-            color: #fff;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 11px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        @media (max-width: 991px) {
-            .pricing-card.featured { transform: none; margin-top: 30px; margin-bottom: 30px; }
-            .pricing-card.featured:hover { transform: translateY(-5px); }
-        }
-    </style>
 </head>
 
 <body>
@@ -209,7 +79,7 @@
                 </div>
 
                 <div class="col-md-3 col-sm-6 text-center" style="margin-bottom: 30px;">
-                    <i class="fa fa-line-chart" style="font-size: 40px; color: #7cc576; margin-bottom: 20px;"></i>
+                    <i class="fa fa-bar-chart-o" style="font-size: 40px; color: #7cc576; margin-bottom: 20px;"></i>
                     <h4 style="font-family: 'Montserrat', sans-serif; font-size: 15px; font-weight: 700; color: #111; margin-bottom: 10px; text-transform: uppercase;">Оптимизация на разходи</h4>
                     <p style="font-size: 14px; color: #666; line-height: 1.6;">Плащате фиксирана месечна такса, която е в пъти по-ниска от сумата на отделните хонорари за всяка услуга.</p>
                 </div>
@@ -258,15 +128,18 @@
                         <div class="text-center">
                             <div class="pricing-title">Пакет "Бизнес"</div>
                             <div class="pricing-hours">20 <span>часа / месец</span></div>
-                            <div class="pricing-desc">Оптимален избор за развиващи се компании с активна търговска дейност и персонал.</div>
+                            <div class="pricing-desc">Пълна правна защита за развиващи се компании с активна търговска дейност и персонал.</div>
                         </div>
                         
                         <ul class="pricing-features">
-                            <li><i class="fa fa-check"></i> <span><strong>Всичко от пакет "Старт", плюс:</strong></span></li>
+                            <li><i class="fa fa-check"></i> <span>Приоритетни устни и писмени правни консултации</span></li>
+                            <li><i class="fa fa-check"></i> <span>Изготвяне, редакция и задълбочен преглед на търговски договори</span></li>
+                            <li><i class="fa fa-check"></i> <span>Съставяне на сложни двуезични договори и специфични споразумения</span></li>
+                            <li><i class="fa fa-check"></i> <span>Пълно съдействие по трудовоправни въпроси и ТРЗ документация</span></li>
                             <li><i class="fa fa-check"></i> <span>Участие на адвокат в преговори с Ваши ключови партньори и контрагенти</span></li>
-                            <li><i class="fa fa-check"></i> <span>Изготвяне на сложни двуезични договори и специфични споразумения</span></li>
-                            <li><i class="fa fa-check"></i> <span>Мониторинг на нормативната база и уведомяване за важни промени</span></li>
-                            <li><i class="fa fa-check"></i> <span>Съдействие и защита при проверки от държавни институции (НАП, ИТ, КЗП)</span></li>
+                            <li><i class="fa fa-check"></i> <span>Мониторинг на нормативната база за Вашия сектор и уведомяване за промени</span></li>
+                            <li><i class="fa fa-check"></i> <span>Съдействие и защита при проверки от институции (НАП, ИТ, КЗП)</span></li>
+                            <li><i class="fa fa-check"></i> <span>Изготвяне на всякакви пълномощни, декларации и вътрешнофирмени актове</span></li>
                         </ul>
                         
                         <a href="../index.html#contact" class="pricing-btn btn-solid">Поискай оферта</a>
