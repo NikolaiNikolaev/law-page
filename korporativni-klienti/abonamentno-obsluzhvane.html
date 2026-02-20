@@ -15,6 +15,137 @@
     <link href="../css/font-awesome.css" rel="stylesheet" type="text/css">
     <link href="../css/responsive.css" rel="stylesheet" type="text/css">
     <link href="../css/animate.css" rel="stylesheet" type="text/css">
+    
+    <style>
+        /* Специфични стилове за ценовите таблици (Пакетите) */
+        .pricing-card {
+            background: #fff;
+            border: 1px solid #eaeaea;
+            border-radius: 8px;
+            padding: 40px 30px;
+            transition: all 0.3s ease;
+            position: relative;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        .pricing-card:hover {
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transform: translateY(-5px);
+        }
+        .pricing-card.featured {
+            border: 2px solid #001F3F;
+            box-shadow: 0 10px 30px rgba(0,31,63,0.1);
+            transform: scale(1.03);
+            z-index: 10;
+        }
+        .pricing-card.featured:hover {
+            transform: scale(1.03) translateY(-5px);
+        }
+        .pricing-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: #7cc576;
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+        .pricing-hours {
+            font-size: 42px;
+            font-weight: 700;
+            color: #001F3F;
+            margin-bottom: 10px;
+            line-height: 1;
+        }
+        .pricing-hours span {
+            font-size: 15px;
+            color: #888;
+            font-weight: 400;
+            text-transform: lowercase;
+        }
+        .pricing-desc {
+            font-size: 13px;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 25px;
+            min-height: 42px;
+        }
+        .pricing-features {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 30px 0;
+            text-align: left;
+            flex-grow: 1;
+        }
+        .pricing-features li {
+            margin-bottom: 15px;
+            font-size: 14px;
+            color: #444;
+            display: flex;
+            align-items: flex-start;
+            line-height: 1.5;
+        }
+        .pricing-features li i {
+            color: #7cc576;
+            margin-top: 3px;
+            margin-right: 12px;
+            font-size: 16px;
+        }
+        .pricing-btn {
+            display: block;
+            width: 100%;
+            padding: 14px 0;
+            text-align: center;
+            border-radius: 4px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 13px;
+            transition: all 0.3s;
+            text-decoration: none !important;
+        }
+        .btn-outline {
+            background: transparent;
+            color: #001F3F;
+            border: 2px solid #001F3F;
+        }
+        .btn-outline:hover {
+            background: #001F3F;
+            color: #fff;
+        }
+        .btn-solid {
+            background: #001F3F;
+            color: #fff;
+            border: 2px solid #001F3F;
+        }
+        .btn-solid:hover {
+            background: #7cc576;
+            border-color: #7cc576;
+            color: #fff;
+        }
+        
+        /* Бадж за препоръчан пакет */
+        .badge-popular {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #7cc576;
+            color: #fff;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        @media (max-width: 991px) {
+            .pricing-card.featured { transform: none; margin-top: 30px; margin-bottom: 30px; }
+            .pricing-card.featured:hover { transform: translateY(-5px); }
+        }
+    </style>
 </head>
 
 <body>
@@ -27,7 +158,7 @@
                 <li><a href="../index.html#Portfolio">Новини</a></li>
                 <li class="small-logo"><a href="../index.html#header"><img src="../img/nikolaev & co - 2.png" alt="Лого"></a></li>
                 <li><a href="../index.html#client">Клиенти</a></li>
-                <li><a href="../kolektiv/advokat-nikolai-nikolaev.html">Колектив</a></li>
+                <li><a href="../index.html#team">Колектив</a></li>
                 <li><a href="../index.html#contact">Контакти</a></li>
             </ul>
             <a class="res-nav_click" href="#"><i class="fa fa-bars"></i></a>
@@ -48,8 +179,8 @@
     <section class="main-section" style="padding-top: 0; padding-bottom: 80px; min-height: 60vh; background-color: #ffffff;">
         <div class="container">
             
-            <div class="row" style="margin-bottom: 50px;">
-                <div class="col-lg-10 col-lg-offset-1 text-center">
+            <div class="row" style="margin-bottom: 60px;">
+                <div class="col-lg-10 col-lg-offset-1">
                     
                     <div style="font-family: 'Open Sans', sans-serif; font-size: 12px; margin-bottom: 25px; border-bottom: 1px solid #eee; padding-bottom: 10px;">
                         <a href="../index.html#header" style="color: #001F3F; text-decoration: none; font-weight: 600;"><i class="fa fa-home"></i> Начало</a> 
@@ -59,139 +190,211 @@
                         <span style="color: #7cc576; font-weight: 700;">Абонаментно обслужване</span>
                     </div>
                     
-                    <p style="font-size: 16px; line-height: 1.8; color: #444; margin-bottom: 20px;">
-                        Абонаментното правно обслужване е стратегическо решение за всеки модерен бизнес. 
-                        То Ви осигурява <strong>приоритетен достъп до юридическа експертиза</strong>, превенция на 
-                        правни рискове и предвидимост на разходите. Вместо да търсите адвокат при вече възникнал проблем, 
-                        ние работим заедно с Вас, за да не допускаме проблемите да се появят. Този метод на работа е доказано
-                        по-изгоден за Вас, отколкото да поддържате вътрешен правен отдел, поради факта, че по този начин 
-                        получавате вече изграден екип от професионалисти, заботещи само за Вашия случай.
+                    <p style="font-size: 16px; line-height: 1.8; color: #444; margin-bottom: 20px; text-align: justify;">
+                        Абонаментното правно обслужване е стратегическо решение за всеки модерен бизнес, което Ви осигурява <strong>приоритетен достъп до специализирана юридическа експертиза</strong>. Вместо да търсите адвокат инцидентно при вече възникнал и ескалирал проблем, ние работим заедно с Вас ежедневно, за да предотвратим самите проблеми преди тяхното появяване. Този модел на работа е доказано по-ефективен и многократно по-изгоден финансово от поддържането на вътрешен правен (in-house) отдел, тъй като на Ваше разположение е цял екип от професионалисти.
                     </p>
                 </div>
             </div>
 
-            <div class="row">
-                <div class="col-md-6" style="margin-bottom: 40px;">
-                    <div style="background: #f9fff9; border-top: 4px solid #7cc576; padding: 30px; border-radius: 4px; height: 100%; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
-                        <h3 style="color: #001F3F; font-size: 20px; font-weight: 700; text-transform: uppercase; margin-bottom: 25px;"><i class="fa fa-check-circle" style="color: #7cc576; margin-right: 10px;"></i> Какво включва абонаментът</h3>
-                        <ul style="list-style: none; padding: 0; margin: 0; font-size: 14px; line-height: 1.8; color: #555;">
-                            <li style="margin-bottom: 15px; border-bottom: 1px solid #eee; padding-bottom: 10px;">&rsaquo; Приоритетни устни и писмени правни консултации по всички въпроси от дейността на фирмата.</li>
-                            <li style="margin-bottom: 15px; border-bottom: 1px solid #eee; padding-bottom: 10px;">&rsaquo; Изготвяне, преглед и редакция на търговски договори, споразумения и анекси.</li>
-                            <li style="margin-bottom: 15px; border-bottom: 1px solid #eee; padding-bottom: 10px;">&rsaquo; Текущо обслужване по трудово-правни въпроси (трудови договори, заповеди, дисциплинарни производства).</li>
-                            <li style="margin-bottom: 15px; border-bottom: 1px solid #eee; padding-bottom: 10px;">&rsaquo; Мониторинг на нормативната база и своевременно уведомяване за законови промени, касаещи Вашия сектор.</li>
-                            <li style="margin-bottom: 0;">&rsaquo; Участие в преговори с Ваши контрагенти и партньори.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="col-md-6" style="margin-bottom: 40px;">
-                    <div style="background: #fff5f5; border-top: 4px solid #e74c3c; padding: 30px; border-radius: 4px; height: 100%; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
-                        <h3 style="color: #001F3F; font-size: 20px; font-weight: 700; text-transform: uppercase; margin-bottom: 25px;"><i class="fa fa-times-circle" style="color: #e74c3c; margin-right: 10px;"></i> Изключения (Извън абонамента)</h3>
-                        <p style="font-size: 14px; line-height: 1.8; color: #555; margin-bottom: 20px;">
-                            Съгласно Закона за адвокатурата и Наредба № 1 за минималните размери на адвокатските възнаграждения, определени дейности подлежат на отделно таксуване, но за нашите абонати се прилагат <strong>преференциални условия</strong>.
-                        </p>
-                        <ul style="list-style: none; padding: 0; margin: 0; font-size: 14px; line-height: 1.8; color: #555;">
-                            <li style="margin-bottom: 15px; border-bottom: 1px solid #eee; padding-bottom: 10px;">&rsaquo; <strong>Процесуално представителство:</strong> Водене на искови, заповедни и изпълнителни дела пред съд и ЧСИ.</li>
-                            <li style="margin-bottom: 15px; border-bottom: 1px solid #eee; padding-bottom: 10px;">&rsaquo; <strong>Специфични производства:</strong> Регистрация на търговски марки, сложни процедури по сливания и придобивания (M&A).</li>
-                            <li style="margin-bottom: 0;">&rsaquo; Държавни, нотариални и банкови такси не са част от адвокатския хонорар.</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row" style="margin-top: 30px;">
-                <div class="col-lg-12 text-center">
-                    <h2 style="font-size: 28px; font-weight: 700; text-transform: uppercase; margin-bottom: 40px; color: #001F3F;">Пакети за обслужване</h2>
+            <div class="row" style="margin-bottom: 70px;">
+                <div class="col-lg-12 text-center" style="margin-bottom: 40px;">
+                    <h2 style="font-size: 28px; font-weight: 700; color: #001F3F; text-transform: uppercase;">Какво печели Вашият бизнес?</h2>
+                    <div style="width: 60px; height: 3px; background: #7cc576; margin: 15px auto 0;"></div>
                 </div>
                 
-                <div class="col-md-4 text-center" style="margin-bottom: 30px;">
-                    <div style="border: 1px solid #eee; padding: 40px 20px; border-radius: 4px; transition: all 0.3s ease;">
-                        <h4 style="font-family: 'Montserrat', sans-serif; font-weight: 700; text-transform: uppercase; color: #7cc576; margin-bottom: 15px;">Пакет "Старт"</h4>
-                        <div style="font-size: 42px; font-weight: 700; color: #001F3F; margin-bottom: 15px;">10 <span style="font-size: 14px; color: #888; font-weight: 400; text-transform: lowercase;">часа / мес.</span></div>
-                        <p style="font-size: 13px; color: #666; line-height: 1.6; margin-bottom: 20px;">Подходящ за малки бизнеси и стартиращи компании с базов документооборот.</p>
+                <div class="col-md-3 col-sm-6 text-center" style="margin-bottom: 30px;">
+                    <i class="fa fa-rocket" style="font-size: 40px; color: #7cc576; margin-bottom: 20px;"></i>
+                    <h4 style="font-family: 'Montserrat', sans-serif; font-size: 15px; font-weight: 700; color: #111; margin-bottom: 10px; text-transform: uppercase;">Бързина и приоритет</h4>
+                    <p style="font-size: 14px; color: #666; line-height: 1.6;">Вашите казуси се разглеждат с абсолютно предимство. Получавате отговор и решение в най-кратки срокове.</p>
+                </div>
+
+                <div class="col-md-3 col-sm-6 text-center" style="margin-bottom: 30px;">
+                    <i class="fa fa-line-chart" style="font-size: 40px; color: #7cc576; margin-bottom: 20px;"></i>
+                    <h4 style="font-family: 'Montserrat', sans-serif; font-size: 15px; font-weight: 700; color: #111; margin-bottom: 10px; text-transform: uppercase;">Оптимизация на разходи</h4>
+                    <p style="font-size: 14px; color: #666; line-height: 1.6;">Плащате фиксирана месечна такса, която е в пъти по-ниска от сумата на отделните хонорари за всяка услуга.</p>
+                </div>
+
+                <div class="col-md-3 col-sm-6 text-center" style="margin-bottom: 30px;">
+                    <i class="fa fa-shield" style="font-size: 40px; color: #7cc576; margin-bottom: 20px;"></i>
+                    <h4 style="font-family: 'Montserrat', sans-serif; font-size: 15px; font-weight: 700; color: #111; margin-bottom: 10px; text-transform: uppercase;">Пълна превенция</h4>
+                    <p style="font-size: 14px; color: #666; line-height: 1.6;">Анализираме предварително всеки договор и сделка, за да Ви предпазим от скрити уловки, глоби и съдебни дела.</p>
+                </div>
+
+                <div class="col-md-3 col-sm-6 text-center" style="margin-bottom: 30px;">
+                    <i class="fa fa-users" style="font-size: 40px; color: #7cc576; margin-bottom: 20px;"></i>
+                    <h4 style="font-family: 'Montserrat', sans-serif; font-size: 15px; font-weight: 700; color: #111; margin-bottom: 10px; text-transform: uppercase;">Персонален екип</h4>
+                    <p style="font-size: 14px; color: #666; line-height: 1.6;">Ние познаваме детайлно спецификата на Вашия бранш и компания, което ни позволява да даваме точни съвети.</p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12 text-center" style="margin-bottom: 40px;">
+                    <h2 style="font-size: 28px; font-weight: 700; color: #001F3F; text-transform: uppercase;">Абонаментни планове</h2>
+                </div>
+                
+                <div class="col-md-4" style="margin-bottom: 30px;">
+                    <div class="pricing-card">
+                        <div class="text-center">
+                            <div class="pricing-title">Пакет "Старт"</div>
+                            <div class="pricing-hours">10 <span>часа / месец</span></div>
+                            <div class="pricing-desc">Перфектното решение за стартиращи бизнеси и малки фирми с базов документооборот.</div>
+                        </div>
+                        
+                        <ul class="pricing-features">
+                            <li><i class="fa fa-check"></i> <span>Приоритетни устни и писмени правни консултации</span></li>
+                            <li><i class="fa fa-check"></i> <span>Изготвяне и преглед на стандартни търговски договори</span></li>
+                            <li><i class="fa fa-check"></i> <span>Подготовка на трудови договори, длъжностни характеристики и заповеди</span></li>
+                            <li><i class="fa fa-check"></i> <span>Текущо съдействие по въпроси със служители (ТРЗ)</span></li>
+                            <li><i class="fa fa-check"></i> <span>Изготвяне на пълномощни и декларации</span></li>
+                        </ul>
+                        
+                        <a href="../index.html#contact" class="pricing-btn btn-outline">Поискай оферта</a>
                     </div>
                 </div>
 
-                <div class="col-md-4 text-center" style="margin-bottom: 30px;">
-                    <div style="border: 2px solid #001F3F; background: #001F3F; padding: 40px 20px; border-radius: 4px; transition: all 0.3s ease; transform: scale(1.05); box-shadow: 0 10px 20px rgba(0,31,63,0.15);">
-                        <h4 style="font-family: 'Montserrat', sans-serif; font-weight: 700; text-transform: uppercase; color: #7cc576; margin-bottom: 15px;">Пакет "Бизнес"</h4>
-                        <div style="font-size: 42px; font-weight: 700; color: #ffffff; margin-bottom: 15px;">20 <span style="font-size: 14px; color: #aaa; font-weight: 400; text-transform: lowercase;">часа / мес.</span></div>
-                        <p style="font-size: 13px; color: #ddd; line-height: 1.6; margin-bottom: 20px;">Оптимално решение за развиващи се компании с регулярни договори и трудови казуси.</p>
+                <div class="col-md-4" style="margin-bottom: 30px;">
+                    <div class="pricing-card featured">
+                        <div class="badge-popular">Най-предпочитан</div>
+                        <div class="text-center">
+                            <div class="pricing-title">Пакет "Бизнес"</div>
+                            <div class="pricing-hours">20 <span>часа / месец</span></div>
+                            <div class="pricing-desc">Оптимален избор за развиващи се компании с активна търговска дейност и персонал.</div>
+                        </div>
+                        
+                        <ul class="pricing-features">
+                            <li><i class="fa fa-check"></i> <span><strong>Всичко от пакет "Старт", плюс:</strong></span></li>
+                            <li><i class="fa fa-check"></i> <span>Участие на адвокат в преговори с Ваши ключови партньори и контрагенти</span></li>
+                            <li><i class="fa fa-check"></i> <span>Изготвяне на сложни двуезични договори и специфични споразумения</span></li>
+                            <li><i class="fa fa-check"></i> <span>Мониторинг на нормативната база и уведомяване за важни промени</span></li>
+                            <li><i class="fa fa-check"></i> <span>Съдействие и защита при проверки от държавни институции (НАП, ИТ, КЗП)</span></li>
+                        </ul>
+                        
+                        <a href="../index.html#contact" class="pricing-btn btn-solid">Поискай оферта</a>
                     </div>
                 </div>
 
-                <div class="col-md-4 text-center" style="margin-bottom: 30px;">
-                    <div style="border: 1px solid #eee; padding: 40px 20px; border-radius: 4px; transition: all 0.3s ease;">
-                        <h4 style="font-family: 'Montserrat', sans-serif; font-weight: 700; text-transform: uppercase; color: #7cc576; margin-bottom: 15px;">Индивидуален</h4>
-                        <div style="font-size: 32px; font-weight: 700; color: #001F3F; margin-bottom: 15px; padding-top: 10px;">По договаряне</div>
-                        <p style="font-size: 13px; color: #666; line-height: 1.6; margin-bottom: 20px;">Изцяло персонализиран план спрямо спецификата и обема на Вашата корпоративна дейност.</p>
+                <div class="col-md-4" style="margin-bottom: 30px;">
+                    <div class="pricing-card">
+                        <div class="text-center">
+                            <div class="pricing-title">Индивидуален</div>
+                            <div class="pricing-hours" style="font-size: 32px; padding: 5px 0;">По договаряне</div>
+                            <div class="pricing-desc">Изцяло персонализиран обем от услуги спрямо мащаба и спецификите на Вашата корпорация.</div>
+                        </div>
+                        
+                        <ul class="pricing-features">
+                            <li><i class="fa fa-check"></i> <span>Гъвкав и неограничен обем от часове според нуждите</span></li>
+                            <li><i class="fa fa-check"></i> <span>Извършване на пълен и регулярен правен одит (Due Diligence)</span></li>
+                            <li><i class="fa fa-check"></i> <span>Присъствие на адвокат във Вашия офис по предварително зададен график</span></li>
+                            <li><i class="fa fa-check"></i> <span>Цялостно управление на процеси по вливане, сливане и придобиване (M&A)</span></li>
+                            <li><i class="fa fa-check"></i> <span>Запазена марка и интелектуална собственост</span></li>
+                        </ul>
+                        
+                        <a href="../index.html#contact" class="pricing-btn btn-outline">Поискай оферта</a>
                     </div>
                 </div>
             </div>
 
-            <div class="row text-center" style="margin-top: 40px;">
-                <a href="../index.html#contact" style="display: inline-block; padding: 15px 40px; background: #7cc576; color: #ffffff; font-family: 'Montserrat', sans-serif; font-size: 14px; font-weight: 700; text-transform: uppercase; border-radius: 4px; text-decoration: none; transition: background 0.3s;">Изпратете запитване за оферта</a>
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1 text-center" style="margin-top: 20px; padding-top: 20px; border-top: 1px solid #eee;">
+                    <p style="font-size: 13px; color: #888; margin: 0; line-height: 1.6;">
+                        <em>* Важно: Съгласно Закона за адвокатурата, процесуалното представителство пред съд по искови дела и специфични нотариални производства не се покрива от абонаментните часове. Въпреки това, като наш лоялен абонат, Вие получавате <strong>ексклузивна преференциална отстъпка до 30%</strong> от стандартните адвокатски хонорари за водене на дела.</em>
+                    </p>
+                </div>
             </div>
 
         </div>
     </section>
 
-    <footer class="footer-advanced">
+    <footer class="footer-advanced" style="padding: 60px 0 20px 0; border-top: 4px solid #7cc576; font-family: 'Open Sans', sans-serif;">
         <div class="container">
             <div class="row">
+                
                 <div class="col-md-3 col-sm-6" style="margin-bottom: 30px;">
-                    <img src="../img/nikolaev & co - 2.png" alt="Nikolaev & Co Logo" style="max-width: 140px; margin-bottom: 20px;">
-                    <p style="font-size: 13px;">Ние сме Вашите адвокати! Имаме визията за Вас! Нас ни е грижа за Вашата справедливост! Предлагаме комплексно правно обслужване с най-висок стандарт.</p>
+                    <a href="../index.html"><img src="../img/nikolaev & co - 2.png" alt="Nikolaev & Co Logo" style="max-width: 150px; margin-bottom: 20px;"></a>
+                    <p style="font-size: 13px; color: #555; line-height: 1.8; text-align: justify;">Грижа ни е за Вашата справедливост! Доверете ни се и получете комплексно правно обслужване с най-висок стандарт и безкомпромисна защита.</p>
                 </div>
+
                 <div class="col-md-3 col-sm-6" style="margin-bottom: 30px;">
-                    <h4>Бързи връзки</h4>
-                    <ul>
-                        <li><a href="../index.html#header">Начало</a></li>
-                        <li><a href="../novini/arhiv.html">Правни новини</a></li>
-                        <li><a href="../index.html#client">Клиенти</a></li>
-                        <li><a href="../privacy-policy.html">Политика за поверителност</a></li>
+                    <h4 style="color: #001F3F; font-family: 'Montserrat', sans-serif; font-size: 16px; text-transform: uppercase; margin-bottom: 20px; font-weight: 700;">Бързи връзки</h4>
+                    <ul style="list-style: none; padding: 0; margin: 0; font-size: 13px;">
+                        <li style="margin-bottom: 12px;"><a href="../index.html#header" style="color: #555; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#7cc576'" onmouseout="this.style.color='#555'">Начало</a></li>
+                        <li style="margin-bottom: 12px;"><a href="../index.html#team" style="color: #555; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#7cc576'" onmouseout="this.style.color='#555'">Нашият екип</a></li>
+                        <li style="margin-bottom: 12px;"><a href="abonamentno-obsluzhvane.html" style="color: #7cc576; text-decoration: none; font-weight: 700; transition: color 0.3s;" onmouseover="this.style.color='#001F3F'" onmouseout="this.style.color='#7cc576'">Абонаментно обслужване</a></li>
+                        <li style="margin-bottom: 12px;"><a href="../index.html#faq" style="color: #555; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#7cc576'" onmouseout="this.style.color='#555'">Често задавани въпроси (ЧЗВ)</a></li>
+                        <li style="margin-bottom: 12px;"><a href="../novini/arhiv.html" style="color: #555; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#7cc576'" onmouseout="this.style.color='#555'">Правни новини и статии</a></li>
+                        <li style="margin-bottom: 0;"><a href="../privacy-policy.html" style="color: #555; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#7cc576'" onmouseout="this.style.color='#555'">Политика за поверителност</a></li>
                     </ul>
                 </div>
+
                 <div class="col-md-3 col-sm-6" style="margin-bottom: 30px;">
-                    <h4>Услуги</h4>
-                    <ul>
-                        <li><a href="../druzhestveno-i-korporativno-pravo.html">Дружествено право</a></li>
-                        <li><a href="../targovski-sdelki-i-dogovorno-pravo.html">Договорно право</a></li>
-                        <li><a href="../nedvizhimi-imoti-i-veshtno-pravo.html">Вещно право</a></li>
-                        <li><a href="../procesualno-predstavitelstvo.html">Процесуално представителство</a></li>
-                        <li><a href="../fizicheski-lica/trudovo-pravo.html">Трудово право</a></li>
-                        <li><a href="../fizicheski-lica/semeino-i-nasledstveno-pravo.html">Семейно право</a></li>
+                    <h4 style="color: #001F3F; font-family: 'Montserrat', sans-serif; font-size: 16px; text-transform: uppercase; margin-bottom: 20px; font-weight: 700;">Сфери на дейност</h4>
+                    
+                    <span style="display: block; color: #001F3F; font-size: 12px; font-weight: 700; text-transform: uppercase; margin-bottom: 10px; letter-spacing: 0.5px;">За корпоративни клиенти</span>
+                    <ul style="list-style: none; padding: 0; margin: 0 0 15px 0; font-size: 13px;">
+                        <li style="margin-bottom: 6px;"><a href="sabirane-na-vzemania.html" style="color: #555; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#7cc576'" onmouseout="this.style.color='#555'">&rsaquo; Събиране на вземания</a></li>
+                        <li style="margin-bottom: 6px;"><a href="druzhestveno-i-korporativno-pravo.html" style="color: #555; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#7cc576'" onmouseout="this.style.color='#555'">&rsaquo; Дружествено право</a></li>
+                        <li style="margin-bottom: 6px;"><a href="targovski-sdelki-i-dogovorno-pravo.html" style="color: #555; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#7cc576'" onmouseout="this.style.color='#555'">&rsaquo; Търговски сделки</a></li>
+                        <li style="margin-bottom: 6px;"><a href="trudovo-pravo-schetovodstvo-i-trz.html" style="color: #555; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#7cc576'" onmouseout="this.style.color='#555'">&rsaquo; Трудово право, счетоводство</a></li>
+                        <li style="margin-bottom: 6px;"><a href="nedvizhimi-imoti-i-veshtno-pravo.html" style="color: #555; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#7cc576'" onmouseout="this.style.color='#555'">&rsaquo; Недвижими имоти</a></li>
+                        <li style="margin-bottom: 0;"><a href="procesualno-predstavitelstvo.html" style="color: #555; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#7cc576'" onmouseout="this.style.color='#555'">&rsaquo; Процесуално представителство</a></li>
+                    </ul>
+
+                    <span style="display: block; color: #001F3F; font-size: 12px; font-weight: 700; text-transform: uppercase; margin-bottom: 10px; letter-spacing: 0.5px;">За физически лица</span>
+                    <ul style="list-style: none; padding: 0; margin: 0; font-size: 13px;">
+                        <li style="margin-bottom: 6px;"><a href="../fizicheski-lica/trudovo-pravo.html" style="color: #555; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#7cc576'" onmouseout="this.style.color='#555'">&rsaquo; Трудово право</a></li>
+                        <li style="margin-bottom: 6px;"><a href="../fizicheski-lica/semeino-i-nasledstveno-pravo.html" style="color: #555; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#7cc576'" onmouseout="this.style.color='#555'">&rsaquo; Семейно и наследствено</a></li>
+                        <li style="margin-bottom: 6px;"><a href="../fizicheski-lica/veshtno-pravo-i-etazhna-sobstvenost.html" style="color: #555; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#7cc576'" onmouseout="this.style.color='#555'">&rsaquo; Вещно право</a></li>
+                        <li style="margin-bottom: 0;"><a href="../fizicheski-lica/administrativno-pravo.html" style="color: #555; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#7cc576'" onmouseout="this.style.color='#555'">&rsaquo; Административно право</a></li>
                     </ul>
                 </div>
-                <div class="col-md-3 col-sm-6">
-                    <h4>Контакти</h4>
-                    <div class="contact-item"><i class="fa fa-map-marker"></i><span>ул. "Цанко Церковски" № 33<br>гр. София, 1164</span></div>
-                    <div class="contact-item"><i class="fa fa-phone"></i><span>0893 / 440 797</span></div>
-                    <div class="contact-item"><i class="fa fa-envelope"></i><span>nikolai.nikolaev11@gmail.com</span></div>
+
+                <div class="col-md-3 col-sm-6" style="margin-bottom: 30px;">
+                    <h4 style="color: #001F3F; font-family: 'Montserrat', sans-serif; font-size: 16px; text-transform: uppercase; margin-bottom: 20px; font-weight: 700;">Контакти</h4>
+                    
+                    <div style="display: flex; align-items: flex-start; margin-bottom: 15px; font-size: 13px; color: #555;">
+                        <i class="fa fa-map-marker" style="color: #7cc576; font-size: 16px; margin-right: 12px; margin-top: 2px; width: 14px; text-align: center;"></i>
+                        <span style="line-height: 1.5;">ул. "Цанко Церковски" № 33<br>гр. София, 1164</span>
+                    </div>
+                    <div style="display: flex; align-items: center; margin-bottom: 15px; font-size: 13px; color: #555;">
+                        <i class="fa fa-phone" style="color: #7cc576; font-size: 16px; margin-right: 12px; width: 14px; text-align: center;"></i>
+                        <span>0893 / 440 797</span>
+                    </div>
+                    <div style="display: flex; align-items: center; margin-bottom: 25px; font-size: 13px; color: #555;">
+                        <i class="fa fa-envelope" style="color: #7cc576; font-size: 14px; margin-right: 12px; width: 14px; text-align: center;"></i>
+                        <span>nikolai.nikolaev11@gmail.com</span>
+                    </div>
+
+                    <span style="display: block; color: #001F3F; font-size: 12px; font-weight: 700; text-transform: uppercase; margin-bottom: 10px; letter-spacing: 0.5px;">Последвайте ни</span>
+                    <div style="display: flex; gap: 8px;">
+                        <a href="#" target="_blank" title="LinkedIn" style="display: inline-flex; justify-content: center; align-items: center; width: 34px; height: 34px; background: #001F3F; color: #fff; border-radius: 4px; transition: all 0.3s ease;" onmouseover="this.style.background='#0077b5'; this.style.transform='translateY(-3px)';" onmouseout="this.style.background='#001F3F'; this.style.transform='translateY(0)';">
+                            <i class="fa fa-linkedin" style="font-size: 15px;"></i>
+                        </a>
+                        <a href="#" target="_blank" title="Facebook" style="display: inline-flex; justify-content: center; align-items: center; width: 34px; height: 34px; background: #001F3F; color: #fff; border-radius: 4px; transition: all 0.3s ease;" onmouseover="this.style.background='#3b5998'; this.style.transform='translateY(-3px)';" onmouseout="this.style.background='#001F3F'; this.style.transform='translateY(0)';">
+                            <i class="fa fa-facebook" style="font-size: 15px;"></i>
+                        </a>
+                        <a href="#" target="_blank" title="Instagram" style="display: inline-flex; justify-content: center; align-items: center; width: 34px; height: 34px; background: #001F3F; color: #fff; border-radius: 4px; transition: all 0.3s ease;" onmouseover="this.style.background='#e1306c'; this.style.transform='translateY(-3px)';" onmouseout="this.style.background='#001F3F'; this.style.transform='translateY(0)';">
+                            <i class="fa fa-instagram" style="font-size: 15px;"></i>
+                        </a>
+                        <a href="#" target="_blank" title="X (Twitter)" style="display: inline-flex; justify-content: center; align-items: center; width: 34px; height: 34px; background: #001F3F; color: #fff; border-radius: 4px; transition: all 0.3s ease;" onmouseover="this.style.background='#000000'; this.style.transform='translateY(-3px)';" onmouseout="this.style.background='#001F3F'; this.style.transform='translateY(0)';">
+                            <i class="fa fa-twitter" style="font-size: 15px;"></i>
+                        </a>
+                    </div>
                 </div>
+
             </div>
-            <div class="footer-bottom">&copy; 2026 Адвокатска кантора „Nikolaev & Co“. Всички права запазени.</div>
+
+            <div style="border-top: 1px solid #ddd; padding-top: 25px; margin-top: 15px; text-align: center; font-size: 12px; color: #888;">
+                &copy; 2026 Адвокатска кантора „Nikolaev & Co“. Всички права запазени.
+            </div>
         </div>
     </footer>
-
-    <div id="cookie-banner" style="display: none; position: fixed; bottom: 0; left: 0; width: 100%; background: rgba(0, 31, 63, 0.95); color: #fff; padding: 15px 0; z-index: 9999; box-shadow: 0 -4px 10px rgba(0,0,0,0.15);">
-        <span id="close-cookie-banner" style="position: absolute; top: 5px; right: 15px; cursor: pointer; color: #aaa; font-size: 28px; line-height: 1; font-family: Arial, sans-serif; transition: color 0.3s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#aaa'" title="Затвори уведомлението">&times;</span>
-        <div class="container" style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; padding-right: 35px;">
-            <div style="flex: 1; min-width: 280px; padding-right: 20px; margin-bottom: 10px;">
-                <p style="margin: 0; font-size: 13px; color: #e0e0e0; line-height: 1.6; font-family: 'Open Sans', sans-serif;">
-                    Този уебсайт използва „бисквитки“ (cookies), за да осигури правилното си функциониране и да Ви предостави максимално добро потребителско изживяване. Продължавайки да използвате сайта, Вие се съгласявате с нашата <a href="../privacy-policy.html" target="_blank" style="color: #7cc576; text-decoration: underline; font-weight: 600;">Политика за поверителност</a>.
-                </p>
-            </div>
-            <div>
-                <button id="accept-cookies" style="background: #7cc576; color: #fff; border: none; padding: 10px 25px; border-radius: 4px; font-family: 'Montserrat', sans-serif; font-size: 13px; font-weight: 700; text-transform: uppercase; cursor: pointer; transition: background 0.3s;">Разбрах</button>
-            </div>
-        </div>
-    </div>
 
     <script type="text/javascript" src="../js/jquery.1.8.3.min.js"></script>
     <script type="text/javascript" src="../js/bootstrap.js"></script>
     <script type="text/javascript" src="../js/jquery-scrolltofixed.js"></script>
     <script type="text/javascript" src="../js/jquery.easing.1.3.js"></script>
+    <script type="text/javascript" src="../js/wow.js"></script>
+    <script>new WOW({ animateClass: 'animated', offset: 100 }).init();</script>
     
     <script>
     $(document).ready(function() {
