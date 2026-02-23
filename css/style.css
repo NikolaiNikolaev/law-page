@@ -420,7 +420,7 @@ p{
 }
 /* --- СТИЛОВЕ ЗА ЛОГОТО И ПАДАЩОТО МЕНЮ (НОВА ВЕРСИЯ) --- */
 .logo-left { display: block; }
-.logo-left img { max-height: 75px; width: auto; transition: all 0.3s ease; }
+.logo-left img { max-height: 90px; width: auto; transition: all 0.3s ease; }
 
 /* Падащо меню (Desktop) */
 .dropdown-custom { position: relative; }
@@ -443,7 +443,7 @@ p{
 
 /* Адаптация за Мобилни устройства */
 @media only screen and (max-width: 767px) {
-    .logo-left img { max-height: 55px; margin: 5px 0; }
+    .logo-left img { max-height: 65px; margin: 5px 0; }
     
     .dropdown-menu-custom {
         position: relative; background-color: #f5f5f5; box-shadow: none;
