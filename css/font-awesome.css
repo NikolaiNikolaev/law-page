@@ -2335,3 +2335,7 @@
   overflow: visible;
   clip: auto;
 }
+
+.icon-map-marker:before {
+    content: "\f041";
+}
