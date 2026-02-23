@@ -47,8 +47,8 @@
 </head>
 	
 <body>
-	<nav class="main-nav-outer" id="test"><!--main-nav-start-->
-		<div class="header-left-info">
+	<!--main-nav-start-->
+	<nav class="main-nav-outer" id="test"><div class="header-left-info">
 		    <div class="info-group">
 		        <span class="info-label">Обадете се:</span>
 		        <span class="info-value">0893/440-797</span> </div>
@@ -57,18 +57,33 @@
 		        <span class="info-value">nikolai.nikolaev11@gmail.com</span> </div>
 		</div>
 	<div class="container">
+        
+        <a href="index.html#header" class="logo-left">
+            <img src="img/nikolaev & co - 2.png" alt="Nikolaev & Co">
+        </a>
+
         <ul class="main-nav">
         	<li><a href="#header">Начало</a></li>
+            
+            <li class="dropdown-custom">
+                <a href="za-nas.html">За нас <i class="fa fa-angle-down" style="margin-left: 4px; font-size: 14px;"></i></a>
+                <ul class="dropdown-menu-custom">
+                    <li><a href="za-nas.html#kak-rabotim">Как работим?</a></li>
+                    <li><a href="za-nas.html#online-konsultacia">Онлайн консултация</a></li>
+                    <li><a href="privacy-policy.html">Политика за поверителност</a></li>
+                </ul>
+            </li>
+
             <li><a href="#service">Услуги</a></li>
             <li><a href="#Portfolio">Новини</a></li>
-            <li class="small-logo"><a href="#header"><img src="img/nikolaev & co - 2.png" alt=""></a></li>
             <li><a href="#client">Клиенти</a></li>
             <li><a href="#team">Колектив</a></li>
             <li><a href="#contact">Контакти</a></li>
         </ul>
         <a class="res-nav_click" href="#"><i class="fa-bars"></i></a>
     </div>
-</nav><!--main-nav-end-->
+</nav>
+	<!--main-nav-end-->
 	
 <header class="header" id="header" style="padding: 160px 0 120px 0; background: url('img/bg-main.png') center/cover no-repeat fixed !important; position: relative; margin-bottom: 10px;"><!--header-start-->
 	<div class="container">
@@ -921,7 +936,8 @@ $(document).ready(function(){
 <script type="text/javascript">
 	$(window).load(function(){
 		
-		$('.main-nav li a, .servicelink').bind('click',function(event){
+        // Добавено [href^="#"], за да плъзга плавно САМО линковете, които започват с #
+		$('.main-nav li a[href^="#"], .servicelink[href^="#"]').bind('click',function(event){
 			var $anchor = $(this);
 			
 			$('html, body').stop().animate({
@@ -934,6 +950,7 @@ $(document).ready(function(){
 		});
 	})
 </script>
+	
 
 <script type="text/javascript">
     $(window).load(function(){
