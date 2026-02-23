@@ -44,6 +44,19 @@ a, a:hover, a:active{ outline:0px !important}
   font-style: normal;
 }
 
+/* ВЪЗСТАНОВЯВАНЕ НА ПРАВИЛАТА ЗА ИКОНКИТЕ ОТ СТАРАТА ТЕМА */
+i {
+    font-family: 'FontAwesome' !important;
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Възстановяване на изгубения пин за локация */
+.icon-map-marker:before {
+    content: "\f041";
+    font-family: 'FontAwesome';
+}
+
 body {
 	background:#fff;
 	font-family: 'Open Sans', sans-serif;
