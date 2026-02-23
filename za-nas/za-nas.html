@@ -57,7 +57,7 @@
         </div>
     </nav> 
 
-    <header class="header" style="padding: 160px 0 120px 0; background: url('../img/bg-za-nas.jpg') center/cover no-repeat fixed !important; position: relative; margin-bottom: 50px;">
+    <header class="header" style="padding: 160px 0 120px 0; background: url('../img/bg-za-nas.png') center/cover no-repeat fixed !important; position: relative; margin-bottom: 50px;">
         <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.6); z-index: 0;"></div>
         <div class="container" style="position: relative; z-index: 1;">
             
@@ -145,7 +145,7 @@
 
             <div class="row">
                 <div class="col-lg-6 col-md-6 wow fadeInLeft">
-                    <img src="../img/online-lawyer.jpg" alt="Онлайн правна консултация" style="border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); max-width: 100%;">
+                    <img src="../img/online-lawyer.png" alt="Онлайн правна консултация" style="border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); max-width: 100%;">
                 </div>
                 <div class="col-lg-6 col-md-6 wow fadeInRight" style="padding-top: 20px;">
                     <h3 style="font-size: 22px; color: #001F3F; font-weight: 700; margin-bottom: 20px;">Правна помощ от всяка точка на света</h3>
@@ -230,4 +230,71 @@
                         <i class="fa fa-phone" style="color: #7cc576; font-size: 16px; margin-right: 12px; width: 14px; text-align: center;"></i>
                         <span>0893 / 440 797</span>
                     </div>
-  
+                    <div style="display: flex; align-items: center; margin-bottom: 25px; font-size: 13px; color: #555;">
+                        <i class="fa fa-envelope" style="color: #7cc576; font-size: 14px; margin-right: 12px; width: 14px; text-align: center;"></i>
+                        <span>nikolai.nikolaev11@gmail.com</span>
+                    </div>
+
+                    <span style="display: block; color: #001F3F; font-size: 12px; font-weight: 700; text-transform: uppercase; margin-bottom: 10px; letter-spacing: 0.5px;">Последвайте ни</span>
+                    <div style="display: flex; gap: 8px;">
+                        <a href="#" target="_blank" title="LinkedIn" style="display: inline-flex; justify-content: center; align-items: center; width: 34px; height: 34px; background: #001F3F; color: #fff; border-radius: 4px; transition: all 0.3s ease;" onmouseover="this.style.background='#0077b5'; this.style.transform='translateY(-3px)';" onmouseout="this.style.background='#001F3F'; this.style.transform='translateY(0)';">
+                            <i class="fa fa-linkedin" style="font-size: 15px;"></i>
+                        </a>
+                        <a href="#" target="_blank" title="Facebook" style="display: inline-flex; justify-content: center; align-items: center; width: 34px; height: 34px; background: #001F3F; color: #fff; border-radius: 4px; transition: all 0.3s ease;" onmouseover="this.style.background='#3b5998'; this.style.transform='translateY(-3px)';" onmouseout="this.style.background='#001F3F'; this.style.transform='translateY(0)';">
+                            <i class="fa fa-facebook" style="font-size: 15px;"></i>
+                        </a>
+                        <a href="#" target="_blank" title="Instagram" style="display: inline-flex; justify-content: center; align-items: center; width: 34px; height: 34px; background: #001F3F; color: #fff; border-radius: 4px; transition: all 0.3s ease;" onmouseover="this.style.background='#e1306c'; this.style.transform='translateY(-3px)';" onmouseout="this.style.background='#001F3F'; this.style.transform='translateY(0)';">
+                            <i class="fa fa-instagram" style="font-size: 15px;"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div style="border-top: 1px solid #ddd; padding-top: 25px; margin-top: 15px; text-align: center; font-size: 12px; color: #888;">
+                &copy; 2026 Адвокатска кантора „Nikolaev & Co“. Всички права запазени.
+            </div>
+        </div>
+    </footer>
+
+    <script type="text/javascript" src="../js/jquery.1.8.3.min.js"></script>
+    <script type="text/javascript" src="../js/bootstrap.js"></script>
+    <script type="text/javascript" src="../js/jquery-scrolltofixed.js"></script>
+    <script type="text/javascript" src="../js/jquery.easing.1.3.js"></script>
+    
+    <script type="text/javascript">
+    $(document).ready(function(){
+        $('.res-nav_click').click(function(e){
+            e.preventDefault();
+            e.stopPropagation(); 
+            $('.main-nav').slideToggle();
+        });
+
+        $(document).click(function(event) { 
+            if(!$(event.target).closest('.main-nav').length && !$(event.target).closest('.res-nav_click').length) {
+                if($('.main-nav').is(":visible") && $(window).width() < 768) {
+                    $('.main-nav').slideUp();
+                }
+            }        
+        });
+
+        $('.main-nav li a[href^="#"], .servicelink[href^="#"]').bind('click',function(event){
+            var $anchor = $(this);
+            $('html, body').stop().animate({
+                scrollTop: $($anchor.attr('href')).offset().top - 195
+            }, 1500,'easeInOutExpo');
+            if ($(window).width() < 768 ) { 
+                $('.main-nav').hide(); 
+            }
+            event.preventDefault();
+        });
+    });
+    </script>
+
+    <script type="text/javascript" src="../js/wow.js"></script>
+    <script>
+        new WOW({ animateClass: 'animated', offset: 100 }).init();
+    </script>
+
+</body>
+</html>
