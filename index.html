@@ -68,6 +68,8 @@
             <li class="dropdown-custom">
                 <a href="za-nas/za-nas.html">За нас <i class="fa fa-angle-down" style="margin-left: 4px; font-size: 14px;"></i></a>
                 <ul class="dropdown-menu-custom">
+                    <li class="mobile-only-link"><a href="za-nas/za-nas.html">За нас (Общо)</a></li>
+                    
                     <li><a href="za-nas/za-nas.html#kak-rabotim">Как работим?</a></li>
                     <li><a href="za-nas/za-nas.html#online-konsultacia">Онлайн консултация</a></li>
                     <li><a href="privacy-policy.html">Политика за поверителност</a></li>
@@ -77,6 +79,8 @@
             <li class="dropdown-custom">
                 <a href="#service">Услуги <i class="fa fa-angle-down" style="margin-left: 4px; font-size: 14px;"></i></a>
                 <ul class="dropdown-menu-custom">
+                    <li class="mobile-only-link"><a href="#service">Всички услуги</a></li>
+                    
                     <li><a href="#service">Корпоративни клиенти</a></li>
                     <li><a href="korporativni-klienti/abonamentno-obsluzhvane.html">Абонаментно обслужване</a></li>
                     <li><a href="#fizicheski-lica">Физически лица</a></li>
@@ -936,6 +940,35 @@ $(document).ready(function(){
         e.preventDefault();
         e.stopPropagation(); // Спира клика да не стигне до document
         $('.main-nav').slideToggle();
+		
+		$(document).ready(function(){
+        // Отваряне на мобилното меню от хамбургер иконата
+        $('.res-nav_click').click(function(e){
+            e.preventDefault();
+            e.stopPropagation(); 
+            $('.main-nav').slideToggle();
+        });
+
+        // НОВ КОД: Управление на падащите менюта САМО за телефон
+        $('.dropdown-custom > a').click(function(e){
+            // Проверяваме дали сме на мобилен екран
+            if ($(window).width() < 768) {
+                e.preventDefault(); // Спираме бутона да отваря линка
+                // Отваряме или затваряме подменюто плавно
+                $(this).siblings('.dropdown-menu-custom').slideToggle(300);
+            }
+        });
+
+        // Затваряне при клик извън менюто
+        $(document).click(function(event) { 
+            if(!$(event.target).closest('.main-nav').length && !$(event.target).closest('.res-nav_click').length) {
+                if($('.main-nav').is(":visible") && $(window).width() < 768) {
+                    $('.main-nav').slideUp();
+                }
+            }        
+        });
+        
+        // ... (надолу остава същият код за плавното скролиране) ...
     });
 
     // 2. ЗАТВАРЯНЕ ПРИ КЛИК ИЗВЪН МЕНЮТО
