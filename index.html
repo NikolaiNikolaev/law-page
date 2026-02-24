@@ -1276,6 +1276,63 @@ $(document).ready(function() {
         });
     });
     </script>
+
+	<div class="floating-buttons-container">
+        <a href="#" id="back-to-top" class="floating-circle-btn" title="Нагоре">
+            <i class="fa fa-angle-up"></i>
+        </a>
+
+        <div id="call-widget" class="call-widget-container">
+            <div class="call-popup" id="call-popup">
+                <span class="call-popup-text">Свържете се с нас:</span>
+                <a href="tel:0893440797" class="call-popup-btn">
+                    <i class="fa fa-phone" style="margin-right: 6px;"></i>Обаждане
+                </a>
+            </div>
+            <div id="call-btn-circle" class="floating-circle-btn" title="Обаждане">
+                <i class="fa fa-phone"></i>
+            </div>
+        </div>
+    </div>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+	    
+	    // 1. ЛОГИКА ЗА БУТОНА "НАГОРЕ"
+	    var btnTop = $('#back-to-top');
+	    
+	    $(window).scroll(function() {
+	        if ($(window).scrollTop() > 300) {
+	            btnTop.addClass('show'); // Показва се след 300px скролиране
+	        } else {
+	            btnTop.removeClass('show'); // Скрива се, ако сме най-горе
+	        }
+	    });
+	
+	    btnTop.on('click', function(e) {
+	        e.preventDefault();
+	        $('html, body').animate({scrollTop:0}, '500'); // Плавно качване
+	    });
+	
+	    // 2. ЛОГИКА ЗА БУТОНА "ОБАЖДАНЕ"
+	    var callBtnCircle = $('#call-btn-circle');
+	    var callPopup = $('#call-popup');
+	
+	    callBtnCircle.on('click', function(e) {
+	        e.preventDefault();
+	        e.stopPropagation(); // Спира клика да не затвори прозореца веднага
+	        callPopup.toggleClass('active');
+	    });
+	
+	    // Ако клиентът кликне някъде другаде по екрана, прозорчето се затваря
+	    $(document).on('click', function(e) {
+	        if (!$(e.target).closest('#call-widget').length) {
+	            callPopup.removeClass('active');
+	        }
+	    });
+	
+	});
+</script>
 	
 </body>
 </html>
