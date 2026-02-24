@@ -1257,6 +1257,16 @@ section, .main-section, #Portfolio, #service, #team, #contact, .alabaster {
     box-shadow: 0 6px 15px rgba(124,197,118,0.4);
 }
 
+/* Центриране на иконите в плаващите бутони */
+.floating-circle-btn i {
+    margin: 0 !important;
+    padding: 0 !important;
+    line-height: 50px !important; /* Точно колкото е висок бутонът */
+    width: 100% !important;
+    text-align: center !important;
+    display: block !important;
+}
+
 /* Специфично за бутона "Нагоре" - крием го, докато не се скролира надолу */
 #back-to-top {
     opacity: 0;
