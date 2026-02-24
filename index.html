@@ -935,59 +935,37 @@
 <script type="text/javascript">
 $(document).ready(function(){
     
-    // 1. Отваряне/Затваряне при клик на иконата
+    // 1. Отваряне на мобилното меню от хамбургер иконата
     $('.res-nav_click').click(function(e){
         e.preventDefault();
-        e.stopPropagation(); // Спира клика да не стигне до document
+        e.stopPropagation(); 
         $('.main-nav').slideToggle();
-		
-		$(document).ready(function(){
-        // Отваряне на мобилното меню от хамбургер иконата
-        $('.res-nav_click').click(function(e){
-            e.preventDefault();
-            e.stopPropagation(); 
-            $('.main-nav').slideToggle();
-        });
-
-        // НОВ КОД: Управление на падащите менюта САМО за телефон
-        $('.dropdown-custom > a').click(function(e){
-            // Проверяваме дали сме на мобилен екран
-            if ($(window).width() < 768) {
-                e.preventDefault(); // Спираме бутона да отваря линка
-                // Отваряме или затваряме подменюто плавно
-                $(this).siblings('.dropdown-menu-custom').slideToggle(300);
-            }
-        });
-
-        // Затваряне при клик извън менюто
-        $(document).click(function(event) { 
-            if(!$(event.target).closest('.main-nav').length && !$(event.target).closest('.res-nav_click').length) {
-                if($('.main-nav').is(":visible") && $(window).width() < 768) {
-                    $('.main-nav').slideUp();
-                }
-            }        
-        });
-        
-        // ... (надолу остава същият код за плавното скролиране) ...
     });
 
-    // 2. ЗАТВАРЯНЕ ПРИ КЛИК ИЗВЪН МЕНЮТО
+    // 2. Управление на падащите менюта САМО за телефон
+    $('.dropdown-custom > a').click(function(e){
+        if ($(window).width() < 768) {
+            e.preventDefault(); // Спираме бутона да отваря линка
+            $(this).siblings('.dropdown-menu-custom').slideToggle(300); // Отваряме подменюто
+        }
+    });
+
+    // 3. ЗАТВАРЯНЕ ПРИ КЛИК ИЗВЪН МЕНЮТО
     $(document).click(function(event) { 
-        // Ако кликът НЕ е върху менюто И НЕ е върху бутона
         if(!$(event.target).closest('.main-nav').length && !$(event.target).closest('.res-nav_click').length) {
-            // Ако менюто е видимо (отворено), го затваряме
             if($('.main-nav').is(":visible") && $(window).width() < 768) {
                 $('.main-nav').slideUp();
             }
         }        
     });
 
-    // 3. Затваряне при клик върху линк от самото меню (за всеки случай)
-    $('.main-nav li a').click(function(){
+    // 4. Затваряне при клик върху линк от менюто (без главните бутони с падащи подменюта)
+    $('.main-nav li a').not('.dropdown-custom > a').click(function(){
         if($(window).width() < 768) {
             $('.main-nav').slideUp();
         }
     });
+    
 });
 </script>
 
