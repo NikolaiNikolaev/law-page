@@ -977,7 +977,7 @@ $(document).ready(function(){
 			var $anchor = $(this);
 			
 			$('html, body').stop().animate({
-				scrollTop: $($anchor.attr('href')).offset().top - 95
+				scrollTop: $($anchor.attr('href')).offset().top - 120
 			}, 1500,'easeInOutExpo');
       if ($(window).width() < 768 ) { 
         $('.main-nav').hide(); 
@@ -1182,7 +1182,7 @@ $(document).ready(function() {
                     setTimeout(function() {
                         var target = $(window.location.hash);
                         if (target.length) {
-                            window.scrollTo(0, target.offset().top - 95);
+                            window.scrollTo(0, target.offset().top - 120);
                         }
                     }, 150);
                 }
