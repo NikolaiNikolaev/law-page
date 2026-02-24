@@ -985,14 +985,22 @@ $(document).ready(function(){
 		
         // Добавено [href^="#"], за да плъзга плавно САМО линковете, които започват с #
 		$('.main-nav li a[href^="#"], .servicelink[href^="#"]').bind('click',function(event){
+            
+            // НОВО: Ако сме на телефон И сме кликнали на главен бутон с падащо меню ("Услуги")
+            // прекратяваме плавното плъзгане и оставяме другото меню да се отвори!
+            if ($(window).width() < 768 && $(this).parent().hasClass('dropdown-custom')) {
+                return;
+            }
+
 			var $anchor = $(this);
 			
 			$('html, body').stop().animate({
 				scrollTop: $($anchor.attr('href')).offset().top - 120
 			}, 1500,'easeInOutExpo');
-      if ($(window).width() < 768 ) { 
-        $('.main-nav').hide(); 
-      }
+            
+            if ($(window).width() < 768 ) { 
+                $('.main-nav').slideUp(); // Сменихме hide() с по-плавното slideUp()
+            }
 			event.preventDefault();
 		});
 	})
