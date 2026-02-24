@@ -1375,3 +1375,54 @@ section, .main-section, #Portfolio, #service, #team, #contact, .alabaster {
         bottom: -5px;
     }
 }
+
+/* ============================================================
+   ЕЗИКОВ БУТОН (LANGUAGE SWITCHER)
+   ============================================================ */
+.lang-switcher {
+    display: inline-flex !important;
+    align-items: center;
+    margin-left: 15px !important;
+    background: #f8fbf8;
+    border: 1px solid #7cc576;
+    border-radius: 20px; /* Заоблени краища */
+    padding: 2px 10px !important;
+    vertical-align: middle;
+}
+
+.lang-switcher a {
+    padding: 5px 6px !important;
+    margin: 0 !important;
+    font-size: 12px !important;
+    font-weight: 700 !important;
+    color: #888 !important; /* Неактивният език е сив */
+    transition: color 0.3s ease !important;
+}
+
+.lang-switcher a:hover {
+    color: #7cc576 !important;
+    background: transparent !important;
+}
+
+/* Активният език е тъмносин и изпъква */
+.lang-switcher a.active-lang {
+    color: #001F3F !important;
+    cursor: default;
+}
+
+/* Чертичката между тях */
+.lang-separator {
+    color: #ccc;
+    font-size: 12px;
+    margin: 0 4px;
+}
+
+/* Адаптация за мобилни устройства (Центрира се най-отдолу в менюто) */
+@media only screen and (max-width: 767px) {
+    .lang-switcher {
+        display: flex !important;
+        justify-content: center;
+        margin: 15px auto 20px auto !important;
+        width: max-content;
+    }
+}
