@@ -1203,3 +1203,18 @@ section, .main-section, #Portfolio, #service, #team, #contact, .alabaster {
     .pricing-card.featured { transform: none; margin-top: 30px; margin-bottom: 30px; }
     .pricing-card.featured:hover { transform: translateY(-5px); }
 }
+
+/* ============================================================
+   СПЕЦИФИЧНИ БУТОНИ ЗА МОБИЛНОТО МЕНЮ
+   ============================================================ */
+/* Скриваме ги по подразбиране (за компютър) */
+.mobile-only-link {
+    display: none;
+}
+
+/* Показваме ги само на екрани по-малки от 768px (телефони/таблети) */
+@media only screen and (max-width: 767px) {
+    .mobile-only-link {
+        display: block;
+    }
+}
