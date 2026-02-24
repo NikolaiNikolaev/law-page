@@ -1282,17 +1282,19 @@ $(document).ready(function() {
             <i class="fa fa-angle-up"></i>
         </a>
 
-        <div id="call-widget" class="call-widget-container">
-            <div class="call-popup" id="call-popup">
+        <div class="call-popup" id="call-popup" style="width: 220px;">
                 <span class="call-popup-text">Свържете се с нас:</span>
-                <a href="tel:0893440797" class="call-popup-btn">
-                    <i class="fa fa-phone" style="margin-right: 6px;"></i>Обаждане
-                </a>
+                
+                <div style="display: flex; flex-direction: column; gap: 8px;">
+                    <a href="tel:+359893440797" class="call-popup-btn">
+                        <i class="fa fa-phone" style="margin-right: 6px !important; width: auto !important; line-height: normal !important; display: inline-block !important;"></i>Обаждане
+                    </a>
+                    
+                    <a href="nikolaev.vcf" class="call-popup-btn" style="background: #001F3F;">
+                        <i class="fa fa-address-card-o" style="margin-right: 6px !important; width: auto !important; line-height: normal !important; display: inline-block !important;"></i>Запази контакт
+                    </a>
+                </div>
             </div>
-            <div id="call-btn-circle" class="floating-circle-btn" title="Обаждане">
-                <i class="fa fa-phone"></i>
-            </div>
-        </div>
     </div>
 
 <script type="text/javascript">
