@@ -124,6 +124,8 @@ body, html {
     .floating-circle-btn, .floating-circle-btn i, .input-btn, .link, .team-leader ul li a, .btn-archive, .call-popup-btn { 
         color: #ffffff !important; 
     }
+	/* 6. Секция "Споделете с нас Вашия казус" */
+    .business-talking h2 { color: #ffffff !important; }
 }
 
 body {
