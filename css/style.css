@@ -63,6 +63,15 @@ i {
     font-family: 'FontAwesome';
 }
 
+/* Блокиране на автоматичната Тъмна тема (Dark mode) */
+:root {
+    color-scheme: light only !important;
+}
+
+html {
+    background-color: #ffffff !important;
+}
+
 body {
 	background:#fff;
 	font-family: 'Open Sans', sans-serif;
