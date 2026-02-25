@@ -71,10 +71,9 @@ i {
 
 body, html {
     background-color: #ffffff !important;
-    color: #888888 !important;
 }
 
-/* Принудително запазване на светлите цветове, дори ако устройството е в Dark Mode */
+/* Принудително запазване на светлите цветове, но със ЗАЩИТА на белите текстове */
 @media (prefers-color-scheme: dark) {
     :root {
         color-scheme: light !important;
@@ -96,7 +95,34 @@ body, html {
         background-color: #ffffff !important;
     }
     p, span, li, a {
-        color: inherit; /* Предотвратява инвертирането на текста */
+        color: inherit;
+    }
+    
+    /* === ИЗКЛЮЧЕНИЯ: ТУК ВРЪЩАМЕ БЕЛИЯ ЦВЯТ НА ТЪМНИТЕ СЕКЦИИ === */
+    
+    /* 1. Хедър (Заглавна снимка) */
+    .header h1 { color: #ffffff !important; }
+    .header .we-create li { color: #ffffff !important; text-shadow: 1px 1px 3px rgba(0,0,0,0.9) !important; }
+    .header a.servicelink { color: #ffffff !important; border-color: #ffffff !important; }
+    
+    /* 2. Тъмната лента с иконки (Услуги - предимства) */
+    .trust-bar h4 { color: #ffffff !important; }
+    .trust-bar p { color: #bbbbbb !important; }
+    
+    /* 3. Тъмната секция "Абонаментно правно обслужване" */
+    section[style*="background: #001F3F"] h2, 
+    section[style*="background: #001F3F"] h4 { color: #ffffff !important; }
+    section[style*="background: #001F3F"] p { color: #e0e0e0 !important; }
+    
+    /* 4. Отзиви от клиенти */
+    .client-part-haead { color: #ffffff !important; }
+    .client-slide h3 { color: #ffffff !important; }
+    .client-slide span { color: #f1f1f1 !important; }
+    #client-carousel .carousel-control i { color: #ffffff !important; }
+    
+    /* 5. Бутони и иконки */
+    .floating-circle-btn, .floating-circle-btn i, .input-btn, .link, .team-leader ul li a, .btn-archive, .call-popup-btn { 
+        color: #ffffff !important; 
     }
 }
 
