@@ -1,6 +1,44 @@
 <!doctype html>
 <html lang="bg">
 <head>
+
+	<script>
+      // 1. СЛОЖЕТЕ ВАШИЯ G- КОД ТОЧНО ТУК:
+      var gaMeasurementId = 'G-1Y5JNGGVZM'; 
+
+      // 2. Функция за сигурно активиране на Analytics
+      function loadGoogleAnalytics() {
+          if (window.gaLoaded) return; 
+          window.gaLoaded = true;
+
+          var script = document.createElement('script');
+          script.async = true;
+          script.src = 'https://www.googletagmanager.com/gtag/js?id=' + gaMeasurementId;
+          document.head.appendChild(script);
+
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          
+          gtag('config', gaMeasurementId, { 'anonymize_ip': true });
+      }
+
+      // 3. Проверка при зареждане на сайта (Ако вече е дал съгласие)
+      if (localStorage.getItem('cookieConsent_NikolaevLaw_v1') === 'true') {
+          loadGoogleAnalytics();
+      }
+
+      // 4. Закачане за зеления бутон "Разбрах" с чист JavaScript
+      document.addEventListener('DOMContentLoaded', function() {
+          var acceptBtn = document.getElementById('accept-cookies');
+          if (acceptBtn) {
+              acceptBtn.addEventListener('click', function() {
+                  loadGoogleAnalytics();
+              });
+          }
+      });
+    </script>
+	
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, maximum-scale=1">
 	<meta name="color-scheme" content="light">
