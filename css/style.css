@@ -65,11 +65,39 @@ i {
 
 /* Блокиране на автоматичната Тъмна тема (Dark mode) */
 :root {
-    color-scheme: light only !important;
+    color-scheme: light !important;
+    supported-color-schemes: light !important;
 }
 
-html {
+body, html {
     background-color: #ffffff !important;
+    color: #888888 !important;
+}
+
+/* Принудително запазване на светлите цветове, дори ако устройството е в Dark Mode */
+@media (prefers-color-scheme: dark) {
+    :root {
+        color-scheme: light !important;
+    }
+    body, html {
+        background-color: #ffffff !important;
+        color: #888888 !important;
+    }
+    h1, h2, h3, h4, h5, h6 {
+        color: #222222 !important;
+    }
+    .main-section, #Portfolio, .contact {
+        background-color: #ffffff !important;
+    }
+    .alabaster, .form-download-box {
+        background-color: #f9f9f9 !important;
+    }
+    .main-nav-outer {
+        background-color: #ffffff !important;
+    }
+    p, span, li, a {
+        color: inherit; /* Предотвратява инвертирането на текста */
+    }
 }
 
 body {
