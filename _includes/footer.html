@@ -297,6 +297,14 @@
 
 <script type="text/javascript">
     $(document).ready(function() {
+        
+        // 1. ПРИНУДИТЕЛНО ОТВАРЯНЕ НА ПРОЗОРЕЦА ПРИ КЛИК
+        $('.open-booking-modal').on('click', function(e) {
+            e.preventDefault(); // Спира страницата да не подскача нагоре
+            $('#bookingModal').modal('show'); // Отваря прозореца
+        });
+
+        // 2. ИЗПРАЩАНЕ НА ФОРМАТА БЕЗ ПРЕЗАРЕЖДАНЕ
         var $bookingForm = $('#bookingForm');
         var $bookingBtn = $('#bookingSubmitBtn');
         var $bookingSuccess = $('#booking-success');
