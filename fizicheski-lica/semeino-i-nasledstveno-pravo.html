@@ -29,6 +29,17 @@
         .custom-accordion .panel-body { padding: 20px; font-size: 15px; color: #555; line-height: 1.8; text-align: justify; border-top: none !important; background: #fff; }
     </style>
 
+     <style>
+        /* Автоматична табулация (един пръст разстояние) за абзаци и подзаглавия */
+        .article-body p, .article-body h3, .article-body h4 {
+            text-indent: 30px;
+        }
+        /* Премахваме табулацията само за заглавието на червения блок с внимание, за да стои центрирано */
+        .article-body .no-indent {
+            text-indent: 0 !important;
+        }
+    </style>
+    
     {% include header.html %}
 </head>
 <body>
