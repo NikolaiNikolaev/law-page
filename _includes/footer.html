@@ -225,7 +225,6 @@
     <script type="text/javascript" src="/law-page/js/jquery.isotope.js"></script>
     <script type="text/javascript" src="/law-page/js/wow.js"></script>
     <script type="text/javascript" src="/law-page/js/classie.js"></script>
-    <script src="/law-page/contactform/contactform.js"></script>
 
     <script type="text/javascript">
     $(document).ready(function() {
@@ -297,9 +296,22 @@
                 if ($form.find('input[name="Телефон"]').length === 0) { $('<input>').attr({ type: 'hidden', name: 'Телефон', value: fullPhone }).appendTo($form); } else { $form.find('input[name="Телефон"]').val(fullPhone); }
                 $('#local-time').val(new Date().toLocaleString('bg-BG'));
                 $.ajax({
-                    url: $form.attr('action'), type: 'POST', data: $form.serialize(), dataType: 'json',
-                    success: function() { $('#form-message').fadeIn(); $form[0].reset(); $('.is-valid').removeClass('is-valid'); $button.html(originalText).prop('disabled', true); setTimeout(function(){ $('#form-message').fadeOut(); }, 5000); },
-                    error: function() { alert('Грешка при изпращане.'); $button.html(originalText).prop('disabled', false); }
+                    url: $form.attr('action'), 
+                    type: 'POST', 
+                    data: $form.serialize(), 
+                    headers: { 'Accept': 'application/json' },
+                    dataType: 'json',
+                    success: function() { 
+                        $('#form-message').fadeIn(); 
+                        $form[0].reset(); 
+                        $('.is-valid').removeClass('is-valid'); 
+                        $button.html(originalText).prop('disabled', true); 
+                        setTimeout(function(){ $('#form-message').fadeOut(); }, 5000); 
+                    },
+                    error: function() { 
+                        alert('Грешка при изпращане.'); 
+                        $button.html(originalText).prop('disabled', false); 
+                    }
                 });
             });
         }
