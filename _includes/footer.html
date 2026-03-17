@@ -126,15 +126,15 @@
         <div class="modal-dialog" role="document" style="margin-top: 10vh; max-width: 500px;">
             <div class="modal-content" style="border-radius: 8px; border: none; box-shadow: 0 15px 35px rgba(0,0,0,0.2);">
                 
-                <div class="modal-header" style="background: #001F3F; color: #fff; border-radius: 8px 8px 0 0; padding: 20px; position: relative;">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Затвори" style="color: #fff; opacity: 0.8; position: absolute; right: 20px; top: 20px; font-size: 28px; transition: opacity 0.3s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.8'">
+                <div class="modal-header" style="background: #001F3F; color: #ffffff; border-radius: 8px 8px 0 0; padding: 20px; position: relative;">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Затвори" style="color: #ffffff; opacity: 0.8; position: absolute; right: 20px; top: 20px; font-size: 28px; transition: opacity 0.3s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.8'">
                         <span aria-hidden="true">&times;</span>
                     </button>
-                    <h4 class="modal-title" id="bookingModalLabel" style="font-family: 'Montserrat', sans-serif; color: #fff; font-weight: 700; font-size: 18px; margin: 0; padding-right: 20px;">Запазете час за консултация</h4>
+                    <h4 class="modal-title" id="bookingModalLabel" style="font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 18px; margin: 0; padding-right: 20px; color: #ffffff;">Запазете час за консултация</h4>
                 </div>
                 
                 <div class="modal-body" style="padding: 25px;">
-                    <p style="font-size: 13px; color: #555; margin-bottom: 20px;">Моля, изберете удобни за Вас дата и час. Ние ще се свържем с Вас за потвърждение на посочените контакти.</p>
+                    <p style="font-size: 13px; color: #555; margin-bottom: 20px;">Моля, изберете удобни за Вас дата и час. Ние ще се свържем с Вас за потвърждение.</p>
                     
                     <form action="https://formspree.io/f/mvzzzkje" method="POST" id="bookingForm">
                         <input type="hidden" name="_subject" value="НОВА РЕЗЕРВАЦИЯ ЗА ЧАС - Онлайн консултация">
@@ -142,24 +142,28 @@
                         
                         <div class="form-group">
                             <label style="font-size: 12px; color: #001F3F; font-weight: 600;">Вашите имена <span style="color: red; font-size: 14px;">*</span></label>
-                            <input type="text" name="name" class="form-control b-req" required style="border-radius: 4px; box-shadow: none; border-color: #ddd;">
+                            <input type="text" name="name" class="form-control" required style="border-radius: 4px; box-shadow: none; border-color: #ddd;">
+                            <div class="validation" style="color: red; font-size: 11px; display: none; margin-top: 4px; font-weight: 600;">Моля, въведете поне 4 символа.</div>
                         </div>
                         
                         <div class="row">
                             <div class="col-md-6 form-group">
                                 <label style="font-size: 12px; color: #001F3F; font-weight: 600;">Телефон <span style="color: red; font-size: 14px;">*</span></label>
-                                <input type="tel" name="phone" class="form-control b-req" required style="border-radius: 4px; box-shadow: none; border-color: #ddd;">
+                                <input type="tel" name="phone" class="form-control" required style="border-radius: 4px; box-shadow: none; border-color: #ddd;">
+                                <div class="validation" style="color: red; font-size: 11px; display: none; margin-top: 4px; font-weight: 600;">Моля, въведете валиден телефон (поне 8 цифри).</div>
                             </div>
                             <div class="col-md-6 form-group">
                                 <label style="font-size: 12px; color: #001F3F; font-weight: 600;">Имейл <span style="color: red; font-size: 14px;">*</span></label>
-                                <input type="email" name="email" class="form-control b-req" required style="border-radius: 4px; box-shadow: none; border-color: #ddd;">
+                                <input type="email" name="email" class="form-control" required style="border-radius: 4px; box-shadow: none; border-color: #ddd;">
+                                <div class="validation" style="color: red; font-size: 11px; display: none; margin-top: 4px; font-weight: 600;">Моля, въведете валиден имейл адрес.</div>
                             </div>
                         </div>
 
                         <div class="row">
                             <div class="col-md-6 form-group">
                                 <label style="font-size: 12px; color: #001F3F; font-weight: 600;"><i class="fa fa-calendar" style="color:#7cc576; margin-right:5px;"></i> Желана дата <span style="color: red; font-size: 14px;">*</span></label>
-                                <input type="date" name="preferred_date" class="form-control b-req" required style="border-radius: 4px; box-shadow: none; border-color: #ddd;">
+                                <input type="date" name="preferred_date" class="form-control" required style="border-radius: 4px; box-shadow: none; border-color: #ddd;">
+                                <div class="validation" style="color: red; font-size: 11px; display: none; margin-top: 4px; font-weight: 600;">Моля, изберете дата.</div>
                             </div>
                             <div class="col-md-6 form-group">
                                 <label style="font-size: 12px; color: #001F3F; font-weight: 600;"><i class="fa fa-clock-o" style="color:#7cc576; margin-right:5px;"></i> Предпочитан час</label>
@@ -169,7 +173,7 @@
 
                         <div class="form-group" style="margin-bottom: 15px;">
                             <label style="font-size: 12px; color: #001F3F; font-weight: 600;">Тема на консултацията</label>
-                            <textarea name="message" class="form-control" rows="2" style="border-radius: 4px; box-shadow: none; border-color: #ddd;" placeholder="Напр. Трудов спор, Развод, Имотен казус ... с подробно описание."></textarea>
+                            <textarea name="message" class="form-control" rows="2" style="border-radius: 4px; box-shadow: none; border-color: #ddd;" placeholder="Напр. Трудов спор, Развод..."></textarea>
                         </div>
                         
                         <div style="margin-bottom: 10px; text-align: left;">
@@ -186,12 +190,29 @@
                             </label>
                         </div>
 
-                        <div id="booking-success" style="display: none; background: #7cc576; color: #fff; padding: 10px; border-radius: 4px; text-align: center; font-size: 13px; font-weight: 600; margin-bottom: 15px;">
-                            Успешно изпратено! Ще се свържем с Вас скоро.
-                        </div>
-
                         <button type="submit" id="bookingSubmitBtn" disabled style="width: 100%; padding: 12px; background: #7cc576; color: #fff; border: none; border-radius: 4px; font-family: 'Montserrat', sans-serif; font-weight: 700; text-transform: uppercase; transition: opacity 0.3s; opacity: 0.5; cursor: not-allowed;">Изпрати заявката</button>
                     </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="successModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document" style="margin-top: 15vh; max-width: 450px;">
+            <div class="modal-content" style="border-radius: 8px; border: none; box-shadow: 0 15px 35px rgba(0,0,0,0.2); text-align: center;">
+                <div class="modal-header" style="background: #7cc576; color: #fff; border-radius: 8px 8px 0 0; padding: 20px; position: relative;">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Затвори" style="color: #fff; opacity: 0.8; position: absolute; right: 20px; top: 20px; font-size: 28px;">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title" id="successModalLabel" style="font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 20px; margin: 0; color: #ffffff;"><i class="fa fa-check-circle" style="margin-right: 8px;"></i> Успешно изпратено!</h4>
+                </div>
+                <div class="modal-body" style="padding: 30px;">
+                    <p style="font-size: 15px; color: #444; line-height: 1.6; margin-bottom: 20px;">
+                        Благодарим Ви, че се свързахте с нас! Вашата заявка за запазване на час е приета успешно.
+                    </p>
+                    <p style="font-size: 14px; color: #666; line-height: 1.6; margin-bottom: 0;">
+                        Ще се свържем с Вас на посочените контакти в най-кратък срок, за да доуточним детайлите и да потвърдим часа.
+                    </p>
                 </div>
             </div>
         </div>
@@ -314,13 +335,13 @@
 <script type="text/javascript">
     $(document).ready(function() {
         
-        // 1. ОТВАРЯНЕ НА ПРОЗОРЕЦА БЕЗ СКРОЛИРАНЕ НАГОРЕ
+        // 1. ОТВАРЯНЕ НА ПРОЗОРЕЦА ПРИ КЛИК
         $('.open-booking-modal').on('click', function(e) {
             e.preventDefault(); 
             $('#bookingModal').modal('show');
         });
 
-        // 2. ВАЛИДАЦИЯ НА ПОЛЕТАТА (Активиране на бутона)
+        // 2. ВАЛИДАЦИЯ НА ПОЛЕТАТА (Оцветяване в червено и показване на текст)
         var $bForm = $('#bookingForm');
         var $bBtn = $('#bookingSubmitBtn');
         var $bName = $bForm.find('input[name="name"]');
@@ -329,11 +350,38 @@
         var $bDate = $bForm.find('input[name="preferred_date"]');
         var $bPrivacy = $('#bookingPrivacy');
 
+        // Позволява само цифри и знаци в телефона
+        $bPhone.on('input', function() {
+            this.value = this.value.replace(/[^0-9\+\-\s\(\)]/g, '');
+        });
+
+        function showValidation($field, isValid) {
+            var $valBox = $field.siblings('.validation');
+            // Ако полето е празно, връщаме стандартния му вид
+            if ($field.val().trim().length === 0) {
+                $field.css('border-color', '#ddd');
+                $valBox.hide();
+                return false;
+            }
+            // Ако е правилно
+            if (isValid) {
+                $field.css('border-color', '#7cc576');
+                $valBox.hide();
+                return true;
+            } 
+            // Ако е грешно
+            else {
+                $field.css('border-color', 'red');
+                $valBox.show();
+                return false;
+            }
+        }
+
         function validateBookingForm() {
-            var nOk = $bName.val().trim().length >= 2;
-            var pOk = $bPhone.val().trim().length >= 8;
-            var eOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test($bEmail.val().trim());
-            var dOk = $bDate.val().trim() !== '';
+            var nOk = showValidation($bName, $bName.val().trim().length >= 4);
+            var pOk = showValidation($bPhone, $bPhone.val().trim().length >= 8);
+            var eOk = showValidation($bEmail, /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test($bEmail.val().trim()));
+            var dOk = showValidation($bDate, $bDate.val().trim() !== '');
             var privOk = $bPrivacy.is(':checked');
 
             if (nOk && pOk && eOk && dOk && privOk) {
@@ -343,11 +391,10 @@
             }
         }
 
-        $bForm.find('input').on('input change', validateBookingForm);
+        // Проверяваме при всяко писане или излизане от полето
+        $bForm.find('input').on('input change blur', validateBookingForm);
 
-        // 3. ИЗПРАЩАНЕ НА ФОРМАТА
-        var $bookingSuccess = $('#booking-success');
-
+        // 3. ИЗПРАЩАНЕ И ЗАТВАРЯНЕ
         $bForm.on('submit', function(e) {
             e.preventDefault(); 
             if ($bBtn.prop('disabled')) return;
@@ -361,14 +408,23 @@
                 data: $bForm.serialize(),
                 dataType: 'json',
                 success: function() {
-                    $bookingSuccess.fadeIn();
+                    // Изчистваме формата
                     $bForm[0].reset();
-                    validateBookingForm(); // Връща бутона в неактивно състояние
+                    $bForm.find('input').css('border-color', '#ddd');
+                    $('.validation').hide();
+                    validateBookingForm();
                     $bBtn.text(originalText);
+                    
+                    // Затваряме формата и отваряме прозореца за успех
+                    $('#bookingModal').modal('hide');
                     setTimeout(function() {
-                        $('#bookingModal').modal('hide');
-                        $bookingSuccess.hide();
-                    }, 4000);
+                        $('#successModal').modal('show');
+                        
+                        // Автоматично затваряне след 10 секунди
+                        setTimeout(function() {
+                            $('#successModal').modal('hide');
+                        }, 10000);
+                    }, 500);
                 },
                 error: function() {
                     alert('Възникна грешка. Моля, опитайте отново или се обадете по телефона.');
