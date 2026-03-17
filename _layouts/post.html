@@ -94,6 +94,27 @@
         </div>
     </section>
 
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const shareBtn = document.getElementById('native-share-btn');
+        if (shareBtn) {
+            shareBtn.addEventListener('click', async () => {
+                if (navigator.share) {
+                    try {
+                        await navigator.share({
+                            title: '{{ page.title }}',
+                            text: '{{ page.description }}',
+                            url: window.location.href
+                        });
+                    } catch (err) { console.log('Споделянето беше отказано.'); }
+                } else {
+                    alert('Вашето устройство не поддържа системно меню за споделяне. Моля, копирайте линка.');
+                }
+            });
+        }
+    });
+    </script>
+
     {% include footer.html %}
 </body>
 </html>
