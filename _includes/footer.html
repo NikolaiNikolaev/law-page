@@ -406,6 +406,9 @@
                 url: $bForm.attr('action'),
                 type: 'POST',
                 data: $bForm.serialize(),
+                headers: {
+                    'Accept': 'application/json'
+                },
                 dataType: 'json',
                 success: function() {
                     // Изчистваме формата
