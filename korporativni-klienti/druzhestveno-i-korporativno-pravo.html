@@ -1,3 +1,5 @@
+---
+---
 <!doctype html>
 <html lang="bg">
 <head>
@@ -16,112 +18,41 @@
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Дружествено и Корпоративно право | Nikolaev & Co">
-    <meta name="twitter:description" content="Стратегическо корпоративно структуриране и защита на капитала.">
+    <meta name="twitter:description" content="Учредяване, преструктуриране и защита на капитала от професионалисти.">
     <meta name="twitter:image" content="https://nikolainikolaev.github.io/law-page/img/nikolaev%20&%20co%20-%202.png">
 
-    <link rel="icon" href="../favicon.png" type="image/png">
-    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
-    
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,800italic,700italic,600italic,400italic,300italic,800,700,600" rel="stylesheet" type="text/css">
-    
-    <link href="../css/bootstrap.css" rel="stylesheet" type="text/css">
-    <link href="../css/style.css" rel="stylesheet" type="text/css">
-    <link href="../css/font-awesome.css" rel="stylesheet" type="text/css">
-    <link href="../css/responsive.css" rel="stylesheet" type="text/css">
-    <link href="../css/animate.css" rel="stylesheet" type="text/css">
-</head>
+    <style>
+        /* Автоматична табулация (един пръст разстояние) за абзаци и подзаглавия */
+        .article-body p, .article-body h3, .article-body h4 {
+            text-indent: 30px;
+        }
+        /* Премахваме табулацията само за заглавията в цветните кутии, за да не се размества дизайна им */
+        .article-body .no-indent {
+            text-indent: 0 !important;
+        }
+    </style>
 
+    {% include header.html %}
+</head>
 <body>
 
-    <nav class="main-nav-outer" id="test">
-        <div class="header-left-info">
-            <div class="info-group">
-                <span class="info-label">Обадете се:</span>
-                <span class="info-value">0893/440-797</span> 
-            </div>
-            <div class="info-group">
-                <span class="info-label">Пишете ни:</span>
-                <span class="info-value">nikolai.nikolaev11@gmail.com</span> 
-            </div>
-        </div>
-        
-        <div class="container clearfix">
-            <a href="../index.html#header" class="logo-left">
-                <img src="../img/nikolaev & co - 2.png" alt="Nikolaev & Co">
-            </a>
-            
-            <ul class="main-nav">
-                <li><a href="../index.html#header">Начало</a></li>
-                
-                <li class="dropdown-custom">
-                    <a href="../za-nas/za-nas.html">За нас <i class="fa fa-angle-down" style="margin-left: 4px; font-size: 14px;"></i></a>
-                    <ul class="dropdown-menu-custom">
-                        <li class="mobile-only-link"><a href="../za-nas/za-nas.html">За нас (Общо)</a></li>
-                        <li><a href="../za-nas/za-nas.html#kak-rabotim">Как работим?</a></li>
-                        <li><a href="../za-nas/za-nas.html#online-konsultacia">Онлайн консултация</a></li>
-                        <li><a href="../privacy-policy.html">Политика за поверителност</a></li>
-                    </ul>
-                </li>
-
-                <li class="dropdown-custom">
-                    <a href="../index.html#service">Услуги <i class="fa fa-angle-down" style="margin-left: 4px; font-size: 14px;"></i></a>
-                    <ul class="dropdown-menu-custom">
-                        <li class="mobile-only-link"><a href="../index.html#service">Всички услуги</a></li>
-                        <li><a href="../index.html#service">Корпоративни клиенти</a></li>
-                        <li><a href="abonamentno-obsluzhvane.html">Абонаментно обслужване</a></li>
-                        <li><a href="../index.html#fizicheski-lica">Физически лица</a></li>
-                        <li><a href="../za-nas/za-nas.html#online-konsultacia">Онлайн консултации</a></li>
-                    </ul>
-                </li>
-
-                <li><a href="../index.html#Portfolio">Новини</a></li>
-                <li><a href="../index.html#client">Клиенти</a></li>
-                <li><a href="../index.html#team">Колектив</a></li>
-                <li><a href="../index.html#faq">ЧЗВ</a></li>
-                <li><a href="../index.html#contact">Контакти</a></li>
-
-                <li class="dropdown-custom lang-dropdown">
-                    <a href="#" style="display: flex !important; align-items: center; padding: 10px 15px !important;">
-                        <img src="https://flagcdn.com/w20/bg.png" alt="BG" style="width: 20px; height: auto; margin-right: 8px; border-radius: 2px; box-shadow: 0 0 2px rgba(0,0,0,0.3);"> 
-                        BG 
-                        <i class="fa fa-angle-down" style="margin-left: 6px; font-size: 14px;"></i>
-                    </a>
-                    <ul class="dropdown-menu-custom" style="min-width: 140px; border-top: 3px solid #001F3F;">
-                        <li>
-                            <a href="../en/korporativni-klienti-en/druzhestveno-i-korporativno-pravo-en.html" style="display: flex !important; align-items: center; padding: 12px 20px !important;">
-                                <img src="https://flagcdn.com/w20/gb.png" alt="EN" style="width: 20px; height: auto; margin-right: 12px; border-radius: 2px; box-shadow: 0 0 2px rgba(0,0,0,0.3);"> 
-                                English
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-            
-            <a class="res-nav_click" href="#"><i class="fa-bars"></i></a>
-        </div>
-    </nav> 
-
-    <header class="header" style="padding: 160px 0 120px 0; background: url(../img/финал.jpg) center/cover no-repeat fixed; position: relative; margin-bottom: 50px;">
-        <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.6); z-index: 0;"></div>
+    <header class="header" style="padding: 160px 0 120px 0; background: url('../img/bg-korporativno.png') center/cover no-repeat fixed !important; position: relative; margin-bottom: 50px;">
+        <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.5); z-index: 0;"></div>
         <div class="container" style="position: relative; z-index: 1;">
             
             <div class="animated fadeInDown delay-02s">
-                
                 <img src="../img/nikolaev & co - 2.png" alt="Nikolaev & Co Logo" style="display: block; margin: 0 auto 25px auto; max-height: 70px;">
 
                 <div style="display: inline-block; margin-bottom: 25px;">
                     <div style="height: 1px; width: 100%; background: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,0.6), rgba(255,255,255,0)); margin-bottom: 10px;"></div>
-                    
                     <span style="display: block; color: #f1f1f1; font-size: 15px; font-weight: 300; letter-spacing: 2px; text-align: center; font-family: 'Open Sans', sans-serif;">
                         Адвокатска кантора „Nikolaev & Co“
                     </span>
-                    
                     <div style="height: 1px; width: 100%; background: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,0.6), rgba(255,255,255,0)); margin-top: 10px;"></div>
                 </div>
                 
                 <h1 style="font-family: 'Montserrat',sans-serif; font-size: 42px; color: #fff; margin: 0; text-transform: uppercase; text-align: center; letter-spacing: -1px;">
-                    Дружествено и Корпоративно право
+                   Дружествено и Корпоративно право
                 </h1>
             </div> 
         </div>
@@ -131,76 +62,76 @@
         <div class="container">
             <div class="row">
                 
-                <div class="col-lg-8 col-md-8" style="font-size: 16px; line-height: 1.8; color: #444; padding-right: 30px;">
+                <div class="col-lg-8 col-md-8" style="padding-right: 30px;">
 
                     <div style="font-family: 'Open Sans', sans-serif; font-size: 12px; margin-bottom: 25px; border-bottom: 1px solid #eee; padding-bottom: 10px;">
                         <a href="../index.html#header" style="color: #001F3F; text-decoration: none; font-weight: 600;"><i class="fa fa-home"></i> Начало</a> 
                         <span style="margin: 0 8px; color: #ccc;">&raquo;</span> 
                         <a href="../index.html#service" style="color: #001F3F; text-decoration: none; font-weight: 600;">Корпоративни клиенти</a> 
                         <span style="margin: 0 8px; color: #ccc;">&raquo;</span> 
-                        <span style="color: #7cc576; font-weight: 700;">Дружествено и корпоративно право</span>
+                        <span style="color: #7cc576; font-weight: 700;">Дружествено и Корпоративно право</span>
                     </div>
                     
-                    <h3 style="font-size: 28px; color: #001F3F; margin-bottom: 20px; font-weight: 700; text-transform: uppercase;">Стратегическо структуриране и защита на капитала</h3>
-                    
-                    <p style="margin-bottom: 40px; text-align: justify; font-size: 15px;">
-                        Един успешен бизнес модел може да бъде компрометиран от грешна правна рамка. 
-                        Правилното корпоративно структуриране не е просто административна стъпка по регистрация в 
-                        ТРРЮЛНЦ – то е <strong>щитът, който пази Вашите лични активи</strong>, оптимизира данъчната 
-                        тежест и предотвратява бъдещи вътрешни конфликти. Ние изграждаме стабилни фундаменти, които 
-                        позволяват на бизнеса Ви да расте сигурно.
-                    </p>
+                    <div class="article-body">
+                        <div style="margin-bottom: 35px;">
+                            <h3 style="font-size: 24px; color: #001F3F; margin-bottom: 15px; font-weight: 700;">Здрава основа за Вашия бизнес</h3>
+                            <p style="font-size: 16px; line-height: 1.8; color: #444; text-align: justify;">
+                                Успешният бизнес започва с правилното правно структуриране и завършва с желязна защита на капитала. В динамичната търговска среда липсата на ясни правила между съдружниците или пропуските в корпоративните документи могат да струват скъпо. Ние предоставяме комплексни решения за управление на риска и защита на корпоративните Ви интереси.
+                            </p>
+                        </div>
 
-                    <div style="border-left: 4px solid #7cc576; padding-left: 25px; margin-bottom: 35px;">
-                        <h4 style="color: #111; font-weight: 700; font-family: 'Montserrat', sans-serif; text-transform: uppercase; margin-bottom: 12px; font-size: 15px;"><i class="fa fa-briefcase" style="color: #7cc576; margin-right: 10px; font-size: 20px; vertical-align: middle;"></i> Учредяване и Корпоративно управление</h4>
-                        <p style="font-size: 14px; color: #555; text-align: justify; margin: 0; line-height: 1.7;">
-                            Избор на оптимална правно-организационна форма. Изготвяне на специфични Устави и 
-                            Дружествени договори, съдържащи защитни клаузи срещу "мъртва схватка" (deadlock) между 
-                            съдружници и нелоялна конкуренция. Договори за възлагане на управлението (ДВУ) и ограничаване 
-                            на мениджърската отговорност по чл. 145 от Търговския закон.
-                        </p>
+                        <div style="display: flex; margin-bottom: 30px; background: #fafafa; border: 1px solid #eee; border-radius: 6px; overflow: hidden; transition: box-shadow 0.3s;" onmouseover="this.style.boxShadow='0 5px 15px rgba(0,0,0,0.05)'" onmouseout="this.style.boxShadow='none'">
+                            <div style="background: #001F3F; color: #fff; width: 80px; display: flex; align-items: center; justify-content: center; font-size: 30px;">
+                                <i class="fa fa-building-o"></i>
+                            </div>
+                            <div style="padding: 20px 25px;">
+                                <h4 class="no-indent" style="font-family: 'Montserrat',sans-serif; font-size: 17px; color: #111; margin-top: 0; margin-bottom: 10px; font-weight: 700; text-transform: uppercase;">Учредяване и Структуриране</h4>
+                                <p style="margin: 0; font-size: 14px; color: #555; text-align: justify; line-height: 1.7;">
+                                    Изборът на правна форма (ООД, АД, АДСИЦ) е критичен за данъчната тежест и отговорността Ви. Ние изготвяме прецизни Дружествени договори и Устави, предвиждащи защитни клаузи при напускане на съдружник, наследяване на дялове или конфликт на интереси (т.нар. Deadlock клаузи).
+                                </p>
+                            </div>
+                        </div>
+
+                        <div style="display: flex; margin-bottom: 30px; background: #fafafa; border: 1px solid #eee; border-radius: 6px; overflow: hidden; transition: box-shadow 0.3s;" onmouseover="this.style.boxShadow='0 5px 15px rgba(0,0,0,0.05)'" onmouseout="this.style.boxShadow='none'">
+                            <div style="background: #7cc576; color: #fff; width: 80px; display: flex; align-items: center; justify-content: center; font-size: 30px;">
+                                <i class="fa fa-refresh"></i>
+                            </div>
+                            <div style="padding: 20px 25px;">
+                                <h4 class="no-indent" style="font-family: 'Montserrat',sans-serif; font-size: 17px; color: #111; margin-top: 0; margin-bottom: 10px; font-weight: 700; text-transform: uppercase;">Сливания, Вливания и Придобивания (M&A)</h4>
+                                <p style="margin: 0; font-size: 14px; color: #555; text-align: justify; line-height: 1.7;">
+                                    Планирате да закупите конкурент или да продадете бизнеса си? Осъществяваме пълен правен одит (Legal Due Diligence) на придобиваното дружество, структурираме сделката и изготвяме Договори за покупко-продажба на дялове/акции с включени гаранции (Representations and Warranties).
+                                </p>
+                            </div>
+                        </div>
+
+                        <div style="display: flex; margin-bottom: 35px; background: #fafafa; border: 1px solid #eee; border-radius: 6px; overflow: hidden; transition: box-shadow 0.3s;" onmouseover="this.style.boxShadow='0 5px 15px rgba(0,0,0,0.05)'" onmouseout="this.style.boxShadow='none'">
+                            <div style="background: #001F3F; color: #fff; width: 80px; display: flex; align-items: center; justify-content: center; font-size: 30px;">
+                                <i class="fa fa-users"></i>
+                            </div>
+                            <div style="padding: 20px 25px;">
+                                <h4 class="no-indent" style="font-family: 'Montserrat',sans-serif; font-size: 17px; color: #111; margin-top: 0; margin-bottom: 10px; font-weight: 700; text-transform: uppercase;">Общи събрания и Защита на съдружници</h4>
+                                <p style="margin: 0; font-size: 14px; color: #555; text-align: justify; line-height: 1.7;">
+                                    Съдействаме при подготовка, свикване и провеждане на Общи събрания. Предлагаме процесуално представителство при спорове между съдружници, изключване на съдружник и предявяване на искове за отмяна на незаконосъобразни решения на органите на дружеството (по чл. 74 от ТЗ).
+                                </p>
+                            </div>
+                        </div>
+
+                        <div style="background-color: #fffaf9; border-left: 4px solid #cc0000; padding: 25px; border-radius: 0 6px 6px 0;">
+                            <h4 class="no-indent" style="font-family: 'Montserrat',sans-serif; font-size: 16px; color: #cc0000; margin-top: 0; font-weight: 700;"><i class="fa fa-exclamation-triangle"></i> Отговорност на Управителя</h4>
+                            <p style="margin: 0; font-size: 15px; color: #555; text-align: justify;">
+                                Честа заблуда е, че управителят на ООД не носи лична отговорност. Съгласно ДОПК и ТЗ, управителите отговарят солидарно и лично с цялото си имущество за неплатени данъци, осигуровки и вреди, причинени на дружеството. Консултирайте се с нас, за да лимитирате управленския си риск чрез специални Договори за възлагане на управлението.
+                            </p>
+                        </div>
                     </div>
 
-                    <div style="border-left: 4px solid #001F3F; padding-left: 25px; margin-bottom: 35px;">
-                        <h4 style="color: #111; font-weight: 700; font-family: 'Montserrat', sans-serif; text-transform: uppercase; margin-bottom: 12px; font-size: 15px;"><i class="fa fa-exchange" style="color: #001F3F; margin-right: 10px; font-size: 20px; vertical-align: middle;"></i> Преструктуриране и M&A (Сливания и придобивания)</h4>
-                        <p style="font-size: 14px; color: #555; text-align: justify; margin: 0; line-height: 1.7;">
-                            Цялостно правно обезпечаване на сливания, вливания и придобивания. Изолиране на търговския риск чрез отделяне на активи в нови дружества. Пълен правен одит (Due Diligence) на таргет-компании преди покупка на бизнес за установяване на скрити тежести и задължения.
-                        </p>
-                    </div>
-
-                    <div style="border-left: 4px solid #e74c3c; padding-left: 25px; margin-bottom: 45px;">
-                        <h4 style="color: #111; font-weight: 700; font-family: 'Montserrat', sans-serif; text-transform: uppercase; margin-bottom: 12px; font-size: 15px;"><i class="fa fa-ban" style="color: #e74c3c; margin-right: 10px; font-size: 20px; vertical-align: middle;"></i> Несъстоятелност и ликвидация</h4>
-                        <p style="font-size: 14px; color: #555; text-align: justify; margin: 0; line-height: 1.7;">
-                            Прецизно планиране на стратегии за изход от инвестицията (Exit strategy). Защита на управителите от лична имуществена отговорност при свръхзадълженост, обявяване в несъстоятелност и представителство в сложни производства пред съда и синдика.
-                        </p>
-                    </div>
-
-                    <div style="background: #f8fbf8; padding: 35px 30px; border-radius: 6px; border: 1px solid #e2efe2; margin-bottom: 25px; position: relative; box-shadow: 0 5px 15px rgba(0,0,0,0.03);">
-                        <i class="fa fa-gavel" style="position: absolute; top: 25px; right: 30px; font-size: 40px; color: rgba(124, 197, 118, 0.2);"></i>
-                        <h4 style="font-family: 'Montserrat', sans-serif; font-size: 16px; color: #001F3F; font-weight: 700; text-transform: uppercase; margin-bottom: 15px;">Правен стандарт и Съдебна практика</h4>
-                        <p style="font-size: 14px; color: #555; text-align: justify; line-height: 1.8; margin: 0;">
-                            В корпоративното право бланковите решения водят до скъпоструващи съдебни спорове. Всяко наше действие – от съставянето на протокол на Общото събрание до сложни сделки с дялове – е <strong>строго съобразено с актуалните Тълкувателни решения на ВКС и директивите на ЕС</strong>. Ние изграждаме индивидуална правна рамка, която гарантирано ще издържи при съдебен или извънсъдебен сблъсък.
-                        </p>
-                    </div>
-                    
-                    <div style="background-color: #f4f7f9; border-left: 4px solid #001F3F; padding: 25px; margin-top: 15px; margin-bottom: 30px; border-radius: 0 4px 4px 0;">
-                        <em style="font-size: 16px; color: #222; display: block;">
-                            Работим проактивно. Нашата цел не е просто да регистрираме поредната фирма, а да създадем юридически непробиваема структура, която работи безотказно във Ваша полза.
-                        </em>
-                    </div>
-
-                   <div style="margin-top: 20px; padding-top: 25px; border-top: 1px solid #eee; display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap;">
+                    <div style="margin-top: 20px; padding-top: 25px; border-top: 1px solid #eee; display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap;">
                         
                         <a href="../index.html#service" style="flex: 1; text-align: center; display: flex; align-items: center; justify-content: center; padding: 12px 10px; border: 2px solid #001F3F; color: #ffffff; background: #001F3F; text-decoration: none; border-radius: 4px; font-weight: 700; font-family: 'Montserrat', sans-serif; font-size: 11px; text-transform: uppercase; transition: all 0.3s;" onmouseover="this.style.background='#ffffff'; this.style.color='#001F3F';" onmouseout="this.style.background='#001F3F'; this.style.color='#ffffff';">
                             &larr; Назад към услуги
                         </a>
 
-                        <a href="../index.html#contact" style="flex: 1.2; text-align: center; display: flex; align-items: center; justify-content: center; padding: 12px 10px; background: #7cc576; border: 2px solid #7cc576; color: #ffffff; text-decoration: none; border-radius: 4px; font-weight: 700; font-family: 'Montserrat', sans-serif; font-size: 11px; text-transform: uppercase; transition: all 0.3s;" onmouseover="this.style.background='#ffffff'; this.style.color='#7cc576';" onmouseout="this.style.background='#7cc576'; this.style.color='#ffffff';">
-                            Запишете час
-                        </a>
-                        
-                        <a href="abonamentno-obsluzhvane.html" style="flex: 1.4; text-align: center; display: flex; align-items: center; justify-content: center; padding: 12px 10px; background: #001F3F; border: 2px solid #001F3F; color: #ffffff; text-decoration: none; border-radius: 4px; font-weight: 700; font-family: 'Montserrat', sans-serif; font-size: 11px; text-transform: uppercase; transition: all 0.3s;" onmouseover="this.style.background='#ffffff'; this.style.color='#001F3F';" onmouseout="this.style.background='#001F3F'; this.style.color='#ffffff';">
-                            Абонаментни планове
+                        <a href="javascript:void(0);" class="open-booking-modal" style="flex: 1.2; text-align: center; display: flex; align-items: center; justify-content: center; padding: 12px 10px; background: #7cc576; border: 2px solid #7cc576; color: #ffffff; text-decoration: none; border-radius: 4px; font-weight: 700; font-family: 'Montserrat', sans-serif; font-size: 11px; text-transform: uppercase; transition: all 0.3s;" onmouseover="this.style.background='#ffffff'; this.style.color='#7cc576';" onmouseout="this.style.background='#7cc576'; this.style.color='#ffffff';">
+                            Запишете час за консултация
                         </a>
 
                     </div>
@@ -213,7 +144,7 @@
                             
                             <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://nikolainikolaev.github.io/law-page/korporativni-klienti/druzhestveno-i-korporativno-pravo.html&title=Дружествено и Корпоративно право | Nikolaev & Co" target="_blank" title="Сподели в LinkedIn" style="display: inline-block; width: 35px; height: 35px; line-height: 35px; text-align: center; background: #0077b5; color: #fff; border-radius: 50%; text-decoration: none; transition: all 0.3s; box-shadow: 0 3px 6px rgba(0,0,0,0.15);" onmouseover="this.style.transform='translateY(-3px)'" onmouseout="this.style.transform='translateY(0)'"><i class="fa fa-linkedin"></i></a>
                             
-                            <a href="https://twitter.com/intent/tweet?url=https://nikolainikolaev.github.io/law-page/korporativni-klienti/druzhestveno-i-korporativno-pravo.html&text=Корпоративно право и защита на капитала от Nikolaev %26 Co:" target="_blank" title="Сподели в X" style="display: inline-block; width: 35px; height: 35px; line-height: 35px; text-align: center; background: #000000; color: #fff; border-radius: 50%; text-decoration: none; transition: all 0.3s; box-shadow: 0 3px 6px rgba(0,0,0,0.15);" onmouseover="this.style.transform='translateY(-3px)'" onmouseout="this.style.transform='translateY(0)'"><i class="fa fa-twitter"></i></a>
+                            <a href="https://twitter.com/intent/tweet?url=https://nikolainikolaev.github.io/law-page/korporativni-klienti/druzhestveno-i-korporativno-pravo.html&text=Корпоративно структуриране и защита на капитала от Nikolaev %26 Co:" target="_blank" title="Сподели в X" style="display: inline-block; width: 35px; height: 35px; line-height: 35px; text-align: center; background: #000000; color: #fff; border-radius: 50%; text-decoration: none; transition: all 0.3s; box-shadow: 0 3px 6px rgba(0,0,0,0.15);" onmouseover="this.style.transform='translateY(-3px)'" onmouseout="this.style.transform='translateY(0)'"><i class="fa fa-twitter"></i></a>
                             
                             <a href="https://api.whatsapp.com/send?text=Вижте тази страница: https://nikolainikolaev.github.io/law-page/korporativni-klienti/druzhestveno-i-korporativno-pravo.html" target="_blank" title="Изпрати по WhatsApp" style="display: inline-block; width: 35px; height: 35px; line-height: 35px; text-align: center; background: #25D366; color: #fff; border-radius: 50%; text-decoration: none; transition: all 0.3s; box-shadow: 0 3px 6px rgba(0,0,0,0.15);" onmouseover="this.style.transform='translateY(-3px)'" onmouseout="this.style.transform='translateY(0)'"><i class="fa fa-whatsapp"></i></a>
                             
@@ -227,10 +158,26 @@
                         </div>
                     </div>
 
-                </div> 
-                
-                <div class="col-lg-4 col-md-4" style="margin-top: 40px;"> 
+                </div>
+
+                <div class="col-lg-4 col-md-4" style="margin-top: 15px;">
                     
+                    <div style="background: #ffffff; padding: 30px; border-radius: 6px; border-top: 4px solid #7cc576; box-shadow: 0 4px 20px rgba(0,0,0,0.06); margin-bottom: 30px;">
+                        <div style="display: flex; align-items: center; margin-bottom: 20px;">
+                            <i class="fa fa-bullhorn" style="font-size: 24px; color: #7cc576; margin-right: 12px;"></i>
+                            <h3 style="font-size: 16px; margin: 0; text-transform: uppercase; color: #001F3F; font-weight: 700; font-family: 'Montserrat', sans-serif;">Последни новини</h3>
+                        </div>
+                        
+                        <ul style="list-style: none; padding: 0; margin: 0;">
+                            {% for post in site.posts limit:3 %}
+                            <li style="margin-bottom: 15px; border-bottom: 1px solid #f5f5f5; padding-bottom: 12px;">
+                                <a href="/law-page{{ post.url }}" style="color: #111; font-size: 14px; text-decoration: none; font-weight: 600; display: block; transition: color 0.3s; line-height: 1.4; margin-bottom: 5px;" onmouseover="this.style.color='#7cc576'" onmouseout="this.style.color='#111'">{{ post.title }}</a>
+                                <span style="font-size: 12px; color: #777; line-height: 1.4; display: block;">{{ post.description }}</span>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+
                     <div style="background: #f9f9f9; padding: 30px; border-radius: 6px; border: 1px solid #eee; border-top: 4px solid #001F3F; margin-bottom: 30px; box-shadow: 0 4px 20px rgba(0,0,0,0.03);">
                         <div style="text-align: center; margin-bottom: 30px;">
                             <span style="display: block; font-family: 'Montserrat', sans-serif; font-size: 15px; color: #555555; font-weight: 600; letter-spacing: 0.5px; margin-bottom: 12px;">
@@ -238,37 +185,34 @@
                             </span>
                             <div style="width: 40px; height: 2px; background: #001F3F; margin: 0 auto;"></div>
                         </div>
-                        
-                        <h3 style="font-size: 16px; margin-bottom: 15px; border-bottom: 2px solid #001F3F; padding-bottom: 10px; text-transform: uppercase; color: #111; font-weight: 700;">Корпоративни клиенти</h3>
+
+                        <h3 style="font-size: 16px; margin-bottom: 15px; border-bottom: 2px solid #7cc576; padding-bottom: 10px; text-transform: uppercase; color: #111; font-weight: 700;">Корпоративни клиенти</h3>
                         <ul style="list-style: none; padding: 0; margin: 0 0 30px 0;">
-                            <li style="margin-bottom: 12px;"><a href="sabirane-na-vzemania.html" class="sidebar-link">&rsaquo; Събиране на вземания</a></li>
-                            <li style="margin-bottom: 12px;"><a href="druzhestveno-i-korporativno-pravo.html" class="sidebar-link active">&rsaquo; Дружествено и Корпоративно</a></li>
-                            <li style="margin-bottom: 12px;"><a href="targovski-sdelki-i-dogovorno-pravo.html" class="sidebar-link">&rsaquo; Търговски сделки и договори</a></li>
-                            <li style="margin-bottom: 12px;"><a href="trudovo-pravo-schetovodstvo-i-trz.html" class="sidebar-link">&rsaquo; Трудово право, счетоводство и ТРЗ</a></li>
-                            <li style="margin-bottom: 12px;"><a href="nedvizhimi-imoti-i-veshtno-pravo.html" class="sidebar-link">&rsaquo; Недвижими имоти</a></li>
-                            <li style="margin-bottom: 0;"><a href="procesualno-predstavitelstvo.html" class="sidebar-link">&rsaquo; Процесуално представителство</a></li>
+                            <li style="margin-bottom: 12px;"><a href="sabirane-na-vzemania.html" class="sidebar-link" style="color: #555; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#7cc576'" onmouseout="this.style.color='#555'">&rsaquo; Събиране на вземания</a></li>
+                            <li style="margin-bottom: 12px;"><a href="druzhestveno-i-korporativno-pravo.html" class="sidebar-link active" style="color: #7cc576; font-weight: bold; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#001F3F'" onmouseout="this.style.color='#7cc576'">&rsaquo; Дружествено и Корпоративно</a></li>
+                            <li style="margin-bottom: 12px;"><a href="targovski-sdelki-i-dogovorno-pravo.html" class="sidebar-link" style="color: #555; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#7cc576'" onmouseout="this.style.color='#555'">&rsaquo; Търговски сделки и договори</a></li>
+                            <li style="margin-bottom: 12px;"><a href="trudovo-pravo-schetovodstvo-i-trz.html" class="sidebar-link" style="color: #555; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#7cc576'" onmouseout="this.style.color='#555'">&rsaquo; Трудово право, счетоводство и ТРЗ</a></li>
+                            <li style="margin-bottom: 12px;"><a href="nedvizhimi-imoti-i-veshtno-pravo.html" class="sidebar-link" style="color: #555; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#7cc576'" onmouseout="this.style.color='#555'">&rsaquo; Недвижими имоти</a></li>
+                            <li style="margin-bottom: 0;"><a href="procesualno-predstavitelstvo.html" class="sidebar-link" style="color: #555; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#7cc576'" onmouseout="this.style.color='#555'">&rsaquo; Процесуално представителство</a></li>
                         </ul>
 
                         <h3 style="font-size: 16px; margin-bottom: 15px; border-bottom: 2px solid #001F3F; padding-bottom: 10px; text-transform: uppercase; color: #111; font-weight: 700;">Физически лица</h3>
                         <ul style="list-style: none; padding: 0; margin: 0;">
-                            <li style="margin-bottom: 12px;"><a href="../fizicheski-lica/trudovo-pravo.html" class="sidebar-link">&rsaquo; Трудово право</a></li>
-                            <li style="margin-bottom: 12px;"><a href="../fizicheski-lica/semeino-i-nasledstveno-pravo.html" class="sidebar-link">&rsaquo; Семейно и наследствено право</a></li>
-                            <li style="margin-bottom: 12px;"><a href="../fizicheski-lica/veshtno-pravo-i-etazhna-sobstvenost.html" class="sidebar-link">&rsaquo; Вещно право и етажна собственост</a></li>
-                            <li style="margin-bottom: 0;"><a href="../fizicheski-lica/administrativno-pravo.html" class="sidebar-link">&rsaquo; Административно право</a></li>
+                            <li style="margin-bottom: 12px;"><a href="../fizicheski-lica/trudovo-pravo.html" class="sidebar-link" style="color: #555; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#7cc576'" onmouseout="this.style.color='#555'">&rsaquo; Трудово право</a></li>
+                            <li style="margin-bottom: 12px;"><a href="../fizicheski-lica/semeino-i-nasledstveno-pravo.html" class="sidebar-link" style="color: #555; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#7cc576'" onmouseout="this.style.color='#555'">&rsaquo; Семейно и наследствено право</a></li>
+                            <li style="margin-bottom: 12px;"><a href="../fizicheski-lica/veshtno-pravo-i-etazhna-sobstvenost.html" class="sidebar-link" style="color: #555; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#7cc576'" onmouseout="this.style.color='#555'">&rsaquo; Вещно право и етажна собственост</a></li>
+                            <li style="margin-bottom: 0;"><a href="../fizicheski-lica/administrativno-pravo.html" class="sidebar-link" style="color: #555; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#7cc576'" onmouseout="this.style.color='#555'">&rsaquo; Административно право</a></li>
                         </ul>
                     </div>
 
                     <div style="background: #ffffff; padding: 30px; border-radius: 6px; border-top: 4px solid #7cc576; box-shadow: 0 4px 20px rgba(0,0,0,0.06);">
-                        
                         <div style="display: flex; align-items: center; margin-bottom: 20px;">
                             <i class="fa fa-newspaper-o" style="font-size: 24px; color: #7cc576; margin-right: 12px;"></i>
                             <h3 style="font-size: 16px; margin: 0; text-transform: uppercase; color: #001F3F; font-weight: 700; font-family: 'Montserrat', sans-serif;">Правни анализи</h3>
                         </div>
-                        
                         <p style="font-size: 13px; color: #666; margin-bottom: 20px; line-height: 1.6;">
                             Актуални коментари на съдебната практика и законодателни промени от нашия екип.
                         </p>
-                        
                         <ul style="list-style: none; padding: 0; margin: 0 0 20px 0;">
                             <li style="margin-bottom: 12px; border-bottom: 1px solid #f5f5f5; padding-bottom: 8px;">
                                 <a href="../novini/arhiv.html#targovski" style="color: #444; font-size: 13px; text-decoration: none; font-weight: 600; display: block; transition: color 0.3s;" onmouseover="this.style.color='#7cc576'" onmouseout="this.style.color='#444'"><i class="fa fa-angle-right" style="color: #7cc576; margin-right: 8px; font-weight: bold;"></i> Търговски статии</a>
@@ -283,201 +227,18 @@
                                 <a href="../novini/arhiv.html#novini" style="color: #444; font-size: 13px; text-decoration: none; font-weight: 600; display: block; transition: color 0.3s;" onmouseover="this.style.color='#7cc576'" onmouseout="this.style.color='#444'"><i class="fa fa-angle-right" style="color: #7cc576; margin-right: 8px; font-weight: bold;"></i> Правни новини</a>
                             </li>
                         </ul>
-                        
                         <a href="../novini/arhiv.html" style="display: block; text-align: center; padding: 12px 15px; background: #001F3F; color: #fff; text-decoration: none; border-radius: 4px; font-weight: 700; font-family: 'Montserrat', sans-serif; font-size: 11px; text-transform: uppercase; transition: all 0.3s;" onmouseover="this.style.background='#7cc576';" onmouseout="this.style.background='#001F3F';">
                             Всички публикации &rarr;
                         </a>
                     </div>
-                </div> 
-               
+                </div>
+                
             </div>
         </div>
     </section>
 
-    <footer class="footer-advanced" style="padding: 60px 0 20px 0; border-top: 4px solid #7cc576; font-family: 'Open Sans', sans-serif;">
-        <div class="container">
-            <div class="row">
-                
-                <div class="col-md-3 col-sm-6" style="margin-bottom: 30px;">
-                    <a href="../index.html#header"><img src="../img/nikolaev & co - 2.png" alt="Nikolaev & Co Logo" style="max-width: 150px; margin-bottom: 20px;"></a>
-                    <p style="font-size: 13px; color: #555; line-height: 1.8; text-align: justify; margin-bottom: 25px;">Грижа ни е за Вашата справедливост! Доверете ни се и получете комплексно правно обслужване с най-висок стандарт и безкомпромисна защита.</p>
-                    
-                    <div style="display: flex; flex-direction: column; gap: 12px;">
-                        <div style="display: flex; align-items: center; gap: 15px; background: rgba(255,255,255,0.6); padding: 10px 15px; border-radius: 6px; border: 1px solid #ddd; transition: all 0.3s ease;" onmouseover="this.style.background='#fff'; this.style.borderColor='#7cc576';" onmouseout="this.style.background='rgba(255,255,255,0.6)'; this.style.borderColor='#ddd';">
-                            <img src="../img/VSS.png" alt="Лого на ВСС" style="max-height: 38px; width: auto;">
-                            <span style="font-size: 11px; color: #333; font-weight: 700; text-transform: uppercase; line-height: 1.3;">Вписан в Единния<br><span style="color: #7cc576;">адвокатски регистър</span></span>
-                        </div>
-                        
-                        <div style="display: flex; align-items: center; gap: 15px; background: rgba(255,255,255,0.6); padding: 10px 15px; border-radius: 6px; border: 1px solid #ddd; transition: all 0.3s ease;" onmouseover="this.style.background='#fff'; this.style.borderColor='#7cc576';" onmouseout="this.style.background='rgba(255,255,255,0.6)'; this.style.borderColor='#ddd';">
-                            <img src="../img/SAK.png" alt="Лого на САК" style="max-height: 38px; width: auto;">
-                            <span style="font-size: 11px; color: #333; font-weight: 700; text-transform: uppercase; line-height: 1.3;">Член на Софийска<br><span style="color: #7cc576;">адвокатска колегия</span></span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-3 col-sm-6" style="margin-bottom: 30px;">
-                    <h4 style="color: #001F3F; font-family: 'Montserrat', sans-serif; font-size: 16px; text-transform: uppercase; margin-bottom: 20px; font-weight: 700;">Бързи връзки</h4>
-                    <ul style="list-style: none; padding: 0; margin: 0; font-size: 13px;">
-                        <li style="margin-bottom: 12px;"><a href="../index.html#header" style="color: #555; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#7cc576'" onmouseout="this.style.color='#555'">Начало</a></li>
-                        <li style="margin-bottom: 12px;"><a href="../kolektiv/advokat-nikolai-nikolaev.html" style="color: #555; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#7cc576'" onmouseout="this.style.color='#555'">Нашият екип</a></li>
-                        <li style="margin-bottom: 12px;"><a href="abonamentno-obsluzhvane.html" style="color: #555; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#7cc576'" onmouseout="this.style.color='#555'">Абонаментно обслужване</a></li>
-                        <li style="margin-bottom: 12px;"><a href="../za-nas/za-nas.html#online-konsultacia" style="color: #555; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#7cc576'" onmouseout="this.style.color='#555'">Онлайн консултация</a></li>
-                        <li style="margin-bottom: 12px;"><a href="../index.html#faq" style="color: #555; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#7cc576'" onmouseout="this.style.color='#555'">Често задавани въпроси (ЧЗВ)</a></li>
-                        <li style="margin-bottom: 12px;"><a href="../novini/arhiv.html" style="color: #555; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#7cc576'" onmouseout="this.style.color='#555'">Правни новини и статии</a></li>
-                        <li style="margin-bottom: 0;"><a href="../privacy-policy.html" style="color: #555; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#7cc576'" onmouseout="this.style.color='#555'">Политика за поверителност</a></li>
-                    </ul>
-                </div>
-
-                <div class="col-md-3 col-sm-6" style="margin-bottom: 30px;">
-                    <h4 style="color: #001F3F; font-family: 'Montserrat', sans-serif; font-size: 16px; text-transform: uppercase; margin-bottom: 20px; font-weight: 700;">Сфери на дейност</h4>
-                    
-                    <span style="display: block; color: #001F3F; font-size: 12px; font-weight: 700; text-transform: uppercase; margin-bottom: 10px; letter-spacing: 0.5px;">За корпоративни клиенти</span>
-                    <ul style="list-style: none; padding: 0; margin: 0 0 15px 0; font-size: 13px;">
-                        <li style="margin-bottom: 6px;"><a href="sabirane-na-vzemania.html" style="color: #555; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#7cc576'" onmouseout="this.style.color='#555'">&rsaquo; Събиране на вземания</a></li>
-                        <li style="margin-bottom: 6px;"><a href="druzhestveno-i-korporativno-pravo.html" style="color: #7cc576; text-decoration: none; font-weight: 700; transition: color 0.3s;" onmouseover="this.style.color='#001F3F'" onmouseout="this.style.color='#7cc576'">&rsaquo; Дружествено право</a></li>
-                        <li style="margin-bottom: 6px;"><a href="targovski-sdelki-i-dogovorno-pravo.html" style="color: #555; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#7cc576'" onmouseout="this.style.color='#555'">&rsaquo; Търговски сделки и договори</a></li>
-                        <li style="margin-bottom: 6px;"><a href="trudovo-pravo-schetovodstvo-i-trz.html" style="color: #555; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#7cc576'" onmouseout="this.style.color='#555'">&rsaquo; Трудово право, счетоводство</a></li>
-                        <li style="margin-bottom: 6px;"><a href="nedvizhimi-imoti-i-veshtno-pravo.html" style="color: #555; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#7cc576'" onmouseout="this.style.color='#555'">&rsaquo; Недвижими имоти</a></li>
-                        <li style="margin-bottom: 0;"><a href="procesualno-predstavitelstvo.html" style="color: #555; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#7cc576'" onmouseout="this.style.color='#555'">&rsaquo; Процесуално представителство</a></li>
-                    </ul>
-
-                    <span style="display: block; color: #001F3F; font-size: 12px; font-weight: 700; text-transform: uppercase; margin-bottom: 10px; letter-spacing: 0.5px;">За физически лица</span>
-                    <ul style="list-style: none; padding: 0; margin: 0; font-size: 13px;">
-                        <li style="margin-bottom: 6px;"><a href="../fizicheski-lica/trudovo-pravo.html" style="color: #555; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#7cc576'" onmouseout="this.style.color='#555'">&rsaquo; Трудово право</a></li>
-                        <li style="margin-bottom: 6px;"><a href="../fizicheski-lica/semeino-i-nasledstveno-pravo.html" style="color: #555; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#7cc576'" onmouseout="this.style.color='#555'">&rsaquo; Семейно и наследствено</a></li>
-                        <li style="margin-bottom: 6px;"><a href="../fizicheski-lica/veshtno-pravo-i-etazhna-sobstvenost.html" style="color: #555; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#7cc576'" onmouseout="this.style.color='#555'">&rsaquo; Вещно право</a></li>
-                        <li style="margin-bottom: 0;"><a href="../fizicheski-lica/administrativno-pravo.html" style="color: #555; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#7cc576'" onmouseout="this.style.color='#555'">&rsaquo; Административно право</a></li>
-                    </ul>
-                </div>
-
-                <div class="col-md-3 col-sm-6">
-                    <h4 style="color: #001F3F; font-family: 'Montserrat', sans-serif; font-size: 16px; text-transform: uppercase; margin-bottom: 20px; font-weight: 700;">Контакти</h4>
-                    
-                    <div style="display: flex; align-items: flex-start; margin-bottom: 15px; font-size: 13px; color: #555;">
-                        <i class="fa fa-map-marker" style="color: #7cc576; font-size: 16px; margin-right: 12px; margin-top: 2px; width: 14px; text-align: center;"></i>
-                        <span style="line-height: 1.5;">ул. "Цанко Церковски" № 33<br>гр. София, 1164</span>
-                    </div>
-                    <div style="display: flex; align-items: center; margin-bottom: 15px; font-size: 13px; color: #555;">
-                        <i class="fa fa-phone" style="color: #7cc576; font-size: 16px; margin-right: 12px; width: 14px; text-align: center;"></i>
-                        <span>0893 / 440 797</span>
-                    </div>
-                    <div style="display: flex; align-items: center; margin-bottom: 25px; font-size: 13px; color: #555;">
-                        <i class="fa fa-envelope" style="color: #7cc576; font-size: 14px; margin-right: 12px; width: 14px; text-align: center;"></i>
-                        <span>nikolai.nikolaev11@gmail.com</span>
-                    </div>
-
-                    <span style="display: block; color: #001F3F; font-size: 12px; font-weight: 700; text-transform: uppercase; margin-bottom: 10px; letter-spacing: 0.5px;">Последвайте ни</span>
-                    <div style="display: flex; gap: 8px;">
-                        <a href="#" target="_blank" title="LinkedIn" style="display: inline-flex; justify-content: center; align-items: center; width: 34px; height: 34px; background: #001F3F; color: #fff; border-radius: 4px; transition: all 0.3s ease;" onmouseover="this.style.background='#0077b5'; this.style.transform='translateY(-3px)';" onmouseout="this.style.background='#001F3F'; this.style.transform='translateY(0)';">
-                            <i class="fa fa-linkedin" style="font-size: 15px;"></i>
-                        </a>
-                        <a href="#" target="_blank" title="Facebook" style="display: inline-flex; justify-content: center; align-items: center; width: 34px; height: 34px; background: #001F3F; color: #fff; border-radius: 4px; transition: all 0.3s ease;" onmouseover="this.style.background='#3b5998'; this.style.transform='translateY(-3px)';" onmouseout="this.style.background='#001F3F'; this.style.transform='translateY(0)';">
-                            <i class="fa fa-facebook" style="font-size: 15px;"></i>
-                        </a>
-                        <a href="#" target="_blank" title="Instagram" style="display: inline-flex; justify-content: center; align-items: center; width: 34px; height: 34px; background: #001F3F; color: #fff; border-radius: 4px; transition: all 0.3s ease;" onmouseover="this.style.background='#e1306c'; this.style.transform='translateY(-3px)';" onmouseout="this.style.background='#001F3F'; this.style.transform='translateY(0)';">
-                            <i class="fa fa-instagram" style="font-size: 15px;"></i>
-                        </a>
-                        <a href="#" target="_blank" title="X (Twitter)" style="display: inline-flex; justify-content: center; align-items: center; width: 34px; height: 34px; background: #001F3F; color: #fff; border-radius: 4px; transition: all 0.3s ease;" onmouseover="this.style.background='#000000'; this.style.transform='translateY(-3px)';" onmouseout="this.style.background='#001F3F'; this.style.transform='translateY(0)';">
-                            <i class="fa fa-twitter" style="font-size: 15px;"></i>
-                        </a>
-                    </div>
-                </div>
-
-            </div>
-
-            <div style="border-top: 1px solid #ddd; padding-top: 25px; margin-top: 15px; text-align: center; font-size: 12px; color: #888;">
-                &copy; 2026 Адвокатска кантора „Nikolaev & Co“. Всички права запазени.
-            </div>
-        </div>
-    </footer>
-
-    <div id="cookie-banner" style="display: none; position: fixed; bottom: 0; left: 0; width: 100%; background: rgba(0, 31, 63, 0.95); color: #fff; padding: 15px 0; z-index: 9999; box-shadow: 0 -4px 10px rgba(0,0,0,0.15);">
-        <span id="close-cookie-banner" style="position: absolute; top: 5px; right: 15px; cursor: pointer; color: #aaa; font-size: 28px; line-height: 1; font-family: Arial, sans-serif; transition: color 0.3s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#aaa'" title="Затвори уведомлението">&times;</span>
-        <div class="container" style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; padding-right: 35px;">
-            <div style="flex: 1; min-width: 280px; padding-right: 20px; margin-bottom: 10px;">
-                <p style="margin: 0; font-size: 13px; color: #e0e0e0; line-height: 1.6; font-family: 'Open Sans', sans-serif;">
-                    Този уебсайт използва „бисквитки“ (cookies), за да осигури правилното си функциониране и да Ви предостави максимално добро потребителско изживяване. Продължавайки да използвате сайта, Вие се съгласявате с нашата 
-                    <a href="../privacy-policy.html" target="_blank" style="color: #7cc576; text-decoration: underline; font-weight: 600;">Политика за поверителност</a>.
-                </p>
-            </div>
-            <div>
-                <button id="accept-cookies" style="background: #7cc576; color: #fff; border: none; padding: 10px 25px; border-radius: 4px; font-family: 'Montserrat', sans-serif; font-size: 13px; font-weight: 700; text-transform: uppercase; cursor: pointer; transition: background 0.3s;">
-                    Разбрах
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <div class="floating-buttons-container">
-        <a href="#" id="back-to-top" class="floating-circle-btn" title="Нагоре">
-            <i class="fa fa-angle-up"></i>
-        </a>
-        <div id="call-widget" class="call-widget-container">
-            <div class="call-popup" id="call-popup" style="width: 220px;">
-                <span class="call-popup-text">Свържете се с нас:</span>
-                <div style="display: flex; flex-direction: column; gap: 8px;">
-                    <a href="tel:+359893440797" class="call-popup-btn">
-                        <i class="fa fa-phone" style="margin-right: 6px !important; width: auto !important; line-height: normal !important; display: inline-block !important;"></i>Обаждане
-                    </a>
-                    <a href="../nikolaev.vcf" class="call-popup-btn" style="background: #001F3F;">
-                        <i class="fa fa-address-card-o" style="margin-right: 6px !important; width: auto !important; line-height: normal !important; display: inline-block !important;"></i>Запази контакт
-                    </a>
-                </div>
-            </div>
-            <div id="call-btn-circle" class="floating-circle-btn" title="Обаждане">
-                <i class="fa fa-phone"></i>
-            </div>
-        </div>
-    </div>
-
-    <script type="text/javascript" src="../js/jquery.1.8.3.min.js"></script>
-    <script type="text/javascript" src="../js/bootstrap.js"></script>
-    <script type="text/javascript" src="../js/jquery.easing.1.3.js"></script>
-    <script type="text/javascript" src="../js/wow.js"></script>
-    
-    <script type="text/javascript">
-    $(document).ready(function() {
-        
-        new WOW({ animateClass: 'animated', offset: 100 }).init();
-
-        // Мобилно меню
-        $('.res-nav_click').click(function(e){
-            e.preventDefault(); e.stopPropagation(); $('.main-nav').slideToggle();
-        });
-        $('.dropdown-custom > a').click(function(e){
-            if ($(window).width() < 768) {
-                e.preventDefault(); $(this).siblings('.dropdown-menu-custom').slideToggle(300); 
-            }
-        });
-        $(document).click(function(event) { 
-            if(!$(event.target).closest('.main-nav').length && !$(event.target).closest('.res-nav_click').length) {
-                if($('.main-nav').is(":visible") && $(window).width() < 768) { $('.main-nav').slideUp(); }
-            }        
-        });
-        $('.main-nav li a').not('.dropdown-custom > a').click(function(){
-            if($(window).width() < 768) { $('.main-nav').slideUp(); }
-        });
-
-        // Плаващи бутони (Телефон и Нагоре)
-        var btnTop = $('#back-to-top');
-        $(window).scroll(function() {
-            if ($(window).scrollTop() > 300) { btnTop.addClass('show'); } 
-            else { btnTop.removeClass('show'); }
-        });
-        btnTop.on('click', function(e) {
-            e.preventDefault(); $('html, body').animate({scrollTop:0}, '500'); 
-        });
-
-        var callBtnCircle = $('#call-btn-circle');
-        var callPopup = $('#call-popup');
-        callBtnCircle.on('click', function(e) {
-            e.preventDefault(); e.stopPropagation(); callPopup.toggleClass('active');
-        });
-        $(document).on('click', function(e) {
-            if (!$(e.target).closest('#call-widget').length) { callPopup.removeClass('active'); }
-        });
-
-        // Общо споделяне (Web Share API)
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
         const shareBtn = document.getElementById('native-share-btn');
         if (shareBtn) {
             shareBtn.addEventListener('click', async () => {
@@ -494,50 +255,9 @@
                 }
             });
         }
-
-        // Бисквитки
-        var policyVersion = "v1", expireDays = 5; 
-        var consentKey = 'cookieConsent_NikolaevLaw_' + policyVersion, dateKey = 'cookieDate_NikolaevLaw_' + policyVersion, sessionDismissKey = 'cookieDismissedSession_' + policyVersion; 
-        var storedConsent = localStorage.getItem(consentKey), storedDate = localStorage.getItem(dateKey), sessionDismissed = sessionStorage.getItem(sessionDismissKey); 
-        var now = new Date().getTime(), showBanner = true;
-
-        if (storedConsent === 'true' && storedDate) {
-            var daysPassed = (now - parseInt(storedDate)) / (1000 * 60 * 60 * 24);
-            if (daysPassed < expireDays) { showBanner = false; } else { localStorage.removeItem(consentKey); localStorage.removeItem(dateKey); }
-        }
-        if (sessionDismissed === 'true') { showBanner = false; }
-        if (showBanner) { $('#cookie-banner').fadeIn(500); }
-
-        $('#accept-cookies').click(function() { localStorage.setItem(consentKey, 'true'); localStorage.setItem(dateKey, new Date().getTime()); $('#cookie-banner').fadeOut(500); });
-        $('#close-cookie-banner').click(function() { sessionStorage.setItem(sessionDismissKey, 'true'); $('#cookie-banner').fadeOut(500); });
-    });
-
-    // Плавно скролиране
-    $(window).on('load', function(){
-        $('.main-nav li a[href^="#"], .servicelink[href^="#"]').bind('click',function(event){
-            if ($(window).width() < 768 && $(this).parent().hasClass('dropdown-custom')) { return; }
-            var $anchor = $(this);
-            $('html, body').stop().animate({ scrollTop: $($anchor.attr('href')).offset().top - 120 }, 1500,'easeInOutExpo');
-            if ($(window).width() < 768 ) { $('.main-nav').slideUp(); }
-            event.preventDefault();
-        });
-
-        // Корекция при идване от друга страница
-        if (window.location.hash) {
-            var isRefresh = false;
-            if (window.performance) {
-                var navEntries = window.performance.getEntriesByType("navigation");
-                if (navEntries.length > 0 && navEntries[0].type === "reload") { isRefresh = true; } 
-                else if (window.performance.navigation && window.performance.navigation.type === 1) { isRefresh = true; }
-            }
-            if (!isRefresh) {
-                setTimeout(function() {
-                    var target = $(window.location.hash);
-                    if (target.length) { window.scrollTo(0, target.offset().top - 120); }
-                }, 150);
-            }
-        }
     });
     </script>
+
+    {% include footer.html %}
 </body>
 </html>
