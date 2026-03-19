@@ -65,15 +65,14 @@
                 </div>
                 <div style="display: flex; align-items: center; margin-bottom: 15px; font-size: 13px; color: #555;">
                     <i class="fa fa-phone" style="color: #7cc576; font-size: 16px; margin-right: 12px; width: 14px; text-align: center;"></i>
-                    <a href="tel:+359893440797" style="color: #555; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#7cc576'" onmouseout="this.style.color='#555'">0893 / 440 797</a>
+                    <span>0893 / 440 797</span>
                 </div>
                 <div style="display: flex; align-items: center; margin-bottom: 25px; font-size: 13px; color: #555;">
                     <i class="fa fa-envelope" style="color: #7cc576; font-size: 14px; margin-right: 12px; width: 14px; text-align: center;"></i>
-                    <a href="mailto:nikolai.nikolaev11@gmail.com" style="color: #555; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#7cc576'" onmouseout="this.style.color='#555'">nikolai.nikolaev11@gmail.com</a>
+                    <span>nikolai.nikolaev11@gmail.com</span>
                 </div>
 
                 <span style="display: block; color: #001F3F; font-size: 12px; font-weight: 700; text-transform: uppercase; margin-bottom: 10px; letter-spacing: 0.5px;">Последвайте ни</span>
-                
                 <div style="display: flex; gap: 8px;">
                     <a href="#" target="_blank" title="LinkedIn" style="display: inline-flex; justify-content: center; align-items: center; width: 34px; height: 34px; background: #001F3F; color: #fff; border-radius: 4px; transition: all 0.3s ease;" onmouseover="this.style.background='#0077b5'; this.style.transform='translateY(-3px)';" onmouseout="this.style.background='#001F3F'; this.style.transform='translateY(0)';">
                         <i class="fa fa-linkedin" style="font-size: 15px;"></i>
@@ -166,23 +165,23 @@
                     
                     <div class="form-group" style="margin-bottom: 20px;">
                         <label style="font-size: 13px; color: #333; font-weight: 600; margin-bottom: 8px;">Вашите имена / Фирма <span style="color: red;">*</span></label>
-                        <input type="text" name="name" class="form-control" placeholder="Вашите имена / Фирма *" required minlength="5" style="border: 1px solid #ddd; border-radius: 4px; padding: 10px 15px; font-size: 14px; box-shadow: none;">
-                        <div class="validation-msg" style="color: red; font-size: 11px; margin-top: 5px; display: none;"></div>
+                        <input type="text" name="name" class="form-control" required minlength="5" style="border: 1px solid #ddd; border-radius: 4px; padding: 10px 15px; font-size: 14px; box-shadow: none;">
+                        <div class="validation-msg" style="color: red; font-size: 11px; margin-top: 5px; display: none;">Моля, въведете поне 5 знака.</div>
                     </div>
 
                     <div class="row">
                         <div class="col-sm-6">
                             <div class="form-group" style="margin-bottom: 20px;">
                                 <label style="font-size: 13px; color: #333; font-weight: 600; margin-bottom: 8px;">Телефонен номер <span style="color: red;">*</span></label>
-                                <input type="tel" name="phone" class="form-control" placeholder="Телефонен номер *" required minlength="8" pattern="[\d\+\-\/\s]+" style="border: 1px solid #ddd; border-radius: 4px; padding: 10px 15px; font-size: 14px; box-shadow: none;">
-                                <div class="validation-msg" style="color: red; font-size: 11px; margin-top: 5px; display: none;"></div>
+                                <input type="tel" name="phone" class="form-control" required pattern="^[\d\s\+\-\/]{8,}$" style="border: 1px solid #ddd; border-radius: 4px; padding: 10px 15px; font-size: 14px; box-shadow: none;">
+                                <div class="validation-msg" style="color: red; font-size: 11px; margin-top: 5px; display: none;">Моля, въведете валиден телефон (поне 8 знака, само цифри, +, -, /).</div>
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group" style="margin-bottom: 20px;">
                                 <label style="font-size: 13px; color: #333; font-weight: 600; margin-bottom: 8px;">Имейл адрес <span style="color: red;">*</span></label>
-                                <input type="email" name="email" class="form-control" placeholder="Имейл адрес *" required style="border: 1px solid #ddd; border-radius: 4px; padding: 10px 15px; font-size: 14px; box-shadow: none;">
-                                <div class="validation-msg" style="color: red; font-size: 11px; margin-top: 5px; display: none;"></div>
+                                <input type="email" name="email" class="form-control" required style="border: 1px solid #ddd; border-radius: 4px; padding: 10px 15px; font-size: 14px; box-shadow: none;">
+                                <div class="validation-msg" style="color: red; font-size: 11px; margin-top: 5px; display: none;">Моля, въведете валиден имейл адрес.</div>
                             </div>
                         </div>
                     </div>
@@ -192,14 +191,14 @@
                             <div class="form-group" style="margin-bottom: 20px;">
                                 <label style="font-size: 13px; color: #333; font-weight: 600; margin-bottom: 8px;">Предпочитана дата <span style="color: red;">*</span></label>
                                 <input type="date" name="preferred_date" class="form-control" required style="border: 1px solid #ddd; border-radius: 4px; padding: 8px 15px; font-size: 14px; box-shadow: none; height: auto;">
-                                <div class="validation-msg" style="color: red; font-size: 11px; margin-top: 5px; display: none;"></div>
+                                <div class="validation-msg" style="color: red; font-size: 11px; margin-top: 5px; display: none;">Моля, изберете дата.</div>
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group" style="margin-bottom: 20px;">
                                 <label style="font-size: 13px; color: #333; font-weight: 600; margin-bottom: 8px;">Предпочитан час <span style="color: red;">*</span></label>
                                 <input type="time" name="preferred_time" class="form-control" required style="border: 1px solid #ddd; border-radius: 4px; padding: 8px 15px; font-size: 14px; box-shadow: none; height: auto;">
-                                <div class="validation-msg" style="color: red; font-size: 11px; margin-top: 5px; display: none;"></div>
+                                <div class="validation-msg" style="color: red; font-size: 11px; margin-top: 5px; display: none;">Моля, изберете час.</div>
                             </div>
                         </div>
                     </div>
@@ -216,12 +215,11 @@
                             <option value="Абонаментно обслужване">Абонаментно обслужване</option>
                             <option value="Друго">Друго</option>
                         </select>
-                        <div class="validation-msg" style="color: red; font-size: 11px; margin-top: 5px; display: none;"></div>
                     </div>
 
                     <div class="form-group" style="margin-bottom: 20px;">
                         <label style="font-size: 13px; color: #333; font-weight: 600; margin-bottom: 8px;">Кратко описание на казуса (опционално)</label>
-                        <textarea name="message" class="form-control" rows="3" placeholder="Кратко описание на казуса (опционално)" style="border: 1px solid #ddd; border-radius: 4px; padding: 10px 15px; font-size: 14px; box-shadow: none; resize: vertical;"></textarea>
+                        <textarea name="message" class="form-control" rows="3" style="border: 1px solid #ddd; border-radius: 4px; padding: 10px 15px; font-size: 14px; box-shadow: none; resize: vertical;"></textarea>
                     </div>
 
                     <div style="margin-bottom: 15px; text-align: left;">
@@ -236,7 +234,7 @@
                             <input type="checkbox" name="privacy_consent" value="yes" required style="margin-top: 3px; margin-right: 10px;">
                             <span>Запознат/а съм и приемам <a href="/law-page/privacy-policy.html" target="_blank" style="color: #7cc576; text-decoration: underline;">Политиката за поверителност</a>. <span style="color: red;">*</span></span>
                         </label>
-                        <div class="validation-msg" style="color: red; font-size: 11px; margin-top: 5px; display: none;"></div>
+                        <div class="validation-msg" style="color: red; font-size: 11px; margin-top: 5px; display: none;">Моля, съгласете се с Политиката за поверителност.</div>
                     </div>
 
                     <button type="submit" id="bookingSubmitBtn" style="width: 100%; padding: 15px; background: #7cc576; color: #fff; border: none; border-radius: 4px; font-family: 'Montserrat', sans-serif; font-size: 14px; font-weight: 700; text-transform: uppercase; cursor: pointer; transition: background 0.3s ease;" onmouseover="this.style.background='#66b060';" onmouseout="this.style.background='#7cc576';">
@@ -316,56 +314,80 @@
             e.preventDefault(); $('#bookingModal').modal('show');
         });
 
-        // НОВ СКРИПТ ЗА ВАЛИДАЦИЯ НА ВСИЧКИ ФОРМИ
-        $('input, select, textarea').on('invalid', function(e) {
+        // ВАЛИДАЦИЯ ПРИ НАПУСКАНЕ НА ПОЛЕ (BLUR)
+        $('#bookingForm, .contactForm').on('blur', 'input, select, textarea', function() {
             var $field = $(this);
-            var $valMsg = $field.siblings('.validation-msg');
-            if ($valMsg.length === 0) $valMsg = $field.closest('.form-group').find('.validation-msg');
-            
-            $field.css('border-color', 'red');
-            
-            if (this.validity.valueMissing) {
-                $valMsg.text('Моля, попълнете това задължително поле.').show();
-            } else if (this.validity.tooShort) {
-                $valMsg.text('Моля, въведете поне ' + $field.attr('minlength') + ' знака.').show();
-            } else if (this.validity.patternMismatch) {
-                if ($field.attr('type') === 'tel') {
-                    $valMsg.text('Моля, въведете поне 8 знака (само цифри, +, - и /).').show();
-                } else {
-                    $valMsg.text('Невалиден формат.').show();
+            var name = $field.attr('name');
+            var val = $.trim($field.val());
+            var $valMsg = $field.closest('.form-group').find('.validation-msg');
+            if ($valMsg.length === 0) $valMsg = $field.siblings('.validation-msg');
+
+            var isRequired = $field.prop('required');
+            var isValid = true;
+
+            if (isRequired && val === '') {
+                isValid = false;
+                $valMsg.text('Това поле е задължително').show();
+            } else if (name === 'name' && val.length > 0 && val.length < 5) {
+                isValid = false;
+                $valMsg.text('Моля, въведете поне 5 знака.').show();
+            } else if ((name === 'phone' || name === 'phone_number') && val.length > 0) {
+                var phoneRegex = /^[\d\s\+\-\/]{8,}$/;
+                if (!phoneRegex.test(val)) {
+                    isValid = false;
+                    $valMsg.text('Моля, въведете валиден телефон (поне 8 знака, само цифри, +, -, /).').show();
                 }
-            } else if (this.validity.typeMismatch && $field.attr('type') === 'email') {
-                $valMsg.text('Моля, въведете валиден имейл адрес.').show();
+            } else if (name === 'email' && val.length > 0) {
+                var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(val)) {
+                    isValid = false;
+                    $valMsg.text('Моля, въведете валиден имейл адрес.').show();
+                }
+            }
+
+            if (!isValid && (val !== '' || isRequired)) {
+                $field.css('border-color', 'red');
             } else {
-                $valMsg.text('Невалидно поле.').show();
+                $field.css('border-color', '#ddd');
+                $valMsg.hide();
             }
         });
 
-        $('input, select, textarea').on('input change', function() {
-            var $field = $(this);
-            $field.css('border-color', '');
-            var $valMsg = $field.siblings('.validation-msg');
-            if ($valMsg.length === 0) $valMsg = $field.closest('.form-group').find('.validation-msg');
-            $valMsg.hide();
-            
-            if($field.attr('type') === 'checkbox') {
-                $field.closest('div').find('.validation-msg').hide();
+        // ЗАБРАНА ЗА ВЪВЕЖДАНЕ НА БУКВИ В ТЕЛЕФОНА
+        $('#bookingForm input[name="phone"], .contactForm input[name="phone_number"]').on('input', function() {
+            var val = $(this).val();
+            var sanitized = val.replace(/[^\d\s\+\-\/]/g, '');
+            if (val !== sanitized) {
+                $(this).val(sanitized);
             }
         });
 
+        // СКРИПТ ЗА ИЗПРАЩАНЕ НА ФОРМИТЕ БЕЗ ДА БЛОКИРА
         $('#bookingForm, .contactForm').on('submit', function(e) {
             e.preventDefault();
             var $form = $(this);
             var $btn = $form.find('button[type="submit"]');
             var originalText = $btn.text();
             
-            // Финална проверка за чекбокса
+            // Тест на всички полета
+            $form.find('input, select, textarea').trigger('blur');
+            
+            var hasErrors = false;
+            $form.find('input, select, textarea').each(function() {
+                if ($(this).css('border-color') === 'rgb(255, 0, 0)' || $(this).css('border-color') === 'red') {
+                    hasErrors = true;
+                }
+            });
+
+            // Проверка за поверителност
             var $privacy = $form.find('input[name="privacy_consent"]');
             if ($privacy.length > 0 && !$privacy.is(':checked')) {
-                var $privacyMsg = $privacy.closest('div').find('.validation-msg');
-                if ($privacyMsg.length) $privacyMsg.text('Трябва да се съгласите с Политиката за поверителност').show();
-                return false;
+                hasErrors = true;
+                $privacy.closest('div').find('.validation-msg').text('Моля, съгласете се с Политиката за поверителност.').show();
             }
+
+            // Ако има грешки, спира изпращането, но бутонът остава активен!
+            if (hasErrors) return false;
 
             $btn.text('Изпращане...').prop('disabled', true).css('opacity', '0.7');
 
@@ -377,7 +399,8 @@
                 dataType: 'json',
                 success: function() {
                     $form[0].reset();
-                    $form.find('input, select, textarea').css('border-color', '');
+                    $form.find('.validation-msg').hide();
+                    $form.find('input, select, textarea').css('border-color', '#ddd');
                     $btn.text(originalText).prop('disabled', false).css('opacity', '1');
                     
                     if ($form.attr('id') === 'bookingForm') {
@@ -387,17 +410,18 @@
                             setTimeout(function() { $('#successModal').modal('hide'); }, 10000);
                         }, 500);
                     } else {
-                        $('#sendmessage, #form-message').show();
-                        setTimeout(function() { $('#sendmessage, #form-message').hide(); }, 10000);
+                        $('#sendmessage, #form-message').fadeIn();
+                        setTimeout(function() { $('#sendmessage, #form-message').fadeOut(); }, 10000);
                     }
                 },
                 error: function() {
-                    alert('Възникна грешка при връзката със сървъра. Моля, опитайте отново.');
+                    alert('Възникна грешка при изпращането. Моля, опитайте отново.');
                     $btn.text(originalText).prop('disabled', false).css('opacity', '1');
                 }
             });
         });
 
+        // Бисквитки
         var policyVersion = "v1", expireDays = 5; 
         var consentKey = 'cookieConsent_NikolaevLaw_' + policyVersion, dateKey = 'cookieDate_NikolaevLaw_' + policyVersion, sessionDismissKey = 'cookieDismissedSession_' + policyVersion; 
         var storedConsent = localStorage.getItem(consentKey), storedDate = localStorage.getItem(dateKey), sessionDismissed = sessionStorage.getItem(sessionDismissKey); 
