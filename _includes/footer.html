@@ -302,13 +302,64 @@
             e.preventDefault(); $('#bookingModal').modal('show');
         });
 
-        // НОВ СКРИПТ ЗА ИЗПРАЩАНЕ НА ФОРМАТА (ПОЗВОЛЯВА HTML5 ВАЛИДАЦИЯТА ДА РАБОТИ)
-        $('#bookingForm').on('submit', function(e) {
+                // УНИВЕРСАЛНА ВАЛИДАЦИЯ ЗА ВСИЧКИ ФОРМИ В САЙТА
+        $('#bookingForm, .contactForm').on('submit', function(e) {
             e.preventDefault();
             var $form = $(this);
-            var $btn = $('#bookingSubmitBtn');
+            var $btn = $form.find('button[type="submit"]');
             var originalText = $btn.text();
+            var isValid = true;
             
+            // Проверка на полетата
+            $form.find('input[type="text"], input[type="tel"], input[type="date"], input[type="time"], select').each(function() {
+                var $field = $(this);
+                var $valMsg = $field.siblings('.validation-msg');
+                if ($valMsg.length === 0) $valMsg = $field.siblings('.validation'); // За главната форма
+                var errorMsg = $field.attr('data-msg') || 'Моля, попълнете това поле';
+                
+                // Проверяваме дали полето е задължително (в модала всички са, в index-a тези с data-rule="required")
+                if ($field.attr('name') === 'name' || $field.attr('name') === 'phone' || $field.attr('name') === 'email' || $field.attr('name') === 'preferred_date' || $field.attr('name') === 'preferred_time' || $field.attr('name') === 'topic' || $field.attr('data-rule') === 'required') {
+                    
+                    if ($.trim($field.val()) === '') {
+                        isValid = false;
+                        $field.css('border-color', 'red');
+                        $valMsg.text(errorMsg).show();
+                    } else if ($field.attr('name') === 'email') {
+                        var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                        if (!emailRegex.test($field.val())) {
+                            isValid = false;
+                            $field.css('border-color', 'red');
+                            $valMsg.text('Моля, въведете валиден имейл адрес').show();
+                        } else {
+                            $field.css('border-color', '#ddd');
+                            $valMsg.hide();
+                        }
+                    } else {
+                        $field.css('border-color', '#ddd');
+                        $valMsg.hide();
+                    }
+                }
+            });
+            
+            // Проверка на чекбокса за поверителност
+            var $privacy = $form.find('input[name="privacy_consent"]');
+            if ($privacy.length > 0) {
+                var $privacyMsg = $privacy.closest('div').find('.validation-msg');
+                if (!$privacy.is(':checked')) {
+                    isValid = false;
+                    if ($privacyMsg.length) {
+                        $privacyMsg.text('Трябва да се съгласите с Политиката за поверителност').show();
+                    } else {
+                        alert('Моля, съгласете се с Политиката за поверителност, за да изпратите формата.');
+                    }
+                } else {
+                    if ($privacyMsg.length) $privacyMsg.hide();
+                }
+            }
+
+            if (!isValid) return false; // Спира изпращането, ако има грешка, но НЕ блокира бутона!
+
+            // Изпращане чрез AJAX към Formspree
             $btn.text('Изпращане...').prop('disabled', true).css('opacity', '0.7');
 
             $.ajax({
@@ -319,20 +370,38 @@
                 dataType: 'json',
                 success: function() {
                     $form[0].reset();
+                    $form.find('input, select, textarea').css('border-color', '');
                     $btn.text(originalText).prop('disabled', false).css('opacity', '1');
                     
-                    $('#bookingModal').modal('hide');
-                    setTimeout(function() {
-                        $('#successModal').modal('show');
-                        setTimeout(function() { $('#successModal').modal('hide'); }, 10000);
-                    }, 500);
+                    if ($form.attr('id') === 'bookingForm') {
+                        $('#bookingModal').modal('hide');
+                        setTimeout(function() {
+                            $('#successModal').modal('show');
+                            setTimeout(function() { $('#successModal').modal('hide'); }, 10000);
+                        }, 500);
+                    } else {
+                        $('#sendmessage, #form-message').show();
+                        setTimeout(function() { $('#sendmessage, #form-message').hide(); }, 10000);
+                    }
                 },
                 error: function() {
-                    alert('Възникна грешка. Моля, опитайте отново или се обадете по телефона.');
+                    alert('Възникна грешка при връзката със сървъра. Моля, опитайте отново.');
                     $btn.text(originalText).prop('disabled', false).css('opacity', '1');
                 }
             });
         });
+
+        // Скриване на червените рамки веднага щом клиентът започне да пише
+        $('#bookingForm, .contactForm').find('input, select, textarea').on('input change', function() {
+            $(this).css('border-color', '');
+            var $valMsg = $(this).siblings('.validation-msg');
+            if ($valMsg.length === 0) $valMsg = $(this).siblings('.validation');
+            $valMsg.hide();
+            if($(this).attr('type') === 'checkbox') {
+                $(this).closest('div').find('.validation-msg').hide();
+            }
+        });
+        
 
         var policyVersion = "v1", expireDays = 5; 
         var consentKey = 'cookieConsent_NikolaevLaw_' + policyVersion, dateKey = 'cookieDate_NikolaevLaw_' + policyVersion, sessionDismissKey = 'cookieDismissedSession_' + policyVersion; 
