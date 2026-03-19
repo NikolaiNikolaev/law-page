@@ -331,6 +331,9 @@
             } else if (name === 'name' && val.length > 0 && val.length < 5) {
                 isValid = false;
                 $valMsg.text('Моля, въведете поне 5 знака.').show();
+            } else if (name === 'message' && val.length > 0 && val.length < 10) {
+                isValid = false;
+                $valMsg.text('Моля, въведете съобщение от поне 10 знака.').show();
             } else if ((name === 'phone' || name === 'phone_number') && val.length > 0) {
                 var phoneRegex = /^[\d\s\+\-\/]{8,}$/;
                 if (!phoneRegex.test(val)) {
@@ -352,7 +355,7 @@
                 $valMsg.hide();
             }
         });
-
+        
         // ЗАБРАНА ЗА ВЪВЕЖДАНЕ НА БУКВИ В ТЕЛЕФОНА
         $('#bookingForm input[name="phone"], .contactForm input[name="phone_number"]').on('input', function() {
             var val = $(this).val();
