@@ -654,8 +654,9 @@
                             </div>
                             
                             <div class="form-group">
-                                <label style="font-size: 13px; color: #333; font-weight: 600; margin-bottom: 8px;">Съобщение</label>
-                                <textarea class="form-control input-text text-area form-field" name="message" id="message" rows="5" placeholder="Опишете накратко фактите по казуса. Ако запазвате час, посочете удобен ден и предпочитан формат..."></textarea>
+                                <label style="font-size: 13px; color: #333; font-weight: 600; margin-bottom: 8px;">Съобщение <span style="color: red;">*</span></label>
+                                <textarea class="form-control input-text text-area form-field" name="message" id="message" rows="5" placeholder="Опишете накратко фактите по казуса..." required minlength="10" style="border: 1px solid #ddd; border-radius: 4px; padding: 10px 15px; font-size: 14px; box-shadow: none; resize: vertical;"></textarea>
+                                <div class="validation-msg" style="color: red; font-size: 11px; margin-top: 5px; display: none;">Моля, въведете съобщение от поне 10 знака.</div>
                             </div>
 
 							<div style="margin-bottom: 25px; text-align: left;">
