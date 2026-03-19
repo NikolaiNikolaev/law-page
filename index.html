@@ -599,16 +599,19 @@
                             <input type="hidden" name="_language" value="bg">
                             
                             <div class="form-group">
-                                <input type="text" name="name" class="form-control input-text form-field" id="name" placeholder="Вашето име / Три имена на фирмата" data-rule="required" data-msg="Моля, въведете вашето име">
-                                <div class="validation"></div>
+                                <label style="font-size: 13px; color: #333; font-weight: 600; margin-bottom: 8px;">Вашето име / Три имена на фирмата <span style="color: red;">*</span></label>
+                                <input type="text" name="name" class="form-control input-text form-field" id="name" placeholder="Вашето име / Три имена на фирмата" required minlength="5">
+                                <div class="validation-msg" style="color: red; font-size: 11px; margin-top: 5px; display: none;">Моля, въведете поне 5 знака.</div>
                             </div>
                             
                             <div class="form-group">
-                                <input type="email" class="form-control input-text form-field" name="email" id="email" placeholder="Вашият имейл адрес за обратна връзка" data-rule="required" data-msg="Моля, въведете валиден имейл адрес">
-                                <div class="validation"></div>
+                                <label style="font-size: 13px; color: #333; font-weight: 600; margin-bottom: 8px;">Вашият имейл адрес за обратна връзка <span style="color: red;">*</span></label>
+                                <input type="email" class="form-control input-text form-field" name="email" id="email" placeholder="Вашият имейл адрес за обратна връзка" required>
+                                <div class="validation-msg" style="color: red; font-size: 11px; margin-top: 5px; display: none;">Моля, въведете валиден имейл адрес.</div>
                             </div>
                             
                             <div class="form-group">
+                                <label style="font-size: 13px; color: #333; font-weight: 600; margin-bottom: 8px;">Телефонен номер за връзка <span style="color: red;">*</span></label>
                                 <div style="display: flex; align-items: center;">
                                     <select name="country_code" id="country_code" class="form-control" style="width: 100px; margin-right: 10px; font-size: 13px;">
                                         <option value="+43">+43 (Австрия)</option>
@@ -645,14 +648,14 @@
                                         <option value="+420">+420 (Чехия)</option>
                                         <option value="+46">+46 (Швеция)</option>
                                     </select>
-                                    <input type="tel" class="form-control input-text form-field" name="phone_number" id="phone_number" placeholder="Телефонен номер за последваща връзка" style="flex:1;">
+                                    <input type="tel" class="form-control input-text form-field" name="phone_number" id="phone_number" placeholder="Телефонен номер за последваща връзка" required pattern="^[\d\s\+\-\/]{8,}$" style="flex:1;">
                                 </div>
-                                <div class="validation"></div>
+                                <div class="validation-msg" style="color: red; font-size: 11px; margin-top: 5px; display: none;">Моля, въведете валиден телефон (поне 8 знака, само цифри, +, -, /).</div>
                             </div>
                             
                             <div class="form-group">
+                                <label style="font-size: 13px; color: #333; font-weight: 600; margin-bottom: 8px;">Съобщение</label>
                                 <textarea class="form-control input-text text-area form-field" name="message" id="message" rows="5" placeholder="Опишете накратко фактите по казуса. Ако запазвате час, посочете удобен ден и предпочитан формат..."></textarea>
-                                <div class="validation"></div>
                             </div>
 
 							<div style="margin-bottom: 25px; text-align: left;">
@@ -667,6 +670,7 @@
 							        <input type="checkbox" id="privacyConsent" name="privacy_consent" value="yes" required style="margin-top: 3px; margin-right: 10px; cursor: pointer;">
 							        <span>Запознат/а съм и приемам <a href="privacy-policy.html" target="_blank" style="color: #7cc576; text-decoration: underline;">Политиката за поверителност</a> на Адвокатска кантора "Nikolaev & Co". <span style="color: red; font-size: 16px; line-height: 1;">*</span></span>
 							    </label>
+                                <div class="validation-msg" style="color: red; font-size: 11px; margin-top: 5px; display: none;">Моля, съгласете се с Политиката за поверителност.</div>
 							</div>
                             
                            <div class="text-center"><button type="submit" id="submitBtn" class="input-btn">Изпрати съобщение</button></div>
