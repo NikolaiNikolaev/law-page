@@ -1,0 +1,10 @@
+BEGIN:VCARD
+VERSION:3.0
+FN:Адв. Ива Хайрединска
+N:Хайрединска;Ива;;;
+ORG:Адвокатска кантора Nikolaev & Co
+TEL;TYPE=WORK,VOICE:+359893440799
+EMAIL;TYPE=WORK:kantora.nikolaev@gmail.com
+ADR;TYPE=WORK:;;ул. Шар Планина № 47;София;;1000;България
+NOTE:Адвокат - Специалист по наказателното право
+END:VCARD
