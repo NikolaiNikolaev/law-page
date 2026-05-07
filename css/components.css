@@ -1,0 +1,188 @@
+/* ==================== КАРТИ И КУТИИ ==================== */
+.card-white {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 6px;
+    border-top: 4px solid #7cc576;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    margin-bottom: 30px;
+}
+
+.card-gray {
+    background: #f9f9f9;
+    padding: 30px;
+    border-radius: 6px;
+    border: 1px solid #eee;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+}
+
+.card-alert {
+    background-color: #fdfaf0;
+    border: 1px solid #faebcc;
+    padding: 25px;
+    border-radius: 6px;
+    position: relative;
+}
+
+/* ==================== ЛИНКОВЕ И БУТОНИ ==================== */
+.link-green {
+    color: #555;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.link-green:hover {
+    color: #7cc576;
+}
+
+.link-navy {
+    color: #555;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.link-navy:hover {
+    color: #001F3F;
+}
+
+.btn-green {
+    display: inline-block;
+    padding: 14px 45px;
+    background: #7cc576;
+    color: #ffffff;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-decoration: none;
+    border-radius: 4px;
+    border: 2px solid #7cc576;
+    transition: all 0.3s;
+}
+
+.btn-green:hover {
+    background: #6bb563;
+    box-shadow: 0 6px 20px rgba(124, 197, 118, 0.3);
+}
+
+.btn-red {
+    display: inline-block;
+    padding: 14px 45px;
+    background: #d32f2f;
+    color: #ffffff;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-decoration: none;
+    border-radius: 4px;
+    border: 2px solid #d32f2f;
+    transition: all 0.3s;
+}
+
+.btn-red:hover {
+    background: #b71c1c;
+    box-shadow: 0 6px 20px rgba(211, 47, 47, 0.3);
+}
+
+.btn-navy {
+    display: inline-block;
+    padding: 14px 45px;
+    background: #001F3F;
+    color: #ffffff;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-decoration: none;
+    border-radius: 4px;
+    border: 2px solid #001F3F;
+    transition: all 0.3s;
+}
+
+.btn-navy:hover {
+    background: #000d1a;
+}
+
+/* ==================== БЛОКОВЕ НА СТРАНИЦА ==================== */
+.section-header {
+    padding: 160px 0 120px 0;
+    position: relative;
+    margin-bottom: 50px;
+}
+
+.header-dark {
+    background: url('../img/финал.jpg') center/cover no-repeat fixed;
+    position: relative;
+}
+
+.header-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 0;
+}
+
+/* ==================== ТЕКСТОВИ ЕЛЕМЕНТИ ==================== */
+.title-uppercase {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 42px;
+    color: #fff;
+    margin: 0;
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: -1px;
+}
+
+.accent-line {
+    height: 1px;
+    width: 100%;
+    background: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,0.6), rgba(255,255,255,0));
+}
+
+/* ==================== ИКОНИ И ВИЗУАЛИ ==================== */
+.icon-circle {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #d32f2f, #ff5252);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 24px;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 12px rgba(211, 47, 47, 0.2);
+}
+
+/* ==================== ТАБЛИЦА УСЛУГИ ==================== */
+.breadcrumb-custom {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 12px;
+    margin-bottom: 25px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+.breadcrumb-custom a {
+    color: #001F3F;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.breadcrumb-custom .separator {
+    margin: 0 8px;
+    color: #ccc;
+}
+
+.breadcrumb-custom .current {
+    color: #7cc576;
+    font-weight: 700;
+}
