@@ -23,6 +23,19 @@
     
     {% include header.html %}
 
+    <style>
+        /* Автоматична табулация (един пръст разстояние) за абзаци */
+        .col-md-8 p, .col-md-8 h3, .col-md-8 h4 {
+            text-indent: 30px;
+        }
+        /* Премахваме табулацията за първия абзац след заглавие */
+        .col-md-8 h2 + p,
+        .col-md-8 h3 + p,
+        .col-md-8 h4 + p {
+            text-indent: 0 !important;
+        }
+    </style>
+
     <header class="header" style="padding: 160px 0 120px 0; background: url(../img/финал.jpg) center/cover no-repeat fixed; position: relative; margin-bottom: 50px;">
         <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.6); z-index: 0;"></div>
         <div class="container" style="position: relative; z-index: 1;">
