@@ -292,7 +292,11 @@
         });
         $('.dropdown-custom > a').click(function(e){
             if ($(window).width() < 768) {
-                e.preventDefault(); $(this).siblings('.dropdown-menu-custom').slideToggle(300); 
+                e.preventDefault();
+                e.stopPropagation();
+                $(this).siblings('.dropdown-menu-custom').slideToggle(300);
+                // Затваря други отворени подменюта
+                $('.dropdown-menu-custom').not($(this).siblings('.dropdown-menu-custom')).slideUp(300);
             }
         });
         $(document).click(function(event) { 
