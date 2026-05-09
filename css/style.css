@@ -524,10 +524,7 @@ p{
         color: #333 !important; padding-left: 35px !important; border-bottom: 1px solid #ddd;
     }
     .dropdown-menu-custom li a:hover { background-color: #e9ecef !important; color: #001F3F !important; }
-    /* При мобилни се показва при клик/задържане */
-    .dropdown-custom:hover .dropdown-menu-custom,
-    .dropdown-custom:active .dropdown-menu-custom,
-    .dropdown-custom:focus-within .dropdown-menu-custom { display: block; }
+
 }
 
 /* ============================================================
