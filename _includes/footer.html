@@ -294,9 +294,11 @@
             if ($(window).width() < 768) {
                 e.preventDefault();
                 e.stopPropagation();
-                $(this).siblings('.dropdown-menu-custom').slideToggle(300);
-                // Затваря други отворени подменюта
-                $('.dropdown-menu-custom').not($(this).siblings('.dropdown-menu-custom')).slideUp(300);
+                var $submenu = $(this).siblings('.dropdown-menu-custom');
+                // Затваря всички други подменюта
+                $('.dropdown-menu-custom').not($submenu).slideUp(200);
+                // Отваря/затваря текущото
+                $submenu.slideToggle(300);
             }
         });
         $(document).click(function(event) { 
