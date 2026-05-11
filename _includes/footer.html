@@ -290,15 +290,27 @@
         $('.res-nav_click').click(function(e){
             e.preventDefault(); e.stopPropagation(); $('.main-nav').slideToggle();
         });
-        $('.dropdown-custom > a').click(function(e){
+                // ФИНАЛНО РЕШЕНИЕ ЗА МОБИЛНО ПАДАЩО МЕНЮ
+        $('.dropdown-custom > a').on('click touchstart', function(e) {
             if ($(window).width() < 768) {
+                // Предотвратяваме стандартното поведение на линка,
+                // както и разпространението на събитието, което предизвикваше конфликт.
                 e.preventDefault();
                 e.stopPropagation();
+
                 var $submenu = $(this).siblings('.dropdown-menu-custom');
-                // Затваря всички други подменюта
+                
+                // Ако подменюто вече е видимо, просто го затваряме
+                if ($submenu.is(':visible')) {
+                    $submenu.slideUp(200);
+                    return;
+                }
+                
+                // Затваряме всички други отворени подменюта
                 $('.dropdown-menu-custom').not($submenu).slideUp(200);
-                // Отваря/затваря текущото
-                $submenu.slideToggle(300);
+                
+                // Отваряме текущото подменю
+                $submenu.slideDown(300);
             }
         });
         $(document).click(function(event) { 
