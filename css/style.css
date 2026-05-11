@@ -1470,3 +1470,19 @@ section, .main-section, #Portfolio, #service, #team, #contact, .alabaster {
         transform: translateX(-50%); /* Центрира падащото меню на телефон */
     }
 }
+
+/* ============================================================
+   ФИНАЛНО РАЗДЕЛЯНЕ НА ПОВЕДЕНИЕТО ПРИ МИШКА И ТЪЧ
+   ============================================================ */
+@media (hover: none) {
+    /*
+      На устройства без ховър (телефони, таблети)
+      забраняваме на CSS да показва подменютата.
+      Оставяме контрола САМО на JavaScript клик събитието.
+    */
+    .dropdown-custom:hover .dropdown-menu-custom,
+    .dropdown-custom:active .dropdown-menu-custom,
+    .dropdown-custom:focus-within .dropdown-menu-custom {
+        display: none;
+    }
+}
