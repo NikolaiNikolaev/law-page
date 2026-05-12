@@ -11,12 +11,12 @@
     <meta property="og:type" content="website">
     <meta property="og:title" content="Архив правни статии и новини | Nikolaev & Co">
     <meta property="og:description" content="Актуални правни новини, анализи на съдебната практика и полезни статии за бизнеса и гражданите.">
-    <meta property="og:image" content="https://nikolainikolaev.github.io/law-page/img/arhiv.jpg">
-    <meta property="og:url" content="https://nikolainikolaev.github.io/law-page/novini/arhiv.html">
+    <meta property="og:image" content="https://nikolainikolaev.github.io/img/arhiv.jpg">
+    <meta property="og:url" content="https://nikolainikolaev.github.io/novini/arhiv.html">
     
     {% include header.html %}
 
-    <header class="header" style="padding: 180px 0 150px 0; background: url(/law-page/img/arhiv.jpg) center center / cover no-repeat !important; position: relative; margin-bottom: 50px;">
+    <header class="header" style="padding: 180px 0 150px 0; background: url(/img/arhiv.jpg) center center / cover no-repeat !important; position: relative; margin-bottom: 50px;">
         <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.1); z-index: 0;"></div>
         <div class="container" style="position: relative; z-index: 1;">
             <div class="animated fadeInDown delay-02s">
@@ -31,9 +31,9 @@
         <div class="container">
 
             <div style="font-family: 'Open Sans', sans-serif; font-size: 12px; text-align: center; margin-bottom: 30px; border-bottom: 1px solid #eee; padding-bottom: 15px;">
-                <a href="/law-page/index.html#header" style="color: #001F3F; text-decoration: none; font-weight: 600;"><i class="fa fa-home"></i> Начало</a> 
+                <a href="/index.html#header" style="color: #001F3F; text-decoration: none; font-weight: 600;"><i class="fa fa-home"></i> Начало</a> 
                 <span style="margin: 0 8px; color: #ccc;">&raquo;</span> 
-                <a href="/law-page/index.html#Portfolio" style="color: #001F3F; text-decoration: none; font-weight: 600;">Правни новини и статии</a> 
+                <a href="/index.html#Portfolio" style="color: #001F3F; text-decoration: none; font-weight: 600;">Правни новини и статии</a> 
                 <span style="margin: 0 8px; color: #ccc;">&raquo;</span> 
                 <span style="color: #7cc576; font-weight: 700;">Архив</span>
             </div>
@@ -69,7 +69,7 @@
                 {% for post in site.posts %}
                 <div class="Portfolio-box {{ post.category_link }} y{{ post.date | date: '%Y' }}">
                     <div class="news-card">
-                        <a href="/law-page{{ post.url }}" class="news-img-link"><img src="/law-page/img/{{ post.image }}" alt="{{ post.title }}"></a>
+                        <a href="/law-page{{ post.url }}" class="news-img-link"><img src="/img/{{ post.image }}" alt="{{ post.title }}"></a>
                         <div class="news-content">
                             <div class="news-category-wrap">
                                 <span class="news-category-label">{{ post.category }}</span>
