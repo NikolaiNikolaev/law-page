@@ -11,8 +11,8 @@
     <meta property="og:type" content="website">
     <meta property="og:title" content="Архив правни статии и новини | Nikolaev & Co">
     <meta property="og:description" content="Актуални правни новини, анализи на съдебната практика и полезни статии за бизнеса и гражданите.">
-    <meta property="og:image" content="https://nikolainikolaev.github.io/img/arhiv.jpg">
-    <meta property="og:url" content="https://nikolainikolaev.github.io/novini/arhiv.html">
+    <meta property="og:image" content="https://nikolaevlaw.com/img/arhiv.jpg">
+    <meta property="og:url" content="https://nikolaevlaw.com/novini/arhiv.html">
     
     {% include header.html %}
 
@@ -69,7 +69,11 @@
                 {% for post in site.posts %}
                 <div class="Portfolio-box {{ post.category_link }} y{{ post.date | date: '%Y' }}">
                     <div class="news-card">
+<<<<<<< HEAD
+                        <a href="/law-page{{ post.url }}" class="news-img-link"><img src="/img/{{ post.image }}" alt="{{ post.title }}"></a>
+=======
                         <a href="{{ post.url }}" class="news-img-link"><img src="/img/{{ post.image }}" alt="{{ post.title }}"></a>
+>>>>>>> 7a112e6f7c133733eb9ea6ebd7cc055b6284c904
                         <div class="news-content">
                             <div class="news-category-wrap">
                                 <span class="news-category-label">{{ post.category }}</span>
