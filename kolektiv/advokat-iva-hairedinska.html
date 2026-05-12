@@ -105,7 +105,7 @@
                                     <span style="color: #7cc576; font-size: 11px; font-weight: bold; margin-bottom: 5px; display: block;">
                                         <i class="fa fa-calendar" style="margin-right: 5px;"></i>{{ post.date | date: "%d.%m.%Y" }}
                                     </span>
-                                    <a href="/law-page{{ post.url }}" style="color: #333; font-weight: 600; text-decoration: none; font-size: 13px; line-height: 1.4; display: block; transition: color 0.3s;" onmouseover="this.style.color='#7cc576'" onmouseout="this.style.color='#333'">
+                                    <a href="{{ post.url }}" style="color: #333; font-weight: 600; text-decoration: none; font-size: 13px; line-height: 1.4; display: block; transition: color 0.3s;" onmouseover="this.style.color='#7cc576'" onmouseout="this.style.color='#333'">
                                         {{ post.title }}
                                     </a>
                                 </li>
