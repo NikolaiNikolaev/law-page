@@ -9,17 +9,17 @@
     <meta property="og:type" content="article">
     <meta property="og:title" content="{{ page.title }}">
     <meta property="og:description" content="{{ page.description }}">
-    <meta property="og:image" content="https://nikolainikolaev.github.io/law-page/img/{{ page.image }}">
+    <meta property="og:image" content="https://nikolainikolaev.github.io/img/{{ page.image }}">
 
-    <link rel="icon" href="/law-page/favicon.png" type="image/png">
+    <link rel="icon" href="/favicon.png" type="image/png">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,800italic,700italic,600italic,400italic,300italic,800,700,600" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
-    <link href="/law-page/css/bootstrap.css" rel="stylesheet" type="text/css">
-    <link href="/law-page/css/style.css" rel="stylesheet" type="text/css">
-    <link href="/law-page/css/font-awesome.css" rel="stylesheet" type="text/css">
-    <link href="/law-page/css/responsive.css" rel="stylesheet" type="text/css">
-    <link href="/law-page/css/animate.css" rel="stylesheet" type="text/css">
+    <link href="/css/bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="/css/style.css" rel="stylesheet" type="text/css">
+    <link href="/css/font-awesome.css" rel="stylesheet" type="text/css">
+    <link href="/css/responsive.css" rel="stylesheet" type="text/css">
+    <link href="/css/animate.css" rel="stylesheet" type="text/css">
     
     <style>
         .article-body p { font-family: 'Lora', serif; font-size: 17px; line-height: 1.8; color: #333; margin-bottom: 25px; text-align: justify; text-indent: 30px; }
@@ -36,7 +36,7 @@
 
     {% include header.html %}
 
-    <header class="header" style="padding: 160px 0 120px 0; background: url(/law-page/img/финал.jpg) center/cover no-repeat fixed; position: relative; margin-bottom: 50px;">
+    <header class="header" style="padding: 160px 0 120px 0; background: url(/img/финал.jpg) center/cover no-repeat fixed; position: relative; margin-bottom: 50px;">
         <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.6); z-index: 0;"></div>
         <div class="container" style="position: relative; z-index: 1;">
             <div class="animated fadeInDown delay-02s">
@@ -53,9 +53,9 @@
                 
                 <div class="col-lg-8 col-md-8" style="padding-right: 30px;">
                     <div style="font-family: 'Open Sans', sans-serif; font-size: 12px; margin-bottom: 25px; padding-bottom: 10px;">
-                        <a href="/law-page/index.html#header" style="color: #001F3F; text-decoration: none; font-weight: 600;"><i class="fa fa-home"></i> Начало</a> 
+                        <a href="/index.html#header" style="color: #001F3F; text-decoration: none; font-weight: 600;"><i class="fa fa-home"></i> Начало</a> 
                         <span style="margin: 0 8px; color: #ccc;">&raquo;</span> 
-                        <a href="/law-page/novini/arhiv.html" style="color: #001F3F; text-decoration: none; font-weight: 600;">Архив новини</a> 
+                        <a href="/novini/arhiv.html" style="color: #001F3F; text-decoration: none; font-weight: 600;">Архив новини</a> 
                         <span style="margin: 0 8px; color: #ccc;">&raquo;</span> 
                         <span style="color: #7cc576; font-weight: 700;">{{ page.title }}</span>
                     </div>
@@ -66,7 +66,7 @@
                     
                     <div style="display: flex; align-items: center; flex-wrap: wrap; margin-bottom: 30px; border-bottom: 1px solid #eee; border-top: 1px solid #eee; padding: 12px 0; font-size: 12px; color: #888; font-family: 'Montserrat', sans-serif;">
                         <div style="margin-right: 25px;">
-                            <a href="/law-page/novini/arhiv.html#{{ page.category_link }}" style="background: #e8f5e9; color: #7cc576; padding: 5px 12px; border-radius: 4px; text-decoration: none; font-weight: 700; text-transform: uppercase;">
+                            <a href="/novini/arhiv.html#{{ page.category_link }}" style="background: #e8f5e9; color: #7cc576; padding: 5px 12px; border-radius: 4px; text-decoration: none; font-weight: 700; text-transform: uppercase;">
                                 <i class="fa fa-folder-open" style="margin-right: 5px;"></i> {{ page.category }}
                             </a>
                         </div>
@@ -80,7 +80,7 @@
                         </div>
                     </div>
 
-                    <img src="/law-page/img/{{ page.image }}" alt="{{ page.title }}" style="width: 100%; max-height: 400px; object-fit: cover; border-radius: 6px; margin-bottom: 35px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
+                    <img src="/img/{{ page.image }}" alt="{{ page.title }}" style="width: 100%; max-height: 400px; object-fit: cover; border-radius: 6px; margin-bottom: 35px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
 
                     <div class="article-body">
                         {{ content }}
