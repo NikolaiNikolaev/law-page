@@ -69,15 +69,15 @@
                 {% for post in site.posts %}
                 <div class="Portfolio-box {{ post.category_link }} y{{ post.date | date: '%Y' }}">
                     <div class="news-card">
-                        <a href="/law-page{{ post.url }}" class="news-img-link"><img src="/img/{{ post.image }}" alt="{{ post.title }}"></a>
+                        <a href="{{ post.url }}" class="news-img-link"><img src="/img/{{ post.image }}" alt="{{ post.title }}"></a>
                         <div class="news-content">
                             <div class="news-category-wrap">
                                 <span class="news-category-label">{{ post.category }}</span>
                                 <span>{{ post.date | date: "%d.%m.%Y" }}</span>
                             </div>
-                            <h3 class="news-title"><a href="/law-page{{ post.url }}">{{ post.title }}</a></h3>
+                            <h3 class="news-title"><a href="{{ post.url }}">{{ post.title }}</a></h3>
                             <p class="news-excerpt">{{ post.description }}</p>
-                            <a href="/law-page{{ post.url }}" class="news-read-more">Прочети статията &rarr;</a>
+                            <a href="{{ post.url }}" class="news-read-more">Прочети статията &rarr;</a>
                         </div>
                     </div>
                 </div>
