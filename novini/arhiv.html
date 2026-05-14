@@ -69,11 +69,9 @@
                 {% for post in site.posts %}
                 <div class="Portfolio-box {{ post.category_link }} y{{ post.date | date: '%Y' }}">
                     <div class="news-card">
-<<<<<<< HEAD
-                        <a href="/law-page{{ post.url }}" class="news-img-link"><img src="/img/{{ post.image }}" alt="{{ post.title }}"></a>
-=======
-                        <a href="{{ post.url }}" class="news-img-link"><img src="/img/{{ post.image }}" alt="{{ post.title }}"></a>
->>>>>>> 7a112e6f7c133733eb9ea6ebd7cc055b6284c904
+                        
+<a href="{{ post.url }}" class="news-img-link"><img src="/img/{{ post.image }}" alt="{{ post.title }}"></a>
+                        
                         <div class="news-content">
                             <div class="news-category-wrap">
                                 <span class="news-category-label">{{ post.category }}</span>
