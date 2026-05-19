@@ -413,10 +413,15 @@
             });
 
             // Проверка за поверителност
+            // Проверка за поверителност
             var $privacy = $form.find('input[name="privacy_consent"]');
+            if ($privacy.length === 0) {
+                $privacy = $form.find('#privacyConsentHidden');
+            }
             if ($privacy.length > 0 && !$privacy.is(':checked')) {
                 hasErrors = true;
-                $privacy.closest('div').find('.validation-msg').text('Моля, съгласете се с Политиката за поверителност.').show();
+                // Показваме червения текст под етикета
+                $('#privacyValidationMsg').show();
             }
 
             // Ако има грешки, спира изпращането, но бутонът остава активен!
