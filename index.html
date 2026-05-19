@@ -714,18 +714,20 @@
                             </div>
 
 							<div style="margin-bottom: 25px; text-align: left;">
-							    <label style="font-weight: normal; font-size: 13px; color: #555; display: flex; align-items: flex-start; cursor: pointer;">
-							        <input type="checkbox" name="marketing_consent" value="yes" style="width: auto; height: auto; margin-top: 3px; margin-right: 10px; cursor: pointer; display: inline-block; position: relative; z-index: 1; appearance: checkbox; -webkit-appearance: checkbox;">
+							    <label style="font-weight: normal; font-size: 13px; color: #555; display: flex; align-items: flex-start; cursor: pointer;" onclick="var cb = this.querySelector('.custom-checkbox'); cb.classList.toggle('checked'); var real = document.getElementById('marketingConsentHidden'); real.checked = !real.checked;">
+							        <span class="custom-checkbox" style="width: 16px; height: 16px; border: 2px solid #aaa; border-radius: 3px; display: inline-block; margin-right: 10px; flex-shrink: 0; position: relative; top: 2px; background: #fff; text-align: center; line-height: 12px; font-size: 12px; color: #7cc576; transition: all 0.2s;"></span>
+							        <input type="checkbox" id="marketingConsentHidden" name="marketing_consent" value="yes" style="display: none;">
 							        <span>Съгласен/а съм да получавам правни новини, информационни материали и оферти от Адвокатска кантора "Nikolaev & Co" на посочения имейл адрес. Запознат/а съм с <a href="privacy-policy.html" target="_blank" style="color: #7cc576; text-decoration: underline;">Политиката за поверителност</a>.</span>
 							    </label>
 							</div>
 
                             <div style="margin-bottom: 10px; text-align: left;">
-							    <label style="font-weight: normal; font-size: 13px; color: #555; display: flex; align-items: flex-start; cursor: pointer;">
-							        <input type="checkbox" id="privacyConsent" name="privacy_consent" value="yes" required style="width: 14px !important; height: 14px !important; min-width: 14px; flex-shrink: 0; margin-top: 3px; margin-right: 10px; cursor: pointer; appearance: checkbox; -webkit-appearance: checkbox; position: relative; z-index: 1;">
+							    <label style="font-weight: normal; font-size: 13px; color: #555; display: flex; align-items: flex-start; cursor: pointer;" onclick="var cb = this.querySelector('.custom-checkbox'); cb.classList.toggle('checked'); var real = document.getElementById('privacyConsentHidden'); real.checked = !real.checked; var msg = this.parentElement.querySelector('.validation-msg'); if (msg) { msg.style.display = 'none'; }">
+							        <span class="custom-checkbox" style="width: 16px; height: 16px; border: 2px solid #aaa; border-radius: 3px; display: inline-block; margin-right: 10px; flex-shrink: 0; position: relative; top: 2px; background: #fff; text-align: center; line-height: 12px; font-size: 12px; color: #7cc576; transition: all 0.2s;"></span>
+							        <input type="checkbox" id="privacyConsentHidden" name="privacy_consent" value="yes" required style="display: none;">
 							        <span>Запознат/а съм и приемам <a href="privacy-policy.html" target="_blank" style="color: #7cc576; text-decoration: underline;">Политиката за поверителност</a> на Адвокатска кантора "Nikolaev & Co". <span style="color: red; font-size: 16px; line-height: 1;">*</span></span>
 							    </label>
-                                <div class="validation-msg" style="color: red; font-size: 11px; margin-top: 5px; display: none;">Моля, съгласете се с Политиката за поверителност.</div>
+							    <div class="validation-msg" style="color: red; font-size: 11px; margin-top: 5px; display: none;">Моля, съгласете се с Политиката за поверителност.</div>
 							</div>
                             
                            <div class="text-center"><button type="submit" id="submitBtn" class="input-btn">Изпрати съобщение</button></div>
@@ -735,38 +737,5 @@
             </div>
         </section>
     </div>
-
-	<script>
-    // Специална защита за проблемния чекбокс
-    (function() {
-        var cb = document.getElementById('privacyConsent');
-        if (cb) {
-            // Принудително показване след пълно зареждане на страницата
-            window.addEventListener('load', function() {
-                cb.style.width = '16px';
-                cb.style.height = '16px';
-                cb.style.display = 'inline-block';
-                cb.style.visibility = 'visible';
-                cb.style.opacity = '1';
-                cb.style.position = 'relative';
-                cb.style.zIndex = '2';
-                cb.style.appearance = 'checkbox';
-                cb.style.webkitAppearance = 'checkbox';
-            });
-            // Допълнително задействане веднага след като DOM е готов
-            document.addEventListener('DOMContentLoaded', function() {
-                cb.style.width = '16px';
-                cb.style.height = '16px';
-                cb.style.display = 'inline-block';
-                cb.style.visibility = 'visible';
-                cb.style.opacity = '1';
-                cb.style.position = 'relative';
-                cb.style.zIndex = '2';
-                cb.style.appearance = 'checkbox';
-                cb.style.webkitAppearance = 'checkbox';
-            });
-        }
-    })();
-</script>
 	
     {% include footer.html %}
