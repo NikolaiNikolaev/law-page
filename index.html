@@ -713,22 +713,19 @@
                                 <div class="validation-msg" style="color: red; font-size: 11px; margin-top: 5px; display: none;">Моля, въведете съобщение от поне 10 знака.</div>
                             </div>
 
-							<div style="margin-bottom: 25px; text-align: left;">
-							    <label style="font-weight: normal; font-size: 13px; color: #555; display: flex; align-items: flex-start; cursor: pointer;" onclick="var cb = this.querySelector('.custom-checkbox'); cb.classList.toggle('checked'); var real = document.getElementById('marketingConsentHidden'); real.checked = !real.checked;">
-							        <span class="custom-checkbox" style="width: 16px; height: 16px; border: 2px solid #aaa; border-radius: 3px; display: inline-block; margin-right: 10px; flex-shrink: 0; position: relative; top: 2px; background: #fff; text-align: center; line-height: 12px; font-size: 12px; color: #7cc576; transition: all 0.2s;"></span>
-							        <input type="checkbox" id="marketingConsentHidden" name="marketing_consent" value="yes" style="display: none;">
-							        <span>Съгласен/а съм да получавам правни новини, информационни материали и оферти от Адвокатска кантора "Nikolaev & Co" на посочения имейл адрес. Запознат/а съм с <a href="privacy-policy.html" target="_blank" style="color: #7cc576; text-decoration: underline;">Политиката за поверителност</a>.</span>
-							    </label>
+							<div style="margin-bottom: 25px; text-align: left; display: flex; align-items: flex-start;">
+							    <span id="marketingCheckbox" class="custom-checkbox" style="width: 16px; height: 16px; border: 2px solid #aaa; border-radius: 3px; display: inline-block; margin-right: 10px; flex-shrink: 0; margin-top: 2px; background: #fff; text-align: center; line-height: 12px; font-size: 12px; color: #7cc576; cursor: pointer; transition: all 0.2s;" onclick="this.classList.toggle('checked'); document.getElementById('marketingConsentHidden').checked = !document.getElementById('marketingConsentHidden').checked;"></span>
+							    <span style="font-size: 13px; color: #555;">Съгласен/а съм да получавам правни новини, информационни материали и оферти от Адвокатска кантора "Nikolaev & Co" на посочения имейл адрес. Запознат/а съм с <a href="privacy-policy.html" target="_blank" style="color: #7cc576; text-decoration: underline;">Политиката за поверителност</a>.</span>
+							    <input type="checkbox" id="marketingConsentHidden" name="marketing_consent" value="yes" style="display: none;">
 							</div>
 							
-							<div style="margin-bottom: 10px; text-align: left;">
-							    <label style="font-weight: normal; font-size: 13px; color: #555; display: flex; align-items: flex-start; cursor: pointer;" onclick="var cb = this.querySelector('.custom-checkbox'); cb.classList.toggle('checked'); var real = document.getElementById('privacyConsentHidden'); real.checked = !real.checked; var msg = document.getElementById('privacyValidationMsg'); if (msg) { msg.style.display = 'none'; }">
-							        <span class="custom-checkbox" style="width: 16px; height: 16px; border: 2px solid #aaa; border-radius: 3px; display: inline-block; margin-right: 10px; flex-shrink: 0; position: relative; top: 2px; background: #fff; text-align: center; line-height: 12px; font-size: 12px; color: #7cc576; transition: all 0.2s;"></span>
-							        <input type="checkbox" id="privacyConsentHidden" name="privacy_consent" value="yes" required style="display: none;">
-							        <span>Запознат/а съм и приемам <a href="privacy-policy.html" target="_blank" style="color: #7cc576; text-decoration: underline;">Политиката за поверителност</a> на Адвокатска кантора "Nikolaev & Co". <span style="color: red; font-size: 16px; line-height: 1;">*</span></span>
-							    </label>
-							    <div id="privacyValidationMsg" class="validation-msg" style="color: red; font-size: 11px; margin-top: 5px; display: none;">Моля, съгласете се с Политиката за поверителност.</div>
+							<div style="margin-bottom: 10px; text-align: left; display: flex; align-items: flex-start;">
+							    <span id="privacyCheckbox" class="custom-checkbox" style="width: 16px; height: 16px; border: 2px solid #aaa; border-radius: 3px; display: inline-block; margin-right: 10px; flex-shrink: 0; margin-top: 2px; background: #fff; text-align: center; line-height: 12px; font-size: 12px; color: #7cc576; cursor: pointer; transition: all 0.2s;" onclick="this.classList.toggle('checked'); document.getElementById('privacyConsentHidden').checked = !document.getElementById('privacyConsentHidden').checked; document.getElementById('privacyValidationMsg').style.display = 'none';"></span>
+							    <span style="font-size: 13px; color: #555;">Запознат/а съм и приемам <a href="privacy-policy.html" target="_blank" style="color: #7cc576; text-decoration: underline;">Политиката за поверителност</a> на Адвокатска кантора "Nikolaev & Co". <span style="color: red; font-size: 16px; line-height: 1;">*</span></span>
+							    <input type="checkbox" id="privacyConsentHidden" name="privacy_consent" value="yes" required style="display: none;">
 							</div>
+							
+							<div id="privacyValidationMsg" class="validation-msg" style="color: red; font-size: 11px; margin-top: 5px; display: none; text-align: left;">Моля, съгласете се с Политиката за поверителност.</div>
 
 							<div id="errormessage"></div>
 	                        <div id="form-message" style="display:none; text-align:center; padding:15px; margin:20px auto; max-width:600px; border-radius:5px; font-weight:bold; font-size:18px; color:#fff; background:#7cc576;">
