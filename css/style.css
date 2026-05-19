@@ -1487,20 +1487,6 @@ section, .main-section, #Portfolio, #service, #team, #contact, .alabaster {
     }
 }
 
-#privacyConsent {
-    width: 16px !important;
-    height: 16px !important;
-    min-width: 16px !important;
-    display: inline-block !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-    position: relative !important;
-    z-index: 2 !important;
-    appearance: checkbox !important;
-    -webkit-appearance: checkbox !important;
-}
-
-/* ФИНАЛНА ЗАЩИТА ЗА ЧЕКБОКСОВЕ */
-input[type="checkbox"] {
-    font-family: 'Open Sans', sans-serif !important;
+.custom-checkbox.checked::after {
+    content: '✔';
 }
