@@ -412,29 +412,22 @@
                 }
             });
 
-                        // Проверка за поверителност (Празно или не)
-            var $privacyCheckbox = $('#privacyCheckbox');
-            if ($privacyCheckbox.length > 0) {
-                if (!$privacyCheckbox.hasClass('checked')) {
-                    hasErrors = true;
-                    $('#privacyValidationMsg').show();
-                } else {
-                    // Ако е отметнато, добавяме скрито поле за изпращане
-                    $form.find('input[name="privacy_consent"]').remove();
-                    $form.append('<input type="hidden" name="privacy_consent" value="yes">');
-                }
+                                   // Проверка за поверителност (Гарантирано работи)
+            var privacyCheckbox = document.getElementById('privacyConsentHidden');
+            if (privacyCheckbox && !privacyCheckbox.checked) {
+                hasErrors = true;
+                $('#privacyValidationMsg').show();
+            } else if (privacyCheckbox && privacyCheckbox.checked) {
+                // Ако е отметнато, се уверяваме, че скритото поле ще бъде изпратено
+                $form.find('input[name="privacy_consent"]').remove();
+                $form.append('<input type="hidden" name="privacy_consent" value="yes">');
             }
             
-            // Проверка за маркетингово съгласие (Празно или не)
-            var $marketingCheckbox = $('#marketingCheckbox');
-            if ($marketingCheckbox.length > 0) {
-                if ($marketingCheckbox.hasClass('checked')) {
-                    $form.find('input[name="marketing_consent"]').remove();
-                    $form.append('<input type="hidden" name="marketing_consent" value="yes">');
-                } else {
-                    // Маркетинговото не е задължително, така че просто не пращаме нищо
-                    $form.find('input[name="marketing_consent"]').remove();
-                }
+            // Проверка за маркетингово съгласие (Не е задължително)
+            var marketingCheckbox = document.getElementById('marketingConsentHidden');
+            $form.find('input[name="marketing_consent"]').remove();
+            if (marketingCheckbox && marketingCheckbox.checked) {
+                $form.append('<input type="hidden" name="marketing_consent" value="yes">');
             }
 
             // Ако има грешки, спира изпращането, но бутонът остава активен!
