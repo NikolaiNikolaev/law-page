@@ -735,5 +735,38 @@
             </div>
         </section>
     </div>
+
+	<script>
+    // Специална защита за проблемния чекбокс
+    (function() {
+        var cb = document.getElementById('privacyConsent');
+        if (cb) {
+            // Принудително показване след пълно зареждане на страницата
+            window.addEventListener('load', function() {
+                cb.style.width = '16px';
+                cb.style.height = '16px';
+                cb.style.display = 'inline-block';
+                cb.style.visibility = 'visible';
+                cb.style.opacity = '1';
+                cb.style.position = 'relative';
+                cb.style.zIndex = '2';
+                cb.style.appearance = 'checkbox';
+                cb.style.webkitAppearance = 'checkbox';
+            });
+            // Допълнително задействане веднага след като DOM е готов
+            document.addEventListener('DOMContentLoaded', function() {
+                cb.style.width = '16px';
+                cb.style.height = '16px';
+                cb.style.display = 'inline-block';
+                cb.style.visibility = 'visible';
+                cb.style.opacity = '1';
+                cb.style.position = 'relative';
+                cb.style.zIndex = '2';
+                cb.style.appearance = 'checkbox';
+                cb.style.webkitAppearance = 'checkbox';
+            });
+        }
+    })();
+</script>
 	
     {% include footer.html %}
