@@ -1499,3 +1499,8 @@ section, .main-section, #Portfolio, #service, #team, #contact, .alabaster {
     appearance: checkbox !important;
     -webkit-appearance: checkbox !important;
 }
+
+/* ФИНАЛНА ЗАЩИТА ЗА ЧЕКБОКСОВЕ */
+input[type="checkbox"] {
+    font-family: 'Open Sans', sans-serif !important;
+}
