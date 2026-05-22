@@ -1,0 +1,23 @@
+---
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+{% for page in site.pages %}
+  {% if page.url contains '.xml' %}{% else %}
+    <url>
+      <loc>{{ site.url }}{{ page.url | remove: '.html' }}</loc>
+      <lastmod>{{ site.time | date: '%Y-%m-%d' }}</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.5</priority>
+    </url>
+  {% endif %}
+{% endfor %}
+{% for post in site.posts %}
+  <url>
+    <loc>{{ site.url }}{{ post.url | remove: '.html' }}</loc>
+    <lastmod>{{ post.date | date: '%Y-%m-%d' }}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+{% endfor %}
+</urlset>
