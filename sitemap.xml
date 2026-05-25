@@ -1,119 +1,189 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-    <!-- Основни страници -->
+    <!-- ==================== ОСНОВНИ СТРАНИЦИ ==================== -->
     <url>
         <loc>https://nikolaevlaw.com/</loc>
-        <lastmod>2026-05-22</lastmod>
+        <lastmod>2026-05-25</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
     </url>
     <url>
         <loc>https://nikolaevlaw.com/za-nas/za-nas.html</loc>
-        <lastmod>2026-05-22</lastmod>
+        <lastmod>2026-05-25</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://nikolaevlaw.com/privacy-policy.html</loc>
-        <lastmod>2026-05-22</lastmod>
+        <lastmod>2026-05-25</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.3</priority>
     </url>
     <url>
         <loc>https://nikolaevlaw.com/kolektiv/advokat-nikolai-nikolaev.html</loc>
-        <lastmod>2026-05-22</lastmod>
+        <lastmod>2026-05-25</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://nikolaevlaw.com/kolektiv/advokat-iva-hairedinska.html</loc>
-        <lastmod>2026-05-22</lastmod>
+        <lastmod>2026-05-25</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
+    <!-- Английска версия (начална) -->
+    <url>
+        <loc>https://nikolaevlaw.com/en/index-en.html</loc>
+        <lastmod>2026-05-25</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
 
-    <!-- Услуги за физически лица -->
+    <!-- ==================== УСЛУГИ ЗА ФИЗИЧЕСКИ ЛИЦА ==================== -->
     <url>
         <loc>https://nikolaevlaw.com/fizicheski-lica/trudovo-pravo.html</loc>
-        <lastmod>2026-05-22</lastmod>
+        <lastmod>2026-05-25</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
         <loc>https://nikolaevlaw.com/fizicheski-lica/semeino-i-nasledstveno-pravo.html</loc>
-        <lastmod>2026-05-22</lastmod>
+        <lastmod>2026-05-25</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
         <loc>https://nikolaevlaw.com/fizicheski-lica/veshtno-pravo-i-etazhna-sobstvenost.html</loc>
-        <lastmod>2026-05-22</lastmod>
+        <lastmod>2026-05-25</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
         <loc>https://nikolaevlaw.com/fizicheski-lica/administrativno-pravo.html</loc>
-        <lastmod>2026-05-22</lastmod>
+        <lastmod>2026-05-25</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
         <loc>https://nikolaevlaw.com/fizicheski-lica/nakazatelnopravna-zashtita.html</loc>
-        <lastmod>2026-05-22</lastmod>
+        <lastmod>2026-05-25</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
 
-    <!-- Услуги за корпоративни клиенти -->
+    <!-- ==================== УСЛУГИ ЗА КОРПОРАТИВНИ КЛИЕНТИ ==================== -->
     <url>
         <loc>https://nikolaevlaw.com/korporativni-klienti/sabirane-na-vzemania.html</loc>
-        <lastmod>2026-05-22</lastmod>
+        <lastmod>2026-05-25</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
         <loc>https://nikolaevlaw.com/korporativni-klienti/druzhestveno-i-korporativno-pravo.html</loc>
-        <lastmod>2026-05-22</lastmod>
+        <lastmod>2026-05-25</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
         <loc>https://nikolaevlaw.com/korporativni-klienti/targovski-sdelki-i-dogovorno-pravo.html</loc>
-        <lastmod>2026-05-22</lastmod>
+        <lastmod>2026-05-25</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
         <loc>https://nikolaevlaw.com/korporativni-klienti/trudovo-pravo-schetovodstvo-i-trz.html</loc>
-        <lastmod>2026-05-22</lastmod>
+        <lastmod>2026-05-25</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
         <loc>https://nikolaevlaw.com/korporativni-klienti/nedvizhimi-imoti-i-veshtno-pravo.html</loc>
-        <lastmod>2026-05-22</lastmod>
+        <lastmod>2026-05-25</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
         <loc>https://nikolaevlaw.com/korporativni-klienti/procesualno-predstavitelstvo.html</loc>
-        <lastmod>2026-05-22</lastmod>
+        <lastmod>2026-05-25</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
         <loc>https://nikolaevlaw.com/korporativni-klienti/abonamentno-obsluzhvane.html</loc>
-        <lastmod>2026-05-22</lastmod>
+        <lastmod>2026-05-25</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
 
-    <!-- Архив новини -->
+    <!-- ==================== АРХИВ НОВИНИ ==================== -->
     <url>
         <loc>https://nikolaevlaw.com/novini/arhiv.html</loc>
-        <lastmod>2026-05-22</lastmod>
+        <lastmod>2026-05-25</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
+    </url>
+
+    <!-- ==================== СТАТИИ (ПРАВНИ НОВИНИ И АНАЛИЗИ) ==================== -->
+    <!-- Административно право -->
+    <url>
+        <loc>https://nikolaevlaw.com/novini/administrativni-novini/obzalvane-revizionni-aktove.html</loc>
+        <lastmod>2025-11-20</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://nikolaevlaw.com/novini/administrativni-novini/razreshenie-stroej.html</loc>
+        <lastmod>2026-01-28</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <!-- Гражданско право -->
+    <url>
+        <loc>https://nikolaevlaw.com/novini/grazhdanski-novini/skriti-tejesti-nedvijim-imot.html</loc>
+        <lastmod>2025-10-03</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://nikolaevlaw.com/novini/grazhdanski-novini/lichen-falit.html</loc>
+        <lastmod>2026-01-10</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://nikolaevlaw.com/novini/grazhdanski-novini/zashtita-izpalnitelno.html</loc>
+        <lastmod>2026-02-05</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <!-- Правни новини -->
+    <url>
+        <loc>https://nikolaevlaw.com/novini/pravni-novini/promeni-advokatura.html</loc>
+        <lastmod>2026-01-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <!-- Търговско право -->
+    <url>
+        <loc>https://nikolaevlaw.com/novini/targovski-novini/elektronna-targovia.html</loc>
+        <lastmod>2025-09-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://nikolaevlaw.com/novini/targovski-novini/praven-odit.html</loc>
+        <lastmod>2025-12-12</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://nikolaevlaw.com/novini/targovski-novini/prevalutirane.html</loc>
+        <lastmod>2026-02-17</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
     </url>
 
     <!-- Статии (добавете всички линкове към статии тук) -->
