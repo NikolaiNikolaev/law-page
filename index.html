@@ -327,13 +327,14 @@
                 <a href="#" data-filter=".targovski">Търговско право</a>
                 <a href="#" data-filter=".grazhdanski">Гражданско право</a>
                 <a href="#" data-filter=".administrativni">Административно право</a>
+				<a href="#" data-filter=".nakazatelno">Наказателно право</a>
                 <a href="#" data-filter=".novini">Правни новини</a>
             </div>
             
             <div class="portfolioContainer wow fadeInUp delay-04s">
                 
                 {% assign essential_urls = "" %}
-                {% for cat in "targovski,grazhdanski,administrativni,novini" | split: "," %}
+                {% for cat in "targovski,grazhdanski,administrativni,novini,nakazatelno" | split: "," %}
                     {% assign cat_post = site.posts | where: "category_link", cat | first %}
                     {% if cat_post %}
                         {% assign essential_urls = essential_urls | append: cat_post.url | append: "," %}
