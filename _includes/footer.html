@@ -492,7 +492,8 @@
         });
     });
 
-    $(window).on('load', function(){
+        $(window).on('load', function(){
+        // Плавно скролиране
         $('.main-nav li a[href^="#"], .servicelink[href^="#"]').bind('click',function(event){
             if ($(window).width() < 768 && $(this).parent().hasClass('dropdown-custom')) { return; }
             var $anchor = $(this);
@@ -501,6 +502,28 @@
             event.preventDefault();
         });
 
+        // Isotope филтрация за началната страница
+        var $container = $('.portfolioContainer');
+        if ($container.length) {
+            $container.isotope({
+                itemSelector: '.Portfolio-box',
+                layoutMode: 'fitRows'
+            });
+
+            $('.elegant-filters').on('click', 'a', function(e) {
+                e.preventDefault();
+                var filterValue = $(this).attr('data-filter');
+                $container.isotope({ filter: filterValue });
+                $('.elegant-filters a').removeClass('is-checked');
+                $(this).addClass('is-checked');
+            });
+
+            $(window).resize(function() {
+                $container.isotope('layout');
+            });
+        }
+
+        // Корекция при идване от друга страница
         if (window.location.hash) {
             var isRefresh = false;
             if (window.performance) {
