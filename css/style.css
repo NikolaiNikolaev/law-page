@@ -1305,7 +1305,7 @@ section, .main-section, #Portfolio, #service, #team, #contact, .alabaster {
 .floating-circle-btn {
     width: 50px;
     height: 50px;
-    background-color: #001F3F; /* Тъмносиньо */
+    background-color: #7cc576; /* Тъмносиньо */
     color: #fff;
     border-radius: 50%;
     display: flex;
@@ -1319,7 +1319,7 @@ section, .main-section, #Portfolio, #service, #team, #contact, .alabaster {
 }
 
 .floating-circle-btn:hover {
-    background-color: #7cc576; /* Зелено */
+    background-color: #001F3F; /* Зелено */
     color: #fff;
     transform: translateY(-3px);
     box-shadow: 0 6px 15px rgba(124,197,118,0.4);
