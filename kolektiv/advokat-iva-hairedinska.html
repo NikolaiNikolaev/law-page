@@ -39,7 +39,7 @@
         <div class="container" style="position: relative; z-index: 1;">
             
             <div class="animated fadeInDown delay-02s">
-                <img src="../img/logo.png" alt="Адвокатска кантора на Адвокат Николай Николаев-logo" style="display: block; margin: 0 auto 25px auto; max-height: 70px;">
+                <img src="../img/Logo-mark.png" alt="Адвокатска кантора на Адвокат Николай Николаев-logo" style="display: block; margin: 0 auto 25px auto; max-height: 70px;">
 
                 <div style="display: inline-block; margin-bottom: 25px;">
                     <div style="height: 1px; width: 100%; background: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,0.6), rgba(255,255,255,0)); margin-bottom: 10px;"></div>
@@ -111,129 +111,146 @@
                     </div>
 
                 <!-- СЕКЦИЯ "ОБУЧЕНИЯ" -->
-                    <h3 style="font-size: 18px; color: #001F3F; margin-top: 40px; margin-bottom: 20px; font-weight: 700; text-transform: uppercase;"><i class="fa fa-certificate" style="color: #ccc; margin-right: 10px;"></i> Обучения и квалификации</h3>
-                    <table style="width: 100%; border-collapse: collapse; font-size: 14px; color: #555;">
+                    <h3 style="font-size: 18px; color: #001F3F; margin-top: 40px; margin-bottom: 20px; font-weight: 700; text-transform: uppercase;">
+                        <i class="fa fa-certificate" style="color: #ccc; margin-right: 10px;"></i> Обучения и квалификации
+                    </h3>
+                    
+                    <table id="trainings-table" style="width: 100%; border-collapse: collapse; font-size: 14px; color: #555;">
                         <thead>
                             <tr>
-                                <th style="padding: 10px; border-bottom: 2px solid #ddd;">ЦOA "Кръстю Цончев"</th>
-                                <th style="padding: 10px; border-bottom: 2px solid #ddd;">„Подготовка на процедура за възлагане на електронна обществена поръчка. Възлагане чрез Централизираната автоматизирана информационна система „Електронни обществени поръчки“ (ЦАИС ЕОП)“</th>
-                                <th style="padding: 10px; border-bottom: 2px solid #ddd;">Удостоверение</th>
-                                <th style="padding: 10px; border-bottom: 2px solid #ddd;">24.04.2025 г. </th>
+                                <th style="padding: 10px; border-bottom: 2px solid #ddd;">Организатор</th>
+                                <th style="padding: 10px; border-bottom: 2px solid #ddd;">Обучение/Квалификация</th>
+                                <th style="padding: 10px; border-bottom: 2px solid #ddd;">Документ</th>
+                                <th style="padding: 10px; border-bottom: 2px solid #ddd;">Дата</th>
                             </tr>
                         </thead>
+                        
+                        <!-- ВСИЧКИ редове с обучения (без да се променя тяхната структура) -->
+                        <tbody>
+                            <tr style="background: #f4f7f9;">
+                                <td style="padding: 10px; border-bottom: 1px solid #ddd;">ЦOA "Кръстю Цончев"</td>
+                                <td style="padding: 10px; border-bottom: 1px solid #ddd;">„Подготовка на процедура за възлагане на електронна обществена поръчка. Възлагане чрез Централизираната автоматизирана информационна система „Електронни обществени поръчки“ (ЦАИС ЕОП)“</td>
+                                <td style="padding: 10px; border-bottom: 1px solid #ddd;">Удостоверение</td>
+                                <td style="padding: 10px; border-bottom: 1px solid #ddd;">24.04.2025 г.</td>
+                            </tr>
+                        </tbody>
                         <tbody>
                             <tr>
-                                <th style="padding: 10px; border-bottom: 2px solid #ddd;">ЦOA "Кръстю Цончев"</th>
-                                <th style="padding: 10px; border-bottom: 2px solid #ddd;">„Въвеждащо обучение в областта на обществените поръчки – правна рамка, основни правни понятия, принципи, основни положения и правила за възлагане на обществените поръчки“</th>
-                                <th style="padding: 10px; border-bottom: 2px solid #ddd;">Удостоверение</th>
-                                <th style="padding: 10px; border-bottom: 2px solid #ddd;">23.04.2025 г. </th>
+                                <td style="padding: 10px; border-bottom: 1px solid #ddd;">ЦOA "Кръстю Цончев"</td>
+                                <td style="padding: 10px; border-bottom: 1px solid #ddd;">„Въвеждащо обучение в областта на обществените поръчки – правна рамка, основни правни понятия, принципи, основни положения и правила за възлагане на обществените поръчки“</td>
+                                <td style="padding: 10px; border-bottom: 1px solid #ddd;">Удостоверение</td>
+                                <td style="padding: 10px; border-bottom: 1px solid #ddd;">23.04.2025 г.</td>
                             </tr>
                         </tbody>
-                        <tbody> 
-                            <tr style="background: #f4f7f9; text-align: left;">
-                                <th style="padding: 10px; border-bottom: 2px solid #ddd;">ЦOA "Кръстю Цончев"</th>
-                                <th style="padding: 10px; border-bottom: 2px solid #ddd;">„Актуални проблеми на давността и перемпцията“ – II част</th>
-                                <th style="padding: 10px; border-bottom: 2px solid #ddd;">Удостоверение</th>
-                                <th style="padding: 10px; border-bottom: 2px solid #ddd;">16.01.2025 г.</th>
+                        <tbody>
+                            <tr style="background: #f4f7f9;">
+                                <td style="padding: 10px; border-bottom: 1px solid #ddd;">ЦOA "Кръстю Цончев"</td>
+                                <td style="padding: 10px; border-bottom: 1px solid #ddd;">„Актуални проблеми на давността и перемпцията“ – II част</td>
+                                <td style="padding: 10px; border-bottom: 1px solid #ddd;">Удостоверение</td>
+                                <td style="padding: 10px; border-bottom: 1px solid #ddd;">16.01.2025 г.</td>
                             </tr>
                         </tbody>
-                        <tbody> 
-                            <tr style="background: #f4f7f9; text-align: left;">
-                                <th style="padding: 10px; border-bottom: 2px solid #ddd;">ЦOA "Кръстю Цончев"</th>
-                                <th style="padding: 10px; border-bottom: 2px solid #ddd;">„Договор за наем и договор за аренда – практически аспекти. Преглед на съдебната практика“ – II част</th>
-                                <th style="padding: 10px; border-bottom: 2px solid #ddd;">Удостоверение</th>
-                                <th style="padding: 10px; border-bottom: 2px solid #ddd;">15.04.2025 г.</th>
+                        <tbody>
+                            <tr>
+                                <td style="padding: 10px; border-bottom: 1px solid #ddd;">ЦOA "Кръстю Цончев"</td>
+                                <td style="padding: 10px; border-bottom: 1px solid #ddd;">„Договор за наем и договор за аренда – практически аспекти. Преглед на съдебната практика“ – II част</td>
+                                <td style="padding: 10px; border-bottom: 1px solid #ddd;">Удостоверение</td>
+                                <td style="padding: 10px; border-bottom: 1px solid #ddd;">15.04.2025 г.</td>
                             </tr>
                         </tbody>
-                         <tbody> 
-                            <tr style="background: #f4f7f9; text-align: left;">
-                                <th style="padding: 10px; border-bottom: 2px solid #ddd;">ЦOA "Кръстю Цончев"</th>
-                                <th style="padding: 10px; border-bottom: 2px solid #ddd;">„Договор за наем и договор за аренда – практически аспекти. Преглед на съдебната практика“ – I част</th>
-                                <th style="padding: 10px; border-bottom: 2px solid #ddd;">Удостоверение</th>
-                                <th style="padding: 10px; border-bottom: 2px solid #ddd;">14.04.2025 г.</th>
+                        <tbody>
+                            <tr style="background: #f4f7f9;">
+                                <td style="padding: 10px; border-bottom: 1px solid #ddd;">ЦOA "Кръстю Цончев"</td>
+                                <td style="padding: 10px; border-bottom: 1px solid #ddd;">„Договор за наем и договор за аренда – практически аспекти. Преглед на съдебната практика“ – I част</td>
+                                <td style="padding: 10px; border-bottom: 1px solid #ddd;">Удостоверение</td>
+                                <td style="padding: 10px; border-bottom: 1px solid #ddd;">14.04.2025 г.</td>
                             </tr>
                         </tbody>
-                        <tbody> 
-                            <tr style="background: #f4f7f9; text-align: left;">
-                                <th style="padding: 10px; border-bottom: 2px solid #ddd;">ЦOA "Кръстю Цончев"</th>
-                                <th style="padding: 10px; border-bottom: 2px solid #ddd;">„Разпределение на ползване между съсобственици. Изкупуване на дял от съсобствен имот по реда на чл. 33, ал. 2 ЗС“</th>
-                                <th style="padding: 10px; border-bottom: 2px solid #ddd;">Удостоверение</th>
-                                <th style="padding: 10px; border-bottom: 2px solid #ddd;">09.04.2025 г.</th>
+                        <tbody>
+                            <tr>
+                                <td style="padding: 10px; border-bottom: 1px solid #ddd;">ЦOA "Кръстю Цончев"</td>
+                                <td style="padding: 10px; border-bottom: 1px solid #ddd;">„Разпределение на ползване между съсобственици. Изкупуване на дял от съсобствен имот по реда на чл. 33, ал. 2 ЗС“</td>
+                                <td style="padding: 10px; border-bottom: 1px solid #ddd;">Удостоверение</td>
+                                <td style="padding: 10px; border-bottom: 1px solid #ddd;">09.04.2025 г.</td>
                             </tr>
                         </tbody>
-                        <tbody> 
-                            <tr style="background: #f4f7f9; text-align: left;">
-                                <th style="padding: 10px; border-bottom: 2px solid #ddd;">ЦOA "Кръстю Цончев"</th>
-                                <th style="padding: 10px; border-bottom: 2px solid #ddd;">„Описателност на знака, загатващ предмета на рекламните услуги (абсолютни основания за отказ на регистрация на марка)“</th>
-                                <th style="padding: 10px; border-bottom: 2px solid #ddd;">Удостоверение</th>
-                                <th style="padding: 10px; border-bottom: 2px solid #ddd;">25.11.2024 г.</th>
+                        <tbody>
+                            <tr style="background: #f4f7f9;">
+                                <td style="padding: 10px; border-bottom: 1px solid #ddd;">ЦOA "Кръстю Цончев"</td>
+                                <td style="padding: 10px; border-bottom: 1px solid #ddd;">„Описателност на знака, загатващ предмета на рекламните услуги (абсолютни основания за отказ на регистрация на марка)“</td>
+                                <td style="padding: 10px; border-bottom: 1px solid #ddd;">Удостоверение</td>
+                                <td style="padding: 10px; border-bottom: 1px solid #ddd;">25.11.2024 г.</td>
                             </tr>
                         </tbody>
-                        <tbody> 
-                            <tr style="background: #f4f7f9; text-align: left;">
-                                <th style="padding: 10px; border-bottom: 2px solid #ddd;">ЦOA "Кръстю Цончев"</th>
-                                <th style="padding: 10px; border-bottom: 2px solid #ddd;">„Дружество с променлив капитал (продължение). Ликвидация. Бърза ликвидация“</th>
-                                <th style="padding: 10px; border-bottom: 2px solid #ddd;">Удостоверение</th>
-                                <th style="padding: 10px; border-bottom: 2px solid #ddd;">18.11.2024 г.</th>
+                        <tbody>
+                            <tr>
+                                <td style="padding: 10px; border-bottom: 1px solid #ddd;">ЦOA "Кръстю Цончев"</td>
+                                <td style="padding: 10px; border-bottom: 1px solid #ddd;">„Дружество с променлив капитал (продължение). Ликвидация. Бърза ликвидация“</td>
+                                <td style="padding: 10px; border-bottom: 1px solid #ddd;">Удостоверение</td>
+                                <td style="padding: 10px; border-bottom: 1px solid #ddd;">18.11.2024 г.</td>
                             </tr>
                         </tbody>
-                        <tbody> 
-                            <tr style="background: #f4f7f9; text-align: left;">
-                                <th style="padding: 10px; border-bottom: 2px solid #ddd;">ЦOA "Кръстю Цончев"</th>
-                                <th style="padding: 10px; border-bottom: 2px solid #ddd;">„Съдебен контрол на актовете по ЗУТ“ – II част</th>
-                                <th style="padding: 10px; border-bottom: 2px solid #ddd;">Удостоверение</th>
-                                <th style="padding: 10px; border-bottom: 2px solid #ddd;">14.11.2024 г.</th>
+                        <tbody>
+                            <tr style="background: #f4f7f9;">
+                                <td style="padding: 10px; border-bottom: 1px solid #ddd;">ЦOA "Кръстю Цончев"</td>
+                                <td style="padding: 10px; border-bottom: 1px solid #ddd;">„Съдебен контрол на актовете по ЗУТ“ – II част</td>
+                                <td style="padding: 10px; border-bottom: 1px solid #ddd;">Удостоверение</td>
+                                <td style="padding: 10px; border-bottom: 1px solid #ddd;">14.11.2024 г.</td>
                             </tr>
                         </tbody>
-                        <tbody> 
-                            <tr style="background: #f4f7f9; text-align: left;">
-                                <th style="padding: 10px; border-bottom: 2px solid #ddd;">HELP - Human Rights Education for Legal Professionals Programme</th>
-                                <th style="padding: 10px; border-bottom: 2px solid #ddd;">"Combating Hate Speech"</th>
-                                <th style="padding: 10px; border-bottom: 2px solid #ddd;">Statement of accomplishment</th>
-                                <th style="padding: 10px; border-bottom: 2px solid #ddd;">06.10.2024 г.</th>
+                        <tbody>
+                            <tr>
+                                <td style="padding: 10px; border-bottom: 1px solid #ddd;">HELP - Human Rights Education for Legal Professionals Programme</td>
+                                <td style="padding: 10px; border-bottom: 1px solid #ddd;">"Combating Hate Speech"</td>
+                                <td style="padding: 10px; border-bottom: 1px solid #ddd;">Statement of accomplishment</td>
+                                <td style="padding: 10px; border-bottom: 1px solid #ddd;">06.10.2024 г.</td>
                             </tr>
                         </tbody>
-                        <tbody> 
-                            <tr style="background: #f4f7f9; text-align: left;">
-                                <th style="padding: 10px; border-bottom: 2px solid #ddd;">ЦOA "Кръстю Цончев"</th>
-                                <th style="padding: 10px; border-bottom: 2px solid #ddd;">„Дружество с променлив капитал“</th>
-                                <th style="padding: 10px; border-bottom: 2px solid #ddd;">Удостоверение</th>
-                                <th style="padding: 10px; border-bottom: 2px solid #ddd;">27.05.2024 г.</th>
+                        <tbody>
+                            <tr style="background: #f4f7f9;">
+                                <td style="padding: 10px; border-bottom: 1px solid #ddd;">ЦOA "Кръстю Цончев"</td>
+                                <td style="padding: 10px; border-bottom: 1px solid #ddd;">„Дружество с променлив капитал“</td>
+                                <td style="padding: 10px; border-bottom: 1px solid #ddd;">Удостоверение</td>
+                                <td style="padding: 10px; border-bottom: 1px solid #ddd;">27.05.2024 г.</td>
                             </tr>
                         </tbody>
-                        <tbody> 
-                            <tr style="background: #f4f7f9; text-align: left;">
-                                <th style="padding: 10px; border-bottom: 2px solid #ddd;">HELP - Human Rights Education for Legal Professionals Programme</th>
-                                <th style="padding: 10px; border-bottom: 2px solid #ddd;">"Cybercrime and Electronic Evidence"</th>
-                                <th style="padding: 10px; border-bottom: 2px solid #ddd;">Statement of accomplishment</th>
-                                <th style="padding: 10px; border-bottom: 2px solid #ddd;">27.05.2024 г.</th>
+                        <tbody>
+                            <tr>
+                                <td style="padding: 10px; border-bottom: 1px solid #ddd;">HELP - Human Rights Education for Legal Professionals Programme</td>
+                                <td style="padding: 10px; border-bottom: 1px solid #ddd;">"Cybercrime and Electronic Evidence"</td>
+                                <td style="padding: 10px; border-bottom: 1px solid #ddd;">Statement of accomplishment</td>
+                                <td style="padding: 10px; border-bottom: 1px solid #ddd;">27.05.2024 г.</td>
                             </tr>
                         </tbody>
-                        <tbody> 
-                            <tr style="background: #f4f7f9; text-align: left;">
-                                <th style="padding: 10px; border-bottom: 2px solid #ddd;">ЦOA "Кръстю Цончев"</th>
-                                <th style="padding: 10px; border-bottom: 2px solid #ddd;">„Установителни искове за установяване на факти с правно значение“</th>
-                                <th style="padding: 10px; border-bottom: 2px solid #ddd;">Удостоверение</th>
-                                <th style="padding: 10px; border-bottom: 2px solid #ddd;">22.05.2024 г.</th>
+                        <tbody>
+                            <tr style="background: #f4f7f9;">
+                                <td style="padding: 10px; border-bottom: 1px solid #ddd;">ЦOA "Кръстю Цончев"</td>
+                                <td style="padding: 10px; border-bottom: 1px solid #ddd;">„Установителни искове за установяване на факти с правно значение“</td>
+                                <td style="padding: 10px; border-bottom: 1px solid #ddd;">Удостоверение</td>
+                                <td style="padding: 10px; border-bottom: 1px solid #ddd;">22.05.2024 г.</td>
                             </tr>
                         </tbody>
-                        <tbody> 
-                            <tr style="background: #f4f7f9; text-align: left;">
-                                <th style="padding: 10px; border-bottom: 2px solid #ddd;">Национално бюро за правна помощ - Norway grants</th>
-                                <th style="padding: 10px; border-bottom: 2px solid #ddd;">„Превенция на дискриминацията, борба със стереотипите и предразсъдъците и работа с жертви на домашно насилие и насилие основано на пола“</th>
-                                <th style="padding: 10px; border-bottom: 2px solid #ddd;">Сертификат</th>
-                                <th style="padding: 10px; border-bottom: 2px solid #ddd;">20.04.2024 г.</th>
+                        <tbody>
+                            <tr>
+                                <td style="padding: 10px; border-bottom: 1px solid #ddd;">Национално бюро за правна помощ - Norway grants</td>
+                                <td style="padding: 10px; border-bottom: 1px solid #ddd;">„Превенция на дискриминацията, борба със стереотипите и предразсъдъците и работа с жертви на домашно насилие и насилие основано на пола“</td>
+                                <td style="padding: 10px; border-bottom: 1px solid #ddd;">Сертификат</td>
+                                <td style="padding: 10px; border-bottom: 1px solid #ddd;">20.04.2024 г.</td>
                             </tr>
                         </tbody>
-                        <tbody> 
-                            <tr style="background: #f4f7f9; text-align: left;">
-                                <th style="padding: 10px; border-bottom: 2px solid #ddd;">Център за изследване на демокрацията</th>
-                                <th style="padding: 10px; border-bottom: 2px solid #ddd;">"Правна рамка и процедури за отпускане на финансова компенсация на жертви на трафик на хора - граждани на трети страни"</th>
-                                <th style="padding: 10px; border-bottom: 2px solid #ddd;">Сертификат</th>
-                                <th style="padding: 10px; border-bottom: 2px solid #ddd;">11-12.06.2020 г.</th>
+                        <tbody>
+                            <tr style="background: #f4f7f9;">
+                                <td style="padding: 10px; border-bottom: 1px solid #ddd;">Център за изследване на демокрацията</td>
+                                <td style="padding: 10px; border-bottom: 1px solid #ddd;">"Правна рамка и процедури за отпускане на финансова компенсация на жертви на трафик на хора - граждани на трети страни"</td>
+                                <td style="padding: 10px; border-bottom: 1px solid #ddd;">Сертификат</td>
+                                <td style="padding: 10px; border-bottom: 1px solid #ddd;">11-12.06.2020 г.</td>
                             </tr>
                         </tbody>
                     </table>
+                    
+                    <div style="text-align: center; margin-top: 25px;">
+                        <button id="toggleTrainingsBtn" style="background: #001F3F; border: none; color: white; padding: 10px 25px; border-radius: 4px; font-weight: 600; font-family: 'Montserrat', sans-serif; cursor: pointer; transition: all 0.3s;">Виж всички обучения</button>
+                    </div>
                     
                 </div>
 
@@ -311,5 +328,91 @@
 
     </section>
 
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const table = document.getElementById('trainings-table');
+        if (!table) return;
+
+        // 1. Събираме всички редове (tr) от всички tbody на таблицата
+        const allRows = Array.from(table.querySelectorAll('tbody tr'));
+        if (allRows.length === 0) return;
+
+        // 2. Функция за извличане на дата от последната колона на реда
+        function getDateFromRow(row) {
+            // Взимаме всички клетки td или th (последната колона)
+            const cells = row.cells; // HTMLCollection
+            if (cells.length < 4) return new Date(0); // Ако няма 4 колони, слагаме най-стара дата
+            const dateText = cells[3].innerText.trim();
+            // Формат: "24.04.2025 г." или "11-12.06.2020 г." (интервал - взимаме първата дата)
+            let cleanDate = dateText.replace(' г.', '').trim();
+            // Ако има интервал (напр. "11-12.06.2020"), взимаме първата част
+            if (cleanDate.includes('-')) {
+                cleanDate = cleanDate.split('-')[0];
+            }
+            // Парсваме DD.MM.YYYY
+            const parts = cleanDate.split('.');
+            if (parts.length === 3) {
+                const day = parseInt(parts[0], 10);
+                const month = parseInt(parts[1], 10) - 1; // месеците са 0-индексирани
+                const year = parseInt(parts[2], 10);
+                return new Date(year, month, day);
+            }
+            return new Date(0); // невалиден формат -> най-стара
+        }
+
+        // 3. Сортиране на редовете (най-новите първи)
+        allRows.sort((rowA, rowB) => {
+            const dateA = getDateFromRow(rowA);
+            const dateB = getDateFromRow(rowB);
+            return dateB - dateA; // низходящ ред
+        });
+
+        // 4. Пренареждане на таблицата: създаваме един tbody и поставяме сортираните редове в него
+        const newTbody = document.createElement('tbody');
+        allRows.forEach(row => newTbody.appendChild(row));
+        
+        // Изчистваме таблицата от всички съществуващи tbody (запазваме само thead)
+        const oldTbodies = table.querySelectorAll('tbody');
+        oldTbodies.forEach(tb => tb.remove());
+        
+        // Добавяме новия tbody с подредените редове
+        table.appendChild(newTbody);
+
+        // 5. Сега прилагаме логиката за показване само на първите 8 реда
+        const sortedRows = Array.from(newTbody.querySelectorAll('tr'));
+        const initiallyVisible = 8;
+
+        if (sortedRows.length > initiallyVisible) {
+            // Скриваме редовете след 8-мия
+            for (let i = initiallyVisible; i < sortedRows.length; i++) {
+                sortedRows[i].style.display = 'none';
+            }
+
+            const toggleBtn = document.getElementById('toggleTrainingsBtn');
+            if (toggleBtn) {
+                let expanded = false;
+                toggleBtn.addEventListener('click', function() {
+                    if (!expanded) {
+                        for (let i = initiallyVisible; i < sortedRows.length; i++) {
+                            sortedRows[i].style.display = '';
+                        }
+                        toggleBtn.textContent = 'Скрий излишните';
+                        expanded = true;
+                    } else {
+                        for (let i = initiallyVisible; i < sortedRows.length; i++) {
+                            sortedRows[i].style.display = 'none';
+                        }
+                        toggleBtn.textContent = 'Виж всички обучения';
+                        expanded = false;
+                    }
+                });
+            }
+        } else {
+            // Ако редовете са ≤ 8, скриваме бутона
+            const btn = document.getElementById('toggleTrainingsBtn');
+            if (btn) btn.style.display = 'none';
+        }
+    });
+</script>
     
     {% include footer.html %}
