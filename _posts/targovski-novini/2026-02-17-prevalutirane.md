@@ -27,8 +27,14 @@ permalink: /novini/targovski-novini/prevalutirane.html
 
 <div style="background-color: #f4f7f9; border-left: 4px solid #7cc576; padding: 25px; margin-top: 40px; margin-bottom: 30px; border-radius: 0 4px 4px 0;">
     <em style="font-family: 'Lora', serif; font-size: 17px; color: #222; display: block; line-height: 1.7;">
-        Адвокатска кантора „Nikolaev & Co“ е на Ваше разположение за изготвяне на пълния набор от документи и осъществяване 
+        Адвокат Николай Николаев и екипът му от професионалисти е на Ваше разположение за изготвяне на пълния набор от документи и осъществяване 
       на процедурата пред Агенция по вписванията, гарантирайки пълно съответствие с националното и европейското 
       законодателство.
+    </em>
+</div>
+
+<div style="background-color: #f4f7f9; border-left: 4px solid #7cc576; padding: 25px; margin-top: 40px; margin-bottom: 30px; border-radius: 0 4px 4px 0;">
+    <em style="font-family: 'Lora', serif; font-size: 17px; color: #222; display: block; line-height: 1.7;">
+        Настоящата статия не представлява правно становище или правен съвет, съобразен с конкретна ситуация или субект. За конкретна правна помощ следва да бъде поискан съвет от специалист. Авторът на статията не носи отговорност за предприемането на каквито и да е правни действия въз основа на съдържанието й.
     </em>
 </div>
