@@ -1,34 +1,35 @@
 <script>
-      var gaMeasurementId = 'G-1Y5JNGGVZM'; 
-      function loadGoogleAnalytics() {
-          if (window.gaLoaded) return; 
-          window.gaLoaded = true;
-          var script = document.createElement('script');
-          script.async = true;
-          script.src = 'https://www.googletagmanager.com/gtag/js?id=' + gaMeasurementId;
-          document.head.appendChild(script);
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', gaMeasurementId, { 'anonymize_ip': true });
+  var gaMeasurementId = 'G-1Y5JNGGVZM'; 
+  function loadGoogleAnalytics() {
+      if (window.gaLoaded) return; 
+      window.gaLoaded = true;
+      var script = document.createElement('script');
+      script.async = true;
+      script.src = 'https://www.googletagmanager.com/gtag/js?id=' + gaMeasurementId;
+      document.head.appendChild(script);
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', gaMeasurementId, { 'anonymize_ip': true });
+  }
+  if (localStorage.getItem('cookieConsent_NikolaevLaw_v1') === 'true') {
+      loadGoogleAnalytics();
+  }
+  document.addEventListener('DOMContentLoaded', function() {
+      var acceptBtn = document.getElementById('accept-cookies');
+      if (acceptBtn) {
+          acceptBtn.addEventListener('click', function() { loadGoogleAnalytics(); });
       }
-      if (localStorage.getItem('cookieConsent_NikolaevLaw_v1') === 'true') {
-          loadGoogleAnalytics();
-      }
-      document.addEventListener('DOMContentLoaded', function() {
-          var acceptBtn = document.getElementById('accept-cookies');
-          if (acceptBtn) {
-              acceptBtn.addEventListener('click', function() { loadGoogleAnalytics(); });
-          }
-      });
-    </script>
+  });
+</script>
 
+<!-- ← ПРОМЯНА: Премахнат дублиращият се LegalService блок. Оставен само един с пълното описание и новото лого -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "LegalService",
-  "name": "Адвокатска кантора на Адвокат Николай Николаев",
-  "image": "https://nikolaevlaw.com/img/logo.png",
+  "name": "Адвокат Николай Николаев, Адвокатска кантора „Николай Николаев"",
+  "image": "https://nikolaevlaw.com/img/logo-mark-white.png",
   "@id": "https://nikolaevlaw.com",
   "url": "https://nikolaevlaw.com",
   "telephone": "+359893440797",
@@ -52,72 +53,41 @@
     "closes": "18:00"
   }],
   "areaServed": "BG",
-  "description": "Професионални правни услуги и процесуално представителство от адвокат Николай Николаев и адвокат Ива Хайрединска."
-}
-</script>
-	
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, maximum-scale=1">
-    <meta name="color-scheme" content="light">
-    <meta name="supported-color-schemes" content="light">
-    <meta name="author" content="Адвокат Николай Николаев">
-    <meta property="og:site_name" content="Адвокатска кантора на Адвокат Николай Николаев">
-	<meta property="og:image" content="https://nikolaevlaw.com/img/logo.png">
-	<meta property="og:url" content="https://nikolaevlaw.com">
-	<meta property="og:description" content="Професионални правни услуги и процесуално представителство от Адвокат Николай Николаев.">
-
-    <link rel="icon" href="/logo-mark-white.png" type="image/png">
-    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Lora:ital,wght@0,400..600;1,400..500&display=swap" rel="stylesheet">
-    <link href="/css/bootstrap.css?v={{ site.time | date: '%s' }}" rel="stylesheet" type="text/css">
-    <link href="/css/style.css?v={{ site.time | date: '%s' }}" rel="stylesheet" type="text/css">
-    <link href="/css/font-awesome.css?v={{ site.time | date: '%s' }}" rel="stylesheet" type="text/css">
-    <link href="/css/responsive.css?v={{ site.time | date: '%s' }}" rel="stylesheet" type="text/css">
-    <link href="/css/animate.css?v={{ site.time | date: '%s' }}" rel="stylesheet" type="text/css">
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "LegalService",
-  "name": "Адвокатска кантора на Адвокат Николай Николаев",
-  "image": "https://nikolaevlaw.com/img/logo.png",
-  "@id": "https://nikolaevlaw.com",
-  "url": "https://nikolaevlaw.com",
-  "telephone": "+359893440797",
-  "address": [{
-    "@type": "PostalAddress",
-    "streetAddress": "ул. Фредерик Жолио-Кюри №20, ж.к. Изгрев",
-    "addressLocality": "София",
-    "postalCode": "1113",
-    "addressCountry": "BG"
-  },{
-    "@type": "PostalAddress",
-    "streetAddress": "ж.к. Младост 3, бл. 333",
-    "addressLocality": "София",
-    "postalCode": "1712",
-    "addressCountry": "BG"
-  }],
-  "openingHoursSpecification": [{
-    "@type": "OpeningHoursSpecification",
-    "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
-    "opens": "09:00",
-    "closes": "18:00"
-  }],
-  "areaServed": "BG",
-  "description": "Професионални правни услуги и процесуално представителство от адвокат Николай Николаев и адвокат Ива Хайрединска. Семейно, наказателно, трудово право, вещно право, 
-	корпоративно право, юридически лица, физически лица, събиране на вземания, административно право, патентно право и онлайн консултации."
+  "description": "Професионални правни услуги и процесуално представителство от адвокат Николай Николаев и адвокат Ива Хайрединска. Семейно, наказателно, трудово право, вещно право, корпоративно право, юридически лица, физически лица, събиране на вземания, административно право, патентно право и онлайн консултации."
 }
 </script>
 
+<!-- ← ПРОМЯНА: Поправени кавичките в name (чупеха JSON синтаксиса) -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Organization",
-  "name": "Адвокат Николай Николаев, Адвокатска кантора "Николай Николаев"",
+  "name": "Адвокат Николай Николаев, Адвокатска кантора „Николай Николаев"",
   "url": "https://nikolaevlaw.com",
   "logo": "https://nikolaevlaw.com/img/logo-mark-white.png"
 }
 </script>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, maximum-scale=1">
+<meta name="color-scheme" content="light">
+<meta name="supported-color-schemes" content="light">
+<meta name="author" content="Адвокат Николай Николаев">
+<meta property="og:site_name" content="Адвокатска кантора на Адвокат Николай Николаев">
+<!-- ← ПРОМЯНА: og:image сменен от logo.png към logo-mark-white.png -->
+<meta property="og:image" content="https://nikolaevlaw.com/img/logo-mark-white.png">
+<meta property="og:url" content="https://nikolaevlaw.com">
+<meta property="og:description" content="Професионални правни услуги и процесуално представителство от Адвокат Николай Николаев.">
+
+<!-- ← ПРОМЯНА: favicon вече сочи към logo-mark-white.png (беше същото, потвърдено) -->
+<link rel="icon" href="/logo-mark-white.png" type="image/png">
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Lora:ital,wght@0,400..600;1,400..500&display=swap" rel="stylesheet">
+<link href="/css/bootstrap.css?v={{ site.time | date: '%s' }}" rel="stylesheet" type="text/css">
+<link href="/css/style.css?v={{ site.time | date: '%s' }}" rel="stylesheet" type="text/css">
+<link href="/css/font-awesome.css?v={{ site.time | date: '%s' }}" rel="stylesheet" type="text/css">
+<link href="/css/responsive.css?v={{ site.time | date: '%s' }}" rel="stylesheet" type="text/css">
+<link href="/css/animate.css?v={{ site.time | date: '%s' }}" rel="stylesheet" type="text/css">
 
 </head>
 <body>
