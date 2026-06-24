@@ -116,13 +116,3 @@ img {
         background-attachment: scroll !important;
     }
 }
-
-/* Fix: снимките в страниците с услуги - пълни пропорции без изрязване */
-@media only screen and (max-width: 991px) {
-    .main-section .col-lg-8 > img,
-    .main-section .col-md-8 > img {
-        max-height: none !important;
-        object-fit: contain !important;
-        height: auto !important;
-    }
-}
