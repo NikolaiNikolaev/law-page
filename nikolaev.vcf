@@ -1,8 +1,12 @@
 BEGIN:VCARD
 VERSION:3.0
+N:Николаев;Николай;;;
 FN:Адвокат Николай Николаев
-ORG:Адвокатска кантора Nikolaev & Co
+TITLE:Адвокат, Управляващ съдружник
+ORG:Адвокатска кантора "Николай Николаев"
 TEL;TYPE=WORK,VOICE:+359893440797
-EMAIL;TYPE=WORK:nikolai.nikolaev11@gmail.com
-ADR;TYPE=WORK:;;ул. Цанко Церковски № 33;София;;1164;България
+EMAIL;TYPE=WORK,PREF:kantora.nikolaev@gmail.com
+ADR;TYPE=WORK,PREF:;;ул. Фредерик Жолио-Кюри №20\, ж.к. Изгрев;София;;1113;България
+URL;TYPE=WORK:https://nikolaevlaw.com
+NOTE:Адвокат по гражданско\, търговско\, семейно\, наказателно и административно право.
 END:VCARD
