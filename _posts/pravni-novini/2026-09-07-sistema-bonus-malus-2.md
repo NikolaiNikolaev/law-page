@@ -2,11 +2,11 @@
 layout: post
 title: "Разлика между собственик, застраховащ и ползвател при „Бонус-малус“ - 2026г."
 description: "Разберете как работи системата Бонус-малус, какви са критериите за отстъпки и кой трупа негативна история (малус), ако предоставите колата си на приятел."
-image: "sistema-bonus-malus-2.jpg"
+image: "sistema-bonus-malus-kazus.jpg"
 author: "адв. Николай Николаев"
 category: "Правни новини"
 category_link: "novini"
-permalink: /novini/pravni-novini/sistema-bonus-malus-2.html
+permalink: /novini/pravni-novini/sistema-bonus-malus-kazus.html
 ---
 
 В предишната тема [„Бонус-малус“ при Гражданска отговорност: Отстъпки за шофьорите - 2026г.?](https://nikolaevlaw.com/novini/pravni-novini/sistema-bonus-malus.html) бе разгледана подробно нововъведената система, която
