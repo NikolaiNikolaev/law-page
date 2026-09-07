@@ -540,3 +540,49 @@
         }
     });
 </script>
+
+<script>
+(function() {
+    let percentText = document.getElementById('preloader-percent');
+    let preloader = document.getElementById('page-preloader');
+    let progressCircle = document.getElementById('progress-circle');
+    
+    let currentPercent = 0;
+    let maxCircumference = 326.7; // Дължина на окръжността
+
+    // Симулация на плавно покачване на процентите до зареждането
+    let timer = setInterval(function() {
+        if (currentPercent < 90) {
+            currentPercent += Math.floor(Math.random() * 5) + 1;
+            if (currentPercent > 90) currentPercent = 90;
+            updatePreloader(currentPercent);
+        }
+    }, 50);
+
+    // При пълно зареждане на страницата и ресурсите
+    window.addEventListener('load', function() {
+        clearInterval(timer);
+        
+        let finishTimer = setInterval(function() {
+            if (currentPercent < 100) {
+                currentPercent += 2;
+                if (currentPercent > 100) currentPercent = 100;
+                updatePreloader(currentPercent);
+            } else {
+                clearInterval(finishTimer);
+                setTimeout(function() {
+                    preloader.classList.add('loaded');
+                }, 200);
+            }
+        }, 15);
+    });
+
+    function updatePreloader(percent) {
+        if (percentText) percentText.innerText = percent + '%';
+        if (progressCircle) {
+            let offset = maxCircumference - (percent / 100) * maxCircumference;
+            progressCircle.style.strokeDashoffset = offset;
+        }
+    }
+})();
+</script>
