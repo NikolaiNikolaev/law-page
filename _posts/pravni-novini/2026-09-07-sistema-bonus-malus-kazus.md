@@ -9,8 +9,7 @@ category_link: "novini"
 permalink: /novini/pravni-novini/sistema-bonus-malus-kazus.html
 ---
 
-В предишната тема <u><span style="color: #7cc576;">["„Бонус-малус“ при Гражданска отговорност: Отстъпки за шофьорите - 2026г.?"](https://nikolaevlaw.com/novini/pravni-novini/sistema-bonus-malus.html)</span></u> бе разгледана подробно нововъведената система, която
-ще започне да действа при застраховката "Гражданска отговорност". Можете да се запознаете със статията от <u>[тук](https://nikolaevlaw.com/novini/pravni-novini/sistema-bonus-malus.html)</u>.
+В предишната тема <a href="/novini/pravni-novini/sistema-bonus-malus.html" style="color: #7cc576; text-decoration: underline;">"„Бонус-малус“ при Гражданска отговорност: Отстъпки за шофьорите - 2026г.?"</a> бе разгледана подробно нововъведената система, която ще започне да действа при застраховката "Гражданска отговорност". Можете да се запознаете със статията от <a href="/novini/pravni-novini/sistema-bonus-malus.html" style="color: #7cc576; text-decoration: underline;">тук</a>.
 
 Поради многобройните въпроси, които получихме, взето бе решение да отговорим на част от тях с отделна, полезна за Вас статия, а именно за <u>Разликата между собственик, застраховащ и ползвател при нововъведената система „Бонус-малус“.</u>
 
