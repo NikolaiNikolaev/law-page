@@ -1522,6 +1522,7 @@ section, .main-section, #Portfolio, #service, #team, #contact, .alabaster {
 }
 
 /* Preloader контейнер на цял екран - ЗАРЕЖДАНЕ НА АНИМАЦИЯ*/
+/* Preloader контейнер - първоначално невидим */
 #page-preloader {
     position: fixed;
     top: 0;
@@ -1533,15 +1534,17 @@ section, .main-section, #Portfolio, #service, #team, #contact, .alabaster {
     display: flex;
     justify-content: center;
     align-items: center;
-    opacity: 1;
-    visibility: visible;
-    transition: opacity 0.5s ease, visibility 0.5s ease;
-}
-
-/* Скриване след зареждане */
-#page-preloader.loaded {
     opacity: 0;
     visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    pointer-events: none;
+}
+
+/* Клас за активно показване */
+#page-preloader.show-preloader {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
 }
 
 .preloader-content {
@@ -1549,34 +1552,33 @@ section, .main-section, #Portfolio, #service, #team, #contact, .alabaster {
     position: relative;
 }
 
+/* Увеличени размери */
 .logo-spinner-wrap {
     position: relative;
-    width: 150px;
-    height: 150px;
-    margin: 0 auto 15px auto;
+    width: 200px;
+    height: 200px;
+    margin: 0 auto 20px auto;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-/* Лого в центъра */
 .preloader-logo {
-    max-width: 85px;
-    max-height: 85px;
+    max-width: 110px;
+    max-height: 110px;
     object-fit: contain;
     z-index: 2;
     position: absolute;
 }
 
-/* Въртящ се кръгов аниматор */
 .spinner-ring {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    transform: rotate(-90deg); /* Започва отгоре */
-    animation: spinRing 1.8s linear infinite;
+    transform: rotate(-90deg);
+    animation: spinRing 1.3s linear infinite;
 }
 
 @keyframes spinRing {
@@ -1584,28 +1586,25 @@ section, .main-section, #Portfolio, #service, #team, #contact, .alabaster {
     100% { transform: rotate(270deg); }
 }
 
-/* Сива основа на кръга */
 .ring-bg {
     fill: none;
-    stroke: #f0f0f0;
-    stroke-width: 5;
+    stroke: #f4f5f7;
+    stroke-width: 4;
 }
 
-/* Зелена въртяща се линия (#7cc576) */
 .ring-active {
     fill: none;
-    stroke: #7cc576;
     stroke-width: 5;
-    stroke-dasharray: 326.7; /* 2 * π * r (r=52) */
-    stroke-dashoffset: 200;
+    stroke-dasharray: 439.8; /* 2 * π * 70 */
+    stroke-dashoffset: 220;
     stroke-linecap: round;
+    filter: drop-shadow(0px 0px 6px rgba(124, 197, 118, 0.5));
 }
 
-/* Текст за процентите */
 .preloader-percent {
     font-family: 'Montserrat', sans-serif;
-    font-size: 15px;
+    font-size: 18px;
     font-weight: 700;
     color: #001F3F;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
 }
