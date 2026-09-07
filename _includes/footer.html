@@ -543,36 +543,45 @@
 
 <script>
 (function() {
-    let percentText = document.getElementById('preloader-percent');
-    let preloader = document.getElementById('page-preloader');
-    let progressCircle = document.getElementById('progress-circle');
+    var preloader = document.getElementById('page-preloader');
+    var percentText = document.getElementById('preloader-percent');
+    var progressCircle = document.getElementById('progress-circle');
     
-    let currentPercent = 0;
-    let maxCircumference = 326.7; // Дължина на окръжността
+    var currentPercent = 0;
+    var maxCircumference = 439.8;
+    var isLoaded = false;
+    var showTimeout;
 
-    // Симулация на плавно покачване на процентите до зареждането
-    let timer = setInterval(function() {
+    // Показва екрана САМО ако зареждането трае повече от 250 милисекунди
+    showTimeout = setTimeout(function() {
+        if (!isLoaded && preloader) {
+            preloader.classList.add('show-preloader');
+        }
+    }, 250);
+
+    var timer = setInterval(function() {
         if (currentPercent < 90) {
-            currentPercent += Math.floor(Math.random() * 5) + 1;
+            currentPercent += Math.floor(Math.random() * 6) + 2;
             if (currentPercent > 90) currentPercent = 90;
             updatePreloader(currentPercent);
         }
-    }, 50);
+    }, 40);
 
-    // При пълно зареждане на страницата и ресурсите
     window.addEventListener('load', function() {
+        isLoaded = true;
         clearInterval(timer);
         
-        let finishTimer = setInterval(function() {
+        var finishTimer = setInterval(function() {
             if (currentPercent < 100) {
-                currentPercent += 2;
+                currentPercent += 5;
                 if (currentPercent > 100) currentPercent = 100;
                 updatePreloader(currentPercent);
             } else {
                 clearInterval(finishTimer);
-                setTimeout(function() {
-                    preloader.classList.add('loaded');
-                }, 200);
+                clearTimeout(showTimeout);
+                if (preloader) {
+                    preloader.classList.remove('show-preloader');
+                }
             }
         }, 15);
     });
@@ -580,7 +589,7 @@
     function updatePreloader(percent) {
         if (percentText) percentText.innerText = percent + '%';
         if (progressCircle) {
-            let offset = maxCircumference - (percent / 100) * maxCircumference;
+            var offset = maxCircumference - (percent / 100) * maxCircumference;
             progressCircle.style.strokeDashoffset = offset;
         }
     }
