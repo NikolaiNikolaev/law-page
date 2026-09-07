@@ -92,15 +92,20 @@
 <div id="page-preloader">
     <div class="preloader-content">
         <div class="logo-spinner-wrap">
-            <!-- Въртящ се кръг -->
-            <svg class="spinner-ring" viewBox="0 0 120 120">
-                <circle class="ring-bg" cx="60" cy="60" r="52"></circle>
-                <circle class="ring-active" cx="60" cy="60" r="52" id="progress-circle"></circle>
+            <svg class="spinner-ring" viewBox="0 0 160 160">
+                <defs>
+                    <!-- Градиент за ефект комета: ярка глава, избледняваща опашка -->
+                    <linearGradient id="comet-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#7cc576" stop-opacity="1" />
+                        <stop offset="50%" stop-color="#7cc576" stop-opacity="0.4" />
+                        <stop offset="100%" stop-color="#7cc576" stop-opacity="0.05" />
+                    </linearGradient>
+                </defs>
+                <circle class="ring-bg" cx="80" cy="80" r="70"></circle>
+                <circle class="ring-active" cx="80" cy="80" r="70" id="progress-circle" stroke="url(#comet-gradient)"></circle>
             </svg>
-            <!-- Вашето лого в центъра -->
-            <img src="../../img/nikolaev & co - 2.png" alt="Лого" class="preloader-logo">
+            <img src="/img/logo.png" alt="Адвокат Николай Николаев" class="preloader-logo">
         </div>
-        <!-- Процентно съотношение -->
         <div class="preloader-percent" id="preloader-percent">0%</div>
     </div>
 </div>
