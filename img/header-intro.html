@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+<meta charset="UTF-8">
+<title>Адвокат Николай Николаев — Адвокатска кантора</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&family=PT+Sans:wght@400;700&display=swap');
+
+:root{
+  --bg-1:#050b14;
+  --bg-2:#0b1c34;
+  --ink:#f3eee2;
+  --muted:#93a6bd;
+  --brand-navy:#15396e;
+  --brand-green:#0a6e47;
+  --stroke-navy:#5677a3;
+  --stroke-green:#33a173;
+  --rule-w: min(220px, 30vw);
+}
+
+*{box-sizing:border-box;}
+
+html,body{
+  margin:0; padding:0; width:100%; height:100%;
+  background:var(--bg-1);
+}
+
+body{
+  display:flex; align-items:center; justify-content:center;
+  min-height:100vh; overflow:hidden;
+  font-family:'PT Sans', 'Segoe UI', sans-serif;
+  background:
+    radial-gradient(ellipse at 50% 38%, rgba(10,110,71,0.18), rgba(10,110,71,0) 55%),
+    linear-gradient(180deg, var(--bg-1) 0%, var(--bg-2) 100%);
+}
+
+.stage{
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  width:100%;
+}
+
+/* ---------- crest ---------- */
+.crest-wrap{
+  position:relative;
+  width:clamp(120px, 12vw, 190px);
+  transform:scale(1.06);
+  filter:drop-shadow(0 0 0 rgba(0,0,0,0));
+  transition:transform 1.1s cubic-bezier(.2,.7,.2,1), filter 1.1s ease;
+}
+body.settled .crest-wrap{
+  transform:scale(1);
+  filter:drop-shadow(0 6px 28px rgba(10,110,71,0.28));
+}
+.crest{ display:block; width:100%; height:auto; overflow:visible; }
+.stroke-path{ fill:none; stroke-width:3.4; stroke-linejoin:round; stroke-linecap:round; }
+.stroke-path.navy{ stroke:var(--stroke-navy); }
+.stroke-path.green{ stroke:var(--stroke-green); }
+.fill-path{ opacity:0; }
+.fill-path.navy{ fill:var(--brand-navy); }
+.fill-path.green{ fill:var(--brand-green); }
+.glow-overlay{
+  fill:var(--brand-green); filter:url(#greenGlow); opacity:0;
+  pointer-events:none; transition:opacity 650ms ease;
+}
+body.glow-on .glow-overlay{ opacity:0.9; }
+
+/* ---------- rule ---------- */
+.rule{
+  width:0; height:1px;
+  background:linear-gradient(90deg, transparent, var(--brand-green), transparent);
+  margin:22px 0 18px;
+  transition:width 650ms cubic-bezier(.3,.7,.3,1);
+}
+body.rule-on .rule{ width:var(--rule-w); }
+
+/* ---------- text ---------- */
+.name{
+  font-family:'PT Serif', Georgia, serif;
+  font-weight:700;
+  font-size:clamp(24px, 2.6vw, 42px);
+  color:var(--ink);
+  letter-spacing:0.4px;
+  white-space:nowrap;
+  clip-path:inset(0 100% 0 0);
+  transition:clip-path 900ms cubic-bezier(.3,.75,.25,1);
+}
+body.name-on .name{ clip-path:inset(0 0 0 0); }
+
+.role{
+  font-family:'PT Serif', Georgia, serif;
+  font-weight:400; font-style:normal;
+  font-size:clamp(16px, 1.4vw, 23px);
+  color:var(--muted);
+  letter-spacing:1px;
+  margin-top:10px;
+  opacity:0; transform:translateY(6px);
+  transition:opacity 600ms ease, transform 600ms ease;
+}
+body.role-on .role{ opacity:1; transform:translateY(0); }
+
+.practice{
+  font-family:'PT Sans', sans-serif;
+  font-size:clamp(13px, 1vw, 16px);
+  color:var(--muted);
+  text-align:center;
+  max-width:min(90%, 560px);
+  line-height:1.5;
+  margin-top:18px;
+  opacity:0;
+  transition:opacity 550ms ease;
+}
+body.practice-on .practice{ opacity:0.85; }
+
+.site{
+  margin-top:22px;
+  font-family:'PT Sans', sans-serif;
+  font-weight:700;
+  font-size:clamp(17px, 1.4vw, 23px);
+  letter-spacing:1.2px;
+  color:var(--stroke-green);
+  text-shadow:0 0 4px rgba(51,161,115,.55), 0 0 10px rgba(51,161,115,.28);
+  opacity:0;
+  transition:opacity 700ms ease;
+}
+body.site-on .site{ opacity:1; }
+
+@media (prefers-reduced-motion: reduce){
+  .stroke-path, .fill-path, .glow-overlay, .name, .role, .practice, .site, .crest-wrap, .rule{
+    transition-duration:1ms !important;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="stage">
+  <div class="crest-wrap">
+    <svg class="crest" viewBox="0 0 223 261" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <filter id="greenGlow" x="-60%" y="-60%" width="220%" height="220%">
+          <feGaussianBlur stdDeviation="2.2" result="blur"/>
+          <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+        </filter>
+      </defs>
+      <g id="segments"></g>
+      <path id="glowOverlay" class="glow-overlay" fill-rule="evenodd" d=""/>
+    </svg>
+  </div>
+
+  <div class="rule"></div>
+  <div class="name">Адвокат Николай Николаев</div>
+  <div class="role">Адвокатска кантора</div>
+  <div class="practice">Гражданско, наказателно и административно право</div>
+  <div class="site">nikolaevlaw.com</div>
+</div>
+
+<script>
+const SEGMENTS = [
+  {d:"M 35 137 L 35 241 L 37 243 L 37 139 Z", cls:"green"},
+  {d:"M 35 28 L 35 95 L 76 124 L 37 92 L 37 47 Z", cls:"green"},
+  {d:"M 7 36 L 6 204 L 16 222 L 28 237 L 29 123 L 83 163 L 83 241 L 105 257 L 105 154 L 28 98 L 28 30 Z", cls:"navy"},
+  {d:"M 83 12 L 83 130 L 105 146 L 105 5 Z", cls:"navy"},
+  {d:"M 119 4 L 118 145 L 140 129 L 140 11 Z", cls:"navy"},
+  {d:"M 189 26 L 187 43 L 187 90 L 148 123 L 189 93 Z", cls:"green"},
+  {d:"M 215 35 L 195 29 L 196 96 L 118 154 L 118 257 L 140 240 L 140 163 L 193 123 L 196 124 L 195 237 L 203 228 L 217 204 L 218 37 Z", cls:"navy"},
+  {d:"M 188 138 L 186 139 L 185 245 L 188 243 Z", cls:"green"}
+];
+const GREEN_FILL = "M 35 137 L 35 241 L 37 243 L 37 139 Z M 35 28 L 35 95 L 76 124 L 37 92 L 37 47 Z M 189 26 L 187 43 L 187 90 L 148 123 L 189 93 Z M 188 138 L 186 139 L 185 245 L 188 243 Z";
+
+const STROKE_STEP = 110, STROKE_DUR = 950;
+const FILL_STEP   = 130, FILL_DUR   = 420;
+const drawPhaseDuration = (SEGMENTS.length-1)*STROKE_STEP + STROKE_DUR;
+const buildDuration     = drawPhaseDuration + (SEGMENTS.length-1)*FILL_STEP + FILL_DUR;
+
+const svgNS = "http://www.w3.org/2000/svg";
+const segGroup = document.getElementById('segments');
+const glowOverlay = document.getElementById('glowOverlay');
+glowOverlay.setAttribute('d', GREEN_FILL);
+
+const strokeEls = [], fillEls = [];
+SEGMENTS.forEach((item)=>{
+  const stroke = document.createElementNS(svgNS,'path');
+  stroke.setAttribute('d', item.d);
+  stroke.setAttribute('class', 'stroke-path '+item.cls);
+  segGroup.appendChild(stroke);
+  const len = stroke.getTotalLength();
+  stroke.style.strokeDasharray = len;
+  stroke.style.strokeDashoffset = len;
+  strokeEls.push(stroke);
+
+  const fill = document.createElementNS(svgNS,'path');
+  fill.setAttribute('d', item.d);
+  fill.setAttribute('class', 'fill-path '+item.cls);
+  segGroup.appendChild(fill);
+  fillEls.push(fill);
+});
+
+function play(){
+  strokeEls.forEach((el,i)=>{
+    el.style.transition = `stroke-dashoffset ${STROKE_DUR}ms cubic-bezier(.3,.6,.2,1) ${i*STROKE_STEP}ms`;
+  });
+  fillEls.forEach((el,i)=>{
+    el.style.transition = `opacity ${FILL_DUR}ms ease ${drawPhaseDuration + i*FILL_STEP}ms`;
+  });
+  setTimeout(()=>{
+    strokeEls.forEach(el=> el.style.strokeDashoffset = 0);
+    fillEls.forEach(el=> el.style.opacity = 1);
+  }, 40);
+
+  setTimeout(()=> document.body.classList.add('glow-on','settled'), buildDuration + 150);
+  setTimeout(()=> document.body.classList.add('rule-on'), buildDuration + 500);
+  setTimeout(()=> document.body.classList.add('name-on'), buildDuration + 950);
+  setTimeout(()=> document.body.classList.add('role-on'), buildDuration + 1900);
+  setTimeout(()=> document.body.classList.add('practice-on'), buildDuration + 2100);
+  setTimeout(()=> document.body.classList.add('site-on'), buildDuration + 2600);
+}
+
+const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+if(reduce){
+  strokeEls.forEach(el=> el.style.strokeDashoffset = 0);
+  fillEls.forEach(el=> el.style.opacity = 1);
+  document.body.classList.add('glow-on','settled','rule-on','name-on','role-on','practice-on','site-on');
+} else {
+  play();
+}
+</script>
+
+</body>
+</html>
