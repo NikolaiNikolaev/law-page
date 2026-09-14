@@ -1,0 +1,549 @@
+---
+---
+<!doctype html>
+<html lang="bg">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, maximum-scale=1">
+    <title>Калкулатор на адвокатско възнаграждение | Адвокатска кантора на Адвокат Николай Николаев</title>
+
+    <meta property="og:site_name" content="Адвокатска кантора на Адвокат Николай Николаев">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Калкулатор на адвокатско възнаграждение">
+    <meta property="og:description" content="Ориентировъчен калкулатор на адвокатско възнаграждение и държавни такси съгласно Наредба № 1 от 2004 г.">
+    <meta name="description" content="Ориентировъчен калкулатор на адвокатско възнаграждение и държавни такси съгласно Наредба № 1 от 2004 г.">
+    <meta property="og:image" content="https://nikolaevlaw.com/img/logo-mark-white.png">
+
+    <link rel="icon" href="/favicon.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,800italic,700italic,600italic,400italic,300italic,800,700,600" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+    <link href="/css/bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="/css/style.css" rel="stylesheet" type="text/css">
+    <link href="/css/font-awesome.css" rel="stylesheet" type="text/css">
+    <link href="/css/responsive.css" rel="stylesheet" type="text/css">
+    <link href="/css/animate.css" rel="stylesheet" type="text/css">
+
+<style>
+  .calc-card{ background:#fff; padding:30px; border-radius:6px; border:1px solid #eee; box-shadow:0 4px 20px rgba(0,0,0,0.04); margin-bottom:25px; }
+  .calc-tabs{ display:flex; flex-wrap:wrap; gap:8px; margin-bottom:24px; }
+  .calc-tab{
+    font-family:'Montserrat', sans-serif; font-size:12px; font-weight:700; text-transform:uppercase;
+    letter-spacing:0.4px; padding:11px 16px; border:2px solid #001F3F; background:#fff; color:#001F3F;
+    border-radius:4px; cursor:pointer; transition:all 0.2s;
+  }
+  .calc-tab.active, .calc-tab:hover{ background:#001F3F; color:#fff; }
+  .calc-panel{ display:none; }
+  .calc-panel.active{ display:block; }
+  .calc-field{ margin-bottom:18px; }
+  .calc-field label{
+    display:block; font-family:'Montserrat', sans-serif; font-size:12px; font-weight:700;
+    text-transform:uppercase; letter-spacing:0.4px; color:#001F3F; margin-bottom:7px;
+  }
+  .calc-field select, .calc-field input[type="number"]{
+    width:100%; padding:11px 12px; border:1px solid #ccc; border-radius:4px;
+    font-family:'Open Sans', sans-serif; font-size:14px; background:#fff;
+  }
+  .calc-field select:focus, .calc-field input:focus{ outline:none; border-color:#7cc576; }
+  .calc-note{ font-family:'Open Sans', sans-serif; font-size:12.5px; color:#888; margin-top:6px; }
+  .calc-two-col{ display:flex; gap:16px; }
+  .calc-two-col > div{ flex:1; }
+  .calc-btn{
+    display:inline-block; font-family:'Montserrat', sans-serif; font-size:13px; font-weight:700;
+    text-transform:uppercase; letter-spacing:0.5px; padding:13px 28px; border-radius:4px;
+    border:2px solid #7cc576; background:#7cc576; color:#fff; cursor:pointer; transition:all 0.3s;
+  }
+  .calc-btn:hover{ background:#001F3F; border-color:#001F3F; }
+  .calc-btn-outline{ background:transparent; color:#001F3F; border:2px solid #001F3F; }
+  .calc-btn-outline:hover{ background:#001F3F; color:#fff; }
+  .calc-result{ margin-top:20px; padding:18px 20px; background:#f9f9f9; border-left:4px solid #7cc576; border-radius:4px; font-family:'Open Sans', sans-serif; }
+  .calc-result .line{ display:flex; justify-content:space-between; font-size:14px; color:#444; padding:5px 0; }
+  .calc-result .line.total{ border-top:1px solid #e2e2e2; margin-top:6px; padding-top:12px; font-family:'Montserrat', sans-serif; font-weight:700; font-size:19px; color:#001F3F; }
+  .calc-result .sub-note{ font-size:12px; color:#999; margin-top:8px; font-style:italic; }
+  .legal-ref{ font-family:'Open Sans', sans-serif; font-size:12px; color:#999; margin-top:12px; font-style:italic; }
+  .calc-disclaimer{ font-family:'Open Sans', sans-serif; font-size:12.5px; color:#888; background:#f9f9f9; padding:16px 18px; border-radius:4px; margin-top:10px; line-height:1.7; }
+
+  table.calc-summary{ width:100%; border-collapse:collapse; font-family:'Open Sans', sans-serif; font-size:13.5px; }
+  table.calc-summary th, table.calc-summary td{ padding:10px 8px; border-bottom:1px solid #eee; text-align:left; }
+  table.calc-summary th{ font-family:'Montserrat', sans-serif; text-transform:uppercase; font-size:11px; color:#001F3F; }
+  table.calc-summary td.num{ text-align:right; white-space:nowrap; }
+  .calc-row-remove{ color:#d32f2f; cursor:pointer; font-size:13px; }
+  .calc-grand-total{ margin-top:16px; text-align:right; font-family:'Montserrat', sans-serif; }
+  .calc-grand-total .big{ font-size:23px; font-weight:700; color:#001F3F; }
+
+  .top-controls{ display:flex; gap:16px; flex-wrap:wrap; align-items:flex-end; }
+  .top-controls .calc-field{ margin-bottom:0; min-width:150px; flex:1; }
+
+  @media (max-width:767px){ .calc-two-col{ flex-direction:column; } }
+</style>
+</head>
+<body>
+
+    {% include header.html %}
+
+    <header class="header" style="padding: 160px 0 110px 0; background: linear-gradient(180deg, #001F3F 0%, #013058 100%); position: relative; margin-bottom: 50px;">
+        <div class="container">
+            <div class="animated fadeInDown delay-02s">
+                <h1 style="font-family: 'Montserrat',sans-serif; font-size: 40px; color: #fff; margin: 0 0 14px 0; text-transform: uppercase; text-align: center; letter-spacing: -1px;">
+                    Калкулатор на адвокатско възнаграждение
+                </h1>
+                <p style="font-family: 'Open Sans', sans-serif; font-size: 15px; color: #cfd8e0; max-width: 700px; margin: 0 auto; text-align: center; line-height: 1.7;">
+                    Ориентировъчно изчисление съгласно Наредба № 1 от 2004 г. за възнагражденията за адвокатска работа. От 2025 г. Наредбата вече не определя задължителен минимум, но остава признат ориентир при определяне на разноски по делото.
+                </p>
+            </div>
+        </div>
+    </header>
+
+    <section class="main-section" style="padding-top: 0; padding-bottom: 80px; min-height: 60vh; background-color: #ffffff;">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-8 col-md-8" style="padding-right: 30px;">
+
+                    <div style="font-family: 'Open Sans', sans-serif; font-size: 12px; margin-bottom: 25px; padding-bottom: 10px;">
+                        <a href="/index.html#header" style="color: #001F3F; text-decoration: none; font-weight: 600;"><i class="fa fa-home"></i> Начало</a>
+                        <span style="margin: 0 8px; color: #ccc;">&raquo;</span>
+                        <span style="color: #7cc576; font-weight: 700;">Калкулатор на адвокатско възнаграждение</span>
+                    </div>
+
+                    <div class="calc-card">
+                        <div class="top-controls">
+                            <div class="calc-field">
+                                <label>Валута</label>
+                                <select id="currency">
+                                    <option value="EUR" selected>Евро (€)</option>
+                                    <option value="BGN">Лева (лв.)</option>
+                                </select>
+                            </div>
+                            <div class="calc-field">
+                                <label>ДДС върху хонорара</label>
+                                <select id="vat">
+                                    <option value="0">Без ДДС</option>
+                                    <option value="20">С ДДС 20%</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="calc-tabs" id="calc-tabs">
+                        <button class="calc-tab active" data-tab="extra">Извънсъдебни услуги</button>
+                        <button class="calc-tab" data-tab="civil">Граждански дела</button>
+                        <button class="calc-tab" data-tab="admin">Административни дела</button>
+                        <button class="calc-tab" data-tab="crim">Наказателни дела</button>
+                        <button class="calc-tab" data-tab="enforce">Изпълнително дело</button>
+                    </div>
+
+                    <!-- ================= EXTRA-JUDICIAL ================= -->
+                    <div class="calc-card calc-panel active" data-panel="extra">
+                        <div class="calc-field">
+                            <label>Вид услуга</label>
+                            <select id="extra-type">
+                                <option value="100">Устна консултация / справка — чл. 6, ал. 1, т. 1</option>
+                                <option value="200">Писмена консултация — т. 2</option>
+                                <option value="450">Проучване на дело с мнение — т. 3</option>
+                                <option value="200">Жалба/сигнал до държавен орган — т. 4</option>
+                                <option value="200">Нотариална покана / молба за наследство — т. 5</option>
+                                <option value="450">Отказ/възстановяване на българско гражданство — т. 6</option>
+                                <option value="300">Съставяне на завещание — т. 7</option>
+                                <option value="contract">Писмен договор / нотариален акт по стойност — т. 8</option>
+                                <option value="hourly">Почасова консултация (120 лв./час) — т. 12</option>
+                            </select>
+                        </div>
+                        <div class="calc-field" id="extra-value-row" style="display:none;">
+                            <label>Стойност на договора / имота (лв.)</label>
+                            <input type="number" id="extra-value" min="0" step="1" value="10000">
+                        </div>
+                        <div class="calc-field" id="extra-hours-row" style="display:none;">
+                            <label>Брой часове</label>
+                            <input type="number" id="extra-hours" min="1" step="1" value="1">
+                        </div>
+                        <div class="calc-two-col">
+                            <div class="calc-field"><label><input type="checkbox" id="extra-foreign" style="width:auto; margin-right:6px;">На чужд език (+50%)</label></div>
+                            <div class="calc-field"><label><input type="checkbox" id="extra-urgent" style="width:auto; margin-right:6px;">Спешност / неработен ден (×2)</label></div>
+                        </div>
+                        <button class="calc-btn" onclick="calcExtra()">Изчисли</button>
+                        <div class="calc-result" id="extra-result" style="display:none;"></div>
+                        <p class="legal-ref">Наредба № 1/2004 г., чл. 6. Не се дължи държавна такса — извънсъдебна услуга.</p>
+                    </div>
+
+                    <!-- ================= CIVIL ================= -->
+                    <div class="calc-card calc-panel" data-panel="civil">
+                        <div class="calc-field">
+                            <label>Вид гражданско дело</label>
+                            <select id="civil-type">
+                                <option value="interest">С определен материален интерес — чл. 7, ал. 2</option>
+                                <option value="property">Вещни искове (чл. 75, 76, 108 ЗС) — чл. 7, ал. 5</option>
+                                <option value="secure">Обезпечение / заповедно производство (50% от интереса) — чл. 7, ал. 7</option>
+                                <option value="partition">Делба (за фаза) — чл. 7, ал. 4</option>
+                                <option value="insolvency">Несъстоятелност — чл. 7, ал. 3</option>
+                                <option value="dismissal">Отмяна на уволнение / възстановяване на работа</option>
+                                <option value="divorce_claim">Развод по исков ред — 1200 лв.</option>
+                                <option value="divorce_mutual">Развод по взаимно съгласие — 800 лв.</option>
+                                <option value="paternity">Установяване/оспорване на бащинство — 1200 лв.</option>
+                                <option value="alimony">Дело за издръжка — 500 лв.</option>
+                                <option value="interdiction">Поставяне под запрещение — 1000 лв.</option>
+                                <option value="registry">Регистърни/членствени производства — 1250 лв.</option>
+                                <option value="other">Други неоценяеми искове — 1000 лв.</option>
+                            </select>
+                        </div>
+                        <div class="calc-field" id="civil-value-row">
+                            <label>Материален интерес (лв.)</label>
+                            <input type="number" id="civil-value" min="0" step="1" value="10000">
+                        </div>
+                        <div class="calc-field" id="civil-instance-row">
+                            <label>Инстанция</label>
+                            <select id="civil-instance">
+                                <option value="1">Първа инстанция</option>
+                                <option value="2">Въззивна инстанция</option>
+                                <option value="3">Касационна инстанция</option>
+                            </select>
+                        </div>
+                        <div class="calc-field" id="civil-land-row" style="display:none;">
+                            <label><input type="checkbox" id="civil-land" style="width:auto; margin-right:6px;">Делба само на земеделски земи (мин. 750 лв. вместо 1500 лв.)</label>
+                        </div>
+                        <div class="calc-field" id="civil-movable-row" style="display:none;">
+                            <label>Вид вещ</label>
+                            <select id="civil-movable">
+                                <option value="immovable">Недвижим имот / вещно право (мин. 1500 лв.)</option>
+                                <option value="movable">Движима вещ (мин. 800 лв.)</option>
+                            </select>
+                        </div>
+                        <div class="calc-field" id="civil-mrz-row" style="display:none;">
+                            <label>Минимална работна заплата към момента (лв.)</label>
+                            <input type="number" id="civil-mrz" value="1213" step="1">
+                            <p class="calc-note">По подразбиране — МРЗ за 2026 г. (1213 лв. / 620,20 €).</p>
+                        </div>
+                        <button class="calc-btn" onclick="calcCivil()">Изчисли</button>
+                        <div class="calc-result" id="civil-result" style="display:none;"></div>
+                        <p class="legal-ref">Наредба № 1/2004 г., чл. 7. Държавната такса (когато е приложимо) се изчислява автоматично заедно с хонорара.</p>
+                    </div>
+
+                    <!-- ================= ADMIN ================= -->
+                    <div class="calc-card calc-panel" data-panel="admin">
+                        <div class="calc-field">
+                            <label>Вид административно дело</label>
+                            <select id="admin-type">
+                                <option value="ZUT">ЗУТ / Кадастър и имотен регистър — 1250 лв.</option>
+                                <option value="KSO">Кодекс за социално осигуряване — 500 лв.</option>
+                                <option value="ZMVR">Закон за МВР — 750 лв.</option>
+                                <option value="standard">Национална стандартизация — 600 лв.</option>
+                                <option value="ZOP">Обжалване по ЗОП — 1500 лв.</option>
+                                <option value="docs">Български лични документи — 600 лв.</option>
+                                <option value="agri">Подпомагане на земеделски производители — 800 лв.</option>
+                                <option value="KZK">Пред КЗК — 1500 лв.</option>
+                                <option value="KZD">Пред КЗД (дискриминация) — 1500 лв.</option>
+                                <option value="consumer">ЗЗП / ЗЗЛД — 900 лв.</option>
+                                <option value="other_admin">Друго без определен интерес — 1000 лв.</option>
+                            </select>
+                        </div>
+                        <button class="calc-btn" onclick="calcAdmin()">Изчисли</button>
+                        <div class="calc-result" id="admin-result" style="display:none;"></div>
+                        <p class="legal-ref">Наредба № 1/2004 г., чл. 8. При административни дела държавната такса следва отделна тарифа според вида на акта и не е автоматично включена в тази версия — при нужда, се уточнява индивидуално.</p>
+                    </div>
+
+                    <!-- ================= CRIMINAL ================= -->
+                    <div class="calc-card calc-panel" data-panel="crim">
+                        <div class="calc-field">
+                            <label>Предвидено наказание / вид защита</label>
+                            <select id="crim-type">
+                                <option value="600">Пробация или глоба — 600 лв.</option>
+                                <option value="1000">До 5 години лишаване от свобода — 1000 лв.</option>
+                                <option value="1500">До 10 години лишаване от свобода — 1500 лв.</option>
+                                <option value="2250">До 15 години лишаване от свобода — 2250 лв.</option>
+                                <option value="3000">Над 15 години лишаване от свобода — 3000 лв.</option>
+                                <option value="6000">Доживотен затвор — 6000 лв.</option>
+                                <option value="750">Споразумение (без предх. участие) — 750 лв.</option>
+                                <option value="900">Явяване по мярка за неотклонение — 900 лв.</option>
+                            </select>
+                        </div>
+                        <div class="calc-field">
+                            <label>Инстанция</label>
+                            <select id="crim-instance">
+                                <option value="1">Първа инстанция</option>
+                                <option value="0.5">Въззивна инстанция (не по-малко от 50%)</option>
+                            </select>
+                        </div>
+                        <div class="calc-field">
+                            <label>Брой обвинения</label>
+                            <select id="crim-counts">
+                                <option value="1">Едно обвинение</option>
+                                <option value="1.5">Няколко обвинения (+50% върху най-тежкото)</option>
+                            </select>
+                        </div>
+                        <div class="calc-field">
+                            <label>Заседания над 2 броя (по 250 лв. всяко следващо)</label>
+                            <input type="number" id="crim-sessions" min="0" step="1" value="0">
+                        </div>
+                        <button class="calc-btn" onclick="calcCrim()">Изчисли</button>
+                        <div class="calc-result" id="crim-result" style="display:none;"></div>
+                        <p class="legal-ref">Наредба № 1/2004 г., чл. 12 – 14. Не се дължи държавна такса за защита по наказателно дело.</p>
+                    </div>
+
+                    <!-- ================= ENFORCEMENT ================= -->
+                    <div class="calc-card calc-panel" data-panel="enforce">
+                        <div class="calc-field">
+                            <label>Вид действие</label>
+                            <select id="enforce-type">
+                                <option value="open">Образуване на изпълнително дело — 200 лв.</option>
+                                <option value="money">Удовлетворяване на парично вземане (50% от чл. 7, ал. 2)</option>
+                                <option value="property">Въвод / опразване на имот (50% от чл. 7, ал. 2 на база стойност на имота)</option>
+                                <option value="other">Други действия — 350 лв.</option>
+                                <option value="appeal">Обжалване действия на ЧСИ — 400 лв. (600 лв. в открито заседание)</option>
+                            </select>
+                        </div>
+                        <div class="calc-field" id="enforce-value-row" style="display:none;">
+                            <label>Стойност на вземането / имота (лв.)</label>
+                            <input type="number" id="enforce-value" min="0" step="1" value="10000">
+                        </div>
+                        <div class="calc-field" id="enforce-hearing-row" style="display:none;">
+                            <label><input type="checkbox" id="enforce-hearing" style="width:auto; margin-right:6px;">Разглежда се в открито заседание</label>
+                        </div>
+                        <button class="calc-btn" onclick="calcEnforce()">Изчисли</button>
+                        <div class="calc-result" id="enforce-result" style="display:none;"></div>
+                        <p class="legal-ref">Наредба № 1/2004 г., чл. 10. Таксите на частния съдебен изпълнител са по отделна тарифа и не са включени тук.</p>
+                    </div>
+
+                    <!-- ================= SUMMARY ================= -->
+                    <div class="calc-card">
+                        <h3 style="color:#001F3F; font-family:'Montserrat', sans-serif; font-size:17px; text-transform:uppercase; margin-top:0;">Обобщена сметка</h3>
+                        <table class="calc-summary" id="summary-table">
+                            <thead><tr><th>Позиция</th><th class="num">Сума</th><th></th></tr></thead>
+                            <tbody id="summary-body"></tbody>
+                        </table>
+                        <div class="calc-grand-total">
+                            Адвокатски хонорари: <span id="total-fees">0,00</span><br>
+                            Държавни такси: <span id="total-statefees">0,00</span><br>
+                            <span class="big">Обща сума: <span id="grand-total">0,00</span></span>
+                        </div>
+                        <button class="calc-btn calc-btn-outline" onclick="clearSummary()" style="margin-top:14px;">Изчисти сметката</button>
+                    </div>
+
+                    <div class="calc-disclaimer">
+                        Изчисленията са ориентировъчни и се базират на Наредба № 1 от 9.07.2004 г. за възнагражденията за адвокатска работа на Висшия адвокатски съвет, в редакцията ѝ след ДВ, бр. 88/2022 г. От ДВ, бр. 14/2025 г. Наредбата вече не определя задължителен минимум, а служи като ориентир при свободно договаряне и при присъждане на разноски. Конкретното възнаграждение по всеки казус се договаря индивидуално с кантората и може да се различава от посочените тук стойности.
+                    </div>
+
+                </div>
+
+                {% include sidebar.html %}
+
+            </div>
+        </div>
+    </section>
+
+    {% include footer.html %}
+
+<script>
+const EUR_RATE = 1.95583; // фиксиран курс BGN/EUR
+let summaryRows = [];
+
+function currency(){ return document.getElementById('currency').value; }
+function vatRate(){ return parseFloat(document.getElementById('vat').value) || 0; }
+
+function fmt(bgnAmount){
+  const cur = currency();
+  const val = cur === 'EUR' ? bgnAmount / EUR_RATE : bgnAmount;
+  return val.toLocaleString('bg-BG', {minimumFractionDigits:2, maximumFractionDigits:2}) + ' ' + (cur === 'EUR' ? '€' : 'лв.');
+}
+
+// ---- chl. 7, ал. 2 tiered table ----
+function tieredFee(interest){
+  if (interest <= 1000) return 400;
+  if (interest <= 10000) return 400 + 0.10*(interest-1000);
+  if (interest <= 25000) return 1300 + 0.09*(interest-10000);
+  if (interest <= 100000) return 2650 + 0.08*(interest-25000);
+  if (interest <= 500000) return 8650 + 0.04*(interest-100000);
+  if (interest <= 1000000) return 24650 + 0.03*(interest-500000);
+  if (interest <= 10000000) return 39650 + 0.015*(interest-1000000);
+  return 174650 + 0.006*(interest-10000000);
+}
+
+// ---- state court fee: 4% / min 50 lv, per instance ----
+function stateFeeFor(interest, instance){
+  const first = Math.max(interest*0.04, 50);
+  if (instance === '1') return first;
+  if (instance === '2') return first*0.5;
+  return 30 + first*0.5; // cassation
+}
+
+function tabSwitch(name){
+  document.querySelectorAll('.calc-tab').forEach(b=> b.classList.toggle('active', b.dataset.tab===name));
+  document.querySelectorAll('.calc-panel').forEach(p=> p.classList.toggle('active', p.dataset.panel===name));
+}
+document.getElementById('calc-tabs').addEventListener('click', e=>{
+  const btn = e.target.closest('.calc-tab');
+  if(btn) tabSwitch(btn.dataset.tab);
+});
+
+document.getElementById('extra-type').addEventListener('change', function(){
+  document.getElementById('extra-value-row').style.display = this.value === 'contract' ? 'block':'none';
+  document.getElementById('extra-hours-row').style.display = this.value === 'hourly' ? 'block':'none';
+});
+
+const civilNoValue = ['divorce_claim','divorce_mutual','paternity','alimony','interdiction','registry','other','dismissal','insolvency','partition'];
+const civilStateFeeEligible = ['interest','property','secure']; // where auto state-fee is confidently applied
+document.getElementById('civil-type').addEventListener('change', function(){
+  const t = this.value;
+  document.getElementById('civil-value-row').style.display = civilNoValue.includes(t) ? 'none' : 'block';
+  document.getElementById('civil-instance-row').style.display = civilStateFeeEligible.includes(t) ? 'block' : 'none';
+  document.getElementById('civil-land-row').style.display = t === 'partition' ? 'block':'none';
+  document.getElementById('civil-movable-row').style.display = t === 'property' ? 'block':'none';
+  document.getElementById('civil-mrz-row').style.display = t === 'dismissal' ? 'block':'none';
+});
+document.getElementById('enforce-type').addEventListener('change', function(){
+  document.getElementById('enforce-value-row').style.display = ['money','property'].includes(this.value) ? 'block':'none';
+  document.getElementById('enforce-hearing-row').style.display = this.value === 'appeal' ? 'block':'none';
+});
+
+function addSummaryRow(label, feeBgn, stateFeeBgn){
+  summaryRows.push({label, feeBgn, stateFeeBgn: stateFeeBgn||0});
+  renderSummary();
+}
+function removeSummaryRow(i){ summaryRows.splice(i,1); renderSummary(); }
+function clearSummary(){ summaryRows = []; renderSummary(); }
+
+function renderSummary(){
+  const body = document.getElementById('summary-body');
+  body.innerHTML = '';
+  let totalFees = 0, totalStateFees = 0;
+  summaryRows.forEach((row,i)=>{
+    totalFees += row.feeBgn;
+    totalStateFees += row.stateFeeBgn;
+    const tr = document.createElement('tr');
+    tr.innerHTML = `<td>${row.label}</td><td class="num">${fmt(row.feeBgn+row.stateFeeBgn)}</td><td><span class="calc-row-remove" onclick="removeSummaryRow(${i})">✕</span></td>`;
+    body.appendChild(tr);
+  });
+  const vat = totalFees * (vatRate()/100);
+  document.getElementById('total-fees').textContent = fmt(totalFees + vat);
+  document.getElementById('total-statefees').textContent = fmt(totalStateFees);
+  document.getElementById('grand-total').textContent = fmt(totalFees + vat + totalStateFees);
+}
+
+function showResult(elId, label, feeBgn, stateFeeBgn, note){
+  const vat = feeBgn*(vatRate()/100);
+  const el = document.getElementById(elId);
+  el.style.display = 'block';
+  let html = `<div class="line"><span>Адвокатски хонорар</span><span>${fmt(feeBgn)}</span></div>`;
+  if (vatRate()>0) html += `<div class="line"><span>ДДС 20%</span><span>${fmt(vat)}</span></div>`;
+  if (stateFeeBgn) html += `<div class="line"><span>Държавна такса</span><span>${fmt(stateFeeBgn)}</span></div>`;
+  html += `<div class="line total"><span>Общо</span><span>${fmt(feeBgn+vat+(stateFeeBgn||0))}</span></div>`;
+  if (note) html += `<div class="sub-note">${note}</div>`;
+  html += `<button class="calc-btn" style="margin-top:14px;" onclick='addSummaryRow(${JSON.stringify(label)}, ${feeBgn+vat}, ${stateFeeBgn||0})'>Добави към сметката</button>`;
+  el.innerHTML = html;
+}
+
+// ---- EXTRA-JUDICIAL ----
+function calcExtra(){
+  const sel = document.getElementById('extra-type');
+  const val = sel.value;
+  let fee, label = sel.options[sel.selectedIndex].text;
+  if (val === 'contract'){
+    const v = parseFloat(document.getElementById('extra-value').value)||0;
+    if (v<=1000) fee=250;
+    else if (v<=10000) fee=250+0.03*(v-1000);
+    else if (v<=100000) fee=500+0.02*(v-10000);
+    else if (v<=1000000) fee=2300+0.01*(v-100000);
+    else fee=11300+0.005*(v-1000000);
+  } else if (val === 'hourly'){
+    const h = parseFloat(document.getElementById('extra-hours').value)||1;
+    fee = 120*h;
+  } else {
+    fee = parseFloat(val);
+  }
+  if (document.getElementById('extra-foreign').checked) fee *= 1.5;
+  if (document.getElementById('extra-urgent').checked) fee *= 2;
+  showResult('extra-result', label, fee, 0);
+}
+
+// ---- CIVIL ----
+function calcCivil(){
+  const sel = document.getElementById('civil-type');
+  const t = sel.value;
+  const label = sel.options[sel.selectedIndex].text;
+  const v = parseFloat(document.getElementById('civil-value').value)||0;
+  const instance = document.getElementById('civil-instance').value;
+  let fee = 0, note = '', stateFee = 0;
+
+  switch(t){
+    case 'interest':
+      fee = tieredFee(v);
+      stateFee = stateFeeFor(v, instance);
+      break;
+    case 'property':
+      const isImmovable = document.getElementById('civil-movable').value === 'immovable';
+      fee = Math.max(tieredFee(v), isImmovable ? 1500 : 800);
+      stateFee = stateFeeFor(v, instance);
+      break;
+    case 'secure':
+      fee = tieredFee(v/2);
+      note = 'Хонорарът е изчислен върху половината от претендираната сума. Държавната такса за обезпечение е отделна фиксирана такса — не е включена автоматично.';
+      break;
+    case 'partition':
+      fee = Math.max(tieredFee(v), document.getElementById('civil-land').checked ? 750 : 1500);
+      note = 'Държавната такса при делба се определя от съда поотделно за всеки съделител и не е включена автоматично.';
+      break;
+    case 'insolvency':
+      fee = Math.max(tieredFee(v), 1500);
+      note = 'Държавната такса при несъстоятелност е фиксирана и не е включена автоматично.';
+      break;
+    case 'dismissal':
+      const mrz = parseFloat(document.getElementById('civil-mrz').value)||1213;
+      fee = mrz;
+      note = 'Не по-малко от минималната работна заплата. Държавна такса — фиксирана минимална такса, уточнява се индивидуално.';
+      break;
+    case 'divorce_claim': fee = 1200; note='Държавна такса по разводно дело се определя от съда индивидуално.'; break;
+    case 'divorce_mutual': fee = 800; note='Държавна такса по разводно дело се определя от съда индивидуално.'; break;
+    case 'paternity': fee = 1200; break;
+    case 'alimony': fee = 500; break;
+    case 'interdiction': fee = 1000; break;
+    case 'registry': fee = 1250; break;
+    case 'other': fee = 1000; break;
+  }
+  showResult('civil-result', label, fee, stateFee, note);
+}
+
+// ---- ADMIN ----
+const adminFixed = {ZUT:1250,KSO:500,ZMVR:750,standard:600,ZOP:1500,docs:600,agri:800,KZK:1500,KZD:1500,consumer:900,other_admin:1000};
+function calcAdmin(){
+  const sel = document.getElementById('admin-type');
+  const t = sel.value;
+  const label = sel.options[sel.selectedIndex].text;
+  const fee = adminFixed[t];
+  showResult('admin-result', label, fee, 0);
+}
+
+// ---- CRIMINAL ----
+function calcCrim(){
+  const sel = document.getElementById('crim-type');
+  let fee = parseFloat(sel.value);
+  const label = sel.options[sel.selectedIndex].text;
+  fee *= parseFloat(document.getElementById('crim-instance').value);
+  fee *= parseFloat(document.getElementById('crim-counts').value);
+  const sessions = parseFloat(document.getElementById('crim-sessions').value)||0;
+  fee += sessions*250;
+  showResult('crim-result', label, fee, 0, sessions>0 ? ('Включени '+sessions+' допълнителни заседания по 250 лв.') : '');
+}
+
+// ---- ENFORCEMENT ----
+function calcEnforce(){
+  const sel = document.getElementById('enforce-type');
+  const t = sel.value;
+  const label = sel.options[sel.selectedIndex].text;
+  const v = parseFloat(document.getElementById('enforce-value').value)||0;
+  let fee, note='';
+  switch(t){
+    case 'open': fee = 200; break;
+    case 'money': fee = tieredFee(v)/2; note='50% от съответното възнаграждение по чл. 7, ал. 2.'; break;
+    case 'property': fee = tieredFee(v)/2; note='50% от възнаграждението по чл. 7, ал. 2 върху стойността на имота.'; break;
+    case 'other': fee = 350; break;
+    case 'appeal': fee = document.getElementById('enforce-hearing').checked ? 600 : 400; break;
+  }
+  showResult('enforce-result', label, fee, 0, note);
+}
+
+document.getElementById('currency').addEventListener('change', renderSummary);
+document.getElementById('vat').addEventListener('change', renderSummary);
+renderSummary();
+</script>
+
+</body>
+</html>
